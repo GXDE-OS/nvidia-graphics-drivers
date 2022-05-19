@@ -68,3 +68,4 @@ conftest-include-guard.patch
 # armhf support
 ignore_xen_on_arm.patch
 arm-outer-sync.patch
+armhf-on-arm64-kernel.patch
