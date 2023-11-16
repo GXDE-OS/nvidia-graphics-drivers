@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (545.29.02-1) UNRELEASED; urgency=medium
+
+  * New upstream new feature branch release 545.29.02 (2023-10-31).
+    * Fixed CVE-2023-31022.  (Closes: #1055136)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/5491
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 16 Nov 2023 11:06:51 +0100
+
 nvidia-graphics-drivers (545.23.06-6) experimental; urgency=medium
 
   * Backport drm_driver_has_date changes from 570.124.04 to fix kernel module
@@ -68,6 +76,10 @@ nvidia-graphics-drivers (545.23.06-1) experimental; urgency=medium
   * New upstream beta 545.23.06 (2023-10-17).  (Closes: #1055422)
     - Added experimental HDMI 10 bits per component support; enable by loading
       nvidia-modeset with `hdmi_deepcolor=1`.
+    - Added support for HDR signaling via the HDR_OUTPUT_METADATA and
+      Colorspace per-connector DRM properties when nvidia-drm is loaded with the
+      `modeset=1` parameter.
+    - Added support for PRIME render offload to Vulkan Wayland WSI.
     - Added support for the CTM, DEGAMMA_LUT, and GAMMA_LUT DRM-KMS CRTC
       properties. These are used by features such as the "Night Light"
       feature in GNOME and the "Night Color" feature in KDE, when they
