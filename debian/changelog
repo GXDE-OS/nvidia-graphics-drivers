@@ -1,11 +1,19 @@
-nvidia-graphics-drivers (535.113.01-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (535.129.03-1) UNRELEASED; urgency=medium
 
+  * New upstream LTS and Tesla branch release 535.129.03 (2023-10-31).
+    * Fixed CVE-2023-31022.  (Closes: #1055136)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/5491
+    - Fixed a bug that could cause modes to fail validation when
+      Option "ModeValidation" "NoExtendedGpuCapabilitiesCheck" is specified in
+      xorg.conf.
   * New upstream long term support branch release 535.113.01 (2023-09-21).
+    * Fixed a bug that intermittently caused the display to freeze when
+      resuming from suspend on some Ada GPUs.
 
   [ Andreas Beckmann ]
   * Refresh patches.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 17 Nov 2023 10:14:07 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 17 Nov 2023 11:39:40 +0100
 
 nvidia-graphics-drivers (535.104.12-2) experimental; urgency=medium
 
