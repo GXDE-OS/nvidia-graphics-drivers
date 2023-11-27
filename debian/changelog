@@ -1,5 +1,9 @@
-nvidia-graphics-drivers (545.29.02-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (545.29.06-1) UNRELEASED; urgency=medium
 
+  * New upstream new feature branch release 545.29.06 (2023-11-22).
+    - Fixed a regression that prevented setting backlight brightness levels.
+    - Fixed a bug that caused games built on the Source 2 engine to hang
+      when running under Xwayland.
   * New upstream new feature branch release 545.29.02 (2023-10-31).
     * Fixed CVE-2023-31022.  (Closes: #1055136)
       https://nvidia.custhelp.com/app/answers/detail/a_id/5491
