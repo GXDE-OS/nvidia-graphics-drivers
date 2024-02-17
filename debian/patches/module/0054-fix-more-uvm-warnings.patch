@@ -1,30 +1,17 @@
-From 9c7c4a38df5c9b0340953a07501a742dc6ad5d52 Mon Sep 17 00:00:00 2001
+From 6be29e3d16a07c1e798d10717e8a6f94e4313389 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 10 Dec 2024 20:08:50 +0100
 Subject: [PATCH] fix more uvm warnings
 
 ---
- nvidia-uvm/uvm_gpu.c   | 1 +
  nvidia-uvm/uvm_tools.c | 1 +
- 2 files changed, 2 insertions(+)
+ 1 file changed, 1 insertion(+)
 
-diff --git a/nvidia-uvm/uvm_gpu.c b/nvidia-uvm/uvm_gpu.c
-index 0967281b..7ba6b2bf 100644
---- a/nvidia-uvm/uvm_gpu.c
-+++ b/nvidia-uvm/uvm_gpu.c
-@@ -1885,6 +1885,7 @@ uvm_gpu_t *uvm_gpu_get_by_uuid(const NvProcessorUuid *gpu_uuid)
-     return uvm_gpu_get_by_uuid_locked(gpu_uuid);
- }
- 
-+static
- uvm_gpu_t *uvm_gpu_get_by_parent_and_swizz_id_locked(uvm_parent_gpu_t *parent_gpu, NvU32 swizz_id)
- {
-     uvm_gpu_t *gpu;
 diff --git a/nvidia-uvm/uvm_tools.c b/nvidia-uvm/uvm_tools.c
-index 607ace44..eb0faebe 100644
+index c7f92e43..7c0fee83 100644
 --- a/nvidia-uvm/uvm_tools.c
 +++ b/nvidia-uvm/uvm_tools.c
-@@ -35,6 +35,7 @@
+@@ -36,6 +36,7 @@
  #include "uvm_range_group.h"
  #include "uvm_mem.h"
  #include "nv_speculation_barrier.h"

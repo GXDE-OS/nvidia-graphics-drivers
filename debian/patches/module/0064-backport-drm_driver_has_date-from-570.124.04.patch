@@ -1,19 +1,19 @@
-From 8e4e6f5d0333cfd58449cf35e466f35bf9ffdb19 Mon Sep 17 00:00:00 2001
+From df49996e921f1e7e2f5ac8049a7046cbc03a2d55 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 27 Mar 2025 19:11:23 +0100
 Subject: [PATCH] backport drm_driver_has_date from 570.124.04
 
 ---
- conftest.sh                  | 24 ++++++++++++++++++++++++
- nvidia-drm/nvidia-drm-drv.c  |  3 +++
- nvidia-drm/nvidia-drm.Kbuild |  1 +
+ conftest.sh                      | 24 ++++++++++++++++++++++++
+ nvidia-drm/nvidia-drm-drv.c      |  3 +++
+ nvidia-drm/nvidia-drm-sources.mk |  1 +
  3 files changed, 28 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 16c5b51f..6a6b2cb0 100755
+index fcb989fe..e01dbe59 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6766,6 +6766,30 @@ compile_test() {
+@@ -6873,6 +6873,30 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_FOLIO_TEST_SWAPCACHE_PRESENT" "" "functions"
          ;;
  
@@ -45,10 +45,10 @@ index 16c5b51f..6a6b2cb0 100755
          # specifying the relevant upstream Linux kernel commit.  Please
          # avoid specifying -rc kernels, and only use SHAs that actually exist
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index 8dc2f4ca..b9a84eaa 100644
+index 358514ca..1a1780fb 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
-@@ -1650,7 +1650,10 @@ static struct drm_driver nv_drm_driver = {
+@@ -1674,7 +1674,10 @@ static struct drm_driver nv_drm_driver = {
      .name                   = "nvidia-drm",
  
      .desc                   = "NVIDIA DRM driver",
@@ -59,11 +59,11 @@ index 8dc2f4ca..b9a84eaa 100644
  
  #if defined(NV_DRM_DRIVER_HAS_DEVICE_LIST)
      .device_list            = LIST_HEAD_INIT(nv_drm_driver.device_list),
-diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index 0ed85397..feb45b68 100644
---- a/nvidia-drm/nvidia-drm.Kbuild
-+++ b/nvidia-drm/nvidia-drm.Kbuild
-@@ -150,4 +150,5 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_aperture_remove_conflicting_pci_framebuffe
+diff --git a/nvidia-drm/nvidia-drm-sources.mk b/nvidia-drm/nvidia-drm-sources.mk
+index 338344d0..fb5dbc9e 100644
+--- a/nvidia-drm/nvidia-drm-sources.mk
++++ b/nvidia-drm/nvidia-drm-sources.mk
+@@ -130,4 +130,5 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_aperture_remove_conflicting_pci_framebuffe
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_mode_create_dp_colorspace_property_has_supported_colorspaces_arg
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed

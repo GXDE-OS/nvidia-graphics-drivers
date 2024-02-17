@@ -26,6 +26,10 @@ nvidia-graphics-drivers (550.40.07-1) UNRELEASED; urgency=medium
       Open GPU Kernel modules.
     - Use transparent huge pages when available for the .text section. This is
       done through madvise() calls, and requires CONFIG_READ_ONLY_THP_FOR_FS.
+    * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
+  * Refresh patches.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Feb 2024 22:23:02 +0100
 

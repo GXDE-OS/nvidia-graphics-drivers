@@ -1,4 +1,4 @@
-From d0f05e8c757a29ae42fb7f883100c5219dbb4883 Mon Sep 17 00:00:00 2001
+From 3cd54d9deec3c42fa7a52f7f1bd5ead7a2003d93 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sat, 15 Mar 2025 11:22:03 +0100
 Subject: [PATCH] backport folio_test_swapcache changes from 565.57.01
@@ -9,10 +9,10 @@ Subject: [PATCH] backport folio_test_swapcache changes from 565.57.01
  2 files changed, 17 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 41209849..716534d9 100755
+index 5c8cd7c6..36766d72 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6709,6 +6709,22 @@ compile_test() {
+@@ -6816,6 +6816,22 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DRM_UNLOCKED_IOCTL_FLAG_PRESENT" "" "types"
          ;;
  
@@ -36,13 +36,13 @@ index 41209849..716534d9 100755
          # specifying the relevant upstream Linux kernel commit.  Please
          # avoid specifying -rc kernels, and only use SHAs that actually exist
 diff --git a/nvidia-uvm/nvidia-uvm.Kbuild b/nvidia-uvm/nvidia-uvm.Kbuild
-index 8da0c7ef..27a371d2 100644
+index 683aece1..a31d0c5f 100644
 --- a/nvidia-uvm/nvidia-uvm.Kbuild
 +++ b/nvidia-uvm/nvidia-uvm.Kbuild
-@@ -88,6 +88,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += mmgrab
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += iommu_sva_bind_device_has_drvdata_arg
+@@ -88,6 +88,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += iommu_sva_bind_device_has_drvdata_arg
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += vm_fault_to_errno
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += find_next_bit_wrap
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += iommu_is_dma_domain
 +NV_CONFTEST_FUNCTION_COMPILE_TESTS += folio_test_swapcache
  
  NV_CONFTEST_TYPE_COMPILE_TESTS += backing_dev_info
