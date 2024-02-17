@@ -13,6 +13,9 @@ nvidia-graphics-drivers (535.146.02-1) UNRELEASED; urgency=medium
     - Fixed a bug that caused high CPU usage during system suspend, which could
       lead to the system not entering s2idle in some cases.
 
+  [ Andreas Beckmann ]
+  * Refresh patches.
+
  -- Andreas Beckmann <anbe@debian.org>  Sat, 17 Feb 2024 01:10:21 +0100
 
 nvidia-graphics-drivers (535.129.03-1) experimental; urgency=medium
