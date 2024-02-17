@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (535.154.05-1) UNRELEASED; urgency=medium
 
   * New upstream LTS and Tesla branch release 535.154.05 (2024-01-16).
+    * Improved compatibility with recent Linux kernels.
   * New upstream long term support branch release 535.146.02 (2023-12-07).
     - Fixed a bug that could cause some multi-GPU systems to crash on suspend.
     - Fixed a bug that could cause the system to crash when an application
