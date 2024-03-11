@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (535.129.03-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (535.129.03-1) experimental; urgency=medium
 
   * New upstream LTS and Tesla branch release 535.129.03 (2023-10-31).
     * Fixed CVE-2023-31022.  (Closes: #1055136)
@@ -15,7 +15,7 @@ nvidia-graphics-drivers (535.129.03-1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * Update symbols files.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 17 Nov 2023 11:39:40 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 11 Mar 2024 11:13:54 +0100
 
 nvidia-graphics-drivers (535.104.12-2) experimental; urgency=medium
 
