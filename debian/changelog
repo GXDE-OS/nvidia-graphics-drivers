@@ -13,6 +13,7 @@ nvidia-graphics-drivers (550.67-1) UNRELEASED; urgency=medium
     * Drop ppc64le driver.
 
   [ Andreas Beckmann ]
+  * Refresh patches.
   * nvidia-driver-full: Relax nvidia-cuda-mps dependency on ppc64el.
   * Stop building driver packages for ppc64el.
   * Stop building nvidia-cuda-mps and nvidia-detect for ppc64el.

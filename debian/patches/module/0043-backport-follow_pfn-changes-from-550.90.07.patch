@@ -1,4 +1,4 @@
-From 9ce2d5819dd2e908605d8885cd9d02ce0cd34e7f Mon Sep 17 00:00:00 2001
+From 99ef76b3a6a9afd035fff38229e767343e9ebf72 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 23 Jul 2024 21:49:33 +0200
 Subject: [PATCH] backport follow_pfn changes from 550.90.07
@@ -10,10 +10,10 @@ Subject: [PATCH] backport follow_pfn changes from 550.90.07
  3 files changed, 13 insertions(+), 15 deletions(-)
 
 diff --git a/conftest.sh b/conftest.sh
-index 703b8947..e326a230 100755
+index 067c1fd5..0ef9bcb0 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -5196,25 +5196,23 @@ compile_test() {
+@@ -5216,25 +5216,23 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_PCI_CLASS_MULTIMEDIA_HD_AUDIO_PRESENT" "" "generic"
          ;;
  
@@ -49,7 +49,7 @@ index 703b8947..e326a230 100755
              #
              # Determine if drm_plane_helper_funcs::atomic_check takes 'state'
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 7908ce71..74579cab 100644
+index 5766c922..e6e4254e 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -161,7 +161,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pci_enable_atomic_ops_to_root
@@ -62,7 +62,7 @@ index 7908ce71..74579cab 100644
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_gem_object_put_unlocked
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += add_memory_driver_managed
 diff --git a/nvidia/os-mlock.c b/nvidia/os-mlock.c
-index ebb498bd..a2d562dc 100644
+index 08271526..b7537a3a 100644
 --- a/nvidia/os-mlock.c
 +++ b/nvidia/os-mlock.c
 @@ -36,10 +36,10 @@ static inline int nv_follow_pfn(struct vm_area_struct *vma,

@@ -1,4 +1,4 @@
-From d4fa190812f5367b083403e867a7441eb760dff0 Mon Sep 17 00:00:00 2001
+From 5aa136f25ab11b416aa576b0aabaac198fba3bfd Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 20 Mar 2025 05:41:58 +0100
 Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
@@ -10,10 +10,10 @@ Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
  3 files changed, 45 insertions(+), 1 deletion(-)
 
 diff --git a/conftest.sh b/conftest.sh
-index 36766d72..fcb989fe 100755
+index 47a0e15c..4862afda 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6670,6 +6670,47 @@ compile_test() {
+@@ -6690,6 +6690,47 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_CRYPTO_PRESENT" "" "symbols"
          ;;
  

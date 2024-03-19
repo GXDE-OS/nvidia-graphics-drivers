@@ -1,4 +1,4 @@
-From df49996e921f1e7e2f5ac8049a7046cbc03a2d55 Mon Sep 17 00:00:00 2001
+From 0db3df995d72eec887593caa7aaf560cde0668ff Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 27 Mar 2025 19:11:23 +0100
 Subject: [PATCH] backport drm_driver_has_date from 570.124.04
@@ -10,10 +10,10 @@ Subject: [PATCH] backport drm_driver_has_date from 570.124.04
  3 files changed, 28 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index fcb989fe..e01dbe59 100755
+index 4862afda..62e71dbf 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6873,6 +6873,30 @@ compile_test() {
+@@ -6893,6 +6893,30 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_FOLIO_TEST_SWAPCACHE_PRESENT" "" "functions"
          ;;
  
@@ -45,7 +45,7 @@ index fcb989fe..e01dbe59 100755
          # specifying the relevant upstream Linux kernel commit.  Please
          # avoid specifying -rc kernels, and only use SHAs that actually exist
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index 358514ca..1a1780fb 100644
+index c41be7c0..c75fd6de 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
 @@ -1674,7 +1674,10 @@ static struct drm_driver nv_drm_driver = {

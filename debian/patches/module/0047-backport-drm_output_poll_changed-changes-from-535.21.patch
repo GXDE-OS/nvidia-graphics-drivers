@@ -1,4 +1,4 @@
-From 388e2a751c994c093d4a85432b940875558df60f Mon Sep 17 00:00:00 2001
+From 64f05e11980db0dafa1c198195f2750e458fee5a Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 03:13:49 +0100
 Subject: [PATCH] backport drm_output_poll_changed changes from 535.216.01
@@ -10,10 +10,10 @@ Subject: [PATCH] backport drm_output_poll_changed changes from 535.216.01
  3 files changed, 28 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index e326a230..4e9aa265 100755
+index 0ef9bcb0..e14fc587 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6393,6 +6393,29 @@ compile_test() {
+@@ -6413,6 +6413,29 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_MEMORY_FAILURE_MF_SW_SIMULATED_DEFINED" "" "types"
          ;;
  
@@ -44,7 +44,7 @@ index e326a230..4e9aa265 100755
              #
              # Determine if sync_file_get_fence() function is present
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index 7c8ee7cc..2b0d5d36 100644
+index 9de3f3fa..bc5c63e4 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
 @@ -124,6 +124,7 @@ static const char* nv_get_input_colorspace_name(

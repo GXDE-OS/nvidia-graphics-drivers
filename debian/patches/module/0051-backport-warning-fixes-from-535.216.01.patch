@@ -1,4 +1,4 @@
-From e08631301510748ded068918a3af11e76ad0e658 Mon Sep 17 00:00:00 2001
+From 54d778dc550f11de79974255d659acb53b678d12 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 03:20:30 +0100
 Subject: [PATCH] backport warning fixes from 535.216.01
@@ -22,7 +22,7 @@ Subject: [PATCH] backport warning fixes from 535.216.01
  15 files changed, 28 insertions(+), 21 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index 851335b2..cb500002 100644
+index ccfd9bed..3cda0a7a 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
 @@ -474,7 +474,9 @@ static inline void *nv_vmalloc(unsigned long size)
@@ -89,10 +89,10 @@ index c3b55705..83bca736 100644
  
      for (i = 0;; i++) {
 diff --git a/nvidia-modeset/nvidia-modeset-linux.c b/nvidia-modeset/nvidia-modeset-linux.c
-index cabfa734..ad7629ee 100644
+index b47cff79..263f0643 100644
 --- a/nvidia-modeset/nvidia-modeset-linux.c
 +++ b/nvidia-modeset/nvidia-modeset-linux.c
-@@ -1068,7 +1068,7 @@ static void nvkms_kapi_event_kthread_q_callback(void *arg)
+@@ -1070,7 +1070,7 @@ static void nvkms_kapi_event_kthread_q_callback(void *arg)
      nvKmsKapiHandleEventQueueChange(device);
  }
  
@@ -101,7 +101,7 @@ index cabfa734..ad7629ee 100644
                                           struct NvKmsKapiDevice *device,
                                           int *status)
  {
-@@ -1120,7 +1120,7 @@ failed:
+@@ -1122,7 +1122,7 @@ failed:
      return NULL;
  }
  
@@ -110,7 +110,7 @@ index cabfa734..ad7629ee 100644
  {
      /*
       * Don't use down_interruptible(): we need to free resources
-@@ -1183,6 +1183,7 @@ static void nvkms_close_popen(struct nvkms_per_open *popen)
+@@ -1185,6 +1185,7 @@ static void nvkms_close_popen(struct nvkms_per_open *popen)
      }
  }
  
@@ -293,7 +293,7 @@ index 11e798d6..ade72e4e 100644
  #include "nv-procfs.h"
  #include "nv-time.h"
 diff --git a/nvidia/os-interface.c b/nvidia/os-interface.c
-index 97497edc..649c28be 100644
+index f78f5e55..72407d75 100644
 --- a/nvidia/os-interface.c
 +++ b/nvidia/os-interface.c
 @@ -371,7 +371,7 @@ NvS32 NV_API_CALL os_string_compare(const char *str1, const char *str2)
