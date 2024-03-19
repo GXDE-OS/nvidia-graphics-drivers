@@ -1,12 +1,23 @@
-nvidia-graphics-drivers (550.54.15-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (550.67-1) UNRELEASED; urgency=medium
 
+  * New upstream production branch release 550.67 (2024-03-19).
+    - Fixed a bug that could cause the GPU driver to hang when running some
+      Vkd3d games, such as F1 2021.
+    - Fixed a bug that caused eglExportDMABUFImageQueryMESA() to return
+      invalid DRM formats for the images that use the sRGB color space.
+    - Fixed a bug that caused wgpu applications to hang on Wayland.
+    - Fixed a bug that caused "Flip event timeout" messages to be printed to the
+      system log when the system is suspended without using
+      /usr/bin/nvidia-sleep.sh when nvidia-drm is loaded with the `fbdev=1`
+      kernel module parameter.
     * Drop ppc64le driver.
 
+  [ Andreas Beckmann ]
   * nvidia-driver-full: Relax nvidia-cuda-mps dependency on ppc64el.
   * Stop building driver packages for ppc64el.
   * Stop building nvidia-cuda-mps and nvidia-detect for ppc64el.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 03 May 2025 08:41:55 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 19 Mar 2024 17:49:32 +0100
 
 nvidia-graphics-drivers (550.54.15-1) experimental; urgency=medium
 
