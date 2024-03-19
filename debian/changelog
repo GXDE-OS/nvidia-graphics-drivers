@@ -24,6 +24,7 @@ nvidia-graphics-drivers (550.54.14-1) UNRELEASED; urgency=medium
   * Refresh patches.
   * Update nv-readme.ids.
   * Update symbols files.
+  * libcuda1: Add Provides: libcuda-12.4-1.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 02 Mar 2024 13:38:43 +0100
 
