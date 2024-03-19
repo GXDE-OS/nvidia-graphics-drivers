@@ -1,5 +1,7 @@
-nvidia-graphics-drivers (550.54.14-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (550.54.15-1) UNRELEASED; urgency=medium
 
+  * New upstream Tesla branch release 550.54.15 (2024-03-18).
+    * This is the last driver release supporting the ppc64el architecture.
   * New upstream production and Tesla branch release 550.54.14 (2024-02-23).
     * Fixed CVE-2024-0074, CVE-2024-0075, CVE-2024-0078.  (Closes: #1064983)
       https://nvidia.custhelp.com/app/answers/detail/a_id/5520
@@ -26,7 +28,7 @@ nvidia-graphics-drivers (550.54.14-1) UNRELEASED; urgency=medium
   * Update symbols files.
   * libcuda1: Add Provides: libcuda-12.4-1.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 02 Mar 2024 13:38:43 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 19 Mar 2024 17:00:08 +0100
 
 nvidia-graphics-drivers (550.40.07-1) experimental; urgency=medium
 
