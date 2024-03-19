@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (535.154.05-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (535.154.05-1) experimental; urgency=medium
 
   * New upstream LTS and Tesla branch release 535.154.05 (2024-01-16).
     * Improved compatibility with recent Linux kernels.
@@ -19,7 +19,7 @@ nvidia-graphics-drivers (535.154.05-1) UNRELEASED; urgency=medium
   * Refresh patches.
   * Update nv-readme.ids.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 17 Feb 2024 02:52:13 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 19 Mar 2024 12:13:05 +0100
 
 nvidia-graphics-drivers (535.129.03-1) experimental; urgency=medium
 
