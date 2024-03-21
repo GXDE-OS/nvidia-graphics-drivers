@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (535.161.08-1) UNRELEASED; urgency=medium
+
+  * New upstream Tesla branch release 535.161.08 (2024-03-18).
+    (Closes: #1061269, #1061597, #1059339)
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 22 Mar 2024 00:48:04 +0100
+
 nvidia-graphics-drivers (535.161.07-1) experimental; urgency=medium
 
   * New upstream LTS and Tesla branch release 535.161.07 (2024-02-22).
@@ -131,6 +138,8 @@ nvidia-graphics-drivers (535.86.05-1) experimental; urgency=medium
 nvidia-graphics-drivers (535.54.03-1) experimental; urgency=medium
 
   * New upstream LTS and Tesla branch release 535.54.03 (2023-06-14).
+    * Fixed CVE-2023-25515, CVE-2023-25516.  (Closes: #1039678)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/5468
     - Fixed a bug that caused modesets to fail in some Wayland configurations.
     - Fixed a bug that caused head-mounted displays (HMDs) to display black
       after a modeset.
