@@ -15,6 +15,7 @@ libnvidia-nvvm.so.4 #PACKAGE# #MINVER#
  (arch=!ppc64el)nvvmCompilerProperty@Base 515
  nvvmCreateProgram@Base 470
  nvvmDestroyProgram@Base 470
+ (arch=ppc64el)nvvmDisableConcurrentAPI@Base 550
  nvvmGetCompiledResult@Base 470
  nvvmGetCompiledResultSize@Base 470
  nvvmGetErrorString@Base 470
