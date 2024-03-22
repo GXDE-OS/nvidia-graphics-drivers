@@ -1,3 +1,13 @@
+nvidia-graphics-drivers (535.171.04-1) UNRELEASED; urgency=medium
+
+  * New upstream long term support branch release 535.171.04 (2024-03-21).
+    - Fixed Xid error when playing Alan Wake 2 with ray tracing enabled.
+    - Fixed a regression which prevented some Vulkan applications from
+      receiving VK_DEVICE_LOST upon a VT switch, which could lead to the
+      application hanging or behaving incorrectly.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 22 Mar 2024 01:40:29 +0100
+
 nvidia-graphics-drivers (535.161.08-3) unstable; urgency=medium
 
   * Add systemd drop-in configuration files setting
