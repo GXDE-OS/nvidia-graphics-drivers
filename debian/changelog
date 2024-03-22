@@ -8,6 +8,7 @@ nvidia-graphics-drivers (535.171.04-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Refresh patches.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 22 Mar 2024 01:40:29 +0100
 
