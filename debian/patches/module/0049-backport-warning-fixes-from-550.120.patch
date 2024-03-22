@@ -1,11 +1,12 @@
-From 64ac310160bd2da403bd9c7c534c3bbfb3a09b3c Mon Sep 17 00:00:00 2001
+From 80a43c05b55f5e939831b72a8302a2920b8ba096 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Wed, 12 Feb 2025 11:08:13 +0100
 Subject: [PATCH] backport warning fixes from 550.120
 
 ---
  nvidia-drm/nv-kthread-q.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ nvidia/nv-caps-imex.c     | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/nvidia-drm/nv-kthread-q.c b/nvidia-drm/nv-kthread-q.c
 index c3b55705..83bca736 100644
@@ -20,6 +21,18 @@ index c3b55705..83bca736 100644
      struct task_struct *thread[3];
  
      for (i = 0;; i++) {
+diff --git a/nvidia/nv-caps-imex.c b/nvidia/nv-caps-imex.c
+index b9fca3f0..a8e61bd6 100644
+--- a/nvidia/nv-caps-imex.c
++++ b/nvidia/nv-caps-imex.c
+@@ -22,6 +22,7 @@
+  */
+ 
+ #include "nv-linux.h"
++#include "nv-caps-imex.h"
+ 
+ extern int NVreg_ImexChannelCount;
+ 
 -- 
 2.39.5
 

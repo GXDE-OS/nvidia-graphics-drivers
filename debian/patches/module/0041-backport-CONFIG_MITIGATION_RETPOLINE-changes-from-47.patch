@@ -1,4 +1,4 @@
-From f056e669bbb78ec5db395059b617176ba9d9827e Mon Sep 17 00:00:00 2001
+From 99b53409cc32c2afabf3c30dcb4f81bdbb3be37d Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Wed, 19 Jun 2024 10:33:15 +0200
 Subject: [PATCH] backport CONFIG_MITIGATION_RETPOLINE changes from 470.256.02
@@ -26,12 +26,12 @@ index a3b95ceb..cabfa734 100644
  #endif
  
 diff --git a/nvidia/nv.c b/nvidia/nv.c
-index afccdcd1..ddd3f923 100644
+index 2a8f454f..ad3301ef 100644
 --- a/nvidia/nv.c
 +++ b/nvidia/nv.c
-@@ -56,7 +56,11 @@
- #include "nv-pat.h"
+@@ -57,7 +57,11 @@
  #include "nv-dmabuf.h"
+ #include "nv-caps-imex.h"
  
 -#if !defined(CONFIG_RETPOLINE)
 +/*

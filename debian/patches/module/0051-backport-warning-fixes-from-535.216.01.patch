@@ -1,4 +1,4 @@
-From c563702e4c1b8be4476210c6d3df22155549c2d1 Mon Sep 17 00:00:00 2001
+From e08631301510748ded068918a3af11e76ad0e658 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 03:20:30 +0100
 Subject: [PATCH] backport warning fixes from 535.216.01
@@ -229,10 +229,10 @@ index c3b55705..83bca736 100644
  
      for (i = 0;; i++) {
 diff --git a/nvidia/nv-mmap.c b/nvidia/nv-mmap.c
-index bbab1fdf..09503381 100644
+index 3db8b807..8fd44960 100644
 --- a/nvidia/nv-mmap.c
 +++ b/nvidia/nv-mmap.c
-@@ -369,7 +369,7 @@ int nv_encode_caching(
+@@ -368,7 +368,7 @@ int nv_encode_caching(
      return 0;
  }
  
@@ -241,7 +241,7 @@ index bbab1fdf..09503381 100644
      struct vm_area_struct *vma,
      nv_alloc_t *at,
      NvU64 page_index,
-@@ -390,7 +390,7 @@ int static nvidia_mmap_peer_io(
+@@ -389,7 +389,7 @@ int static nvidia_mmap_peer_io(
      return ret;
  }
  
@@ -264,10 +264,10 @@ index 63a0fe59..d5e67228 100644
      nv_state_t *nv,
      NvU32 err,
 diff --git a/nvidia/nv.c b/nvidia/nv.c
-index ddd3f923..67836fe6 100644
+index ad3301ef..7050fb93 100644
 --- a/nvidia/nv.c
 +++ b/nvidia/nv.c
-@@ -1220,12 +1220,6 @@ static int validate_numa_start_state(nv_linux_state_t *nvl)
+@@ -1233,12 +1233,6 @@ static int validate_numa_start_state(nv_linux_state_t *nvl)
      return rc;
  }
  
@@ -293,10 +293,10 @@ index 11e798d6..ade72e4e 100644
  #include "nv-procfs.h"
  #include "nv-time.h"
 diff --git a/nvidia/os-interface.c b/nvidia/os-interface.c
-index 9495d5c6..f578e11c 100644
+index 97497edc..649c28be 100644
 --- a/nvidia/os-interface.c
 +++ b/nvidia/os-interface.c
-@@ -368,7 +368,7 @@ NvS32 NV_API_CALL os_string_compare(const char *str1, const char *str2)
+@@ -371,7 +371,7 @@ NvS32 NV_API_CALL os_string_compare(const char *str1, const char *str2)
      return strcmp(str1, str2);
  }
  

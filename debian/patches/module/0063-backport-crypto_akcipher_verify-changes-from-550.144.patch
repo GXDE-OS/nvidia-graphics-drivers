@@ -1,4 +1,4 @@
-From 1974755f39e278b5b395ca94f9909e414fa07dab Mon Sep 17 00:00:00 2001
+From d4fa190812f5367b083403e867a7441eb760dff0 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 20 Mar 2025 05:41:58 +0100
 Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
@@ -62,15 +62,15 @@ index 36766d72..fcb989fe 100755
              #
              # Determine if the 'mempolicy' structure has
 diff --git a/header-presence-tests.mk b/header-presence-tests.mk
-index dc90689f..9e7bb366 100644
+index 472e97fc..da9229b9 100644
 --- a/header-presence-tests.mk
 +++ b/header-presence-tests.mk
-@@ -96,5 +96,6 @@ NV_HEADER_PRESENCE_TESTS = \
-   soc/tegra/bpmp.h \
+@@ -97,5 +97,6 @@ NV_HEADER_PRESENCE_TESTS = \
    linux/sync_file.h \
    linux/cc_platform.h \
--  asm/cpufeature.h
-+  asm/cpufeature.h \
+   asm/cpufeature.h \
+-  linux/mpi.h
++  linux/mpi.h \
 +  crypto/sig.h
  
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild

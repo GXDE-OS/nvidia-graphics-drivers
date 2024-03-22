@@ -1,4 +1,4 @@
-From 644d1f920216a56a5eab2d3897088882792b0cc0 Mon Sep 17 00:00:00 2001
+From bc9eac930b96f43abbadc0516aa53d1fc327687b Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:54:59 +0100
 Subject: [PATCH] backport uvm warning fixes from 560.28.03
@@ -16,7 +16,8 @@ Subject: [PATCH] backport uvm warning fixes from 560.28.03
  nvidia-uvm/uvm_pmm_sysmem_test.c     |  7 +++++--
  nvidia-uvm/uvm_pmm_test.c            | 10 +++++-----
  nvidia-uvm/uvm_populate_pageable.c   |  2 +-
- 12 files changed, 27 insertions(+), 24 deletions(-)
+ nvidia-uvm/uvm_tools.h               |  5 +++++
+ 13 files changed, 32 insertions(+), 24 deletions(-)
 
 diff --git a/nvidia-uvm/uvm_channel_test.c b/nvidia-uvm/uvm_channel_test.c
 index 1de0f29a..8dc7b861 100644
@@ -150,10 +151,10 @@ index ddeb76f3..bbfcfdc5 100644
  static NV_STATUS nv_migrate_vma(struct migrate_vma *args, migrate_vma_state_t *state)
  {
 diff --git a/nvidia-uvm/uvm_mmu.c b/nvidia-uvm/uvm_mmu.c
-index 78fdb219..b4dbfcbe 100644
+index 83f88845..df76930b 100644
 --- a/nvidia-uvm/uvm_mmu.c
 +++ b/nvidia-uvm/uvm_mmu.c
-@@ -2288,7 +2288,7 @@ bool uvm_mmu_parent_gpu_needs_dynamic_sysmem_mapping(uvm_parent_gpu_t *parent_gp
+@@ -2310,7 +2310,7 @@ bool uvm_mmu_parent_gpu_needs_dynamic_sysmem_mapping(uvm_parent_gpu_t *parent_gp
      return uvm_parent_gpu_is_virt_mode_sriov_heavy(parent_gpu);
  }
  
@@ -228,7 +229,7 @@ index 66a9837a..14479ab9 100644
      uvm_cpu_chunk_t *chunk;
      uvm_chunk_sizes_mask_t alloc_sizes = uvm_cpu_chunk_get_allocation_sizes();
 diff --git a/nvidia-uvm/uvm_pmm_test.c b/nvidia-uvm/uvm_pmm_test.c
-index 290e5cc7..86a56005 100644
+index bcc69733..4600b048 100644
 --- a/nvidia-uvm/uvm_pmm_test.c
 +++ b/nvidia-uvm/uvm_pmm_test.c
 @@ -898,11 +898,11 @@ NV_STATUS uvm_test_pmm_check_leak(UVM_TEST_PMM_CHECK_LEAK_PARAMS *params, struct
@@ -261,6 +262,22 @@ index 79c144ae..fd0421ba 100644
  {
      NV_STATUS status = NV_OK;
  
+diff --git a/nvidia-uvm/uvm_tools.h b/nvidia-uvm/uvm_tools.h
+index 0a8d4f84..059e7b6e 100644
+--- a/nvidia-uvm/uvm_tools.h
++++ b/nvidia-uvm/uvm_tools.h
+@@ -110,6 +110,11 @@ void uvm_tools_broadcast_access_counter(uvm_gpu_t *gpu,
+                                         const uvm_access_counter_buffer_entry_t *buffer_entry,
+                                         bool on_managed_phys);
+ 
++void uvm_tools_record_access_counter(uvm_va_space_t *va_space,
++                                     uvm_gpu_id_t gpu_id,
++                                     const uvm_access_counter_buffer_entry_t *buffer_entry,
++                                     bool on_managed_phys);
++
+ void uvm_tools_test_hmm_split_invalidate(uvm_va_space_t *va_space);
+ 
+ // schedules completed events and then waits from the to be dispatched
 -- 
 2.39.5
 
