@@ -303,6 +303,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER# | libnvidia-ml.so.1 #MINVER#
  nvmlSystemGetConfComputeCapabilities@Base 535
  nvmlSystemGetConfComputeGpusReadyState@Base 535
  nvmlSystemGetConfComputeKeyRotationThresholdInfo@Base 550
+ nvmlSystemGetConfComputeSettings@Base 550.54
  nvmlSystemGetConfComputeState@Base 535
  nvmlSystemGetCudaDriverVersion@Base 378
  nvmlSystemGetCudaDriverVersion_v2@Base 410.66
