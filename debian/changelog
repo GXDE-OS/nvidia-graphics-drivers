@@ -1,9 +1,10 @@
-nvidia-graphics-drivers (535.161.08-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (535.161.08-1) unstable; urgency=medium
 
   * New upstream Tesla branch release 535.161.08 (2024-03-18).
     (Closes: #1061269, #1061597, #1059339)
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 22 Mar 2024 00:48:04 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Mar 2024 07:37:55 +0100
 
 nvidia-graphics-drivers (535.161.07-1) experimental; urgency=medium
 
