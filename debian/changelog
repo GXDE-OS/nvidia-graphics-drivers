@@ -1,5 +1,6 @@
-nvidia-graphics-drivers (550.76-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (550.78-1) UNRELEASED; urgency=medium
 
+  * New upstream production branch release 550.78 (2024-04-25).
   * New upstream production branch release 550.76 (2024-04-16).
     - Fixed a bug that could prevent the driver from initializing on some
       systems running RHEL 9.3.
@@ -22,7 +23,7 @@ nvidia-graphics-drivers (550.76-1) UNRELEASED; urgency=medium
   * Stop building driver packages for ppc64el.
   * Stop building nvidia-cuda-mps and nvidia-detect for ppc64el.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 28 Apr 2024 19:10:41 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 28 Apr 2024 19:45:30 +0200
 
 nvidia-graphics-drivers (550.54.15-1) experimental; urgency=medium
 
