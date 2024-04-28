@@ -1,4 +1,4 @@
-From 4b4b57c33e48c9c2b72a63235415dfb7c20bda22 Mon Sep 17 00:00:00 2001
+From b0afa32bfe2633e78b0285d1ce929812239f988c Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:13:22 +0100
 Subject: [PATCH] fix more warnings
@@ -11,7 +11,7 @@ Subject: [PATCH] fix more warnings
  4 files changed, 13 insertions(+), 1 deletion(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index cb500002..811b55d5 100644
+index e9ad25c1..14d4bec7 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
 @@ -575,21 +575,27 @@ static NvBool nv_numa_node_has_memory(int node_id)
@@ -66,7 +66,7 @@ index 353e8a5b..a52380fd 100644
  
  NvUPtr      nv_vm_map_pages             (struct page **, NvU32, NvBool, NvBool);
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index 2b0d5d36..fe839f39 100644
+index bc5c63e4..f00f461c 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
 @@ -1751,12 +1751,14 @@ void nv_drm_register_drm_device(const nv_gpu_info_t *gpu_info)
@@ -85,7 +85,7 @@ index 2b0d5d36..fe839f39 100644
  #if defined(NV_DRM_DEVICE_HAS_PDEV)
      if (bus_is_pci) {
 diff --git a/nvidia/libspdm_aead.c b/nvidia/libspdm_aead.c
-index 3844da48..18d23ba2 100644
+index f7eca741..abbb4b73 100644
 --- a/nvidia/libspdm_aead.c
 +++ b/nvidia/libspdm_aead.c
 @@ -38,6 +38,7 @@ struct lkca_aead_ctx
@@ -96,7 +96,7 @@ index 3844da48..18d23ba2 100644
  int libspdm_aead_prealloc(void **context, char const *alg)
  {
  #ifndef USE_LKCA
-@@ -168,6 +169,7 @@ static int lkca_aead_internal(struct crypto_aead *aead,
+@@ -175,6 +176,7 @@ static int lkca_aead_internal(struct crypto_aead *aead,
  }
  #endif
  
