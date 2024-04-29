@@ -33,6 +33,7 @@ nvidia-graphics-drivers (550.40.07-1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * Update symbols files.
   * nvidia-powerd is now available on arm64.
+  * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Feb 2024 22:23:02 +0100
 
