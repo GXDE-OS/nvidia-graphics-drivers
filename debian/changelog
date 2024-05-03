@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (535.161.08-2~deb12u1) bookworm; urgency=medium
+
+  * Rebuild for bookworm.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 03 May 2024 07:19:01 +0200
+
 nvidia-graphics-drivers (535.161.08-2) unstable; urgency=medium
 
   * nvidia-driver-full: libnvidia-fbc1 and libnvidia-rtcore are not available
