@@ -17,7 +17,7 @@ nvidia-graphics-drivers (418.226.00-14) UNRELEASED; urgency=medium
     (Cf. #1064194)
   * Bump Standards-Version to 4.7.0. No changes needed.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 20 Jan 2024 02:28:08 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 20 May 2024 23:57:56 +0200
 
 nvidia-graphics-drivers (418.226.00-13) UNRELEASED; urgency=medium
 
