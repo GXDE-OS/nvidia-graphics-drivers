@@ -9,7 +9,7 @@ nvidia-graphics-drivers (460.106.00-15) UNRELEASED; urgency=medium
     (Cf. #1064194)
   * Bump Standards-Version to 4.7.0. No changes needed.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 01 Mar 2024 12:27:48 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 22 May 2024 02:37:04 +0200
 
 nvidia-graphics-drivers (460.106.00-14) UNRELEASED; urgency=medium
 
