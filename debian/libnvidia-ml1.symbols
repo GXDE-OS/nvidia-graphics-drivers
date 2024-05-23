@@ -39,9 +39,11 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER# | libnvidia-ml.so.1 #MINVER#
  nvmlDeviceGetBridgeChipInfo@Base 331.20
  nvmlDeviceGetBusType@Base 495
  nvmlDeviceGetC2cModeInfoV@Base 545
+ nvmlDeviceGetCapabilities@Base 555
  nvmlDeviceGetClkMonStatus@Base 470
  nvmlDeviceGetClock@Base 361.42
  nvmlDeviceGetClockInfo@Base 270
+ nvmlDeviceGetClockOffsets@Base 555
  nvmlDeviceGetComputeInstanceId@Base 450
  nvmlDeviceGetComputeMode@Base 270
  nvmlDeviceGetComputeRunningProcesses@Base 285
@@ -69,6 +71,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER# | libnvidia-ml.so.1 #MINVER#
  nvmlDeviceGetDisplayActive@Base 319
  nvmlDeviceGetDisplayMode@Base 270
  nvmlDeviceGetDriverModel@Base 270
+ nvmlDeviceGetDriverModel_v2@Base 555
  nvmlDeviceGetDynamicPstatesInfo@Base 515
  nvmlDeviceGetEccMode@Base 270
  nvmlDeviceGetEncoderCapacity@Base 375.66
@@ -234,6 +237,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER# | libnvidia-ml.so.1 #MINVER#
  nvmlDeviceSetAccountingMode@Base 319
  nvmlDeviceSetApplicationsClocks@Base 304.30
  nvmlDeviceSetAutoBoostedClocksEnabled@Base 340
+ nvmlDeviceSetClockOffsets@Base 555
  nvmlDeviceSetComputeMode@Base 270
  nvmlDeviceSetConfComputeUnprotectedMemSize@Base 535
  nvmlDeviceSetCpuAffinity@Base 340

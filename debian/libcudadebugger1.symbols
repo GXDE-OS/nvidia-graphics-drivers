@@ -31,6 +31,7 @@ libcudadebugger.so.1 #PACKAGE# #MINVER#
  _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE@Base 520
  _ZNSt8functionIFvvEED1Ev@Base 520
  _ZNSt8functionIFvvEED2Ev@Base 520
+ _ZSt19piecewise_construct@Base 555
  _ZTIN5boost16exception_detail10clone_baseE@Base 520
  _ZTIN5boost6detail15sp_counted_baseE@Base 520
  _ZTIN5boost6system14error_categoryE@Base 520

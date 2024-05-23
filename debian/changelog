@@ -25,6 +25,7 @@ nvidia-graphics-drivers (555.42.02-1) UNRELEASED; urgency=medium
   * Bump minimum supported Linux version to 4.15.
   * Refresh patches.
   * Update nv-readme.ids.
+  * Update symbols files.
 
   * Backport ccflags-y, nv_timer_delete_sync, __iowrite64_lo_hi, page_pgmap
     and make_device_exclusive changes from 570.153.02 and nv_vma_start_write

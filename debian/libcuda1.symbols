@@ -22,6 +22,7 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuCtxCreate@Base 169
  cuCtxCreate_v2@Base 260
  cuCtxCreate_v3@Base 470
+ cuCtxCreate_v4@Base 555
  cuCtxDestroy@Base 177
  cuCtxDestroy_v2@Base 270
  cuCtxDetach@Base 169
@@ -43,6 +44,7 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuCtxPopCurrent_v2@Base 270
  cuCtxPushCurrent@Base 177
  cuCtxPushCurrent_v2@Base 270
+ cuCtxRecordEvent@Base 555
  cuCtxResetPersistingL2Cache@Base 450
  cuCtxSetCacheConfig@Base 260
  cuCtxSetCurrent@Base 270
@@ -50,6 +52,7 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuCtxSetLimit@Base 256
  cuCtxSetSharedMemConfig@Base 295.33
  cuCtxSynchronize@Base 169
+ cuCtxWaitEvent@Base 555
  cuDestroyExternalMemory@Base 410
  cuDestroyExternalSemaphore@Base 410
  cuDevResourceGenerateDesc@Base 550
@@ -260,6 +263,7 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuGreenCtxDestroy@Base 550
  cuGreenCtxGetDevResource@Base 550
  cuGreenCtxRecordEvent@Base 550
+ cuGreenCtxStreamCreate@Base 555
  cuGreenCtxWaitEvent@Base 550
  cuImportExternalMemory@Base 410
  cuImportExternalSemaphore@Base 410
@@ -272,6 +276,7 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuIpcOpenMemHandle_v2@Base 450.66
  cuKernelGetAttribute@Base 525
  cuKernelGetFunction@Base 525
+ cuKernelGetLibrary@Base 555
  cuKernelGetName@Base 545
  cuKernelGetParamInfo@Base 550
  cuKernelSetAttribute@Base 525
@@ -544,6 +549,8 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuStreamGetCaptureInfo_v3_ptsz@Base 545
  cuStreamGetCtx@Base 396
  cuStreamGetCtx_ptsz@Base 396
+ cuStreamGetCtx_v2@Base 555
+ cuStreamGetCtx_v2_ptsz@Base 555
  cuStreamGetFlags@Base 319
  cuStreamGetFlags_ptsz@Base 346
  cuStreamGetGreenCtx@Base 550
