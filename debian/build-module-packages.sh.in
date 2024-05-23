@@ -15,7 +15,7 @@ nl="
 kernels=
 slenrek=
 failed=
-kmin=3.10
+kmin=4.15
 for k in $(ls -dvr1 /lib/modules/*/build 2>/dev/null | cut -d/ -f4) ; do
 	if dpkg --compare-versions "$k" lt "$kmin" ; then
 		summary="${summary}SKIP $k (older than $kmin)${nl}"

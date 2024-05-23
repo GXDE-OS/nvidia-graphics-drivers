@@ -21,6 +21,9 @@ nvidia-graphics-drivers (555.42.02-1) UNRELEASED; urgency=medium
     - Enabled HDMI 10 bits per component support by default; disable by loading
       nvidia-modeset with `hdmi_deepcolor=0`.
 
+  [ Andreas Beckmann ]
+  * Bump minimum supported Linux version to 4.15.
+
   * Backport ccflags-y, nv_timer_delete_sync, __iowrite64_lo_hi, page_pgmap
     and make_device_exclusive changes from 570.153.02 and nv_vma_start_write
     changes from 570.169 and

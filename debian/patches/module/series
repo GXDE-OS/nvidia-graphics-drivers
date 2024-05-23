@@ -2,7 +2,6 @@ cc_version_check-gcc5.patch
 bashisms.patch
 
 # kernel support
-0001-bump-minimum-supported-kernel-version-to-3.10.patch
 0002-conftest.sh-remove-empty-lines-from-uts_release-outp.patch
 0034-fix-typos.patch
 0042-Log-an-error-message-when-nv_mem_client_init-fails-d.patch
