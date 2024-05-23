@@ -1,6 +1,8 @@
 nvidia-graphics-drivers (550.78-1) experimental; urgency=medium
 
   * New upstream production branch release 550.78 (2024-04-25).
+    - Fixed a regression that led to Xid errors when loading the NVIDIA
+      driver on some notebook systems with RTX 4xxx series GPUs.
   * New upstream production branch release 550.76 (2024-04-16).
     - Fixed a bug that could prevent the driver from initializing on some
       systems running RHEL 9.3.

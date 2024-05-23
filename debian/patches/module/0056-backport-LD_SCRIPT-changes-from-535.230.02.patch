@@ -11,9 +11,10 @@ diff --git a/Makefile b/Makefile
 index cee56f10..be69cbda 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -62,2 +62,12 @@ else
+@@ -61,6 +61,16 @@ else
+     )
    endif
-+
+ 
 +  KERNEL_ARCH = $(ARCH)
 +
 +  ifneq ($(filter $(ARCH),i386 x86_64),)
@@ -23,7 +24,10 @@ index cee56f10..be69cbda 100644
 +        $(error Unsupported architecture $(ARCH))
 +    endif
 +  endif
- 
++
+   NV_KERNEL_MODULES ?= $(wildcard nvidia nvidia-uvm nvidia-vgpu-vfio nvidia-modeset nvidia-drm nvidia-peermem)
+   NV_KERNEL_MODULES := $(filter-out $(NV_EXCLUDE_KERNEL_MODULES), \
+                                     $(NV_KERNEL_MODULES))
 @@ -102,8 +112,9 @@ else
    # module symbols on which the Linux kernel's module resolution is dependent
    # and hence must be used whenever present.
