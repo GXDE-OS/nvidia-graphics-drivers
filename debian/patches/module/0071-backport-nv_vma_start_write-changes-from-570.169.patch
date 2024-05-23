@@ -1,4 +1,4 @@
-From f3c259dfec30289f0cc624edf5427f55a8018951 Mon Sep 17 00:00:00 2001
+From 89f838d29f507c6790308e4f6b5cb30aab797523 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 19 Jun 2025 10:20:07 +0200
 Subject: [PATCH] backport nv_vma_start_write changes from 570.169
@@ -11,10 +11,10 @@ Subject: [PATCH] backport nv_vma_start_write changes from 570.169
  4 files changed, 95 insertions(+), 2 deletions(-)
 
 diff --git a/common/inc/nv-mm.h b/common/inc/nv-mm.h
-index 83363fa1..20fb3caa 100644
+index c81c1252..4b8200fd 100644
 --- a/common/inc/nv-mm.h
 +++ b/common/inc/nv-mm.h
-@@ -295,9 +295,25 @@ static inline struct rw_semaphore *nv_mmap_get_lock(struct mm_struct *mm)
+@@ -297,9 +297,25 @@ static inline struct rw_semaphore *nv_mmap_get_lock(struct mm_struct *mm)
  #endif
  }
  
@@ -41,7 +41,7 @@ index 83363fa1..20fb3caa 100644
      vm_flags_set(vma, flags);
  #else
      vma->vm_flags |= flags;
-@@ -306,7 +322,10 @@ static inline void nv_vm_flags_set(struct vm_area_struct *vma, vm_flags_t flags)
+@@ -308,7 +324,10 @@ static inline void nv_vm_flags_set(struct vm_area_struct *vma, vm_flags_t flags)
  
  static inline void nv_vm_flags_clear(struct vm_area_struct *vma, vm_flags_t flags)
  {
@@ -54,7 +54,7 @@ index 83363fa1..20fb3caa 100644
  #else
      vma->vm_flags &= ~flags;
 diff --git a/nvidia-drm/nvidia-drm-sources.mk b/nvidia-drm/nvidia-drm-sources.mk
-index 01c42de9..1049c148 100644
+index 416a5ae0..bbd5036b 100644
 --- a/nvidia-drm/nvidia-drm-sources.mk
 +++ b/nvidia-drm/nvidia-drm-sources.mk
 @@ -38,6 +38,7 @@ NV_CONFTEST_GENERIC_COMPILE_TESTS += drm_alpha_blending_available
@@ -146,10 +146,10 @@ index 8fd44960..665c8ea5 100644
 +EXPORT_SYMBOL(nv_vma_start_write);
 +#endif // !NV_CAN_CALL_VMA_START_WRITE
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index b2be820c..bf8bd79e 100644
+index 8cb9b096..9d420b98 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -230,6 +230,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto_akcipher_verify
+@@ -233,6 +233,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto_akcipher_verify
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += ecc_digits_from_bytes
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_hrtimer_setup

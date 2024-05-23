@@ -35,7 +35,7 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
 +NV_CONFTEST_CFLAGS += $(NV_CFLAGS_FROM_CONFTEST) $(ccflags-y) -fno-pie
  NV_CONFTEST_CFLAGS += $(call cc-disable-warning,pointer-sign)
  NV_CONFTEST_CFLAGS += $(call cc-option,-fshort-wchar,)
- NV_CONFTEST_CFLAGS += -Wno-error
+ NV_CONFTEST_CFLAGS += $(call cc-option,-Werror=incompatible-pointer-types,)
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -100,7 +100,7 @@ always += $(NVIDIA_INTERFACE)
@@ -49,7 +49,7 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
  #
 --- a/Makefile
 +++ b/Makefile
-@@ -154,7 +154,7 @@ else
+@@ -158,7 +158,7 @@ else
    # cannot be defined in the *Kbuild files, which are only used during stage 1.
  
    %-linux.o: modules

@@ -1,4 +1,4 @@
-From 64f05e11980db0dafa1c198195f2750e458fee5a Mon Sep 17 00:00:00 2001
+From 6d4c9d779d4ca80252058016dc69158f37593330 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 03:13:49 +0100
 Subject: [PATCH] backport drm_output_poll_changed changes from 535.216.01
@@ -10,10 +10,10 @@ Subject: [PATCH] backport drm_output_poll_changed changes from 535.216.01
  3 files changed, 28 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 0ef9bcb0..e14fc587 100755
+index a6794bf0..c1503a00 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6413,6 +6413,29 @@ compile_test() {
+@@ -6502,6 +6502,29 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_MEMORY_FAILURE_MF_SW_SIMULATED_DEFINED" "" "types"
          ;;
  
@@ -44,7 +44,7 @@ index 0ef9bcb0..e14fc587 100755
              #
              # Determine if sync_file_get_fence() function is present
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index 9de3f3fa..bc5c63e4 100644
+index ec2e1f29..ed7502dc 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
 @@ -124,6 +124,7 @@ static const char* nv_get_input_colorspace_name(
@@ -74,12 +74,12 @@ index 9de3f3fa..bc5c63e4 100644
  
  static void nv_drm_event_callback(const struct NvKmsKapiEvent *event)
 diff --git a/nvidia-drm/nvidia-drm-sources.mk b/nvidia-drm/nvidia-drm-sources.mk
-index 9eea2285..830d7ee8 100644
+index 7ef0c5b8..c9fbcfb1 100644
 --- a/nvidia-drm/nvidia-drm-sources.mk
 +++ b/nvidia-drm/nvidia-drm-sources.mk
-@@ -129,3 +129,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += fence_ops_use_64bit_seqno
- NV_CONFTEST_TYPE_COMPILE_TESTS += drm_aperture_remove_conflicting_pci_framebuffers_has_driver_arg
+@@ -130,3 +130,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_aperture_remove_conflicting_pci_framebuffe
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_mode_create_dp_colorspace_property_has_supported_colorspaces_arg
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_syncobj_features_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
 +NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed
 -- 

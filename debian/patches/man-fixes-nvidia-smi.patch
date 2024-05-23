@@ -15,7 +15,7 @@ Forwarded: not-needed
  .SS "\-l SEC, \-\-loop=SEC"
 --- a/NVIDIA-Linux/nvidia-cuda-mps-control.1
 +++ b/NVIDIA-Linux/nvidia-cuda-mps-control.1
-@@ -135,7 +135,7 @@ Reports a snapshot of the current client
+@@ -138,7 +138,7 @@ Reports a snapshot of the current client
  .TP
  \fBset_default_client_priority\fR \fIpriority\fR
  Set the client priority level that will be used for new clients. Priority values are only

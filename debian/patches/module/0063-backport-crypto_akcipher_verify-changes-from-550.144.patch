@@ -1,4 +1,4 @@
-From 5aa136f25ab11b416aa576b0aabaac198fba3bfd Mon Sep 17 00:00:00 2001
+From e18065e1d9f9bd669ca890cf8e626b4a389a35d5 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 20 Mar 2025 05:41:58 +0100
 Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
@@ -10,10 +10,10 @@ Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
  3 files changed, 45 insertions(+), 1 deletion(-)
 
 diff --git a/conftest.sh b/conftest.sh
-index 47a0e15c..4862afda 100755
+index 5b00f39e..97679750 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6690,6 +6690,47 @@ compile_test() {
+@@ -6779,6 +6779,47 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_CRYPTO_PRESENT" "" "symbols"
          ;;
  
@@ -62,10 +62,10 @@ index 47a0e15c..4862afda 100755
              #
              # Determine if the 'mempolicy' structure has
 diff --git a/header-presence-tests.mk b/header-presence-tests.mk
-index 472e97fc..da9229b9 100644
+index 49ad819a..b34a2853 100644
 --- a/header-presence-tests.mk
 +++ b/header-presence-tests.mk
-@@ -97,5 +97,6 @@ NV_HEADER_PRESENCE_TESTS = \
+@@ -98,5 +98,6 @@ NV_HEADER_PRESENCE_TESTS = \
    linux/sync_file.h \
    linux/cc_platform.h \
    asm/cpufeature.h \
@@ -74,12 +74,12 @@ index 472e97fc..da9229b9 100644
 +  crypto/sig.h
  
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index bab9e87d..da92a729 100644
+index fe2cc683..460cf1ae 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -226,6 +226,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_alloc_me
- NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_free_gscco_mem
- NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_memory_block_size_bytes
+@@ -229,6 +229,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_memory_block_size_b
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tegra_platform_is_fpga
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tegra_platform_is_sim
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto_akcipher_verify
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += ecc_digits_from_bytes

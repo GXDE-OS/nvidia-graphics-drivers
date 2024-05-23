@@ -1,4 +1,4 @@
-From 353b3e524dc0743f0094186bdf17c34b61ffbf65 Mon Sep 17 00:00:00 2001
+From c4f1850bae3b8b02aab7039d5a8e779be1c49a35 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:54:59 +0100
 Subject: [PATCH] backport uvm warning fixes from 560.28.03
@@ -13,7 +13,7 @@ Subject: [PATCH] backport uvm warning fixes from 560.28.03
  nvidia-uvm/uvm_page_tree_test.c      |  2 +-
  nvidia-uvm/uvm_pascal_fault_buffer.c |  7 -------
  nvidia-uvm/uvm_pascal_mmu.c          |  1 +
- nvidia-uvm/uvm_pmm_sysmem_test.c     |  7 +++++--
+ nvidia-uvm/uvm_pmm_sysmem_test.c     | 10 +++++-----
  nvidia-uvm/uvm_pmm_test.c            | 10 +++++-----
  nvidia-uvm/uvm_populate_pageable.c   |  2 +-
  nvidia-uvm/uvm_tools.c               |  1 +
@@ -95,7 +95,7 @@ index 64262b9b..4a259cfe 100644
  #include "hwref/hopper/gh100/dev_fault.h"
  
 diff --git a/nvidia-uvm/uvm_maxwell_mmu.c b/nvidia-uvm/uvm_maxwell_mmu.c
-index d2107844..6610833d 100644
+index 2698a522..cd7ddd8b 100644
 --- a/nvidia-uvm/uvm_maxwell_mmu.c
 +++ b/nvidia-uvm/uvm_maxwell_mmu.c
 @@ -38,6 +38,7 @@
@@ -152,7 +152,7 @@ index ddeb76f3..bbfcfdc5 100644
  static NV_STATUS nv_migrate_vma(struct migrate_vma *args, migrate_vma_state_t *state)
  {
 diff --git a/nvidia-uvm/uvm_mmu.c b/nvidia-uvm/uvm_mmu.c
-index a66b23a2..14ee0748 100644
+index 89d9c94f..aa187e4d 100644
 --- a/nvidia-uvm/uvm_mmu.c
 +++ b/nvidia-uvm/uvm_mmu.c
 @@ -2310,7 +2310,7 @@ bool uvm_mmu_parent_gpu_needs_dynamic_sysmem_mapping(uvm_parent_gpu_t *parent_gp
@@ -162,18 +162,18 @@ index a66b23a2..14ee0748 100644
 -NV_STATUS create_static_vidmem_mapping(uvm_gpu_t *gpu)
 +static NV_STATUS create_static_vidmem_mapping(uvm_gpu_t *gpu)
  {
-     NvU32 page_size;
+     NvU64 page_size;
      NvU64 size;
 diff --git a/nvidia-uvm/uvm_page_tree_test.c b/nvidia-uvm/uvm_page_tree_test.c
-index 782ac511..ae8e91ea 100644
+index 2371eb07..1c3181a4 100644
 --- a/nvidia-uvm/uvm_page_tree_test.c
 +++ b/nvidia-uvm/uvm_page_tree_test.c
-@@ -1511,7 +1511,7 @@ static uvm_mmu_page_table_alloc_t fake_table_alloc(uvm_aperture_t aperture, NvU6
+@@ -1515,7 +1515,7 @@ static uvm_mmu_page_table_alloc_t fake_table_alloc(uvm_aperture_t aperture, NvU6
  // Queries the supported page sizes of the GPU(uvm_gpu_t) and fills the
  // page_sizes array up to MAX_NUM_PAGE_SIZE. Returns the number of elements in
  // page_sizes;
--size_t get_page_sizes(uvm_gpu_t *gpu, NvU32 *page_sizes)
-+static size_t get_page_sizes(uvm_gpu_t *gpu, NvU32 *page_sizes)
+-size_t get_page_sizes(uvm_gpu_t *gpu, NvU64 *page_sizes)
++static size_t get_page_sizes(uvm_gpu_t *gpu, NvU64 *page_sizes)
  {
      unsigned long page_size_log2;
      unsigned long page_sizes_bitvec;
@@ -193,7 +193,7 @@ index f78caba6..88cc660a 100644
 -    UVM_ASSERT_MSG(false, "fault_buffer_parse_non_replayable_entry called on Pascal GPU\n");
 -}
 diff --git a/nvidia-uvm/uvm_pascal_mmu.c b/nvidia-uvm/uvm_pascal_mmu.c
-index a1d8cd90..082f7a4f 100644
+index e6d490cb..52b5fbd2 100644
 --- a/nvidia-uvm/uvm_pascal_mmu.c
 +++ b/nvidia-uvm/uvm_pascal_mmu.c
 @@ -37,6 +37,7 @@
@@ -205,25 +205,28 @@ index a1d8cd90..082f7a4f 100644
  #include "uvm_pascal_fault_buffer.h"
  #include "hwref/pascal/gp100/dev_fault.h"
 diff --git a/nvidia-uvm/uvm_pmm_sysmem_test.c b/nvidia-uvm/uvm_pmm_sysmem_test.c
-index 0d1b971a..1e5979d2 100644
+index 04869606..38cd3a05 100644
 --- a/nvidia-uvm/uvm_pmm_sysmem_test.c
 +++ b/nvidia-uvm/uvm_pmm_sysmem_test.c
-@@ -1072,7 +1072,9 @@ done:
+@@ -1220,9 +1220,9 @@ done:
      return status;
  }
  
--NV_STATUS do_test_cpu_chunk_free(uvm_cpu_chunk_t *chunk, uvm_va_space_t *va_space, uvm_processor_mask_t *test_gpus)
+-NV_STATUS do_test_cpu_chunk_free(uvm_cpu_chunk_t *chunk,
+-                                 uvm_va_space_t *va_space,
+-                                 const uvm_processor_mask_t *test_gpus)
 +static NV_STATUS do_test_cpu_chunk_free(uvm_cpu_chunk_t *chunk,
 +                                        uvm_va_space_t *va_space,
 +                                        const uvm_processor_mask_t *test_gpus)
  {
      NV_STATUS status = NV_OK;
      uvm_cpu_chunk_t **split_chunks;
-@@ -1168,7 +1170,8 @@ done_free:
+@@ -1318,8 +1318,8 @@ done_free:
      return status;
  }
  
--NV_STATUS test_cpu_chunk_free(uvm_va_space_t *va_space, uvm_processor_mask_t *test_gpus)
+-NV_STATUS test_cpu_chunk_free(uvm_va_space_t *va_space,
+-                              const uvm_processor_mask_t *test_gpus)
 +static NV_STATUS test_cpu_chunk_free(uvm_va_space_t *va_space,
 +                                     const uvm_processor_mask_t *test_gpus)
  {
