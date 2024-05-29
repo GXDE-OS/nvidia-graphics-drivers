@@ -48,7 +48,7 @@ Recommends:
  ${nvidia-settings},
 # help nvidia-persistenced by pre-selecting the correct provider for libnvidia-cfg1-any
  lib${nvidia}-cfg1 (= ${binary:Version}),
- nvidia-persistenced,
+ nvidia-persistenced (>= ${nvidia:Version:major}),
 Suggests:
  ${nvidia:kmod:source},
 Provides:
@@ -931,7 +931,7 @@ Recommends:
  ${nvidia}-smi [${nvidia:archlist:driver}],
 # help nvidia-persistenced by pre-selecting the correct provider for libnvidia-cfg1-any
  lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:archlist:driver}],
- nvidia-persistenced [${nvidia:archlist:driver}],
+ nvidia-persistenced (>= ${nvidia:Version:major}) [${nvidia:archlist:driver}],
  ${libcuda1}:i386 (= ${binary:Version}) [amd64],
 Suggests:
  nvidia-cuda-mps [${nvidia:archlist:driver}],
