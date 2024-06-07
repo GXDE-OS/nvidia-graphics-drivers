@@ -6,6 +6,7 @@ nvidia-graphics-drivers (470.256.02-1) UNRELEASED; urgency=medium
       features (such as Vulkan sharpening) are enabled.
 
   [ Andreas Beckmann ]
+  * Refresh patches.
   * xserver-xorg-video-nvidia: Recommend nvidia-vulkan-icd.
   * Move the libnvidia-glvkspirv dependency to libnvidia-(e)glcore.
     (Cf. #1064194)
