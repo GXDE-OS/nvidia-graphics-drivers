@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (535.161.08-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (535.161.08-3) unstable; urgency=medium
 
   * Add systemd drop-in configuration files setting
     - SYSTEMD_SLEEP_FREEZE_USER_SESSIONS=false and
@@ -8,7 +8,7 @@ nvidia-graphics-drivers (535.161.08-3) UNRELEASED; urgency=medium
     libnvidia-egl-wayland.so.1 seems to get dlopen()ed now. (Closes: #1072142)
   * Bump Standards-Version to 4.7.0. No changes needed.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 07 Jun 2024 22:13:02 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 13 Jun 2024 14:34:48 +0200
 
 nvidia-graphics-drivers (535.161.08-2~deb12u1) bookworm; urgency=medium
 
