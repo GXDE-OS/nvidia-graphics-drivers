@@ -1,5 +1,7 @@
 nvidia-graphics-drivers (535.113.01-2) UNRELEASED; urgency=medium
 
+  * libegl-nvidia0: Add manual dependency on libnvidia-egl-wayland1 as
+    libnvidia-egl-wayland.so.1 seems to get dlopen()ed now. (Closes: #1072142)
   * Use dh_movetousr (if available) to relocate the firmware to /usr where
     needed.  (Closes: #1073744)
   * Log an error message if nvidia-peermem refuses to load because it was
