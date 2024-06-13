@@ -4,6 +4,8 @@ nvidia-graphics-drivers (535.161.08-3) UNRELEASED; urgency=medium
     - SYSTEMD_SLEEP_FREEZE_USER_SESSIONS=false and
     - SYSTEMD_HOME_LOCK_FREEZE_SESSION=false
     needed from systemd 256 onwards.  (Closes: #1072722)
+  * libegl-nvidia0: Add manual dependency on libnvidia-egl-wayland1 as
+    libnvidia-egl-wayland.so.1 seems to get dlopen()ed now. (Closes: #1072142)
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 07 Jun 2024 22:13:02 +0200
 
