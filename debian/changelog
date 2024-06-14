@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (535.183.01-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (535.183.01-1) unstable; urgency=medium
 
   * New upstream LTS and Tesla branch release 535.183.01 (2024-06-04).
     * Fixed CVE-2024-0090, CVE-2024-0092.  (Closes: #1072792)
@@ -17,7 +17,7 @@ nvidia-graphics-drivers (535.183.01-1) UNRELEASED; urgency=medium
   * Refresh patches.
   * Update nv-readme.ids.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 13 Jun 2024 09:40:19 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 14 Jun 2024 11:20:01 +0200
 
 nvidia-graphics-drivers (535.161.08-3) unstable; urgency=medium
 
