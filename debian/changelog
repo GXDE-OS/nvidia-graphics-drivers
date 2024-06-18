@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (470.256.02-3) UNRELEASED; urgency=medium
+
+  * Use dh_movetousr (if available) to relocate the firmware to /usr where
+    needed.  (Closes: #1073744)
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 18 Jun 2024 13:00:49 +0200
+
 nvidia-graphics-drivers (470.256.02-2) bullseye; urgency=medium
 
   * ppc64el: Use pfn_valid() variant with rcu_read_{,un}lock_sched() for
