@@ -2,6 +2,8 @@ nvidia-graphics-drivers (470.256.02-3) UNRELEASED; urgency=medium
 
   * Use dh_movetousr (if available) to relocate the firmware to /usr where
     needed.  (Closes: #1073744)
+  * Log an error message if nvidia-peermem refuses to load because it was
+    built without IB peer memory symbols present.  (Closes: #1074350)
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 18 Jun 2024 13:00:49 +0200
 
