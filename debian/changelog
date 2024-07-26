@@ -66,7 +66,7 @@ nvidia-graphics-drivers (390.157-8) UNRELEASED; urgency=medium
   * Backport follow_pfn changes from 550.90.07 to fix kernel module build for
     Linux 6.10.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 19 Jun 2024 12:02:00 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 26 Jul 2024 22:29:09 +0200
 
 nvidia-graphics-drivers (390.157-7) UNRELEASED; urgency=medium
 
