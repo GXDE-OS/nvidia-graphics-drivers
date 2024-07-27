@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (418.226.00-14+git4deb11bullseye) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (418.226.00-15+git4deb11bullseye) UNRELEASED; urgency=medium
 
   * Build the nvidia-*-common packages for ppc64el (430.50-2).
   * nvidia-detect: Build for ppc64el (430.64-2).
@@ -6,6 +6,15 @@ nvidia-graphics-drivers (418.226.00-14+git4deb11bullseye) UNRELEASED; urgency=me
   * nvidia-detect.install: Use dh-exec for arch restrictions (440.100-2).
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 29 Oct 2021 15:58:47 +0200
+
+nvidia-graphics-drivers (418.226.00-15) UNRELEASED; urgency=medium
+
+  * Backport CONFIG_MITIGATION_RETPOLINE changes from 470.256.02.
+  * Backport follow_pfn changes from 550.90.07 to fix kernel module build for
+    Linux 6.10.
+  * bug-script: Report 'apt-cache policy' (535.183.06-1).
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 25 Jul 2024 10:35:32 +0200
 
 nvidia-graphics-drivers (418.226.00-14) UNRELEASED; urgency=medium
 
@@ -911,6 +920,14 @@ nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 13:59:45 +0200
+
+nvidia-graphics-drivers (390.157-8) UNRELEASED; urgency=medium
+
+  * Backport CONFIG_MITIGATION_RETPOLINE changes from 470.256.02.
+  * Backport follow_pfn changes from 550.90.07 to fix kernel module build for
+    Linux 6.10.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 26 Jul 2024 22:29:09 +0200
 
 nvidia-graphics-drivers (390.157-7) UNRELEASED; urgency=medium
 
