@@ -1,4 +1,4 @@
-From 2e2caa77daac90752b65351dfca7b825524ed14e Mon Sep 17 00:00:00 2001
+From c47c12517b09a5505ee5052dcc22aa6907e66d35 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 23 Jul 2024 21:49:33 +0200
 Subject: [PATCH] backport follow_pfn changes from 550.90.07
@@ -10,11 +10,11 @@ Subject: [PATCH] backport follow_pfn changes from 550.90.07
  3 files changed, 13 insertions(+), 11 deletions(-)
 
 diff --git a/conftest.sh b/conftest.sh
-index 6d01bd1..4ed5753 100755
+index 1ddbf32..bfc955e 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -4362,20 +4362,22 @@ compile_test() {
-             compile_check_conftest "$CODE" "NV_DRM_PRIME_SG_TO_PAGE_ARRAY_PRESENT" "" "functions"
+@@ -4679,20 +4679,22 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_PCI_CLASS_MULTIMEDIA_HD_AUDIO_PRESENT" "" "generic"
          ;;
  
 -        unsafe_follow_pfn)
@@ -44,10 +44,10 @@ index 6d01bd1..4ed5753 100755
  
          drm_plane_atomic_check_has_atomic_state_arg)
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 3787454..a0f4943 100644
+index 3153cf1..d4ef8e5 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -157,7 +157,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pgprot_decrypted
+@@ -163,7 +163,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pgprot_decrypted
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += cc_mkdec
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += iterate_fd
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += seq_read_iter
@@ -55,9 +55,9 @@ index 3787454..a0f4943 100644
 +NV_CONFTEST_FUNCTION_COMPILE_TESTS += follow_pfn
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += dma_set_coherent_mask
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += acpi_bus_get_device
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += acpi_video_backlight_use_native
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += get_task_ioprio
 diff --git a/nvidia/os-mlock.c b/nvidia/os-mlock.c
-index b9efda0..cdb941b 100644
+index 93a0787..e33df0d 100644
 --- a/nvidia/os-mlock.c
 +++ b/nvidia/os-mlock.c
 @@ -18,10 +18,10 @@ static inline int nv_follow_pfn(struct vm_area_struct *vma,
