@@ -1,4 +1,4 @@
-From c47c12517b09a5505ee5052dcc22aa6907e66d35 Mon Sep 17 00:00:00 2001
+From 910bd390666769db4e3522e01cabefceb1952947 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 23 Jul 2024 21:49:33 +0200
 Subject: [PATCH] backport follow_pfn changes from 550.90.07
@@ -10,11 +10,11 @@ Subject: [PATCH] backport follow_pfn changes from 550.90.07
  3 files changed, 13 insertions(+), 11 deletions(-)
 
 diff --git a/conftest.sh b/conftest.sh
-index 1ddbf32..bfc955e 100755
+index 98af501..d5a5845 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -4679,20 +4679,22 @@ compile_test() {
-             compile_check_conftest "$CODE" "NV_PCI_CLASS_MULTIMEDIA_HD_AUDIO_PRESENT" "" "generic"
+@@ -4685,20 +4685,22 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_SG_PAGE_ITER_PAGE_PRESENT" "" "functions"
          ;;
  
 -        unsafe_follow_pfn)
@@ -44,23 +44,23 @@ index 1ddbf32..bfc955e 100755
  
          drm_plane_atomic_check_has_atomic_state_arg)
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 3153cf1..d4ef8e5 100644
+index 44990d3..31a6f92 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -163,7 +163,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pgprot_decrypted
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += cc_mkdec
+@@ -164,7 +164,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += cc_mkdec
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += iterate_fd
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += seq_read_iter
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += sg_page_iter_page
 -NV_CONFTEST_FUNCTION_COMPILE_TESTS += unsafe_follow_pfn
 +NV_CONFTEST_FUNCTION_COMPILE_TESTS += follow_pfn
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += dma_set_coherent_mask
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += acpi_bus_get_device
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += get_task_ioprio
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_gem_object_get
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_gem_object_put_unlocked
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += set_close_on_exec
 diff --git a/nvidia/os-mlock.c b/nvidia/os-mlock.c
-index 93a0787..e33df0d 100644
+index fb0bcd3..607f2f1 100644
 --- a/nvidia/os-mlock.c
 +++ b/nvidia/os-mlock.c
-@@ -18,10 +18,10 @@ static inline int nv_follow_pfn(struct vm_area_struct *vma,
+@@ -17,10 +17,10 @@ static inline int nv_follow_pfn(struct vm_area_struct *vma,
                                  unsigned long address,
                                  unsigned long *pfn)
  {
