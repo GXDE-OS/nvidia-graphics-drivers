@@ -1,4 +1,4 @@
-From 54da7d29631403fb010a0b95df9a1209ae165c47 Mon Sep 17 00:00:00 2001
+From cdb34e1682032be5cbff37d44ef0a240562f3a7a Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 24 Jun 2024 02:31:03 +0200
 Subject: [PATCH] wrap virt_addr_valid() to use nv_pfn_valid() on ppc64el
@@ -9,10 +9,10 @@ Subject: [PATCH] wrap virt_addr_valid() to use nv_pfn_valid() on ppc64el
  2 files changed, 12 insertions(+), 1 deletion(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index 24dece6..f7fd3b7 100644
+index 4fdcef7..deecb3b 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -1997,8 +1997,19 @@ static inline int nv_pfn_valid(unsigned long pfn)
+@@ -1983,8 +1983,19 @@ static inline int nv_pfn_valid(unsigned long pfn)
          return ret;
  }
  
