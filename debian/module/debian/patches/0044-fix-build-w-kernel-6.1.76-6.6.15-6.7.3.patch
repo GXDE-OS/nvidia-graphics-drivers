@@ -1,4 +1,4 @@
-From dc9e92e67782d70bb679197e5ae8cb39e573e787 Mon Sep 17 00:00:00 2001
+From 80f0f0925ed12fcf57a2ba2e69ac44b6004976d9 Mon Sep 17 00:00:00 2001
 From: Ionen Wolkens <ionen@gentoo.org>
 Date: Thu, 1 Feb 2024 14:58:45 -0500
 Subject: [PATCH] fix build w/ kernel 6.1.76+6.6.15+6.7.3
@@ -28,10 +28,10 @@ Origin: gentoo, https://github.com/gentoo/gentoo/blob/c64caf53/x11-drivers/nvidi
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/nvidia/os-mlock.c b/nvidia/os-mlock.c
-index 1ff7ae6..5e34416 100644
+index ea5e287..096f38c 100644
 --- a/nvidia/os-mlock.c
 +++ b/nvidia/os-mlock.c
-@@ -101,7 +101,7 @@ static NV_STATUS get_io_pages(struct vm_area_struct *vma,
+@@ -113,7 +113,7 @@ static NV_STATUS get_io_pages(struct vm_area_struct *vma,
      for (i = 0; i < page_count; i++)
      {
          if ((nv_follow_pfn(vma, (start + (i * PAGE_SIZE)), &pfn) < 0) ||
@@ -40,7 +40,7 @@ index 1ff7ae6..5e34416 100644
          {
              rmStatus = NV_ERR_INVALID_ADDRESS;
              break;
-@@ -175,7 +175,7 @@ NV_STATUS NV_API_CALL os_lookup_user_io_memory(
+@@ -187,7 +187,7 @@ NV_STATUS NV_API_CALL os_lookup_user_io_memory(
          goto done;
      }
  

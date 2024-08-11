@@ -1,4 +1,4 @@
-From 05ffc9c4113e997f2a97b335c32ba9fdda6aa060 Mon Sep 17 00:00:00 2001
+From b2b7fbc8d46a3a055f94a4c24e3739133ca486a5 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 1 Feb 2024 14:58:45 -0500
 Subject: [PATCH] import pfn_valid() w/o GPL rcu_read_lock/unlock from v6.8-rc3
@@ -43,12 +43,12 @@ Origin: gentoo, https://github.com/gentoo/gentoo/blob/c64caf53/x11-drivers/nvidi
  1 file changed, 33 insertions(+)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index cea6402..769f1c2 100644
+index 18dcf8d..9148769 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -1954,4 +1954,37 @@ static inline void nv_mutex_destroy(struct mutex *lock)
- 
- }
+@@ -2110,4 +2110,37 @@ typedef enum
+ #include <linux/clk-provider.h>
+ #endif
  
 +#if (!defined(CONFIG_HAVE_ARCH_PFN_VALID)) && \
 +        ((LINUX_VERSION_CODE == KERNEL_VERSION(6,7,3)) || \
