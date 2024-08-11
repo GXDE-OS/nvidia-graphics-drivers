@@ -1,4 +1,4 @@
-From 62bc6bc09d6d9435c28eb81dbee0e53f050a705b Mon Sep 17 00:00:00 2001
+From 0ff2e52530a83f3b06f5854bc7892efeb6c27338 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 23 Jul 2024 21:49:33 +0200
 Subject: [PATCH] backport follow_pfn changes from 550.90.07
@@ -10,10 +10,10 @@ Subject: [PATCH] backport follow_pfn changes from 550.90.07
  3 files changed, 13 insertions(+), 11 deletions(-)
 
 diff --git a/conftest.sh b/conftest.sh
-index 1bfff12..9956bd3 100755
+index 42950dc..532280e 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -4683,20 +4683,22 @@ compile_test() {
+@@ -4700,20 +4700,22 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_SG_PAGE_ITER_PAGE_PRESENT" "" "functions"
          ;;
  
@@ -44,7 +44,7 @@ index 1bfff12..9956bd3 100755
  
          drm_plane_atomic_check_has_atomic_state_arg)
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 4890e60..71ea017 100644
+index 1eed8c2..206a179 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -169,7 +169,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += cc_mkdec
