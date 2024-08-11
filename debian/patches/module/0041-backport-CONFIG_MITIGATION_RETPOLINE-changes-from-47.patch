@@ -1,4 +1,4 @@
-From 13ab58674fc7650cbc5a6530176bdeb02371baa9 Mon Sep 17 00:00:00 2001
+From 66bf31a84d92d73fd44e02224383a2fec692ad13 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Wed, 19 Jun 2024 10:33:15 +0200
 Subject: [PATCH] backport CONFIG_MITIGATION_RETPOLINE changes from 470.256.02
@@ -9,10 +9,10 @@ Subject: [PATCH] backport CONFIG_MITIGATION_RETPOLINE changes from 470.256.02
  2 files changed, 10 insertions(+), 2 deletions(-)
 
 diff --git a/nvidia-modeset/nvidia-modeset-linux.c b/nvidia-modeset/nvidia-modeset-linux.c
-index 15c5276..294acf8 100644
+index 093a9ed..a4c893f 100644
 --- a/nvidia-modeset/nvidia-modeset-linux.c
 +++ b/nvidia-modeset/nvidia-modeset-linux.c
-@@ -51,7 +51,11 @@
+@@ -54,7 +54,11 @@
  #include "nv-time.h"
  #include "nv-lock.h"
  
@@ -26,10 +26,10 @@ index 15c5276..294acf8 100644
  #endif
  
 diff --git a/nvidia/nv.c b/nvidia/nv.c
-index 80d0c9d..7cfb35d 100644
+index 83765b9..428d8fb 100644
 --- a/nvidia/nv.c
 +++ b/nvidia/nv.c
-@@ -48,7 +48,11 @@
+@@ -56,7 +56,11 @@
  #include "nv-pat.h"
  #include "nv-dmabuf.h"
  

@@ -1,4 +1,4 @@
-From 5a772584eb6f138a6a5c1b5205589370e035bb8f Mon Sep 17 00:00:00 2001
+From be677b5cabd9df4d5bd533d73203ebcc646ed2e8 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 4 Mar 2024 22:48:44 +0100
 Subject: [PATCH] backport screen_info changes from 470.239.06
@@ -11,10 +11,10 @@ Subject: [PATCH] backport screen_info changes from 470.239.06
  4 files changed, 9 insertions(+), 3 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index 63b7bba..a5ecd10 100644
+index a8e69ea..38078ab 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -2034,4 +2034,6 @@ static inline int nv_pfn_valid(unsigned long pfn)
+@@ -2031,4 +2031,6 @@ static inline int nv_pfn_valid(unsigned long pfn)
  #  define nv_pfn_valid pfn_valid
  #endif
  
