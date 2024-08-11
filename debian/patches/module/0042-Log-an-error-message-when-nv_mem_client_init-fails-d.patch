@@ -1,4 +1,4 @@
-From 12ea3840803c0c100fb4d8cc4ae0dc6a4f199cde Mon Sep 17 00:00:00 2001
+From e6c47d058d0234c328bd5952f30225f76bcf2554 Mon Sep 17 00:00:00 2001
 From: "Patrick J. LoPresti" <lopresti@gmail.com>
 Date: Wed, 24 Apr 2024 16:28:11 -0700
 Subject: [PATCH] Log an error message when nv_mem_client_init() fails due to
@@ -13,10 +13,10 @@ Origin: other, https://github.com/NVIDIA/open-gpu-kernel-modules/pull/630
  1 file changed, 1 insertion(+)
 
 diff --git a/nvidia-peermem/nvidia-peermem.c b/nvidia-peermem/nvidia-peermem.c
-index 699d1cf..19cf419 100644
+index a20f7d1..caf8dd0 100644
 --- a/nvidia-peermem/nvidia-peermem.c
 +++ b/nvidia-peermem/nvidia-peermem.c
-@@ -504,6 +504,7 @@ out:
+@@ -518,6 +518,7 @@ out:
  
      return status;
  #else

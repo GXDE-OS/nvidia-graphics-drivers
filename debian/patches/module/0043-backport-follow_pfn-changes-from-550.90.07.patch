@@ -1,4 +1,4 @@
-From a2137edb8b5d75fe9334c2989198d0de8612dd34 Mon Sep 17 00:00:00 2001
+From b512a83bb2e33b1c167b847fa116b63729e8c4a6 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 23 Jul 2024 21:49:33 +0200
 Subject: [PATCH] backport follow_pfn changes from 550.90.07
@@ -10,10 +10,10 @@ Subject: [PATCH] backport follow_pfn changes from 550.90.07
  3 files changed, 13 insertions(+), 12 deletions(-)
 
 diff --git a/conftest.sh b/conftest.sh
-index 7bf4569..0dd9ad2 100755
+index f55da42..7aa4f2c 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -4868,22 +4868,23 @@ compile_test() {
+@@ -5107,22 +5107,23 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_PCI_CLASS_MULTIMEDIA_HD_AUDIO_PRESENT" "" "generic"
          ;;
  
@@ -46,12 +46,12 @@ index 7bf4569..0dd9ad2 100755
              #
              # Determine if drm_plane_helper_funcs::atomic_check takes 'state'
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 0ca6530..7e50128 100644
+index ae0e628..8f166af 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -158,7 +158,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += vga_tryget
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += pgprot_decrypted
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += cc_mkdec
+@@ -161,7 +161,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pci_enable_atomic_ops_to_root
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += vga_tryget
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += cc_platform_has
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += seq_read_iter
 -NV_CONFTEST_FUNCTION_COMPILE_TESTS += unsafe_follow_pfn
 +NV_CONFTEST_FUNCTION_COMPILE_TESTS += follow_pfn
