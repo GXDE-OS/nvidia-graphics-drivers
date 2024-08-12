@@ -1,4 +1,4 @@
-From aee68fbc441c92818155435b884de98969fb47de Mon Sep 17 00:00:00 2001
+From 8b4a9e812c14dad681988502d844d63c6351b6c2 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 4 Mar 2024 13:50:23 +0100
 Subject: [PATCH] backport drm_unlocked_ioctl_flag_present changes from
@@ -12,7 +12,7 @@ Subject: [PATCH] backport drm_unlocked_ioctl_flag_present changes from
  4 files changed, 47 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 2f4663b..c14e4d6 100755
+index 2f4663bd..c14e4d64 100755
 --- a/conftest.sh
 +++ b/conftest.sh
 @@ -6634,6 +6634,27 @@ compile_test() {
@@ -44,10 +44,10 @@ index 2f4663b..c14e4d6 100755
          # specifying the relevant upstream Linux kernel commit.  Please
          # avoid specifying -rc kernels, and only use SHAs that actually exist
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index 554c51a..e5d946c 100644
+index e0ddb6cb..217b30f8 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
-@@ -1517,9 +1517,21 @@ static const struct drm_ioctl_desc nv_drm_ioctls[] = {
+@@ -1523,9 +1523,21 @@ static const struct drm_ioctl_desc nv_drm_ioctls[] = {
                        DRM_RENDER_ALLOW|DRM_UNLOCKED),
  #endif
  
@@ -70,7 +70,7 @@ index 554c51a..e5d946c 100644
      DRM_IOCTL_DEF_DRV(NVIDIA_GET_CRTC_CRC32,
                        nv_drm_get_crtc_crc32_ioctl,
 diff --git a/nvidia-drm/nvidia-drm-helper.h b/nvidia-drm/nvidia-drm-helper.h
-index 6bb9660..94d48db 100644
+index 6bb96605..94d48db9 100644
 --- a/nvidia-drm/nvidia-drm-helper.h
 +++ b/nvidia-drm/nvidia-drm-helper.h
 @@ -612,6 +612,19 @@ static inline int nv_drm_format_num_planes(uint32_t format)
@@ -94,7 +94,7 @@ index 6bb9660..94d48db 100644
   * drm_vma_offset_exact_lookup_locked() were added
   * by kernel commit 2225cfe46bcc which was Signed-off-by:
 diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index b8cc5e2..c90680b 100644
+index b8cc5e23..c90680b6 100644
 --- a/nvidia-drm/nvidia-drm.Kbuild
 +++ b/nvidia-drm/nvidia-drm.Kbuild
 @@ -148,3 +148,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_dumb_destroy
@@ -103,5 +103,5 @@ index b8cc5e2..c90680b 100644
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_mode_create_dp_colorspace_property_has_supported_colorspaces_arg
 +NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
 -- 
-2.20.1
+2.39.5
 

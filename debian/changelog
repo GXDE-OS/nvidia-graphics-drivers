@@ -4,6 +4,9 @@ nvidia-graphics-drivers (545.29.02-1) UNRELEASED; urgency=medium
     * Fixed CVE-2023-31022.  (Closes: #1055136)
       https://nvidia.custhelp.com/app/answers/detail/a_id/5491
 
+  [ Andreas Beckmann ]
+  * Refresh patches.
+
  -- Andreas Beckmann <anbe@debian.org>  Thu, 16 Nov 2023 11:06:51 +0100
 
 nvidia-graphics-drivers (545.23.06-6) experimental; urgency=medium

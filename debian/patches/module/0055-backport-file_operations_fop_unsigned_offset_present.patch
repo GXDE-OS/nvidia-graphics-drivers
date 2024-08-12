@@ -1,4 +1,4 @@
-From 9088ccac92922dc47ab743c7c721258171a6e35c Mon Sep 17 00:00:00 2001
+From 18f902c2b5716a81e7f57a3c4196c0e3ddda78ea Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Fri, 24 Jan 2025 12:34:22 +0100
 Subject: [PATCH] backport file_operations_fop_unsigned_offset_present changes
@@ -38,10 +38,10 @@ index 93694141..f3654408 100755
              #
              # Determine if the 'mm_context_t' data type is present
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index ab72fc51..39a3ced5 100644
+index a548eb2b..8dc2f4ca 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
-@@ -1478,6 +1478,10 @@ static const struct file_operations nv_drm_fops = {
+@@ -1484,6 +1484,10 @@ static const struct file_operations nv_drm_fops = {
      .read           = drm_read,
  
      .llseek         = noop_llseek,

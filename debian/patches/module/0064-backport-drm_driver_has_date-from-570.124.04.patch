@@ -1,4 +1,4 @@
-From 07c60facd01075b91d5a233b08f0842c1d11e4b1 Mon Sep 17 00:00:00 2001
+From 8e4e6f5d0333cfd58449cf35e466f35bf9ffdb19 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 27 Mar 2025 19:11:23 +0100
 Subject: [PATCH] backport drm_driver_has_date from 570.124.04
@@ -45,10 +45,10 @@ index 16c5b51f..6a6b2cb0 100755
          # specifying the relevant upstream Linux kernel commit.  Please
          # avoid specifying -rc kernels, and only use SHAs that actually exist
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index 39a3ced5..68808204 100644
+index 8dc2f4ca..b9a84eaa 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
-@@ -1644,7 +1644,10 @@ static struct drm_driver nv_drm_driver = {
+@@ -1650,7 +1650,10 @@ static struct drm_driver nv_drm_driver = {
      .name                   = "nvidia-drm",
  
      .desc                   = "NVIDIA DRM driver",
