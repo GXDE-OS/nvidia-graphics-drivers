@@ -26,7 +26,7 @@ Build-Depends-Arch:
  linux-headers-powerpc64le [ppc64el] <!nocheck>,
  libglvnd-dev,
 Rules-Requires-Root: no
-Standards-Version: 4.6.2
+Standards-Version: 4.7.0
 Homepage: https://www.nvidia.com
 Testsuite: autopkgtest-pkg-dkms
 XS-Autobuild: yes
@@ -80,10 +80,10 @@ Depends:
  lib${nvidia}-encode1 (= ${binary:Version}),
  ${nvidia}-vulkan-icd (= ${binary:Version}),
  lib${nvidia}-allocator1 (= ${binary:Version}),
- lib${nvidia}-rtcore (= ${binary:Version}),
+ lib${nvidia}-rtcore (= ${binary:Version}) [amd64 ${arch:arm64}],
  ${nvidia}-smi (= ${binary:Version}),
  lib${nvidia-if-variant}cudadebugger1 (= ${binary:Version}),
- lib${nvidia}-fbc1 (= ${binary:Version}),
+ lib${nvidia}-fbc1 (= ${binary:Version}) [amd64 ${arch:arm64}],
  lib${nvidia-if-variant}nvoptix1 (= ${binary:Version}) [amd64 ${arch:arm64}],
  lib${nvidia}-opticalflow1 (= ${binary:Version}),
  lib${nvidia}-ngx1 (= ${binary:Version}) [amd64],
