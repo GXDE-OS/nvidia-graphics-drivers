@@ -1,19 +1,19 @@
-From b512a83bb2e33b1c167b847fa116b63729e8c4a6 Mon Sep 17 00:00:00 2001
+From 02fcbe15c02c4f81e5c5361c0c31caa314e85b9e Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 23 Jul 2024 21:49:33 +0200
 Subject: [PATCH] backport follow_pfn changes from 550.90.07
 
 ---
- conftest.sh          | 17 +++++++++--------
+ conftest.sh          | 20 +++++++++-----------
  nvidia/nvidia.Kbuild |  2 +-
  nvidia/os-mlock.c    |  6 +++---
- 3 files changed, 13 insertions(+), 12 deletions(-)
+ 3 files changed, 13 insertions(+), 15 deletions(-)
 
 diff --git a/conftest.sh b/conftest.sh
-index f55da42..7aa4f2c 100755
+index c14e4d6..952e3e3 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -5107,22 +5107,23 @@ compile_test() {
+@@ -5112,25 +5112,23 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_PCI_CLASS_MULTIMEDIA_HD_AUDIO_PRESENT" "" "generic"
          ;;
  
@@ -25,6 +25,9 @@ index f55da42..7aa4f2c 100755
              #
 -            # unsafe_follow_pfn() was added by commit 69bacee7f9ad
 -            # ("mm: Add unsafe_follow_pfn") in v5.13-rc1.
+-            #
+-            # Note: this commit never made it to the linux kernel, so
+-            # unsafe_follow_pfn() never existed.
 +            # follow_pfn() was added by commit 3b6748e2dd69
 +            # ("mm: introduce follow_pfn()") in v2.6.31-rc1, and removed
 +            # by commit 233eb0bf3b94 ("mm: remove follow_pfn")

@@ -1,4 +1,4 @@
-From e715345079c214df50ec684f345a66aa53be5811 Mon Sep 17 00:00:00 2001
+From 034a214f62b4448967a68b694d146b13288099e5 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 1 Feb 2024 14:58:45 -0500
 Subject: [PATCH] import pfn_valid() w/o GPL rcu_read_lock/unlock from v6.8-rc3
@@ -43,10 +43,10 @@ Origin: gentoo, https://github.com/gentoo/gentoo/blob/c64caf53/x11-drivers/nvidi
  1 file changed, 33 insertions(+)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index 74b217e..eaa89dc 100644
+index 7a8ca20..b3edf27 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -2063,4 +2063,37 @@ typedef enum
+@@ -2036,4 +2036,37 @@ typedef enum
  #include <linux/clk-provider.h>
  #endif
  
