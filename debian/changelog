@@ -3,7 +3,7 @@ nvidia-graphics-drivers (450.248.02-8) UNRELEASED; urgency=medium
   * ppc64el: Simplify virt_addr_valid changes.
   * Ensure macro virt_addr_valid() gets called with a void* argument.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 16 Oct 2024 10:42:25 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 17 Oct 2024 00:17:11 +0200
 
 nvidia-graphics-drivers (450.248.02-7) UNRELEASED; urgency=medium
 
