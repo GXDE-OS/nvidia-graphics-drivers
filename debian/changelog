@@ -1,3 +1,12 @@
+nvidia-graphics-drivers (470.256.02-4) UNRELEASED; urgency=medium
+
+  * The Tesla 470 driver series has been declared as End-of-Life by
+    NVIDIA. No further updates fixing security issues, critical bugs, or
+    adding support for new Xorg or Linux releases will be issued.
+    https://docs.nvidia.com/datacenter/tesla/drivers/
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 16 Oct 2024 11:23:53 +0200
+
 nvidia-graphics-drivers (470.256.02-3) UNRELEASED; urgency=medium
 
   * Use dh_movetousr (if available) to relocate the firmware to /usr where
