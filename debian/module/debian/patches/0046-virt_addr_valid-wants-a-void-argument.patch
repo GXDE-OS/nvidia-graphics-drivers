@@ -1,16 +1,16 @@
-From 12050ae9027b8792f294749b001e8032cf8dc88d Mon Sep 17 00:00:00 2001
+From 933bd99253f93c90af7ba9207910dcc22b347201 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 13 Oct 2024 09:04:46 +0200
 Subject: [PATCH] virt_addr_valid() wants a void* argument
 
 ---
- nv-vtophys.c | 2 +-
+ nvidia/nv-vtophys.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/nv-vtophys.c b/nv-vtophys.c
+diff --git a/nvidia/nv-vtophys.c b/nvidia/nv-vtophys.c
 index 9c8d4ef..228399d 100644
---- a/nv-vtophys.c
-+++ b/nv-vtophys.c
+--- a/nvidia/nv-vtophys.c
++++ b/nvidia/nv-vtophys.c
 @@ -28,7 +28,7 @@ NvU64 NV_API_CALL nv_get_kern_phys_address(NvU64 address)
  #endif
  
