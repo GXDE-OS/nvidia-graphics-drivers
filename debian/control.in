@@ -113,10 +113,10 @@ Architecture: amd64 ${arch:arm64} #${arch:ppc64el}
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
+Conflicts:
+ firmware-nvidia-gsp-${nvidia:Version} [${nvidia:archlist:gsp}],
 Provides:
  firmware-${nvidia}-gsp (= ${nvidia:Version}) [${nvidia:archlist:gsp}],
- firmware-nvidia-gsp-${nvidia:Version} [${nvidia:archlist:gsp}],
-Conflicts:
  firmware-nvidia-gsp-${nvidia:Version} [${nvidia:archlist:gsp}],
 Description: NVIDIA GSP firmware${nvidia:VariantDesc}
  The GPU System Processor (GSP) was first introduced in the Turing
