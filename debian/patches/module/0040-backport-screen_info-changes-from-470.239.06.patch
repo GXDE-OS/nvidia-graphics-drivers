@@ -1,4 +1,4 @@
-From 587ea9d64feb4b80b26ca453ad3cedd09a17b817 Mon Sep 17 00:00:00 2001
+From 7a76a8627b60039fd8d04d9afdb340694dff0b6a Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 4 Mar 2024 22:48:44 +0100
 Subject: [PATCH] backport screen_info changes from 470.239.06
@@ -10,18 +10,18 @@ Subject: [PATCH] backport screen_info changes from 470.239.06
  3 files changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index b3edf27..844c90b 100644
+index ffd05ba4..259f5252 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -2069,4 +2069,6 @@ static inline int nv_pfn_valid(unsigned long pfn)
- #  define nv_pfn_valid pfn_valid
+@@ -2096,4 +2096,6 @@ typedef enum
+ #include <linux/clk-provider.h>
  #endif
  
 +#define NV_CHECK_EXPORT_SYMBOL(symbol)  (NV_IS_EXPORT_SYMBOL_PRESENT_##symbol && \
 +                                         !NV_IS_EXPORT_SYMBOL_GPL_##symbol)
  #endif  /* _NV_LINUX_H_ */
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index e868c6c..ae0e628 100644
+index e868c6c3..ae0e6282 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -215,6 +215,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_get_dram_num_channe
@@ -51,5 +51,5 @@ index 5a98859..b29f682 100644
       * If there is not a framebuffer console, return 0 size.
       *
 -- 
-2.20.1
+2.39.5
 
