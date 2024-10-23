@@ -1,4 +1,4 @@
-From 7a76a8627b60039fd8d04d9afdb340694dff0b6a Mon Sep 17 00:00:00 2001
+From 4862fb5c16c688cb37cd7fad18bfe3485cbbb235 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 4 Mar 2024 22:48:44 +0100
 Subject: [PATCH] backport screen_info changes from 470.239.06
@@ -10,10 +10,10 @@ Subject: [PATCH] backport screen_info changes from 470.239.06
  3 files changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index ffd05ba4..259f5252 100644
+index 866a6c6f..9c5018b0 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -2096,4 +2096,6 @@ typedef enum
+@@ -2069,4 +2069,6 @@ typedef enum
  #include <linux/clk-provider.h>
  #endif
  
@@ -33,7 +33,7 @@ index e868c6c3..ae0e6282 100644
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tegra_fuse_control_read
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tegra_get_platform
 diff --git a/nvidia/os-interface.c b/nvidia/os-interface.c
-index 5a98859..b29f682 100644
+index 5a98859d..b29f6825 100644
 --- a/nvidia/os-interface.c
 +++ b/nvidia/os-interface.c
 @@ -1265,9 +1265,12 @@ void NV_API_CALL os_get_screen_info(
