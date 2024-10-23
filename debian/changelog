@@ -9,16 +9,17 @@ nvidia-graphics-drivers (418.226.00-17+git4deb11bullseye) UNRELEASED; urgency=me
 
 nvidia-graphics-drivers (418.226.00-17) UNRELEASED; urgency=medium
 
-  * ppc64el: Simplify using nv_pfn_valid() in virt_addr_valid().
+  * Simplify using nv_pfn_valid() in virt_addr_valid() on ppc64el.
   * Backport nv_get_kern_phys_address() changes from 555.42.02.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 12 Oct 2024 08:54:46 +0200
 
 nvidia-graphics-drivers (418.226.00-16) UNRELEASED; urgency=medium
 
-  * Backport pfn_valid changes in nv-mmap.c from 470.239.06.
-  * ppc64el: Use pfn_valid() variant with rcu_read_{,un}lock_sched() for
-    Linux 5.10 from 5.10.210 onwards to avoid using GPL symbols.
+  * Backport pfn_valid() usage removal in nv-mmap.c from 470.239.06.
+  * Use pfn_valid() variant with rcu_read_{,un}lock_sched() from Linux 6.8-rc3
+    in virt_addr_valid() for Linux 5.10.210 - 5.10.999 to avoid using GPL
+    symbols on ppc64el.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 04 Aug 2024 15:23:24 +0200
 
