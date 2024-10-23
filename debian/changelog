@@ -1,14 +1,16 @@
 nvidia-graphics-drivers (460.106.00-18) UNRELEASED; urgency=medium
 
-  * ppc64el: Simplify using nv_pfn_valid() in virt_addr_valid().
-  * Backport nv_get_kern_phys_address() changes from 555.42.02.
+  * Simplify using nv_pfn_valid() in virt_addr_valid() on ppc64el.
+  * Backport nv_get_kern_phys_address() changes from 555.42.02 to fix kernel
+    module build with gcc-14 on arm64.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 17 Oct 2024 08:40:16 +0200
 
 nvidia-graphics-drivers (460.106.00-17) UNRELEASED; urgency=medium
 
-  * ppc64el: Use pfn_valid() variant with rcu_read_{,un}lock_sched() for
-    Linux 5.10 from 5.10.210 onwards to avoid using GPL symbols.
+  * Use pfn_valid() variant with rcu_read_{,un}lock_sched() from Linux 6.8-rc3
+    in virt_addr_valid() for Linux 5.10.210 - 5.10.999 to avoid using GPL
+    symbols on ppc64el.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 10 Aug 2024 11:25:07 +0200
 
@@ -27,7 +29,7 @@ nvidia-graphics-drivers (460.106.00-15) UNRELEASED; urgency=medium
     kernel module build for Linux 6.8.
   * Backport screen_info changes from 470.182.03 and 470.239.06 to fix kernel
     module build for Linux 6.7 on arm64.
-  * Backport pfn_valid changes in nv-mmap.c from 470.239.06.
+  * Backport pfn_valid() usage removal in nv-mmap.c from 470.239.06.
   * xserver-xorg-video-nvidia: Recommend nvidia-vulkan-icd.
   * Move the libnvidia-glvkspirv dependency to libnvidia-(e)glcore.
     (Cf. #1064194)
@@ -549,15 +551,17 @@ nvidia-graphics-drivers (455.23.04-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (450.248.02-8) UNRELEASED; urgency=medium
 
-  * ppc64el: Simplify using nv_pfn_valid() in virt_addr_valid().
-  * Backport nv_get_kern_phys_address() changes from 555.42.02.
+  * Simplify using nv_pfn_valid() in virt_addr_valid() on ppc64el.
+  * Backport nv_get_kern_phys_address() changes from 555.42.02 to fix kernel
+    module build with gcc-14 on arm64.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 17 Oct 2024 00:17:11 +0200
 
 nvidia-graphics-drivers (450.248.02-7) UNRELEASED; urgency=medium
 
-  * ppc64el: Use pfn_valid() variant with rcu_read_{,un}lock_sched() for
-    Linux 5.10 from 5.10.210 onwards to avoid using GPL symbols.
+  * Use pfn_valid() variant with rcu_read_{,un}lock_sched() from Linux 6.8-rc3
+    in virt_addr_valid() for Linux 5.10.210 - 5.10.999 to avoid using GPL
+    symbols on ppc64el.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 07 Aug 2024 14:37:06 +0200
 
@@ -576,7 +580,7 @@ nvidia-graphics-drivers (450.248.02-5) UNRELEASED; urgency=medium
     kernel module build for Linux 6.8.
   * Backport screen_info changes from 470.182.03 and 470.239.06 to fix kernel
     module build for Linux 6.7 on arm64.
-  * Backport pfn_valid changes in nv-mmap.c from 470.239.06.
+  * Backport pfn_valid() usage removal in nv-mmap.c from 470.239.06.
   * New Romanian (ro) debconf translations by Remus-Gabriel Chelu.
   * xserver-xorg-video-nvidia: Recommend nvidia-vulkan-icd.
   * Move the libnvidia-glvkspirv dependency to libnvidia-(e)glcore.
@@ -1659,9 +1663,10 @@ nvidia-graphics-drivers (430.14-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (418.226.00-16) UNRELEASED; urgency=medium
 
-  * Backport pfn_valid changes in nv-mmap.c from 470.239.06.
-  * ppc64el: Use pfn_valid() variant with rcu_read_{,un}lock_sched() for
-    Linux 5.10 from 5.10.210 onwards to avoid using GPL symbols.
+  * Backport pfn_valid() usage removal in nv-mmap.c from 470.239.06.
+  * Use pfn_valid() variant with rcu_read_{,un}lock_sched() from Linux 6.8-rc3
+    in virt_addr_valid() for Linux 5.10.210 - 5.10.999 to avoid using GPL
+    symbols on ppc64el.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 04 Aug 2024 15:23:24 +0200
 
