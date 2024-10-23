@@ -1,4 +1,4 @@
-From 848f602dd26d103f11bd5dde5371b3b60a5b128d Mon Sep 17 00:00:00 2001
+From 92fe700d7c75018d55735149ba67fc500326b859 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 1 Feb 2024 14:58:45 -0500
 Subject: [PATCH] import pfn_valid() w/o GPL rcu_read_lock/unlock from v6.8-rc3
@@ -43,10 +43,10 @@ Origin: gentoo, https://github.com/gentoo/gentoo/blob/c64caf53/x11-drivers/nvidi
  1 file changed, 33 insertions(+)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index 7eba67e..c6389cc 100644
+index cea6402..da5efa3 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -1961,6 +1961,39 @@ static inline NvU32 nv_default_irq_flags(nv_state_t *nv)
+@@ -1928,6 +1928,39 @@ static inline NvU32 nv_default_irq_flags(nv_state_t *nv)
  #include <linux/backlight.h>
  #endif
  
