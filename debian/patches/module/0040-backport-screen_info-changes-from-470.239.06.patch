@@ -1,4 +1,4 @@
-From 2aed618fea03debd7f9a719f680dd746398ed62e Mon Sep 17 00:00:00 2001
+From b460c652d7527fd78c246b1b365d7c5376d3819d Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 4 Mar 2024 22:48:44 +0100
 Subject: [PATCH] backport screen_info changes from 470.239.06
@@ -11,10 +11,10 @@ Subject: [PATCH] backport screen_info changes from 470.239.06
  4 files changed, 9 insertions(+), 3 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index afe01600..eaf71d0f 100644
+index e43ea35d..11ea3a1c 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -2088,4 +2088,6 @@ typedef enum
+@@ -2034,4 +2034,6 @@ typedef enum
  #include <linux/clk-provider.h>
  #endif
  
@@ -22,7 +22,7 @@ index afe01600..eaf71d0f 100644
 +                                         !NV_IS_EXPORT_SYMBOL_GPL_##symbol)
  #endif  /* _NV_LINUX_H_ */
 diff --git a/conftest.sh b/conftest.sh
-index 4743441d..1bfff12e 100755
+index 91a8ec63..42950dc2 100755
 --- a/conftest.sh
 +++ b/conftest.sh
 @@ -320,7 +320,7 @@ export_symbol_present_conftest() {
@@ -44,7 +44,7 @@ index 4743441d..1bfff12e 100755
          echo "#define NV_IS_EXPORT_SYMBOL_GPL_$SYMBOL 1" |
              append_conftest "symbols"
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 394683c0..4890e605 100644
+index b2ec798e..1eed8c21 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -220,6 +220,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_get_dram_num_channe
@@ -56,7 +56,7 @@ index 394683c0..4890e605 100644
  NV_CONFTEST_TYPE_COMPILE_TESTS += file_operations
  NV_CONFTEST_TYPE_COMPILE_TESTS += kuid_t
 diff --git a/nvidia/os-interface.c b/nvidia/os-interface.c
-index a5486748..9350c1d4 100644
+index 3ed59438..7fc9f97e 100644
 --- a/nvidia/os-interface.c
 +++ b/nvidia/os-interface.c
 @@ -1149,9 +1149,12 @@ void NV_API_CALL os_get_screen_info(
