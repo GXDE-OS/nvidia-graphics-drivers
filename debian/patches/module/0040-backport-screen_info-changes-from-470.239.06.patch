@@ -1,4 +1,4 @@
-From 6ba979cbd0a776d71e4ece3a1c6233a8de529eeb Mon Sep 17 00:00:00 2001
+From 6979a4aa5390e08f76ac37609ce4ffab03fe6236 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 4 Mar 2024 22:48:44 +0100
 Subject: [PATCH] backport screen_info changes from 470.239.06
@@ -11,11 +11,11 @@ Subject: [PATCH] backport screen_info changes from 470.239.06
  4 files changed, 9 insertions(+), 3 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index 04261ee..afaada7 100644
+index a4a88434..55b042ce 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -2039,4 +2039,6 @@ static inline int nv_pfn_valid(unsigned long pfn)
- #  define nv_pfn_valid pfn_valid
+@@ -2031,4 +2031,6 @@ typedef enum
+ #include <linux/clk-provider.h>
  #endif
  
 +#define NV_CHECK_EXPORT_SYMBOL(symbol)  (NV_IS_EXPORT_SYMBOL_PRESENT_##symbol && \
@@ -74,5 +74,5 @@ index efdec80..566f368 100644
       * If there is not a framebuffer console, return 0 size.
       *
 -- 
-2.20.1
+2.39.5
 
