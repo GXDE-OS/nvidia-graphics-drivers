@@ -989,9 +989,9 @@ Multi-Arch: same
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-pkcs11-openssl3-${nvidia:Version},
 Conflicts:
+ libnvidia-pkcs11-openssl3-${nvidia:Version},
+Provides:
  libnvidia-pkcs11-openssl3-${nvidia:Version},
 Homepage: https://www.nvidia.com/CUDA
 Description: NVIDIA PKCS #11 Library (OpenSSL 3)${nvidia:VariantDesc}
