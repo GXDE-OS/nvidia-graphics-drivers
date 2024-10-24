@@ -1,28 +1,37 @@
-From cf7390c6a2f67e251556401a38fbae3bf08790e4 Mon Sep 17 00:00:00 2001
+From 6530b61010fc986445248f0aa9931befec3dd2ea Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 13 Oct 2024 08:52:51 +0200
 Subject: [PATCH] let the virt_addr_valid() macro use nv_pfn_valid() on ppc64el
 
 ---
- common/inc/nv-linux.h | 5 +++++
- 1 file changed, 5 insertions(+)
+ common/inc/nv-linux.h | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index 259f5252..857a5292 100644
+index cbe244ed..53ff64ca 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -1964,6 +1964,11 @@ static inline int nv_pfn_valid(unsigned long pfn)
+@@ -1935,6 +1935,7 @@ static inline NvU32 nv_default_irq_flags(nv_state_t *nv)
+     #define NV_GET_UNUSED_FD_FLAGS(flags)  (-1)
+ #endif
+ 
++#if defined(NVCPU_PPC64LE)
+ #if (!defined(CONFIG_HAVE_ARCH_PFN_VALID)) && \
+         ((LINUX_VERSION_CODE == KERNEL_VERSION(6,7,3)) || \
+          (LINUX_VERSION_CODE == KERNEL_VERSION(6,6,15)) || \
+@@ -1964,8 +1965,10 @@ static inline int nv_pfn_valid(unsigned long pfn)
          return ret;
  }
  
-+#if defined(NVCPU_PPC64LE)
+-#else
+-#  define nv_pfn_valid pfn_valid
 +// let the virt_addr_valid() macro use nv_pfn_valid()
 +#define pfn_valid nv_pfn_valid
-+#endif
 +
- #else
- #  define nv_pfn_valid pfn_valid
++#endif
  #endif
+ 
+ #define MODULE_BASE_NAME "nvidia"
 -- 
 2.39.5
 
