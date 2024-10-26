@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (535.113.01-2) UNRELEASED; urgency=medium
 
+  * nvidia-detect: Restrict support to driver series in trixie.
   * Simplify using nv_pfn_valid() in virt_addr_valid() on ppc64el.
   * Backport nv_get_kern_phys_address() changes from 555.42.02 to fix kernel
     module build with gcc-14 on arm64.  (Closes: #1084844)
