@@ -11,7 +11,7 @@ NVIDIA_MAJOR		 = $(firstword $(subst ., ,$(NVIDIA_RELEASE)))
 include debian/rules.defs
 NVIDIA_TESLA		?=
 NVIDIA_LEGACY		?=
-WATCH_VERSION		?= $(or $(subst yes,$(TESLA_MAJOR),$(NVIDIA_TESLA)),$(NVIDIA_LEGACY))
+WATCH_VERSION		?= $(or $(NVIDIA_TESLA),$(NVIDIA_LEGACY))
 WATCH_PATTERN		?=
 GIT_BRANCH		?= $(if $(variant),$(variant)/main,$(version_major))
 XORG_ABI_LIST		?=
@@ -29,11 +29,7 @@ NO_GSP_ARCH_LIST	?=
 
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(NVIDIA_MAJOR)
-ifeq (yes,$(NVIDIA_TESLA))
-variant			 = $(if $(NVIDIA_TESLA),tesla)
-variant_description	 = $(if $(NVIDIA_TESLA), (Tesla version))
-variant_description_short= $(if $(NVIDIA_TESLA), (Tesla version))
-else ifneq (,$(NVIDIA_TESLA))
+ifneq (,$(NVIDIA_TESLA))
 variant			 = $(if $(NVIDIA_TESLA),tesla-$(NVIDIA_TESLA))
 variant_description	 = $(if $(NVIDIA_TESLA), (Tesla $(NVIDIA_TESLA) version))
 variant_description_short= $(if $(NVIDIA_TESLA), (Tesla $(NVIDIA_TESLA)))
