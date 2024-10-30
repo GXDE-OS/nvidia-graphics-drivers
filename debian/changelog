@@ -7,6 +7,7 @@ nvidia-graphics-drivers (535.216.01-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Refresh patches.
+  * nvidia-detect: Add support for Tesla 535 drivers.
   * nvidia-detect: Restrict support to driver series in trixie.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 25 Oct 2024 13:31:44 +0200
