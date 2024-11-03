@@ -25,7 +25,7 @@ Description: rename the ARCH variable
  
  KERNEL_UNAME ?= $(shell $(CONFTEST) get_uname)
  MODULE_ROOT := /lib/modules/$(KERNEL_UNAME)/kernel/drivers
-@@ -179,7 +179,7 @@ endif
+@@ -179,7 +180,7 @@ endif
  
  KBUILD_PARAMS += KBUILD_VERBOSE=$(NV_VERBOSE)
  KBUILD_PARAMS += -C $(KERNEL_SOURCES) M=$(PWD)

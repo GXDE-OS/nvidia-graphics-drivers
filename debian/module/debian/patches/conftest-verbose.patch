@@ -43,7 +43,7 @@ Description: dump the generated conftest headers
  
  MODULE_GLUE_TARGETS = $(addprefix $(obj)/,$(MODULE_GLUE_OBJS))
  
-@@ -234,8 +250,9 @@ BUILD_SANITY_CHECKS = \
+@@ -235,8 +252,9 @@ BUILD_SANITY_CHECKS = \
  
  SKIP_SANITY_CHECKS	 =
  
