@@ -1,8 +1,9 @@
 nvidia-graphics-drivers (535.129.03-2) UNRELEASED; urgency=medium
 
+  * nvidia-detect: Restrict support to driver series in trixie.
   * Simplify using nv_pfn_valid() in virt_addr_valid() on ppc64el.
   * Backport nv_get_kern_phys_address() changes from 555.42.02 to fix kernel
-    module build with gcc-14 on arm64.  (Closes: #1084844)
+    module build with gcc-14 on arm*.  (Closes: #1084844)
   * libegl-nvidia0: Add manual dependency on libnvidia-egl-wayland1 as
     libnvidia-egl-wayland.so.1 seems to get dlopen()ed now. (Closes: #1072142)
   * Use dh_movetousr (if available) to relocate the firmware to /usr where
@@ -4411,6 +4412,13 @@ nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 13:59:45 +0200
 
+nvidia-graphics-drivers (390.157-9) UNRELEASED; urgency=medium
+
+  * Backport nv_get_kern_phys_address() changes from 555.42.02 to fix kernel
+    module build with gcc-14 on arm*.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 04 Nov 2024 09:16:04 +0100
+
 nvidia-graphics-drivers (390.157-8) UNRELEASED; urgency=medium
 
   * Backport CONFIG_MITIGATION_RETPOLINE changes from 470.256.02.
@@ -7250,7 +7258,10 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (340.108-2) UNRELEASED; urgency=medium
 
-  * Backport nv_get_kern_phys_address() changes from 555.42.02.
+  * Backport nv_get_kern_phys_address() changes from 555.42.02 to fix kernel
+    module build with gcc-14 on arm*.
+  * Work around architecture misdetection when building the kernel modules in
+    an armhf environment on an arm64 host.
 
   * Inject -Wno-error=implicit-function-declaration etc. into conftest to fix
     kernel module build with gcc-14.
