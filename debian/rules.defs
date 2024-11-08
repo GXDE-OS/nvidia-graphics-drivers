@@ -37,5 +37,4 @@ HTTPURL_ARCHDIR_arm64	 = Linux-aarch64
 HTTPURL_ARCHDIR_ppc64el	 =
 else
 HTTPURL_PREFIX		 = https://us.download.nvidia.com/tesla
-#HTTPURL_VERDIR		 = $(subst $(space),.,$(wordlist 1,2,$(subst .,$(space),$(NVIDIA_RELEASE))))
 endif
