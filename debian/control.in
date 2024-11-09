@@ -79,19 +79,19 @@ Depends:
  lib${nvidia}-encode1 (= ${binary:Version}),
  ${nvidia}-vulkan-icd (= ${binary:Version}),
  lib${nvidia}-allocator1 (= ${binary:Version}),
- lib${nvidia}-rtcore (= ${binary:Version}) [amd64 ${arch:arm64}],
+ lib${nvidia}-rtcore (= ${binary:Version}) [!i386 !ppc64el],
  ${nvidia}-smi (= ${binary:Version}),
  lib${nvidia-if-variant}cudadebugger1 (= ${binary:Version}),
- lib${nvidia}-fbc1 (= ${binary:Version}) [amd64 ${arch:arm64}],
- lib${nvidia-if-variant}nvoptix1 (= ${binary:Version}) [amd64 ${arch:arm64}],
+ lib${nvidia}-fbc1 (= ${binary:Version}) [!ppc64el],
+ lib${nvidia-if-variant}nvoptix1 (= ${binary:Version}) [!i386 !ppc64el],
  lib${nvidia}-opticalflow1 (= ${binary:Version}),
  lib${nvidia}-ngx1 (= ${binary:Version}) [amd64],
  lib${nvidia}-api1 (= ${binary:Version}),
  ${nvidia}-opencl-icd (= ${binary:Version}),
- nvidia-powerd (= ${binary:Version}) [amd64],
- nvidia-cuda-mps (= ${binary:Version}),
- nvidia-suspend-common (= ${binary:Version}),
- nvidia-settings,
+ nvidia-powerd [amd64],
+ nvidia-cuda-mps,
+ nvidia-suspend-common,
+ ${nvidia-settings},
  nvidia-persistenced,
  ${misc:Depends}
 Description: NVIDIA metapackage (all components)${nvidia:VariantDesc}
@@ -142,15 +142,15 @@ Description: allows the selection of NVIDIA as GLX provider${nvidia:VariantDesc}
 
 Package: firmware-${nvidia}-gsp
 Section: non-free-firmware/kernel
-Architecture: amd64 ${arch:arm64} #${arch:ppc64el}
+Architecture: amd64 ${arch:arm64}
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Conflicts:
- firmware-nvidia-gsp-${nvidia:Version} [${nvidia:archlist:gsp}],
+ firmware-nvidia-gsp-${nvidia:Version},
 Provides:
- firmware-${nvidia}-gsp (= ${nvidia:Version}) [${nvidia:archlist:gsp}],
- firmware-nvidia-gsp-${nvidia:Version} [${nvidia:archlist:gsp}],
+ firmware-${nvidia}-gsp (= ${nvidia:Version}),
+ firmware-nvidia-gsp-${nvidia:Version},
 Description: NVIDIA GSP firmware${nvidia:VariantDesc}
  The GPU System Processor (GSP) was first introduced in the Turing
  architecture and supports accelerating tasks traditionally performed
@@ -185,7 +185,7 @@ Multi-Arch: foreign
 Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
- firmware-${nvidia}-gsp (= ${nvidia:Version}) [${nvidia:archlist:gsp}] | firmware-nvidia-gsp-${nvidia:Version} [${nvidia:archlist:gsp}],
+ firmware-${nvidia}-gsp (= ${nvidia:Version}) [!ppc64el] | firmware-nvidia-gsp-${nvidia:Version} [!ppc64el],
  ${nvidia-kernel}-support--v1,
  ${misc:Depends}
 Recommends:
@@ -223,7 +223,7 @@ Depends:
  module-assistant,
  ${misc:Depends}
 Recommends:
- firmware-${nvidia}-gsp (= ${nvidia:Version}) [${nvidia:archlist:gsp}] | firmware-nvidia-gsp-${nvidia:Version} [${nvidia:archlist:gsp}],
+ firmware-${nvidia}-gsp (= ${nvidia:Version}) [!ppc64el] | firmware-nvidia-gsp-${nvidia:Version} [!ppc64el],
  ${nvidia-kernel}-support--v1,
 Suggests:
  ${nvidia}-driver (>= ${nvidia:Version}),
@@ -724,6 +724,7 @@ Depends:
  ${misc:Depends}
 Suggests:
  libegl-${nvidia-}0 [i386 amd64 ${arch:arm64} ${arch:ppc64el}]
+ | libegl-nvidia-tesla-535-0 [i386 amd64 arm64 ppc64el]
  | libegl-nvidia-tesla-470-0 [i386 amd64 arm64 ppc64el]
 Description: NVIDIA binary EGL driver - common files
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
@@ -791,6 +792,7 @@ Depends:
  ${misc:Depends}
 Suggests:
  ${nvidia}-vulkan-icd [i386 amd64 ${arch:arm64} ${arch:ppc64el}]
+ | nvidia-tesla-535-vulkan-icd [i386 amd64 arm64 ppc64el]
  | nvidia-tesla-470-vulkan-icd [i386 amd64 arm64 ppc64el]
 Conflicts:
  libgl1-${nvidia}-glx,
@@ -1193,6 +1195,7 @@ Depends:
  ${misc:Depends}
 Suggests:
  ${nvidia}-opencl-icd [i386 amd64 ${arch:arm64} ${arch:ppc64el}]
+ | nvidia-tesla-535-opencl-icd [i386 amd64 arm64 ppc64el]
  | nvidia-tesla-470-opencl-icd [i386 amd64 arm64 ppc64el]
 Description: NVIDIA OpenCL driver - common files
  OpenCL (Open Computing Language) is a multivendor open standard for
@@ -1268,5 +1271,5 @@ Depends:
 Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
- (nvidia-driver,
+ (nvidia-driver, nvidia-tesla-535-driver
  or nvidia-tesla-470-driver) for installation.
