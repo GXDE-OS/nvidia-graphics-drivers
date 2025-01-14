@@ -170,10 +170,10 @@ Section: non-free/kernel
 Architecture: i386 amd64 armhf
 Depends:
  debhelper (>= 10),
+ module-assistant,
  quilt,
  ${misc:Depends}
 Recommends:
- module-assistant,
  ${nvidia-kernel}-support--v1,
 Suggests:
  ${nvidia}-driver (>= ${nvidia:Version}),
