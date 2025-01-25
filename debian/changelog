@@ -64,7 +64,7 @@ nvidia-graphics-drivers (390.157-11) UNRELEASED; urgency=medium
 
   * Do not test building modules for the removed i386 kernels.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 25 Jan 2025 13:36:30 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 25 Jan 2025 21:43:00 +0100
 
 nvidia-graphics-drivers (390.157-10) UNRELEASED; urgency=medium
 
