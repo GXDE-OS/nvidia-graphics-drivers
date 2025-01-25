@@ -20,7 +20,6 @@ Build-Depends:
  quilt,
  xz-utils,
  linux-headers-amd64 [amd64] <!nocheck>,
- linux-headers-686 [i386] <!nocheck>,
  linux-headers-armmp [armhf] <!nocheck>,
 Testsuite: autopkgtest-pkg-dkms
 XS-Autobuild: yes
