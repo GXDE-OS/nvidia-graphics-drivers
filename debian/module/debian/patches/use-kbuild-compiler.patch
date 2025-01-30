@@ -7,7 +7,7 @@ Description: let Kbuild set the compiler version
 
 --- a/Makefile
 +++ b/Makefile
-@@ -77,8 +77,8 @@ else
+@@ -87,8 +87,8 @@ else
  
    .PHONY: modules module clean clean_conftest modules_install
    modules clean modules_install:

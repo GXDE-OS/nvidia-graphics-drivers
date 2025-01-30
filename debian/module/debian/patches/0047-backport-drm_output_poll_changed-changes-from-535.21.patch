@@ -1,4 +1,4 @@
-From 44387a08eabb53cfb3f56ab5ba01e867830ba7cf Mon Sep 17 00:00:00 2001
+From 2c41f39a017eddf4d6ccb0bf2e4f92a79283c5c8 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 03:13:49 +0100
 Subject: [PATCH] backport drm_output_poll_changed changes from 535.216.01
@@ -10,10 +10,10 @@ Subject: [PATCH] backport drm_output_poll_changed changes from 535.216.01
  3 files changed, 28 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 4ed57539..15f4f1a7 100755
+index bfc955e0..40eec6dc 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -4634,6 +4634,29 @@ compile_test() {
+@@ -4918,6 +4918,29 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DRM_DRIVER_HAS_DUMB_DESTROY" "" "types"
          ;;
  
@@ -44,10 +44,10 @@ index 4ed57539..15f4f1a7 100755
              # Determine if DRM_UNLOCKED IOCTL flag is present.
              #
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index 87bbb682..77cbc146 100644
+index 87a32dd8..f3f38e09 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
-@@ -87,6 +87,7 @@ static struct nv_drm_device *dev_list = NULL;
+@@ -88,6 +88,7 @@ static struct nv_drm_device *dev_list = NULL;
  
  #if defined(NV_DRM_ATOMIC_MODESET_AVAILABLE)
  
@@ -55,7 +55,7 @@ index 87bbb682..77cbc146 100644
  static void nv_drm_output_poll_changed(struct drm_device *dev)
  {
      struct drm_connector *connector = NULL;
-@@ -130,6 +131,7 @@ static void nv_drm_output_poll_changed(struct drm_device *dev)
+@@ -131,6 +132,7 @@ static void nv_drm_output_poll_changed(struct drm_device *dev)
      nv_drm_connector_list_iter_end(&conn_iter);
  #endif
  }
@@ -63,7 +63,7 @@ index 87bbb682..77cbc146 100644
  
  static struct drm_framebuffer *nv_drm_framebuffer_create(
      struct drm_device *dev,
-@@ -167,7 +169,9 @@ static const struct drm_mode_config_funcs nv_mode_config_funcs = {
+@@ -168,7 +170,9 @@ static const struct drm_mode_config_funcs nv_mode_config_funcs = {
      .atomic_check  = nv_drm_atomic_check,
      .atomic_commit = nv_drm_atomic_commit,
  
@@ -74,10 +74,10 @@ index 87bbb682..77cbc146 100644
  
  static void nv_drm_event_callback(const struct NvKmsKapiEvent *event)
 diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index cb013afc..e78b5d35 100644
+index c74ab6f4..09834141 100644
 --- a/nvidia-drm/nvidia-drm.Kbuild
 +++ b/nvidia-drm/nvidia-drm.Kbuild
-@@ -113,3 +113,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_has_override_edid
+@@ -119,3 +119,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_has_override_edid
  NV_CONFTEST_TYPE_COMPILE_TESTS += vm_area_struct_has_const_vm_flags
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_dumb_destroy
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present

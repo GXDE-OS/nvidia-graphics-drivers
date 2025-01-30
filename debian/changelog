@@ -2,7 +2,7 @@ nvidia-graphics-drivers (460.106.00-19) UNRELEASED; urgency=medium
 
   * Backport drm_output_poll_changed changes from 535.216.01 to fix kernel
     module build for Linux 6.12.
-  * Backport warning fixes from 510.39.01, 535.146.02,
+  * Backport warning fixes from 510.39.01, 525.53, 535.146.02,
     535.216.01, 535.230.02, 560.28.03 and 565.57.01.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 02 Feb 2025 23:54:30 +0100
