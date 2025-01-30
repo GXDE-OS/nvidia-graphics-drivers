@@ -1,11 +1,11 @@
-From ac02ac883c2c6d156bba14eab9623a90157997e4 Mon Sep 17 00:00:00 2001
+From a6fb3b6126b5b83aa906142b687734270a17eb0e Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 03:20:30 +0100
 Subject: [PATCH] backport warning fixes from 535.216.01
 
 ---
  common/inc/nv-linux.h                 | 10 ++++++++++
- nvidia-modeset/nvidia-modeset-linux.c |  4 ++--
+ nvidia-modeset/nvidia-modeset-linux.c |  3 ++-
  nvidia/nv-kthread-q-selftest.c        |  2 +-
  nvidia/linux_nvswitch.c               |  3 ++-
  nvidia/nv-dma.c                       |  2 +-
@@ -13,7 +13,7 @@ Subject: [PATCH] backport warning fixes from 535.216.01
  nvidia/nv-mmap.c                      |  4 ++--
  nvidia/nv-procfs.c                    |  2 +-
  nvidia/nvlink_linux.c                 |  1 +
- 9 files changed, 21 insertions(+), 9 deletions(-)
+ 9 files changed, 21 insertions(+), 8 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
 index b4641466..03c56545 100644
@@ -70,7 +70,7 @@ index b4641466..03c56545 100644
  }
  
 diff --git a/nvidia-modeset/nvidia-modeset-linux.c b/nvidia-modeset/nvidia-modeset-linux.c
-index 855e791e..a6e6768f 100644
+index 855e791e..041baa91 100644
 --- a/nvidia-modeset/nvidia-modeset-linux.c
 +++ b/nvidia-modeset/nvidia-modeset-linux.c
 @@ -766,7 +766,7 @@ static void nvkms_kapi_event_kthread_q_callback(void *arg)
