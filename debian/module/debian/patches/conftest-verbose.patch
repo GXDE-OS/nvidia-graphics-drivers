@@ -9,6 +9,7 @@ Description: dump the generated conftest headers
  
 +.PHONY: conftest-verbose
 +conftest-verbose:
++	uname -a
 +	@echo 'NV_CONFTEST_CMD=$(NV_CONFTEST_CMD)'
 +	@echo 'NV_CONFTEST_CFLAGS=$(NV_CONFTEST_CFLAGS)'
 +	@echo 'KBUILD_CFLAGS=$(KBUILD_CFLAGS)'
