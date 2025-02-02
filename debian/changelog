@@ -5,7 +5,7 @@ nvidia-graphics-drivers (450.248.02-9) UNRELEASED; urgency=medium
   * Backport warning fixes from 510.39.01, 535.146.02,
     535.216.01, 535.230.02, 560.28.03 and 565.57.01.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 02 Feb 2025 22:17:14 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 02 Feb 2025 22:25:56 +0100
 
 nvidia-graphics-drivers (450.248.02-8) UNRELEASED; urgency=medium
 
