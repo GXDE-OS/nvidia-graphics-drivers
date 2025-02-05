@@ -1,4 +1,4 @@
-From 036ac870f37b6cbcb99242b0f1958e1042d983b7 Mon Sep 17 00:00:00 2001
+From 3ec89dbdf5e4a943b08c1705b00970dbbcf60988 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:13:22 +0100
 Subject: [PATCH] fix more warnings
@@ -80,12 +80,12 @@ index 45d91b38..2004e65b 100644
  /* EXPORTS to Linux Kernel */
  
 diff --git a/nvidia/nv-frontend.h b/nvidia/nv-frontend.h
-index 38d81382..d125a131 100644
+index bc30d9e9..a6a98913 100644
 --- a/nvidia/nv-frontend.h
 +++ b/nvidia/nv-frontend.h
-@@ -31,4 +31,7 @@
- int nvidia_frontend_add_device(nvidia_module_t *, nv_linux_state_t *);
- int nvidia_frontend_remove_device(nvidia_module_t *, nv_linux_state_t *);
+@@ -33,4 +33,7 @@ int nvidia_frontend_remove_device(nvidia_module_t *, nv_linux_state_t *);
+ 
+ extern nvidia_module_t *nv_minor_num_table[];
  
 +int nvidia_init_module(void);
 +void nvidia_exit_module(void);
