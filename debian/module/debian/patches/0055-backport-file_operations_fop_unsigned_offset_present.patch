@@ -1,4 +1,4 @@
-From 27d788e44a9c2e76a84b57065db7156c2d235625 Mon Sep 17 00:00:00 2001
+From 9a6327d00ee4197633390a9e693ed68309659b31 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Fri, 24 Jan 2025 12:34:22 +0100
 Subject: [PATCH] backport file_operations_fop_unsigned_offset_present changes
@@ -11,10 +11,10 @@ Subject: [PATCH] backport file_operations_fop_unsigned_offset_present changes
  3 files changed, 21 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 41c13b49..3d54f14d 100755
+index c6f0cc8d..f115216d 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -2959,6 +2959,22 @@ compile_test() {
+@@ -2548,6 +2548,22 @@ compile_test() {
              fi
          ;;
  
@@ -38,10 +38,10 @@ index 41c13b49..3d54f14d 100755
              #
              # Determine if the 'mm_context_t' data type is present
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index 068450b8..0919c4d9 100644
+index a7dd97a7..7de9dc79 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
-@@ -648,6 +648,10 @@ static const struct file_operations nv_drm_fops = {
+@@ -646,6 +646,10 @@ static const struct file_operations nv_drm_fops = {
      .read           = drm_read,
  
      .llseek         = noop_llseek,
@@ -53,10 +53,10 @@ index 068450b8..0919c4d9 100644
  
  static const struct drm_ioctl_desc nv_drm_ioctls[] = {
 diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index 639168ee..54b04af0 100644
+index cfea2f5b..11e5ac3c 100644
 --- a/nvidia-drm/nvidia-drm.Kbuild
 +++ b/nvidia-drm/nvidia-drm.Kbuild
-@@ -111,3 +111,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_has_override_edid
+@@ -110,3 +110,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_has_override_edid
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_dumb_destroy
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed

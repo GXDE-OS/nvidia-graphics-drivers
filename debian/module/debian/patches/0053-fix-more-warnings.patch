@@ -1,4 +1,4 @@
-From 85cd3e34715e2fc7bb13ccc1cc48ed670853c43c Mon Sep 17 00:00:00 2001
+From c201fe1cba5ed9694e5961ccb03916444917d199 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:13:22 +0100
 Subject: [PATCH] fix more warnings
@@ -11,7 +11,7 @@ Subject: [PATCH] fix more warnings
  nvidia/nv-instance.c                  | 1 +
  nvidia/nv-mmap.c                      | 1 +
  nvidia/nv-vm.c                        | 2 +-
- 5 files changed, 12 insertions(+), 1 deletion(-)
+ 7 files changed, 15 insertions(+), 4 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
 index 03c56545..150440ac 100644
@@ -57,7 +57,7 @@ index 03c56545..150440ac 100644
  
  #define NV_KFREE(ptr, size) \
 diff --git a/nvidia-modeset/nvidia-modeset-linux.c b/nvidia-modeset/nvidia-modeset-linux.c
-index a6e6768f..8fa7b2fa 100644
+index 041baa91..4a5c1d6a 100644
 --- a/nvidia-modeset/nvidia-modeset-linux.c
 +++ b/nvidia-modeset/nvidia-modeset-linux.c
 @@ -818,6 +818,7 @@ failed:
