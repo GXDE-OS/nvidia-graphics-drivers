@@ -2,6 +2,8 @@ nvidia-graphics-drivers (460.106.00-19) UNRELEASED; urgency=medium
 
   * Backport drm_output_poll_changed changes from 535.216.01 to fix kernel
     module build for Linux 6.12.
+  * Backport file_operations_fop_unsigned_offset_present changes from
+    535.230.02.
   * Backport warning fixes from 510.39.01, 525.53, 535.146.02,
     535.216.01, 535.230.02, 550.90.07, 560.28.03 and 565.57.01.
 
@@ -562,6 +564,8 @@ nvidia-graphics-drivers (450.248.02-9) UNRELEASED; urgency=medium
 
   * Backport drm_output_poll_changed changes from 535.216.01 to fix kernel
     module build for Linux 6.12.
+  * Backport file_operations_fop_unsigned_offset_present changes from
+    535.230.02.
   * Backport warning fixes from 510.39.01, 535.146.02,
     535.216.01, 535.230.02, 560.28.03 and 565.57.01.
 
@@ -1683,6 +1687,8 @@ nvidia-graphics-drivers (418.226.00-17) UNRELEASED; urgency=medium
 
   * Backport drm_output_poll_changed changes from 535.216.01 to fix kernel
     module build for Linux 6.12.
+  * Backport file_operations_fop_unsigned_offset_present changes from
+    535.230.02.
   * Backport warning fixes from 430.09, 435.17, 510.39.01, 535.146.02,
     535.216.01, 535.230.02, 560.28.03 and 565.57.01.
   * Simplify using nv_pfn_valid() in virt_addr_valid() on ppc64el.
@@ -2624,6 +2630,8 @@ nvidia-graphics-drivers (390.157-10) UNRELEASED; urgency=medium
 
   * Backport drm_output_poll_changed changes from 535.216.01 to fix kernel
     module build for Linux 6.12.
+  * Backport file_operations_fop_unsigned_offset_present changes from
+    535.230.02.
   * Backport warning fixes from 396.18, 415.13, 418.30, 430.09, 435.17,
     510.39.01, 535.146.02, 535.216.01 and 560.28.03.
 
