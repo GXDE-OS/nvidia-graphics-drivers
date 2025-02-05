@@ -1,4 +1,4 @@
-From 5ca7fc00d2cba65e7ffcf3050508cd68b5f6128b Mon Sep 17 00:00:00 2001
+From ce9e24082c04cc87e649179707c36a26043bbd60 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 03:20:30 +0100
 Subject: [PATCH] backport warning fixes from 535.216.01
@@ -11,7 +11,7 @@ Subject: [PATCH] backport warning fixes from 535.216.01
  nvidia-uvm/nv-kthread-q.c             |  2 +-
  nvidia/linux_nvswitch.c               |  3 ++-
  nvidia/nv-caps.c                      |  2 +-
- nvidia/nv-dma.c                       |  2 +-
+ nvidia/nv-dma.c                       |  4 ++--
  nvidia/nv-ibmnpu.c                    |  2 +-
  nvidia/nv-kthread-q.c                 |  2 +-
  nvidia/nv-mmap.c                      |  4 ++--
@@ -19,13 +19,13 @@ Subject: [PATCH] backport warning fixes from 535.216.01
  nvidia/nv.c                           |  6 ------
  nvidia/nvlink_linux.c                 |  1 +
  nvidia/os-interface.c                 |  2 +-
- 15 files changed, 26 insertions(+), 19 deletions(-)
+ 15 files changed, 27 insertions(+), 20 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index b1b6ca33..aeafb039 100644
+index 2b685c9a..d22f9dc5 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -527,7 +527,9 @@ static inline void *nv_vmalloc(unsigned long size)
+@@ -518,7 +518,9 @@ static inline void *nv_vmalloc(unsigned long size)
      void *ptr = __vmalloc(size, GFP_KERNEL);
  #endif
      if (ptr)
@@ -35,7 +35,7 @@ index b1b6ca33..aeafb039 100644
      return ptr;
  }
  
-@@ -541,7 +543,9 @@ static inline void *nv_ioremap(NvU64 phys, NvU64 size)
+@@ -532,7 +534,9 @@ static inline void *nv_ioremap(NvU64 phys, NvU64 size)
  {
      void *ptr = ioremap(phys, size);
      if (ptr)
@@ -45,7 +45,7 @@ index b1b6ca33..aeafb039 100644
      return ptr;
  }
  
-@@ -573,7 +577,9 @@ static inline void *nv_ioremap_cache(NvU64 phys, NvU64 size)
+@@ -564,7 +568,9 @@ static inline void *nv_ioremap_cache(NvU64 phys, NvU64 size)
      //
      void *ptr = ioremap_prot(phys, size, pgprot_val(PAGE_KERNEL));
      if (ptr)
@@ -55,7 +55,7 @@ index b1b6ca33..aeafb039 100644
      return ptr;
  #else
      return nv_ioremap(phys, size);
-@@ -585,7 +591,9 @@ static inline void *nv_ioremap_wc(NvU64 phys, NvU64 size)
+@@ -576,7 +582,9 @@ static inline void *nv_ioremap_wc(NvU64 phys, NvU64 size)
  #if defined(NV_IOREMAP_WC_PRESENT)
      void *ptr = ioremap_wc(phys, size);
      if (ptr)
@@ -65,7 +65,7 @@ index b1b6ca33..aeafb039 100644
      return ptr;
  #else
      return nv_ioremap_nocache(phys, size);
-@@ -672,7 +680,9 @@ static inline NvUPtr nv_vmap(struct page **pages, NvU32 page_count,
+@@ -663,7 +671,9 @@ static inline NvUPtr nv_vmap(struct page **pages, NvU32 page_count,
      /* All memory cached in PPC64LE; can't honor 'cached' input. */
      ptr = vmap(pages, page_count, VM_MAP, prot);
      if (ptr)
@@ -89,10 +89,10 @@ index 9c8d5392..5811e6bb 100644
  
      for (i = 0;; i++) {
 diff --git a/nvidia-modeset/nvidia-modeset-linux.c b/nvidia-modeset/nvidia-modeset-linux.c
-index bc751fe5..b86c090b 100644
+index e9c8eab8..8c4d0949 100644
 --- a/nvidia-modeset/nvidia-modeset-linux.c
 +++ b/nvidia-modeset/nvidia-modeset-linux.c
-@@ -1015,7 +1015,7 @@ static void nvkms_kapi_event_kthread_q_callback(void *arg)
+@@ -1167,7 +1167,7 @@ static void nvkms_kapi_event_kthread_q_callback(void *arg)
      nvKmsKapiHandleEventQueueChange(device);
  }
  
@@ -101,7 +101,7 @@ index bc751fe5..b86c090b 100644
                                           struct NvKmsKapiDevice *device,
                                           int *status)
  {
-@@ -1130,6 +1130,7 @@ static void nvkms_close_popen(struct nvkms_per_open *popen)
+@@ -1282,6 +1282,7 @@ static void nvkms_close_popen(struct nvkms_per_open *popen)
      }
  }
  
@@ -136,7 +136,7 @@ index 9c8d5392..5811e6bb 100644
  
      for (i = 0;; i++) {
 diff --git a/nvidia/linux_nvswitch.c b/nvidia/linux_nvswitch.c
-index c4c390e5..8d654596 100644
+index 18e196eb..6974085e 100644
 --- a/nvidia/linux_nvswitch.c
 +++ b/nvidia/linux_nvswitch.c
 @@ -30,6 +30,7 @@
@@ -157,10 +157,10 @@ index c4c390e5..8d654596 100644
      NvlStatus status;
      int err;
 diff --git a/nvidia/nv-caps.c b/nvidia/nv-caps.c
-index 5ba3221b..1b0b1789 100644
+index ab2a8528..9fbdccbb 100644
 --- a/nvidia/nv-caps.c
 +++ b/nvidia/nv-caps.c
-@@ -256,7 +256,7 @@ static void nv_cap_procfs_exit(void)
+@@ -245,7 +245,7 @@ static void nv_cap_procfs_exit(void)
      nv_cap_procfs_dir = NULL;
  }
  
@@ -170,10 +170,10 @@ index 5ba3221b..1b0b1789 100644
      nv_cap_procfs_dir = NV_CREATE_PROC_DIR(NV_CAP_PROCFS_DIR, NULL);
      if (nv_cap_procfs_dir == NULL)
 diff --git a/nvidia/nv-dma.c b/nvidia/nv-dma.c
-index 0b7f44ba..9a78e49f 100644
+index 9f1ea118..649de347 100644
 --- a/nvidia/nv-dma.c
 +++ b/nvidia/nv-dma.c
-@@ -251,7 +251,7 @@ void nv_destroy_dma_map_scatterlist(nv_dma_map_t *dma_map)
+@@ -265,7 +265,7 @@ void nv_destroy_dma_map_scatterlist(nv_dma_map_t *dma_map)
      os_free_mem(dma_map->mapping.discontig.submaps);
  }
  
@@ -182,8 +182,17 @@ index 0b7f44ba..9a78e49f 100644
      nv_dma_map_t *dma_map,
      NvU64 *va_array
  )
+@@ -461,7 +461,7 @@ NV_STATUS NV_API_CALL nv_dma_map_sgt(
+     return status;
+ }
+ 
+-NV_STATUS NV_API_CALL nv_dma_unmap_sgt(
++static NV_STATUS NV_API_CALL nv_dma_unmap_sgt(
+     nv_dma_device_t *dma_dev,
+     void           **priv
+ )
 diff --git a/nvidia/nv-ibmnpu.c b/nvidia/nv-ibmnpu.c
-index ab4013fa..b3658bb5 100644
+index 9adc8fe9..5a50de8d 100644
 --- a/nvidia/nv-ibmnpu.c
 +++ b/nvidia/nv-ibmnpu.c
 @@ -25,9 +25,9 @@
@@ -196,7 +205,7 @@ index ab4013fa..b3658bb5 100644
 -#include "nv-ibmnpu.h"
  #include "nv-rsync.h"
  
- #include "nvlink_os.h"
+ /*
 diff --git a/nvidia/nv-kthread-q.c b/nvidia/nv-kthread-q.c
 index 9c8d5392..5811e6bb 100644
 --- a/nvidia/nv-kthread-q.c
@@ -211,10 +220,10 @@ index 9c8d5392..5811e6bb 100644
  
      for (i = 0;; i++) {
 diff --git a/nvidia/nv-mmap.c b/nvidia/nv-mmap.c
-index 6ebdecda..b368adef 100644
+index 9e1eb5db..1c103a6a 100644
 --- a/nvidia/nv-mmap.c
 +++ b/nvidia/nv-mmap.c
-@@ -332,7 +332,7 @@ int nv_encode_caching(
+@@ -358,7 +358,7 @@ int nv_encode_caching(
      return 0;
  }
  
@@ -223,7 +232,7 @@ index 6ebdecda..b368adef 100644
      struct vm_area_struct *vma,
      nv_alloc_t *at,
      NvU64 page_index,
-@@ -353,7 +353,7 @@ int static nvidia_mmap_peer_io(
+@@ -379,7 +379,7 @@ int static nvidia_mmap_peer_io(
      return ret;
  }
  
@@ -233,10 +242,10 @@ index 6ebdecda..b368adef 100644
      nv_alloc_t *at,
      NvU64 page_index,
 diff --git a/nvidia/nv-procfs.c b/nvidia/nv-procfs.c
-index a6c3f307..69c03c65 100644
+index b0d75731..32c9c747 100644
 --- a/nvidia/nv-procfs.c
 +++ b/nvidia/nv-procfs.c
-@@ -670,7 +670,7 @@ static nv_proc_ops_t nv_procfs_suspend_fops = {
+@@ -685,7 +685,7 @@ static nv_proc_ops_t nv_procfs_suspend_fops = {
  /*
   * Forwards error to nv_log_error which exposes data to vendor callback
   */
@@ -246,10 +255,10 @@ index a6c3f307..69c03c65 100644
      nv_state_t *nv,
      NvU32 err,
 diff --git a/nvidia/nv.c b/nvidia/nv.c
-index 170d4683..115afd6f 100644
+index 182d1af7..04606e5d 100644
 --- a/nvidia/nv.c
 +++ b/nvidia/nv.c
-@@ -1197,12 +1197,6 @@ NV_STATUS NV_API_CALL nv_get_current_irq_priv_data(nv_state_t *nv, NvU32 *priv_d
+@@ -1267,12 +1267,6 @@ NV_STATUS NV_API_CALL nv_get_current_irq_priv_data(nv_state_t *nv, NvU32 *priv_d
      return NV_OK;
  }
  
@@ -263,7 +272,7 @@ index 170d4683..115afd6f 100644
  nv_schedule_uvm_isr(nv_state_t *nv)
  {
 diff --git a/nvidia/nvlink_linux.c b/nvidia/nvlink_linux.c
-index 01513a66..06598f06 100644
+index 16dafad2..fdf4b564 100644
 --- a/nvidia/nvlink_linux.c
 +++ b/nvidia/nvlink_linux.c
 @@ -27,6 +27,7 @@
@@ -275,10 +284,10 @@ index 01513a66..06598f06 100644
  #include "nv-procfs.h"
  #include "nv-time.h"
 diff --git a/nvidia/os-interface.c b/nvidia/os-interface.c
-index 54436164..892cd843 100644
+index e7c1f9dc..1efbbfa7 100644
 --- a/nvidia/os-interface.c
 +++ b/nvidia/os-interface.c
-@@ -271,7 +271,7 @@ NvS32 NV_API_CALL os_string_compare(const char *str1, const char *str2)
+@@ -273,7 +273,7 @@ NvS32 NV_API_CALL os_string_compare(const char *str1, const char *str2)
      return strcmp(str1, str2);
  }
  

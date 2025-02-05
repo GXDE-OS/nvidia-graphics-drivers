@@ -1,4 +1,4 @@
-From 50eebe60aaf7649bbc36465d266b678e7aa1e611 Mon Sep 17 00:00:00 2001
+From 82ca49d7239c19da34efcfbb3f3d05094023cb03 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 10 Dec 2024 19:53:27 +0100
 Subject: [PATCH] backport uvm warning fixes from 535.146.02
@@ -9,10 +9,10 @@ Subject: [PATCH] backport uvm warning fixes from 535.146.02
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/nvidia-uvm/uvm_va_range.c b/nvidia-uvm/uvm_va_range.c
-index 6747706e..abc55942 100644
+index 69149e51..234abf26 100644
 --- a/nvidia-uvm/uvm_va_range.c
 +++ b/nvidia-uvm/uvm_va_range.c
-@@ -1654,7 +1654,7 @@ static bool fault_check_range_permission(uvm_va_range_t *va_range, uvm_fault_acc
+@@ -1659,7 +1659,7 @@ static bool fault_check_range_permission(uvm_va_range_t *va_range, uvm_fault_acc
  
  NV_STATUS uvm_va_range_check_logical_permissions(uvm_va_range_t *va_range,
                                                   uvm_processor_id_t processor_id,
@@ -22,10 +22,10 @@ index 6747706e..abc55942 100644
  {
      // CPU permissions are checked later by block_map_cpu_page.
 diff --git a/nvidia-uvm/uvm_va_range.h b/nvidia-uvm/uvm_va_range.h
-index df8eb415..b8f08ead 100644
+index 6afc8ce7..872a7b6d 100644
 --- a/nvidia-uvm/uvm_va_range.h
 +++ b/nvidia-uvm/uvm_va_range.h
-@@ -889,7 +889,7 @@ uvm_prot_t uvm_va_range_logical_prot(uvm_va_range_t *va_range);
+@@ -891,7 +891,7 @@ uvm_prot_t uvm_va_range_logical_prot(uvm_va_range_t *va_range);
  //                              by UvmPreventMigrationRangeGroups.
  NV_STATUS uvm_va_range_check_logical_permissions(uvm_va_range_t *va_range,
                                                   uvm_processor_id_t processor_id,

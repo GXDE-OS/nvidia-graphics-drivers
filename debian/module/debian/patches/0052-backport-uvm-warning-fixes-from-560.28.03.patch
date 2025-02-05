@@ -1,16 +1,17 @@
-From 7aa5e5550a317ea2ccd84050dcea4863c4d8c3d4 Mon Sep 17 00:00:00 2001
+From 9a37641eb84e8aba3442807b00ab2a22fce4bfb0 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:54:59 +0100
 Subject: [PATCH] backport uvm warning fixes from 560.28.03
 
 ---
- nvidia-uvm/uvm_kepler_mmu.c     | 1 +
- nvidia-uvm/uvm_page_tree_test.c | 2 +-
- nvidia-uvm/uvm_pascal_mmu.c     | 1 +
- 3 files changed, 3 insertions(+), 1 deletion(-)
+ nvidia-uvm/uvm_kepler_mmu.c          | 1 +
+ nvidia-uvm/uvm_page_tree_test.c      | 2 +-
+ nvidia-uvm/uvm_pascal_fault_buffer.c | 7 -------
+ nvidia-uvm/uvm_pascal_mmu.c          | 1 +
+ 4 files changed, 3 insertions(+), 8 deletions(-)
 
 diff --git a/nvidia-uvm/uvm_kepler_mmu.c b/nvidia-uvm/uvm_kepler_mmu.c
-index e112d53b..4fbf7c93 100644
+index 96305685..b7d1b27c 100644
 --- a/nvidia-uvm/uvm_kepler_mmu.c
 +++ b/nvidia-uvm/uvm_kepler_mmu.c
 @@ -38,6 +38,7 @@
@@ -22,10 +23,10 @@ index e112d53b..4fbf7c93 100644
  #include "hwref/kepler/gk104/dev_mmu.h"
  
 diff --git a/nvidia-uvm/uvm_page_tree_test.c b/nvidia-uvm/uvm_page_tree_test.c
-index 3c3b9ff1..586818ca 100644
+index 60f7d614..d2b3f272 100644
 --- a/nvidia-uvm/uvm_page_tree_test.c
 +++ b/nvidia-uvm/uvm_page_tree_test.c
-@@ -1417,7 +1417,7 @@ static uvm_mmu_page_table_alloc_t fake_table_alloc(uvm_aperture_t aperture, NvU6
+@@ -1450,7 +1450,7 @@ static uvm_mmu_page_table_alloc_t fake_table_alloc(uvm_aperture_t aperture, NvU6
  // Queries the supported page sizes of the GPU(uvm_gpu_t) and fills the
  // page_sizes array up to MAX_NUM_PAGE_SIZE. Returns the number of elements in
  // page_sizes;
@@ -34,8 +35,23 @@ index 3c3b9ff1..586818ca 100644
  {
      unsigned long page_size_log2;
      unsigned long page_sizes_bitvec;
+diff --git a/nvidia-uvm/uvm_pascal_fault_buffer.c b/nvidia-uvm/uvm_pascal_fault_buffer.c
+index 2186d293..6c313cad 100644
+--- a/nvidia-uvm/uvm_pascal_fault_buffer.c
++++ b/nvidia-uvm/uvm_pascal_fault_buffer.c
+@@ -292,10 +292,3 @@ NvU32 uvm_hal_pascal_fault_buffer_entry_size(uvm_parent_gpu_t *parent_gpu)
+ {
+     return NVB069_FAULT_BUF_SIZE;
+ }
+-
+-void uvm_hal_pascal_fault_buffer_parse_non_replayable_entry_unsupported(uvm_parent_gpu_t *parent_gpu,
+-                                                                        void *fault_packet,
+-                                                                        uvm_fault_buffer_entry_t *buffer_entry)
+-{
+-    UVM_ASSERT_MSG(false, "fault_buffer_parse_non_replayable_entry called on Pascal GPU\n");
+-}
 diff --git a/nvidia-uvm/uvm_pascal_mmu.c b/nvidia-uvm/uvm_pascal_mmu.c
-index d5e577fd..67e98116 100644
+index 8b17319e..46724e23 100644
 --- a/nvidia-uvm/uvm_pascal_mmu.c
 +++ b/nvidia-uvm/uvm_pascal_mmu.c
 @@ -36,6 +36,7 @@
