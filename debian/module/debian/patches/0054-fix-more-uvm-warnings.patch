@@ -1,19 +1,32 @@
-From 6aca744dd7e05800f8d800283c30ed63546b7318 Mon Sep 17 00:00:00 2001
+From e3d41ab90f3ce21ad1cc09e10bce70befb9dd40f Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 10 Dec 2024 20:08:50 +0100
 Subject: [PATCH] fix more uvm warnings
 
 ---
+ nvidia-uvm/uvm.c              | 1 -
  nvidia-uvm/uvm_channel_test.c | 1 -
  nvidia-uvm/uvm_gpu.c          | 1 +
  nvidia-uvm/uvm_tools.c        | 1 +
- 3 files changed, 2 insertions(+), 1 deletion(-)
+ 4 files changed, 2 insertions(+), 2 deletions(-)
 
+diff --git a/nvidia-uvm/uvm.c b/nvidia-uvm/uvm.c
+index 20e30f5a..663c964b 100644
+--- a/nvidia-uvm/uvm.c
++++ b/nvidia-uvm/uvm.c
+@@ -884,7 +884,6 @@ static int uvm_mmap(struct file *filp, struct vm_area_struct *vma)
+         ret = -nv_status_to_errno(status);
+     }
+ 
+-out_va_space_unlock:
+     uvm_va_space_up_write(va_space);
+ 
+ out:
 diff --git a/nvidia-uvm/uvm_channel_test.c b/nvidia-uvm/uvm_channel_test.c
-index 8a3a8393..1adac345 100644
+index dd80cfd3..9a00c986 100644
 --- a/nvidia-uvm/uvm_channel_test.c
 +++ b/nvidia-uvm/uvm_channel_test.c
-@@ -156,7 +156,6 @@ done:
+@@ -152,7 +152,6 @@ done:
  
  static NV_STATUS test_unexpected_completed_values(uvm_va_space_t *va_space)
  {
@@ -22,10 +35,10 @@ index 8a3a8393..1adac345 100644
  
      for_each_va_space_gpu(gpu, va_space) {
 diff --git a/nvidia-uvm/uvm_gpu.c b/nvidia-uvm/uvm_gpu.c
-index 20c9c760..4b28c17a 100644
+index 828bfbdd..f2007d96 100644
 --- a/nvidia-uvm/uvm_gpu.c
 +++ b/nvidia-uvm/uvm_gpu.c
-@@ -1774,6 +1774,7 @@ uvm_gpu_t *uvm_gpu_get_by_uuid(const NvProcessorUuid *gpu_uuid)
+@@ -1811,6 +1811,7 @@ uvm_gpu_t *uvm_gpu_get_by_uuid(const NvProcessorUuid *gpu_uuid)
      return uvm_gpu_get_by_uuid_locked(gpu_uuid);
  }
  
@@ -34,7 +47,7 @@ index 20c9c760..4b28c17a 100644
  {
      uvm_parent_gpu_t *parent_gpu = uvm_parent_gpu_get_by_uuid(gpu_uuid);
 diff --git a/nvidia-uvm/uvm_tools.c b/nvidia-uvm/uvm_tools.c
-index f0aceaf9..68acbbff 100644
+index b69de357..e404f3e0 100644
 --- a/nvidia-uvm/uvm_tools.c
 +++ b/nvidia-uvm/uvm_tools.c
 @@ -35,6 +35,7 @@

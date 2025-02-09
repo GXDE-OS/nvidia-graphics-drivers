@@ -1,4 +1,4 @@
-From 768aa0ac1579625b779a557f6351a9b6aafb98e1 Mon Sep 17 00:00:00 2001
+From 1c14144873c5d9e0cec7c42117042573f0f35f03 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Fri, 24 Jan 2025 12:37:14 +0100
 Subject: [PATCH] backport LD_SCRIPT changes from 535.230.02
@@ -8,10 +8,10 @@ Subject: [PATCH] backport LD_SCRIPT changes from 535.230.02
  1 file changed, 13 insertions(+), 2 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 49f55fd3..f67b2a81 100644
+index e0ed5e95..82f87336 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -58,3 +58,13 @@ else
+@@ -60,3 +60,13 @@ else
      )
    endif
 +
@@ -25,7 +25,7 @@ index 49f55fd3..f67b2a81 100644
 +    endif
 +  endif
  
-@@ -97,8 +107,9 @@ else
+@@ -99,8 +109,9 @@ else
    # module symbols on which the Linux kernel's module resolution is dependent
    # and hence must be used whenever present.
  
