@@ -1,4 +1,4 @@
-From ead3a3b3c9f6a42fc8d99074ef3243edb348e53c Mon Sep 17 00:00:00 2001
+From d63236db05a7fead52287d89a97ffc6e31327fcb Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 10 Dec 2024 19:53:27 +0100
 Subject: [PATCH] backport uvm warning fixes from 535.146.02
@@ -9,10 +9,10 @@ Subject: [PATCH] backport uvm warning fixes from 535.146.02
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/nvidia-uvm/uvm_va_range.c b/nvidia-uvm/uvm_va_range.c
-index be000f7e..80ed6f1c 100644
+index f585aa2d..b21c09fa 100644
 --- a/nvidia-uvm/uvm_va_range.c
 +++ b/nvidia-uvm/uvm_va_range.c
-@@ -1747,7 +1747,7 @@ static bool fault_check_range_permission(uvm_va_range_t *va_range, uvm_fault_acc
+@@ -1735,7 +1735,7 @@ static bool fault_check_range_permission(uvm_va_range_t *va_range, uvm_fault_acc
  
  NV_STATUS uvm_va_range_check_logical_permissions(uvm_va_range_t *va_range,
                                                   uvm_processor_id_t processor_id,

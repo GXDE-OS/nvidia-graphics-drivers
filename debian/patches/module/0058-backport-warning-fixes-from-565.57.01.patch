@@ -1,4 +1,4 @@
-From 6b080d2906d115885aa856279e0489213af91eb2 Mon Sep 17 00:00:00 2001
+From 965ee6d6a8194e70ffc20548852de6d66c27d3b7 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 2 Feb 2025 18:54:55 +0100
 Subject: [PATCH] backport warning fixes from 565.57.01
@@ -8,10 +8,10 @@ Subject: [PATCH] backport warning fixes from 565.57.01
  1 file changed, 1 deletion(-)
 
 diff --git a/nvidia/nvlink_proto.h b/nvidia/nvlink_proto.h
-index f465b97b..2589e0ab 100644
+index 356001e4..3e3cffef 100644
 --- a/nvidia/nvlink_proto.h
 +++ b/nvidia/nvlink_proto.h
-@@ -47,7 +47,6 @@ void          nvswitch_exit        (void);
+@@ -45,7 +45,6 @@ void          nvswitch_exit        (void);
   */
  int           tegrashim_init          (void);
  void          tegrashim_exit          (void);

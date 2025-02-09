@@ -1,4 +1,4 @@
-From cc0ca62d7dda112c9f9448155e8487ae849ad533 Mon Sep 17 00:00:00 2001
+From 2f30b3786c546a583260d07cea0296d0da139fbd Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 10 Dec 2024 20:08:50 +0100
 Subject: [PATCH] fix more uvm warnings
@@ -11,7 +11,7 @@ Subject: [PATCH] fix more uvm warnings
  4 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/nvidia-uvm/uvm_channel_test.c b/nvidia-uvm/uvm_channel_test.c
-index 2b7d7835..28ae3532 100644
+index eae6a86c..cee722c4 100644
 --- a/nvidia-uvm/uvm_channel_test.c
 +++ b/nvidia-uvm/uvm_channel_test.c
 @@ -153,7 +153,6 @@ done:
@@ -23,10 +23,10 @@ index 2b7d7835..28ae3532 100644
  
      for_each_va_space_gpu(gpu, va_space) {
 diff --git a/nvidia-uvm/uvm_gpu.c b/nvidia-uvm/uvm_gpu.c
-index 6ed16102..4de824af 100644
+index 93202b7d..632b71b4 100644
 --- a/nvidia-uvm/uvm_gpu.c
 +++ b/nvidia-uvm/uvm_gpu.c
-@@ -1842,6 +1842,7 @@ uvm_gpu_t *uvm_gpu_get_by_uuid(const NvProcessorUuid *gpu_uuid)
+@@ -1795,6 +1795,7 @@ uvm_gpu_t *uvm_gpu_get_by_uuid(const NvProcessorUuid *gpu_uuid)
      return uvm_gpu_get_by_uuid_locked(gpu_uuid);
  }
  
@@ -35,10 +35,10 @@ index 6ed16102..4de824af 100644
  {
      uvm_gpu_t *gpu;
 diff --git a/nvidia-uvm/uvm_pmm_gpu.c b/nvidia-uvm/uvm_pmm_gpu.c
-index 34ac47cc..9c09a48b 100644
+index cca6e52b..61c591b1 100644
 --- a/nvidia-uvm/uvm_pmm_gpu.c
 +++ b/nvidia-uvm/uvm_pmm_gpu.c
-@@ -642,7 +642,6 @@ NV_STATUS uvm_pmm_gpu_alloc_kernel(uvm_pmm_gpu_t *pmm,
+@@ -598,7 +598,6 @@ NV_STATUS uvm_pmm_gpu_alloc_kernel(uvm_pmm_gpu_t *pmm,
                                     uvm_gpu_chunk_t **chunks,
                                     uvm_tracker_t *out_tracker)
  {
