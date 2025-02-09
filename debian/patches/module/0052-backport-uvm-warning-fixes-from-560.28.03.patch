@@ -1,4 +1,4 @@
-From ee28b65b4b80479f3fa93904429615668c9f5ecb Mon Sep 17 00:00:00 2001
+From 865bb65851acdcbece0d66c8f1d924222b57e444 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:54:59 +0100
 Subject: [PATCH] backport uvm warning fixes from 560.28.03
@@ -16,10 +16,10 @@ Subject: [PATCH] backport uvm warning fixes from 560.28.03
  9 files changed, 17 insertions(+), 17 deletions(-)
 
 diff --git a/nvidia-uvm/uvm_channel_test.c b/nvidia-uvm/uvm_channel_test.c
-index c1e481ce..eae6a86c 100644
+index 84042766..3ccaaaef 100644
 --- a/nvidia-uvm/uvm_channel_test.c
 +++ b/nvidia-uvm/uvm_channel_test.c
-@@ -672,7 +672,7 @@ done:
+@@ -671,7 +671,7 @@ done:
      return status;
  }
  
@@ -28,7 +28,7 @@ index c1e481ce..eae6a86c 100644
  {
      uvm_gpu_t *gpu;
  
-@@ -703,7 +703,7 @@ NV_STATUS test_write_ctrl_gpfifo_noop(uvm_va_space_t *va_space)
+@@ -702,7 +702,7 @@ NV_STATUS test_write_ctrl_gpfifo_noop(uvm_va_space_t *va_space)
      return NV_OK;
  }
  
@@ -37,7 +37,7 @@ index c1e481ce..eae6a86c 100644
  {
      uvm_gpu_t *gpu;
  
-@@ -759,7 +759,7 @@ static NvU32 get_available_gpfifo_entries(uvm_channel_t *channel)
+@@ -758,7 +758,7 @@ static NvU32 get_available_gpfifo_entries(uvm_channel_t *channel)
      return channel->num_gpfifo_entries - pending_entries - 1;
  }
  
@@ -71,7 +71,7 @@ index 4f3e0555..7af804aa 100644
  #include "hwref/maxwell/gm107/dev_mmu.h"
  
 diff --git a/nvidia-uvm/uvm_migrate_pageable.c b/nvidia-uvm/uvm_migrate_pageable.c
-index 446e58ed..00699ef8 100644
+index 08150f73..190062a0 100644
 --- a/nvidia-uvm/uvm_migrate_pageable.c
 +++ b/nvidia-uvm/uvm_migrate_pageable.c
 @@ -545,6 +545,7 @@ void uvm_migrate_vma_alloc_and_copy(struct migrate_vma *args, migrate_vma_state_
@@ -107,7 +107,7 @@ index 446e58ed..00699ef8 100644
  static NV_STATUS nv_migrate_vma(struct migrate_vma *args, migrate_vma_state_t *state)
  {
 diff --git a/nvidia-uvm/uvm_mmu.c b/nvidia-uvm/uvm_mmu.c
-index d1bfbf21..b347bcde 100644
+index c834938e..5423b532 100644
 --- a/nvidia-uvm/uvm_mmu.c
 +++ b/nvidia-uvm/uvm_mmu.c
 @@ -1802,7 +1802,7 @@ bool uvm_mmu_gpu_needs_dynamic_sysmem_mapping(uvm_gpu_t *gpu)
