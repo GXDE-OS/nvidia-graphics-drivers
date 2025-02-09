@@ -1,4 +1,4 @@
-From 189592e58c829adbbd5d0794c5d425184163e87f Mon Sep 17 00:00:00 2001
+From cae83336db2e3e14a00258ade12b971ca5eb6ba7 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 03:13:49 +0100
 Subject: [PATCH] backport drm_output_poll_changed changes from 535.216.01
@@ -10,10 +10,10 @@ Subject: [PATCH] backport drm_output_poll_changed changes from 535.216.01
  3 files changed, 28 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index fe4bc044..0987837c 100755
+index 9956bd3b..b19ac987 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -5450,6 +5450,29 @@ compile_test() {
+@@ -5532,6 +5532,29 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DRM_DRIVER_HAS_DUMB_DESTROY" "" "types"
          ;;
  

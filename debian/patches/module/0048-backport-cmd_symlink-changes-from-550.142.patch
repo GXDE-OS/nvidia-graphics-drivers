@@ -1,4 +1,4 @@
-From c00de3a0e8b8cfbb90d81b3ec58387f45c6c5af4 Mon Sep 17 00:00:00 2001
+From 3eaeba93c1fe920572825d1b326b24a7e5b4c1b3 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 19 Dec 2024 13:42:55 +0100
 Subject: [PATCH] backport cmd_symlink changes from 550.142
@@ -10,10 +10,10 @@ Subject: [PATCH] backport cmd_symlink changes from 550.142
  3 files changed, 14 insertions(+), 6 deletions(-)
 
 diff --git a/Kbuild b/Kbuild
-index f977eaf3..0dbdae85 100644
+index b7592fbb..532ccbba 100644
 --- a/Kbuild
 +++ b/Kbuild
-@@ -55,6 +55,20 @@ ifeq ($(NV_UNDEF_BEHAVIOR_SANITIZER),1)
+@@ -57,6 +57,20 @@ ifeq ($(NV_UNDEF_BEHAVIOR_SANITIZER),1)
   UBSAN_SANITIZE := y
  endif
  
@@ -35,7 +35,7 @@ index f977eaf3..0dbdae85 100644
   $(eval include $(src)/$(_module)/$(_module).Kbuild))
  
 diff --git a/nvidia-modeset/nvidia-modeset.Kbuild b/nvidia-modeset/nvidia-modeset.Kbuild
-index 0744b703..1aa625b0 100644
+index 0d927978..b0fb79f9 100644
 --- a/nvidia-modeset/nvidia-modeset.Kbuild
 +++ b/nvidia-modeset/nvidia-modeset.Kbuild
 @@ -40,9 +40,6 @@ NV_KERNEL_MODULE_TARGETS += $(NVIDIA_MODESET_KO)
@@ -49,7 +49,7 @@ index 0744b703..1aa625b0 100644
  
  $(obj)/$(NVIDIA_MODESET_BINARY_OBJECT_O): $(NVIDIA_MODESET_BINARY_OBJECT) FORCE
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index a0f4943f..e13e15be 100644
+index 71ea0179..72626698 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -40,9 +40,6 @@ NVIDIA_KO = nvidia/nvidia.ko

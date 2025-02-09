@@ -1,4 +1,4 @@
-From e252a500e59d50935c1363b0cb0f67dccbdebbf4 Mon Sep 17 00:00:00 2001
+From d1f51cbb567c4aa156a5c9259bc24dafc990cbe6 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Fri, 24 Jan 2025 12:34:22 +0100
 Subject: [PATCH] backport file_operations_fop_unsigned_offset_present changes
@@ -11,10 +11,10 @@ Subject: [PATCH] backport file_operations_fop_unsigned_offset_present changes
  3 files changed, 21 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 0987837c..3426432f 100755
+index b19ac987..0b759ad2 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -2450,6 +2450,22 @@ compile_test() {
+@@ -2305,6 +2305,22 @@ compile_test() {
              fi
          ;;
  

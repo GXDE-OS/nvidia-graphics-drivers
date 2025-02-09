@@ -1,4 +1,4 @@
-From f4d64f35fa8b37cef2b6be87c3f846b6af40e98c Mon Sep 17 00:00:00 2001
+From ead3a3b3c9f6a42fc8d99074ef3243edb348e53c Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 10 Dec 2024 19:53:27 +0100
 Subject: [PATCH] backport uvm warning fixes from 535.146.02
@@ -9,10 +9,10 @@ Subject: [PATCH] backport uvm warning fixes from 535.146.02
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/nvidia-uvm/uvm_va_range.c b/nvidia-uvm/uvm_va_range.c
-index a85f70ff..0e5db3ed 100644
+index be000f7e..80ed6f1c 100644
 --- a/nvidia-uvm/uvm_va_range.c
 +++ b/nvidia-uvm/uvm_va_range.c
-@@ -1684,7 +1684,7 @@ static bool fault_check_range_permission(uvm_va_range_t *va_range, uvm_fault_acc
+@@ -1747,7 +1747,7 @@ static bool fault_check_range_permission(uvm_va_range_t *va_range, uvm_fault_acc
  
  NV_STATUS uvm_va_range_check_logical_permissions(uvm_va_range_t *va_range,
                                                   uvm_processor_id_t processor_id,
@@ -22,10 +22,10 @@ index a85f70ff..0e5db3ed 100644
  {
      // CPU permissions are checked later by block_map_cpu_page.
 diff --git a/nvidia-uvm/uvm_va_range.h b/nvidia-uvm/uvm_va_range.h
-index 6afc8ce7..872a7b6d 100644
+index ee01863d..d4d6c09c 100644
 --- a/nvidia-uvm/uvm_va_range.h
 +++ b/nvidia-uvm/uvm_va_range.h
-@@ -891,7 +891,7 @@ uvm_prot_t uvm_va_range_logical_prot(uvm_va_range_t *va_range);
+@@ -866,7 +866,7 @@ uvm_prot_t uvm_va_range_logical_prot(uvm_va_range_t *va_range);
  //                              by UvmPreventMigrationRangeGroups.
  NV_STATUS uvm_va_range_check_logical_permissions(uvm_va_range_t *va_range,
                                                   uvm_processor_id_t processor_id,
@@ -33,7 +33,7 @@ index 6afc8ce7..872a7b6d 100644
 +                                                 uvm_fault_access_type_t access_type,
                                                   bool allow_migration);
  
- static bool uvm_va_range_is_read_duplicate(uvm_va_range_t *va_range)
+ static uvm_va_policy_t *uvm_va_range_get_policy(uvm_va_range_t *va_range)
 -- 
 2.39.5
 

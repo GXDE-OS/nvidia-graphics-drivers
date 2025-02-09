@@ -1,4 +1,4 @@
-From 7be04cf8b63482dd68d280f044b858a4ec35f27f Mon Sep 17 00:00:00 2001
+From d32b9b7b34f53d25fe679227af86622c13cff85d Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sat, 14 Dec 2024 23:42:16 +0100
 Subject: [PATCH] backport warning fixes from 525.53
@@ -9,10 +9,10 @@ Subject: [PATCH] backport warning fixes from 525.53
  2 files changed, 7 deletions(-)
 
 diff --git a/nvidia-drm/nvidia-drm-crtc.c b/nvidia-drm/nvidia-drm-crtc.c
-index 2f457e9a..7adedbcd 100644
+index 6380fe7b..60c41e32 100644
 --- a/nvidia-drm/nvidia-drm-crtc.c
 +++ b/nvidia-drm/nvidia-drm-crtc.c
-@@ -77,9 +77,6 @@ cursor_plane_req_config_update(struct drm_plane *plane,
+@@ -84,9 +84,6 @@ cursor_plane_req_config_update(struct drm_plane *plane,
  {
      struct nv_drm_plane *nv_plane = to_nv_plane(plane);
      struct NvKmsKapiCursorRequestedConfig old_config = *req_config;
@@ -22,7 +22,7 @@ index 2f457e9a..7adedbcd 100644
  
      if (plane_state->fb == NULL) {
          cursor_req_config_disable(req_config);
-@@ -179,7 +176,6 @@ plane_req_config_update(struct drm_plane *plane,
+@@ -186,7 +183,6 @@ plane_req_config_update(struct drm_plane *plane,
      struct nv_drm_device *nv_dev = to_nv_device(plane->dev);
      struct nv_drm_plane_state *nv_drm_plane_state =
          to_nv_drm_plane_state(plane_state);
@@ -31,7 +31,7 @@ index 2f457e9a..7adedbcd 100644
      if (plane_state->fb == NULL) {
          plane_req_config_disable(req_config);
 diff --git a/nvidia-drm/nvidia-drm-modeset.c b/nvidia-drm/nvidia-drm-modeset.c
-index 9132af9a..935f5569 100644
+index 0520f35b..06565d11 100644
 --- a/nvidia-drm/nvidia-drm-modeset.c
 +++ b/nvidia-drm/nvidia-drm-modeset.c
 @@ -93,9 +93,6 @@ static bool __will_generate_flip_event(struct drm_crtc *crtc,
