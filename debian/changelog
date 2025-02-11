@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (460.106.00-19) UNRELEASED; urgency=medium
 
+  * nvidia-vulkan-icd: Promote libnvidia-rtcore to Depends.
   * Backport drm_output_poll_changed changes from 535.216.01 to fix kernel
     module build for Linux 6.12.
   * Backport file_operations_fop_unsigned_offset_present changes from
@@ -562,6 +563,7 @@ nvidia-graphics-drivers (455.23.04-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (450.248.02-9) UNRELEASED; urgency=medium
 
+  * nvidia-vulkan-icd: Promote libnvidia-rtcore to Depends.
   * Backport drm_output_poll_changed changes from 535.216.01 to fix kernel
     module build for Linux 6.12.
   * Backport file_operations_fop_unsigned_offset_present changes from
@@ -1685,6 +1687,7 @@ nvidia-graphics-drivers (430.14-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (418.226.00-17) UNRELEASED; urgency=medium
 
+  * nvidia-vulkan-icd: Promote libnvidia-rtcore to Depends.
   * Backport drm_output_poll_changed changes from 535.216.01 to fix kernel
     module build for Linux 6.12.
   * Backport file_operations_fop_unsigned_offset_present changes from
