@@ -1,4 +1,4 @@
-From 68c0ac3604ac0424f55b14f58ffc79b7361f86af Mon Sep 17 00:00:00 2001
+From c643f53bcd6a1ed443afed0c8e7c462311591538 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 03:13:49 +0100
 Subject: [PATCH] backport drm_output_poll_changed changes from 535.216.01
@@ -10,11 +10,11 @@ Subject: [PATCH] backport drm_output_poll_changed changes from 535.216.01
  3 files changed, 28 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 0dd9ad2c..7727e4d6 100755
+index 7aa4f2cc..c285747d 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -5893,6 +5893,29 @@ compile_test() {
-             compile_check_conftest "$CODE" "NV_DRM_DRIVER_HAS_DUMB_DESTROY" "" "types"
+@@ -6265,6 +6265,29 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_MEMORY_FAILURE_MF_SW_SIMULATED_DEFINED" "" "types"
          ;;
  
 +        drm_output_poll_changed)
@@ -40,9 +40,9 @@ index 0dd9ad2c..7727e4d6 100755
 +            compile_check_conftest "$CODE" "NV_DRM_OUTPUT_POLL_CHANGED_PRESENT" "" "types"
 +        ;;
 +
-         drm_unlocked_ioctl_flag_present)
-             # Determine if DRM_UNLOCKED IOCTL flag is present.
+         crypto)
              #
+             # Determine if we support various crypto functions.
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
 index 62d557e7..7780c2fa 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
