@@ -1,4 +1,4 @@
-From cf22141f1470ec3da2729e405e0c4d59f15db53a Mon Sep 17 00:00:00 2001
+From 701231d558e93ee266c2a518952786a3ee5c82b0 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Fri, 24 Jan 2025 12:37:59 +0100
 Subject: [PATCH] backport uvm fixes from 535.230.02
@@ -23,10 +23,10 @@ index 69e0b30b..2285a479 100644
  
  typedef struct
 diff --git a/nvidia-uvm/uvm_mmu.h b/nvidia-uvm/uvm_mmu.h
-index 8e80ab68..d3f37210 100644
+index 1935b4cc..68a22e69 100644
 --- a/nvidia-uvm/uvm_mmu.h
 +++ b/nvidia-uvm/uvm_mmu.h
-@@ -156,7 +156,7 @@ struct uvm_page_directory_struct
+@@ -158,7 +158,7 @@ struct uvm_page_directory_struct
      // pointers to child directories on the host.
      // this array is variable length, so it needs to be last to allow it to
      // take up extra space
@@ -36,7 +36,7 @@ index 8e80ab68..d3f37210 100644
  
  enum
 diff --git a/nvidia-uvm/uvm_pmm_gpu.c b/nvidia-uvm/uvm_pmm_gpu.c
-index 61c591b1..018b054c 100644
+index 1ff0a1ea..cf834aa0 100644
 --- a/nvidia-uvm/uvm_pmm_gpu.c
 +++ b/nvidia-uvm/uvm_pmm_gpu.c
 @@ -220,7 +220,7 @@ struct uvm_pmm_gpu_chunk_suballoc_struct

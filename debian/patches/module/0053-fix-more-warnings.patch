@@ -1,4 +1,4 @@
-From 5af42565ef20eebbee1547065eba3a8710ed9026 Mon Sep 17 00:00:00 2001
+From 59573828b6fa4e4071755e1dbc0f50395c7daf11 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:13:22 +0100
 Subject: [PATCH] fix more warnings
@@ -8,11 +8,10 @@ Subject: [PATCH] fix more warnings
  common/inc/nv-proto.h |  2 +-
  nvidia/nv-frontend.c  |  2 --
  nvidia/nv-frontend.h  |  3 +++
- nvidia/nv-mmap.c      |  1 +
- 5 files changed, 15 insertions(+), 3 deletions(-)
+ 4 files changed, 14 insertions(+), 3 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index 6a46e3d3..9173ad18 100644
+index 29d9330f..c6c74c13 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
 @@ -530,7 +530,9 @@ static inline void *nv_ioremap_cache(NvU64 phys, NvU64 size)
@@ -101,18 +100,6 @@ index 1ce72a0b..ee31f1d5 100644
 +void nvidia_exit_module(void);
 +
  #endif
-diff --git a/nvidia/nv-mmap.c b/nvidia/nv-mmap.c
-index 6bbda3fc..5596c8f9 100644
---- a/nvidia/nv-mmap.c
-+++ b/nvidia/nv-mmap.c
-@@ -354,6 +354,7 @@ int nv_encode_caching(
-             if (NV_ALLOW_CACHING(memory_type))
-                 break;
-             // Intentional fallthrough.
-+            __attribute__((__fallthrough__));
-         default:
-             nv_printf(NV_DBG_ERRORS,
-                 "NVRM: VM: cache type %d not supported for memory type %d!\n",
 -- 
 2.39.5
 

@@ -1,4 +1,4 @@
-From eafc74c123f8ba41d8d61c82b6c704f4d6d0d325 Mon Sep 17 00:00:00 2001
+From 3cb5ca5bf72c007258a62b5ee2383f870996ae62 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 10 Dec 2024 19:53:27 +0100
 Subject: [PATCH] backport uvm warning fixes from 535.146.02
@@ -9,10 +9,10 @@ Subject: [PATCH] backport uvm warning fixes from 535.146.02
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/nvidia-uvm/uvm_va_block.c b/nvidia-uvm/uvm_va_block.c
-index 7b6d8de2..65013de6 100644
+index ef37013e..5e227dba 100644
 --- a/nvidia-uvm/uvm_va_block.c
 +++ b/nvidia-uvm/uvm_va_block.c
-@@ -9837,7 +9837,7 @@ NV_STATUS uvm_va_block_check_logical_permissions(uvm_va_block_t *va_block,
+@@ -10495,7 +10495,7 @@ NV_STATUS uvm_va_block_check_logical_permissions(uvm_va_block_t *va_block,
                                                   uvm_va_block_context_t *va_block_context,
                                                   uvm_processor_id_t processor_id,
                                                   uvm_page_index_t page_index,
@@ -22,10 +22,10 @@ index 7b6d8de2..65013de6 100644
  {
      uvm_va_range_t *va_range = va_block->va_range;
 diff --git a/nvidia-uvm/uvm_va_block.h b/nvidia-uvm/uvm_va_block.h
-index ac8677ed..f48befb4 100644
+index badd55ee..f73b10e8 100644
 --- a/nvidia-uvm/uvm_va_block.h
 +++ b/nvidia-uvm/uvm_va_block.h
-@@ -963,7 +963,7 @@ NV_STATUS uvm_va_block_check_logical_permissions(uvm_va_block_t *va_block,
+@@ -1008,7 +1008,7 @@ NV_STATUS uvm_va_block_check_logical_permissions(uvm_va_block_t *va_block,
                                                   uvm_va_block_context_t *va_block_context,
                                                   uvm_processor_id_t processor_id,
                                                   uvm_page_index_t page_index,
