@@ -89,8 +89,8 @@ Conflicts:
  libgles2-glvnd-nvidia,
  nvidia-legacy-304xx-alternative,
  nvidia-legacy-340xx-alternative,
- nvidia-legacy-390xx-alternative,
- nvidia-tesla-418-alternative,
+ nvidia-legacy-390xx-alternative (<< 390.157-2~),
+ nvidia-tesla-418-alternative (<< 418.226.00-7~),
  nvidia-tesla-450-alternative,
  nvidia-tesla-460-alternative,
  nvidia-tesla-510-alternative,
@@ -116,10 +116,10 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Conflicts:
- firmware-nvidia-gsp-${nvidia:Version} [${nvidia:archlist:gsp}],
+ firmware-nvidia-gsp-${nvidia:Version},
 Provides:
- firmware-${nvidia}-gsp (= ${nvidia:Version}) [${nvidia:archlist:gsp}],
- firmware-nvidia-gsp-${nvidia:Version} [${nvidia:archlist:gsp}],
+ firmware-${nvidia}-gsp (= ${nvidia:Version}),
+ firmware-nvidia-gsp-${nvidia:Version},
 Description: NVIDIA GSP firmware${nvidia:VariantDesc}
  The GPU System Processor (GSP) was first introduced in the Turing
  architecture and supports accelerating tasks traditionally performed
@@ -154,7 +154,7 @@ Multi-Arch: foreign
 Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
- firmware-${nvidia}-gsp (= ${nvidia:Version}) [${nvidia:archlist:gsp}] | firmware-nvidia-gsp-${nvidia:Version} [${nvidia:archlist:gsp}],
+ firmware-${nvidia}-gsp (= ${nvidia:Version}) [!ppc64el] | firmware-nvidia-gsp-${nvidia:Version} [!ppc64el],
  ${nvidia-kernel}-support--v1,
  ${misc:Depends}
 Recommends:
@@ -192,7 +192,7 @@ Depends:
  module-assistant,
  ${misc:Depends}
 Recommends:
- firmware-${nvidia}-gsp (= ${nvidia:Version}) [${nvidia:archlist:gsp}] | firmware-nvidia-gsp-${nvidia:Version} [${nvidia:archlist:gsp}],
+ firmware-${nvidia}-gsp (= ${nvidia:Version}) [!ppc64el] | firmware-nvidia-gsp-${nvidia:Version} [!ppc64el],
  ${nvidia-kernel}-support--v1,
 Suggests:
  ${nvidia}-driver (>= ${nvidia:Version}),
@@ -602,9 +602,8 @@ Depends:
  nvidia-vulkan-common,
  libvulkan1 (>= 1.0.42),
  libglx-${nvidia-}0 (= ${binary:Version}),
- ${misc:Depends}
-Recommends:
  lib${nvidia}-rtcore (= ${binary:Version}) [!i386 !ppc64el],
+ ${misc:Depends}
 Suggests:
  vulkan-tools,
 Enhances:
