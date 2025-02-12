@@ -1,0 +1,25 @@
+From 64ac310160bd2da403bd9c7c534c3bbfb3a09b3c Mon Sep 17 00:00:00 2001
+From: Andreas Beckmann <anbe@debian.org>
+Date: Wed, 12 Feb 2025 11:08:13 +0100
+Subject: [PATCH] backport warning fixes from 550.120
+
+---
+ nvidia-drm/nv-kthread-q.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/nvidia-drm/nv-kthread-q.c b/nvidia-drm/nv-kthread-q.c
+index c3b55705..83bca736 100644
+--- a/nvidia-drm/nv-kthread-q.c
++++ b/nvidia-drm/nv-kthread-q.c
+@@ -176,7 +176,7 @@ static struct task_struct *thread_create_on_node(int (*threadfn)(void *data),
+ {
+ 
+     unsigned i, j;
+-    const static unsigned attempts = 3;
++    static const unsigned attempts = 3;
+     struct task_struct *thread[3];
+ 
+     for (i = 0;; i++) {
+-- 
+2.39.5
+

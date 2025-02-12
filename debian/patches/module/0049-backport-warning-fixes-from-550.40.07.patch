@@ -1,0 +1,33 @@
+From 2fbd05c66d64e59a086c2ad7cbfa0003701e8247 Mon Sep 17 00:00:00 2001
+From: Andreas Beckmann <anbe@debian.org>
+Date: Wed, 12 Feb 2025 11:19:33 +0100
+Subject: [PATCH] backport warning fixes from 550.40.07
+
+---
+ nvidia/nv-vm.c | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/nvidia/nv-vm.c b/nvidia/nv-vm.c
+index 1c7c15ce..0f5dc505 100644
+--- a/nvidia/nv-vm.c
++++ b/nvidia/nv-vm.c
+@@ -516,7 +516,6 @@ NV_STATUS nv_alloc_system_pages(
+ 
+     // Order should be zero except for EGM allocations.
+     unsigned int alloc_page_size = PAGE_SIZE << at->order;
+-    unsigned int alloc_page_shift = BIT_IDX_32(alloc_page_size);
+     unsigned int alloc_num_pages = NV_CEIL(at->num_pages * PAGE_SIZE, alloc_page_size);
+ 
+     unsigned int sub_page_idx;
+@@ -644,8 +643,6 @@ void nv_free_system_pages(
+ 
+     // Order should be zero except for EGM allocations.
+     unsigned int alloc_page_size = PAGE_SIZE << at->order;
+-    unsigned int alloc_page_shift = BIT_IDX_32(alloc_page_size);
+-    unsigned int alloc_num_pages = NV_CEIL(at->num_pages * PAGE_SIZE, alloc_page_size);
+     unsigned int os_pages_in_page = alloc_page_size / PAGE_SIZE;
+ 
+     nv_printf(NV_DBG_MEMINFO,
+-- 
+2.39.5
+

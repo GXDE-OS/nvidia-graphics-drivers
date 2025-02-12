@@ -1,4 +1,4 @@
-From 7811b9a6428eff3d2d5be70c325a903466e6279c Mon Sep 17 00:00:00 2001
+From 17850b1c7ceb2d293d137dced7b18a32768cb090 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:54:59 +0100
 Subject: [PATCH] backport uvm warning fixes from 560.28.03
@@ -84,7 +84,7 @@ index 64262b9b..4a259cfe 100644
  #include "hwref/hopper/gh100/dev_fault.h"
  
 diff --git a/nvidia-uvm/uvm_maxwell_mmu.c b/nvidia-uvm/uvm_maxwell_mmu.c
-index 51e1d313..e55588ae 100644
+index 4f3e0555..7af804aa 100644
 --- a/nvidia-uvm/uvm_maxwell_mmu.c
 +++ b/nvidia-uvm/uvm_maxwell_mmu.c
 @@ -38,6 +38,7 @@
@@ -96,7 +96,7 @@ index 51e1d313..e55588ae 100644
  #include "hwref/maxwell/gm107/dev_mmu.h"
  
 diff --git a/nvidia-uvm/uvm_migrate_pageable.c b/nvidia-uvm/uvm_migrate_pageable.c
-index 44b5e857..55d37412 100644
+index e1605375..3caace31 100644
 --- a/nvidia-uvm/uvm_migrate_pageable.c
 +++ b/nvidia-uvm/uvm_migrate_pageable.c
 @@ -507,7 +507,7 @@ static NV_STATUS migrate_vma_copy_pages(struct vm_area_struct *vma,
@@ -141,10 +141,10 @@ index 44b5e857..55d37412 100644
  static NV_STATUS nv_migrate_vma(struct migrate_vma *args, migrate_vma_state_t *state)
  {
 diff --git a/nvidia-uvm/uvm_mmu.c b/nvidia-uvm/uvm_mmu.c
-index 2fff2c3a..8ec890d7 100644
+index e3d5e1b4..0f065bdc 100644
 --- a/nvidia-uvm/uvm_mmu.c
 +++ b/nvidia-uvm/uvm_mmu.c
-@@ -2189,7 +2189,7 @@ bool uvm_mmu_gpu_needs_dynamic_sysmem_mapping(uvm_gpu_t *gpu)
+@@ -2166,7 +2166,7 @@ bool uvm_mmu_gpu_needs_dynamic_sysmem_mapping(uvm_gpu_t *gpu)
      return uvm_gpu_is_virt_mode_sriov_heavy(gpu);
  }
  
@@ -154,10 +154,10 @@ index 2fff2c3a..8ec890d7 100644
      NvU32 page_size;
      NvU64 size;
 diff --git a/nvidia-uvm/uvm_page_tree_test.c b/nvidia-uvm/uvm_page_tree_test.c
-index 05107617..cf5e51d8 100644
+index a5710e58..2b92645f 100644
 --- a/nvidia-uvm/uvm_page_tree_test.c
 +++ b/nvidia-uvm/uvm_page_tree_test.c
-@@ -1511,7 +1511,7 @@ static uvm_mmu_page_table_alloc_t fake_table_alloc(uvm_aperture_t aperture, NvU6
+@@ -1477,7 +1477,7 @@ static uvm_mmu_page_table_alloc_t fake_table_alloc(uvm_aperture_t aperture, NvU6
  // Queries the supported page sizes of the GPU(uvm_gpu_t) and fills the
  // page_sizes array up to MAX_NUM_PAGE_SIZE. Returns the number of elements in
  // page_sizes;
@@ -182,7 +182,7 @@ index fb02ef28..7479e313 100644
 -    UVM_ASSERT_MSG(false, "fault_buffer_parse_non_replayable_entry called on Pascal GPU\n");
 -}
 diff --git a/nvidia-uvm/uvm_pascal_mmu.c b/nvidia-uvm/uvm_pascal_mmu.c
-index cb77178d..827a15a9 100644
+index 8b17319e..46724e23 100644
 --- a/nvidia-uvm/uvm_pascal_mmu.c
 +++ b/nvidia-uvm/uvm_pascal_mmu.c
 @@ -36,6 +36,7 @@
@@ -194,10 +194,10 @@ index cb77178d..827a15a9 100644
  #include "uvm_pascal_fault_buffer.h"
  #include "hwref/pascal/gp100/dev_fault.h"
 diff --git a/nvidia-uvm/uvm_pmm_sysmem_test.c b/nvidia-uvm/uvm_pmm_sysmem_test.c
-index ec4a630d..b5440a8b 100644
+index 71e06020..55d71fbc 100644
 --- a/nvidia-uvm/uvm_pmm_sysmem_test.c
 +++ b/nvidia-uvm/uvm_pmm_sysmem_test.c
-@@ -1067,7 +1067,9 @@ done:
+@@ -1074,7 +1074,9 @@ done:
      return status;
  }
  
@@ -208,7 +208,7 @@ index ec4a630d..b5440a8b 100644
  {
      NV_STATUS status = NV_OK;
      uvm_cpu_chunk_t **split_chunks;
-@@ -1163,7 +1165,8 @@ done_free:
+@@ -1170,7 +1172,8 @@ done_free:
      return status;
  }
  
@@ -219,7 +219,7 @@ index ec4a630d..b5440a8b 100644
      uvm_cpu_chunk_t *chunk;
      uvm_chunk_sizes_mask_t alloc_sizes = uvm_cpu_chunk_get_allocation_sizes();
 diff --git a/nvidia-uvm/uvm_pmm_test.c b/nvidia-uvm/uvm_pmm_test.c
-index 4c1ee667..71369ea8 100644
+index ec49caad..7b8adaf2 100644
 --- a/nvidia-uvm/uvm_pmm_test.c
 +++ b/nvidia-uvm/uvm_pmm_test.c
 @@ -906,11 +906,11 @@ NV_STATUS uvm_test_pmm_check_leak(UVM_TEST_PMM_CHECK_LEAK_PARAMS *params, struct
