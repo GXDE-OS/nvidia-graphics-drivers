@@ -8,6 +8,7 @@ nvidia-graphics-drivers (545.23.06-4) UNRELEASED; urgency=medium
   * Backport warning fixes from 535.146.02, 535.216.01, 535.230.02, 550.40.07,
     550.90.07, 550.120, 560.28.03 and 565.57.01.
   * nvidia-vulkan-icd: Promote libnvidia-rtcore to Depends. (Closes: #1081314)
+  * Prevent co-installation with EoL drivers from bookworm.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 12 Feb 2025 11:32:56 +0100
 
