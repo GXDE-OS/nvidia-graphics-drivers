@@ -1,4 +1,4 @@
-From dd2aff708d7ceb667aa418902126613693606937 Mon Sep 17 00:00:00 2001
+From 67e1e48ae9aa83b6906feb24ce8b79619264daf6 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 03:20:30 +0100
 Subject: [PATCH] backport warning fixes from 535.216.01
@@ -22,7 +22,7 @@ Subject: [PATCH] backport warning fixes from 535.216.01
  15 files changed, 28 insertions(+), 21 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index 857a5292..ae61dc2a 100644
+index 0870e74a..54bf499c 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
 @@ -499,7 +499,9 @@ static inline void *nv_vmalloc(unsigned long size)
@@ -89,10 +89,10 @@ index 2098f27a..04c99f5b 100644
  
      for (i = 0;; i++) {
 diff --git a/nvidia-modeset/nvidia-modeset-linux.c b/nvidia-modeset/nvidia-modeset-linux.c
-index d8ddef68..9aaf5360 100644
+index f1e8788f..3e9ce8a6 100644
 --- a/nvidia-modeset/nvidia-modeset-linux.c
 +++ b/nvidia-modeset/nvidia-modeset-linux.c
-@@ -1059,7 +1059,7 @@ static void nvkms_kapi_event_kthread_q_callback(void *arg)
+@@ -1081,7 +1081,7 @@ static void nvkms_kapi_event_kthread_q_callback(void *arg)
      nvKmsKapiHandleEventQueueChange(device);
  }
  
@@ -101,7 +101,7 @@ index d8ddef68..9aaf5360 100644
                                           struct NvKmsKapiDevice *device,
                                           int *status)
  {
-@@ -1111,7 +1111,7 @@ failed:
+@@ -1133,7 +1133,7 @@ failed:
      return NULL;
  }
  
@@ -110,7 +110,7 @@ index d8ddef68..9aaf5360 100644
  {
      /*
       * Don't use down_interruptible(): we need to free resources
-@@ -1174,6 +1174,7 @@ static void nvkms_close_popen(struct nvkms_per_open *popen)
+@@ -1196,6 +1196,7 @@ static void nvkms_close_popen(struct nvkms_per_open *popen)
      }
  }
  
@@ -264,7 +264,7 @@ index d4d20076..7e64bad2 100644
      nv_state_t *nv,
      NvU32 err,
 diff --git a/nvidia/nv.c b/nvidia/nv.c
-index df11b476..d8f854fb 100644
+index 860d8972..5bf96daf 100644
 --- a/nvidia/nv.c
 +++ b/nvidia/nv.c
 @@ -1125,12 +1125,6 @@ static int validate_numa_start_state(nv_linux_state_t *nvl)

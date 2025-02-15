@@ -5,7 +5,7 @@ nvidia-graphics-drivers (535.154.05-2) UNRELEASED; urgency=medium
   * Backport file_operations_fop_unsigned_offset_present changes from
     535.230.02.
     (Closes: #1094903, #1095032, #1093246, #1092957, #1089513, #1089811)
-  * Backport warning fixes from 535.146.02,
+  * Backport warning fixes from
     535.216.01, 535.230.02, 550.90.07, 560.28.03 and 565.57.01.
   * nvidia-vulkan-icd: Promote libnvidia-rtcore to Depends. (Closes: #1081314)
   * nvidia-detect: Restrict support to driver series in trixie.
