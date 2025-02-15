@@ -1,4 +1,4 @@
-From 67e1e48ae9aa83b6906feb24ce8b79619264daf6 Mon Sep 17 00:00:00 2001
+From 8ad3ea6171d4aea7c4548de861882634c763e90e Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 03:20:30 +0100
 Subject: [PATCH] backport warning fixes from 535.216.01
@@ -22,7 +22,7 @@ Subject: [PATCH] backport warning fixes from 535.216.01
  15 files changed, 28 insertions(+), 21 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index 0870e74a..54bf499c 100644
+index 53ff64ca..e6223082 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
 @@ -499,7 +499,9 @@ static inline void *nv_vmalloc(unsigned long size)
@@ -229,10 +229,10 @@ index 2098f27a..04c99f5b 100644
  
      for (i = 0;; i++) {
 diff --git a/nvidia/nv-mmap.c b/nvidia/nv-mmap.c
-index a5180e5a..d50eac87 100644
+index 6c64354a..522fc689 100644
 --- a/nvidia/nv-mmap.c
 +++ b/nvidia/nv-mmap.c
-@@ -369,7 +369,7 @@ int nv_encode_caching(
+@@ -368,7 +368,7 @@ int nv_encode_caching(
      return 0;
  }
  
@@ -241,7 +241,7 @@ index a5180e5a..d50eac87 100644
      struct vm_area_struct *vma,
      nv_alloc_t *at,
      NvU64 page_index,
-@@ -390,7 +390,7 @@ int static nvidia_mmap_peer_io(
+@@ -389,7 +389,7 @@ int static nvidia_mmap_peer_io(
      return ret;
  }
  
@@ -264,7 +264,7 @@ index d4d20076..7e64bad2 100644
      nv_state_t *nv,
      NvU32 err,
 diff --git a/nvidia/nv.c b/nvidia/nv.c
-index 860d8972..5bf96daf 100644
+index 4fc7966c..499a55e3 100644
 --- a/nvidia/nv.c
 +++ b/nvidia/nv.c
 @@ -1125,12 +1125,6 @@ static int validate_numa_start_state(nv_linux_state_t *nvl)
@@ -293,7 +293,7 @@ index 95466601..86f6132c 100644
  #include "nv-procfs.h"
  #include "nv-time.h"
 diff --git a/nvidia/os-interface.c b/nvidia/os-interface.c
-index 77b49e65..e2fe1bce 100644
+index 88c54e39..6280bd5c 100644
 --- a/nvidia/os-interface.c
 +++ b/nvidia/os-interface.c
 @@ -367,7 +367,7 @@ NvS32 NV_API_CALL os_string_compare(const char *str1, const char *str2)
