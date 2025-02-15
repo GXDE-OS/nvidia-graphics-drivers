@@ -1,4 +1,4 @@
-From c643f53bcd6a1ed443afed0c8e7c462311591538 Mon Sep 17 00:00:00 2001
+From 40d070c1966900d35533dcaa000ea74b02526064 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 03:13:49 +0100
 Subject: [PATCH] backport drm_output_poll_changed changes from 535.216.01
@@ -10,10 +10,10 @@ Subject: [PATCH] backport drm_output_poll_changed changes from 535.216.01
  3 files changed, 28 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 7aa4f2cc..c285747d 100755
+index f3afecb7..e41620b6 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6265,6 +6265,29 @@ compile_test() {
+@@ -6283,6 +6283,29 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_MEMORY_FAILURE_MF_SW_SIMULATED_DEFINED" "" "types"
          ;;
  

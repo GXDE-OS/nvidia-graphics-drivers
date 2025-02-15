@@ -1,4 +1,4 @@
-From 7811b9a6428eff3d2d5be70c325a903466e6279c Mon Sep 17 00:00:00 2001
+From 4cad785a66fe11ea3c70e8436b159bdf4dd84608 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:54:59 +0100
 Subject: [PATCH] backport uvm warning fixes from 560.28.03
@@ -84,7 +84,7 @@ index 64262b9b..4a259cfe 100644
  #include "hwref/hopper/gh100/dev_fault.h"
  
 diff --git a/nvidia-uvm/uvm_maxwell_mmu.c b/nvidia-uvm/uvm_maxwell_mmu.c
-index 51e1d313..e55588ae 100644
+index d2107844..6610833d 100644
 --- a/nvidia-uvm/uvm_maxwell_mmu.c
 +++ b/nvidia-uvm/uvm_maxwell_mmu.c
 @@ -38,6 +38,7 @@
@@ -96,7 +96,7 @@ index 51e1d313..e55588ae 100644
  #include "hwref/maxwell/gm107/dev_mmu.h"
  
 diff --git a/nvidia-uvm/uvm_migrate_pageable.c b/nvidia-uvm/uvm_migrate_pageable.c
-index 44b5e857..55d37412 100644
+index 6b95e203..ddf6265d 100644
 --- a/nvidia-uvm/uvm_migrate_pageable.c
 +++ b/nvidia-uvm/uvm_migrate_pageable.c
 @@ -507,7 +507,7 @@ static NV_STATUS migrate_vma_copy_pages(struct vm_area_struct *vma,
@@ -141,10 +141,10 @@ index 44b5e857..55d37412 100644
  static NV_STATUS nv_migrate_vma(struct migrate_vma *args, migrate_vma_state_t *state)
  {
 diff --git a/nvidia-uvm/uvm_mmu.c b/nvidia-uvm/uvm_mmu.c
-index 2fff2c3a..8ec890d7 100644
+index 6379fd2d..818b8dfc 100644
 --- a/nvidia-uvm/uvm_mmu.c
 +++ b/nvidia-uvm/uvm_mmu.c
-@@ -2189,7 +2189,7 @@ bool uvm_mmu_gpu_needs_dynamic_sysmem_mapping(uvm_gpu_t *gpu)
+@@ -2287,7 +2287,7 @@ bool uvm_mmu_gpu_needs_dynamic_sysmem_mapping(uvm_gpu_t *gpu)
      return uvm_gpu_is_virt_mode_sriov_heavy(gpu);
  }
  
@@ -154,7 +154,7 @@ index 2fff2c3a..8ec890d7 100644
      NvU32 page_size;
      NvU64 size;
 diff --git a/nvidia-uvm/uvm_page_tree_test.c b/nvidia-uvm/uvm_page_tree_test.c
-index 05107617..cf5e51d8 100644
+index 782ac511..ae8e91ea 100644
 --- a/nvidia-uvm/uvm_page_tree_test.c
 +++ b/nvidia-uvm/uvm_page_tree_test.c
 @@ -1511,7 +1511,7 @@ static uvm_mmu_page_table_alloc_t fake_table_alloc(uvm_aperture_t aperture, NvU6
@@ -182,7 +182,7 @@ index fb02ef28..7479e313 100644
 -    UVM_ASSERT_MSG(false, "fault_buffer_parse_non_replayable_entry called on Pascal GPU\n");
 -}
 diff --git a/nvidia-uvm/uvm_pascal_mmu.c b/nvidia-uvm/uvm_pascal_mmu.c
-index cb77178d..827a15a9 100644
+index 52db0469..e67a7037 100644
 --- a/nvidia-uvm/uvm_pascal_mmu.c
 +++ b/nvidia-uvm/uvm_pascal_mmu.c
 @@ -36,6 +36,7 @@
