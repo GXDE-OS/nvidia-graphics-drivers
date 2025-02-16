@@ -1,4 +1,4 @@
-From 028f412c4f5757d9995d8cd1e1fa5211209b9a52 Mon Sep 17 00:00:00 2001
+From cc856a6513272d615c23a0003557d793e0ee7bbb Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 23 Jul 2024 21:49:33 +0200
 Subject: [PATCH] backport follow_pfn changes from 550.90.07
@@ -10,10 +10,10 @@ Subject: [PATCH] backport follow_pfn changes from 550.90.07
  3 files changed, 13 insertions(+), 12 deletions(-)
 
 diff --git a/conftest.sh b/conftest.sh
-index f9e62dc0..64d27e7e 100755
+index 376b2275..20e57d8e 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -5145,22 +5145,23 @@ compile_test() {
+@@ -5181,22 +5181,23 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_PCI_CLASS_MULTIMEDIA_HD_AUDIO_PRESENT" "" "generic"
          ;;
  
@@ -46,7 +46,7 @@ index f9e62dc0..64d27e7e 100755
              #
              # Determine if drm_plane_helper_funcs::atomic_check takes 'state'
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 5766c922..e6e4254e 100644
+index 5248673c..a35d1c89 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -161,7 +161,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pci_enable_atomic_ops_to_root
