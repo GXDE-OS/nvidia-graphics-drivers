@@ -35,7 +35,7 @@ nvidia-graphics-drivers (535.183.06-1) unstable; urgency=medium
   * Use pfn_valid() variant with rcu_read_{,un}lock_sched() from Linux 6.8-rc3
     in virt_addr_valid() for Linux 5.10.210 - 5.10.999 to avoid using GPL
     symbols on ppc64el.
-  * bug-script: Report 'apt-cache policy' (535.183.06-1).
+  * bug-script: Report 'apt-cache policy'.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Aug 2024 07:51:39 +0200
 
