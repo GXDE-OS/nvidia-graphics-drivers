@@ -13,7 +13,7 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
 
 --- a/Kbuild
 +++ b/Kbuild
-@@ -154,6 +154,16 @@ NV_CFLAGS_FROM_CONFTEST := $(shell $(NV_
+@@ -168,6 +168,16 @@ NV_CFLAGS_FROM_CONFTEST := $(shell $(NV_
  NV_CONFTEST_CFLAGS = $(NV_CFLAGS_FROM_CONFTEST) $(EXTRA_CFLAGS) -fno-pie
  NV_CONFTEST_CFLAGS += $(call cc-disable-warning,pointer-sign)
  NV_CONFTEST_CFLAGS += $(call cc-option,-fshort-wchar,)
