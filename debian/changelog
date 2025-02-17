@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (545.23.06-4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (545.23.06-4) experimental; urgency=medium
 
   * Backport drm_output_poll_changed changes from 535.216.01 to fix kernel
     module build for Linux 6.12.
@@ -10,7 +10,7 @@ nvidia-graphics-drivers (545.23.06-4) UNRELEASED; urgency=medium
   * nvidia-vulkan-icd: Promote libnvidia-rtcore to Depends. (Closes: #1081314)
   * Prevent co-installation with EoL drivers from bookworm.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 12 Feb 2025 11:32:56 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 17 Feb 2025 13:19:12 +0100
 
 nvidia-graphics-drivers (545.23.06-3) experimental; urgency=medium
 
