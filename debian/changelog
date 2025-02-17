@@ -1,3 +1,13 @@
+nvidia-graphics-drivers (535.230.02-1) UNRELEASED; urgency=medium
+
+  * New upstream LTS and Tesla branch release 535.230.02 (2025-01-16).
+    * Fixed CVE-2024-0150, CVE-2024-0147, CVE-2024-53869, CVE-2024-0131,
+      CVE-2024-0149.  (Closes: #1093908)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/5614
+    * Improved compatibility with recent Linux kernels.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 17 Feb 2025 10:54:02 +0100
+
 nvidia-graphics-drivers (535.216.03-4) unstable; urgency=medium
 
   * nvidia-driver-full: Relax nvidia-cuda-mps dependency on ppc64el.
