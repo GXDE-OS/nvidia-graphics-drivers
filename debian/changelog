@@ -6,6 +6,9 @@ nvidia-graphics-drivers (535.230.02-1) UNRELEASED; urgency=medium
       https://nvidia.custhelp.com/app/answers/detail/a_id/5614
     * Improved compatibility with recent Linux kernels.
 
+  [ Andreas Beckmann ]
+  * Refresh patches.
+
  -- Andreas Beckmann <anbe@debian.org>  Mon, 17 Feb 2025 10:54:02 +0100
 
 nvidia-graphics-drivers (535.216.03-4) unstable; urgency=medium
