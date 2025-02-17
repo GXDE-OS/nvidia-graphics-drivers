@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (535.216.03-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (535.216.03-2) unstable; urgency=medium
 
   * Backport file_operations_fop_unsigned_offset_present changes from
     535.230.02.
@@ -7,7 +7,7 @@ nvidia-graphics-drivers (535.216.03-2) UNRELEASED; urgency=medium
     565.57.01.
   * nvidia-vulkan-icd: Promote libnvidia-rtcore to Depends. (Closes: #1081314)
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Aug 2024 00:40:01 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 17 Feb 2025 10:44:43 +0100
 
 nvidia-graphics-drivers (535.216.03-1) unstable; urgency=medium
 
