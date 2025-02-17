@@ -3,7 +3,7 @@ Description: dump the generated conftest headers
 
 --- a/Kbuild
 +++ b/Kbuild
-@@ -166,6 +166,17 @@ NV_CONFTEST_HEADERS += $(obj)/conftest/h
+@@ -180,6 +180,17 @@ NV_CONFTEST_HEADERS += $(obj)/conftest/h
  NV_CONFTEST_HEADERS += $(NV_CONFTEST_COMPILE_TEST_HEADERS)
  
  

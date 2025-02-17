@@ -1,4 +1,4 @@
-From c872527cd8aa9d7876e49998f477f28e2d0d82be Mon Sep 17 00:00:00 2001
+From 23b987c0d375bf84ea2c1bbe0a16fd6974e3d5c0 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:13:22 +0100
 Subject: [PATCH] fix more warnings
@@ -12,10 +12,10 @@ Subject: [PATCH] fix more warnings
  5 files changed, 14 insertions(+), 3 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index ae61dc2a..d9ca4537 100644
+index 433e5587..54b2ce17 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -600,21 +600,27 @@ static NvBool nv_numa_node_has_memory(int node_id)
+@@ -598,21 +598,27 @@ static NvBool nv_numa_node_has_memory(int node_id)
      { \
          (ptr) = kmalloc(size, NV_GFP_KERNEL); \
          if (ptr) \
@@ -43,7 +43,7 @@ index ae61dc2a..d9ca4537 100644
      }
  
  #if defined(__GFP_RETRY_MAYFAIL)
-@@ -629,7 +635,9 @@ static NvBool nv_numa_node_has_memory(int node_id)
+@@ -627,7 +633,9 @@ static NvBool nv_numa_node_has_memory(int node_id)
      { \
          (ptr) = kmalloc(size, NV_GFP_NO_OOM); \
          if (ptr) \
