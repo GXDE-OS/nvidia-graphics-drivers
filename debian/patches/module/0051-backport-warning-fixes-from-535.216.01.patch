@@ -1,4 +1,4 @@
-From 4670a43c72d73c3a049bc7d331409426a15ff839 Mon Sep 17 00:00:00 2001
+From 2735b302a1e5962685b49be1bfe6fca1ef2c05d9 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 03:20:30 +0100
 Subject: [PATCH] backport warning fixes from 535.216.01
@@ -89,10 +89,10 @@ index c3b55705..83bca736 100644
  
      for (i = 0;; i++) {
 diff --git a/nvidia-modeset/nvidia-modeset-linux.c b/nvidia-modeset/nvidia-modeset-linux.c
-index 9a3fe17f..2b6c94d3 100644
+index 18f47ee6..9b21b580 100644
 --- a/nvidia-modeset/nvidia-modeset-linux.c
 +++ b/nvidia-modeset/nvidia-modeset-linux.c
-@@ -1077,7 +1077,7 @@ static void nvkms_kapi_event_kthread_q_callback(void *arg)
+@@ -1091,7 +1091,7 @@ static void nvkms_kapi_event_kthread_q_callback(void *arg)
      nvKmsKapiHandleEventQueueChange(device);
  }
  
@@ -101,7 +101,7 @@ index 9a3fe17f..2b6c94d3 100644
                                           struct NvKmsKapiDevice *device,
                                           int *status)
  {
-@@ -1129,7 +1129,7 @@ failed:
+@@ -1143,7 +1143,7 @@ failed:
      return NULL;
  }
  
@@ -110,7 +110,7 @@ index 9a3fe17f..2b6c94d3 100644
  {
      /*
       * Don't use down_interruptible(): we need to free resources
-@@ -1192,6 +1192,7 @@ static void nvkms_close_popen(struct nvkms_per_open *popen)
+@@ -1206,6 +1206,7 @@ static void nvkms_close_popen(struct nvkms_per_open *popen)
      }
  }
  
