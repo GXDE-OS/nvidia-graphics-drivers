@@ -1,5 +1,7 @@
 nvidia-graphics-drivers (545.23.06-4) experimental; urgency=medium
 
+  * Backport module_import_ns_takes_constant changes from 570.86.16 to fix
+    open kernel module build for Linux 6.13.
   * Backport drm_output_poll_changed changes from 535.216.01 to fix kernel
     module build for Linux 6.12.
   * Backport file_operations_fop_unsigned_offset_present changes from
