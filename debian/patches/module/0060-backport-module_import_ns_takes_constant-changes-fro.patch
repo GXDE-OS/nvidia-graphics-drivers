@@ -1,4 +1,4 @@
-From a2e458de3a650d77f44d7b7d0519f0a52c552893 Mon Sep 17 00:00:00 2001
+From cb49c28ae7cc0a4089823895bf15f4c21b63551b Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Fri, 21 Feb 2025 10:21:42 +0100
 Subject: [PATCH] backport module_import_ns_takes_constant changes from
@@ -10,10 +10,10 @@ Subject: [PATCH] backport module_import_ns_takes_constant changes from
  2 files changed, 18 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 944229b2..7bdbc48e 100755
+index f3654408..59bafb27 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6418,6 +6418,23 @@ compile_test() {
+@@ -6692,6 +6692,23 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DRM_UNLOCKED_IOCTL_FLAG_PRESENT" "" "types"
          ;;
  
@@ -35,8 +35,8 @@ index 944229b2..7bdbc48e 100755
 +        ;;
 +
          # When adding a new conftest entry, please use the correct format for
-         # specifying the relevant upstream Linux kernel commit.
-         #
+         # specifying the relevant upstream Linux kernel commit.  Please
+         # avoid specifying -rc kernels, and only use SHAs that actually exist
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
 index 30f5e147..de97c7d8 100644
 --- a/nvidia/nvidia.Kbuild
