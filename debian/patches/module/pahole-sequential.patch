@@ -1,0 +1,30 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: force sequential pahole to work around a deadlock
+ pahole bug #1100503
+
+--- a/Makefile
++++ b/Makefile
+@@ -60,6 +60,9 @@ else
+   # workaround an DW_TAG_rvalue_reference_type error in
+   # kernel/nvidia-modeset.ko.
+   #
++  # Also run pahole sequentially ('-j1') to work around a deadlock (#1100503).
++  # Do not add it as a single string to avoid misparsing $(filter -j%,$(MAKEFLAGS)).
++  #
+   # BEGIN {
+   #     pahole_cmd = "pahole"
+   #     for (i = 1; i < ARGC; i++) {
+@@ -69,9 +72,11 @@ else
+   #             pahole_cmd = pahole_cmd sprintf(" %s", ARGV[i])
+   #         }
+   #     }
+-  #     system(pahole_cmd)
++  #     pahole_cmd = pahole_cmd " -" "j1"
++  #     print "  + " pahole_cmd
++  #     exit system(pahole_cmd)
+   # }
+-  PAHOLE_AWK_PROGRAM = BEGIN { pahole_cmd = \"pahole\"; for (i = 1; i < ARGC; i++) { if (ARGV[i] ~ /--lang_exclude=/) { pahole_cmd = pahole_cmd sprintf(\" %s,c++\", ARGV[i]); } else { pahole_cmd = pahole_cmd sprintf(\" %s\", ARGV[i]); } } system(pahole_cmd); }
++  PAHOLE_AWK_PROGRAM = BEGIN { pahole_cmd = \"pahole\"; for (i = 1; i < ARGC; i++) { if (ARGV[i] ~ /--lang_exclude=/) { pahole_cmd = pahole_cmd sprintf(\" %s,c++\", ARGV[i]); } else { pahole_cmd = pahole_cmd sprintf(\" %s\", ARGV[i]); } } pahole_cmd = pahole_cmd \" -\" \"j1\"; print \"  + \" pahole_cmd; exit system(pahole_cmd); }
+   # If scripts/pahole-flags.sh is not present in the kernel tree, add PAHOLE and
+   # PAHOLE_AWK_PROGRAM assignments to PAHOLE_VARIABLES; otherwise assign the
+   # empty string to PAHOLE_VARIABLES.

@@ -30,9 +30,11 @@ bashisms.patch
 0059-backport-uvm-warning-fixes-from-550.90.07.patch
 0060-backport-module_import_ns_takes_constant-changes-fro.patch
 0061-backport-folio_test_swapcache-changes-from-565.57.01.patch
+0062-Support-BTF-generation-for-non-release-builds.patch
 
 # build system updates
 conftest-verbose.patch
 use-kbuild-compiler.patch
 use-kbuild-flags.patch
 conftest-prefer-arch-headers.patch
+pahole-sequential.patch
