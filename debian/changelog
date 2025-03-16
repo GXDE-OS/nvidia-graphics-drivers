@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (545.23.06-5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (545.23.06-5) experimental; urgency=medium
 
   * Backport folio_test_swapcache changes from 565.57.01 and
     module_import_ns_takes_constant changes from 570.86.16 to fix open kernel
@@ -6,7 +6,7 @@ nvidia-graphics-drivers (545.23.06-5) UNRELEASED; urgency=medium
   * Work around a pahole deadlock while generating btf debug info for the open
     kernel module.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 16 Mar 2025 10:31:11 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 16 Mar 2025 10:48:32 +0100
 
 nvidia-graphics-drivers (545.23.06-4) experimental; urgency=medium
 
