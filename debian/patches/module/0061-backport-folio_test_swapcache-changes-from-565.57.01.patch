@@ -1,4 +1,4 @@
-From d61965d4e328174f7895540b9589e037fc31a29c Mon Sep 17 00:00:00 2001
+From 98cfccf422efe1fedbcdad8f118f31cdc48e3c5a Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sat, 15 Mar 2025 11:22:03 +0100
 Subject: [PATCH] backport folio_test_swapcache changes from 565.57.01
@@ -9,11 +9,11 @@ Subject: [PATCH] backport folio_test_swapcache changes from 565.57.01
  2 files changed, 17 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 7bdbc48e..3d092f1b 100755
+index 89ad9840..8f7faeec 100755
 --- a/conftest.sh
 +++ b/conftest.sh
 @@ -6435,6 +6435,22 @@ compile_test() {
-             compile_check_conftest "$CODE" "NV_MODULE_IMPORT_NS_TAKES_CONSTANT" "" "generic"
+             compile_check_conftest "$CODE" "NV_DRM_UNLOCKED_IOCTL_FLAG_PRESENT" "" "types"
          ;;
  
 +    folio_test_swapcache)
