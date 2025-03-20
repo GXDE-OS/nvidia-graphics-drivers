@@ -31,6 +31,7 @@ bashisms.patch
 0060-backport-module_import_ns_takes_string_literal-chang.patch
 0061-backport-folio_test_swapcache-changes-from-565.57.01.patch
 0062-Support-BTF-generation-for-non-release-builds.patch
+0063-backport-crypto_akcipher_verify-changes-from-550.144.patch
 
 # build system updates
 conftest-verbose.patch
