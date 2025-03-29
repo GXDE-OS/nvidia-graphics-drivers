@@ -1,4 +1,4 @@
-From 5b2abee49d3735ebe20f03e64e763657ea3b76c5 Mon Sep 17 00:00:00 2001
+From 8b093946e37a56d6ad6b1a0b3eda08d48db08b7a Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 27 Mar 2025 19:11:23 +0100
 Subject: [PATCH] backport drm_driver_has_date from 570.124.04
@@ -10,10 +10,10 @@ Subject: [PATCH] backport drm_driver_has_date from 570.124.04
  3 files changed, 28 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index f115216d..96f5c250 100755
+index 7105b43b..c7741216 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -4470,6 +4470,30 @@ compile_test() {
+@@ -4694,6 +4694,30 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DRM_UNLOCKED_IOCTL_FLAG_PRESENT" "" "types"
          ;;
  
@@ -45,10 +45,10 @@ index f115216d..96f5c250 100755
          # specifying the relevant upstream Linux kernel commit.
          #
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index 7de9dc79..5478e5b1 100644
+index 5a7bea8a..d516df85 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
-@@ -764,7 +764,10 @@ static struct drm_driver nv_drm_driver = {
+@@ -808,7 +808,10 @@ static struct drm_driver nv_drm_driver = {
      .name                   = "nvidia-drm",
  
      .desc                   = "NVIDIA DRM driver",
@@ -60,10 +60,10 @@ index 7de9dc79..5478e5b1 100644
  #if defined(NV_DRM_DRIVER_HAS_DEVICE_LIST)
      .device_list            = LIST_HEAD_INIT(nv_drm_driver.device_list),
 diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index 11e5ac3c..1aa1fd62 100644
+index 64ec3da2..43cd7634 100644
 --- a/nvidia-drm/nvidia-drm.Kbuild
 +++ b/nvidia-drm/nvidia-drm.Kbuild
-@@ -110,4 +110,5 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_has_override_edid
+@@ -114,4 +114,5 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += vm_area_struct_has_const_vm_flags
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_dumb_destroy
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed
