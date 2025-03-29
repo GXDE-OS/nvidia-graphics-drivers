@@ -7,7 +7,7 @@ nvidia-graphics-drivers (460.106.00-20) UNRELEASED; urgency=medium
   * nvidia-vulkan-icd: Promote libnvidia-rtcore to Depends.
   * Bump Standards-Version to 4.7.2. No changes needed.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 29 Mar 2025 19:06:04 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 29 Mar 2025 23:55:37 +0100
 
 nvidia-graphics-drivers (460.106.00-19) UNRELEASED; urgency=medium
 
