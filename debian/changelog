@@ -5,8 +5,7 @@ nvidia-graphics-drivers (535.113.01-2) UNRELEASED; urgency=medium
   * Backport module_import_ns_takes_string_literal and crypto_akcipher_verify
     changes from 550.144.03 and folio_test_swapcache changes from 565.57.01 to
     fix open kernel module build for Linux 6.13.
-  * Work around a pahole deadlock while generating btf debug info for the open
-    kernel module.
+  * Let pahole ignore language c++11 for BTF generation.
   * Bump Standards-Version to 4.7.2. No changes needed.
   * Backport cmd_symlink changes from 550.142 to fix kernel module build for
     Linux 6.13.

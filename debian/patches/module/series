@@ -39,4 +39,3 @@ conftest-verbose.patch
 use-kbuild-compiler.patch
 use-kbuild-flags.patch
 conftest-prefer-arch-headers.patch
-pahole-sequential.patch
