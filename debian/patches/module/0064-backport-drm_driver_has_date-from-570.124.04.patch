@@ -1,4 +1,4 @@
-From d4632db196be9bcec91d8ee81b500f55b100f391 Mon Sep 17 00:00:00 2001
+From 07c60facd01075b91d5a233b08f0842c1d11e4b1 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 27 Mar 2025 19:11:23 +0100
 Subject: [PATCH] backport drm_driver_has_date from 570.124.04
@@ -10,10 +10,10 @@ Subject: [PATCH] backport drm_driver_has_date from 570.124.04
  3 files changed, 28 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 212b5abb..6938d90d 100755
+index 16c5b51f..6a6b2cb0 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6492,6 +6492,30 @@ compile_test() {
+@@ -6766,6 +6766,30 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_FOLIO_TEST_SWAPCACHE_PRESENT" "" "functions"
          ;;
  
@@ -42,13 +42,13 @@ index 212b5abb..6938d90d 100755
 +        ;;
 +
          # When adding a new conftest entry, please use the correct format for
-         # specifying the relevant upstream Linux kernel commit.
-         #
+         # specifying the relevant upstream Linux kernel commit.  Please
+         # avoid specifying -rc kernels, and only use SHAs that actually exist
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index e5c7d9b4..0f0f1286 100644
+index 39a3ced5..68808204 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
-@@ -1439,7 +1439,10 @@ static struct drm_driver nv_drm_driver = {
+@@ -1644,7 +1644,10 @@ static struct drm_driver nv_drm_driver = {
      .name                   = "nvidia-drm",
  
      .desc                   = "NVIDIA DRM driver",
@@ -60,11 +60,11 @@ index e5c7d9b4..0f0f1286 100644
  #if defined(NV_DRM_DRIVER_HAS_DEVICE_LIST)
      .device_list            = LIST_HEAD_INIT(nv_drm_driver.device_list),
 diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index 90592230..9cd7134f 100644
+index 0ed85397..feb45b68 100644
 --- a/nvidia-drm/nvidia-drm.Kbuild
 +++ b/nvidia-drm/nvidia-drm.Kbuild
-@@ -135,4 +135,5 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += vm_area_struct_has_const_vm_flags
- NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_dumb_destroy
+@@ -150,4 +150,5 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_aperture_remove_conflicting_pci_framebuffe
+ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_mode_create_dp_colorspace_property_has_supported_colorspaces_arg
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed
 +NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_date
