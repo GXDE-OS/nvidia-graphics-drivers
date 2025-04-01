@@ -1,4 +1,4 @@
-From 98cfccf422efe1fedbcdad8f118f31cdc48e3c5a Mon Sep 17 00:00:00 2001
+From c01a9da9557797ea8f357942a85dc769361c6f93 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sat, 15 Mar 2025 11:22:03 +0100
 Subject: [PATCH] backport folio_test_swapcache changes from 565.57.01
@@ -9,10 +9,10 @@ Subject: [PATCH] backport folio_test_swapcache changes from 565.57.01
  2 files changed, 17 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 89ad9840..8f7faeec 100755
+index 0fedea9e..004e09ce 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6435,6 +6435,22 @@ compile_test() {
+@@ -6453,6 +6453,22 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DRM_UNLOCKED_IOCTL_FLAG_PRESENT" "" "types"
          ;;
  
@@ -36,7 +36,7 @@ index 89ad9840..8f7faeec 100755
          # specifying the relevant upstream Linux kernel commit.
          #
 diff --git a/nvidia-uvm/nvidia-uvm.Kbuild b/nvidia-uvm/nvidia-uvm.Kbuild
-index 9c4d04ce..88dc9621 100644
+index a38de216..a847e9eb 100644
 --- a/nvidia-uvm/nvidia-uvm.Kbuild
 +++ b/nvidia-uvm/nvidia-uvm.Kbuild
 @@ -86,6 +86,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += mmget_not_zero
