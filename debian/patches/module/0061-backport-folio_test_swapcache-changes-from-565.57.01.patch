@@ -9,11 +9,11 @@ Subject: [PATCH] backport folio_test_swapcache changes from 565.57.01
  2 files changed, 17 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 59bafb27..67c90995 100755
+index 89ad9840..8f7faeec 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6709,6 +6709,22 @@ compile_test() {
-             compile_check_conftest "$CODE" "NV_MODULE_IMPORT_NS_TAKES_CONSTANT" "" "generic"
+@@ -6435,6 +6435,22 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_DRM_UNLOCKED_IOCTL_FLAG_PRESENT" "" "types"
          ;;
  
 +    folio_test_swapcache)
