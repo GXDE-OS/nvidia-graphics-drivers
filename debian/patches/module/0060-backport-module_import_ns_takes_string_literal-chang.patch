@@ -1,4 +1,4 @@
-From e5d2741095743a88957a68951154b26be4fe858a Mon Sep 17 00:00:00 2001
+From 4d4a85ac68323033f4998738e38872519f8226c7 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Fri, 21 Feb 2025 10:21:42 +0100
 Subject: [PATCH] backport module_import_ns_takes_string_literal changes from
@@ -10,10 +10,10 @@ Subject: [PATCH] backport module_import_ns_takes_string_literal changes from
  2 files changed, 18 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 879e84b3..f648798c 100755
+index 0cfcfde1..33e4704e 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -5405,6 +5405,23 @@ compile_test() {
+@@ -5425,6 +5425,23 @@ compile_test() {
              else
                  echo "#undef NV_OF_PROPERTY_READ_VARIABLE_U32_ARRAY_PRESENT" | append_conftest "functions"
              fi
@@ -38,7 +38,7 @@ index 879e84b3..f648798c 100755
  
          devm_of_platform_populate)
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 627de36e..0a9aaaeb 100644
+index 8782ddec..bab9e87d 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -193,6 +193,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += get_task_ioprio
