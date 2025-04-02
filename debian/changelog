@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (535.216.03-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (535.216.03-3) unstable; urgency=medium
 
   * Backport drm_driver_has_date changes from 570.124.04 to fix kernel module
     build for Linux 6.14.
@@ -8,7 +8,7 @@ nvidia-graphics-drivers (535.216.03-3) UNRELEASED; urgency=medium
   * Let pahole ignore language c++11 for BTF generation.
   * Bump Standards-Version to 4.7.2. No changes needed.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 02 Apr 2025 15:17:05 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 02 Apr 2025 20:43:20 +0200
 
 nvidia-graphics-drivers (535.216.03-2) unstable; urgency=medium
 
