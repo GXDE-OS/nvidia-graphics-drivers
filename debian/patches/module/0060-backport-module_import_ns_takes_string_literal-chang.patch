@@ -1,4 +1,4 @@
-From 4d238ee30c7f393131a24c43a126472de73c0a88 Mon Sep 17 00:00:00 2001
+From a6ffc23f02af1793b9ac5059fe871cdb7ee6a0ae Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Fri, 21 Feb 2025 10:21:42 +0100
 Subject: [PATCH] backport module_import_ns_takes_string_literal changes from
@@ -10,10 +10,10 @@ Subject: [PATCH] backport module_import_ns_takes_string_literal changes from
  2 files changed, 18 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 22913e8d..69880b38 100755
+index 49003b46..ac68c360 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -5461,6 +5461,23 @@ compile_test() {
+@@ -5478,6 +5478,23 @@ compile_test() {
              else
                  echo "#undef NV_OF_PROPERTY_READ_VARIABLE_U32_ARRAY_PRESENT" | append_conftest "functions"
              fi
