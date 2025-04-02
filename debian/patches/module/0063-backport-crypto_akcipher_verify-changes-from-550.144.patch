@@ -1,4 +1,4 @@
-From 4fd827ef180f88911f239d4320c49a12c3eeffc4 Mon Sep 17 00:00:00 2001
+From 9513266ec23cdc8f5ad2b1eef7e4fc5a07e7d748 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 20 Mar 2025 05:41:58 +0100
 Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
@@ -10,7 +10,7 @@ Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
  3 files changed, 45 insertions(+), 1 deletion(-)
 
 diff --git a/Kbuild b/Kbuild
-index 46bc50d4..a40d51fa 100644
+index 1539dcd5..e35bb38a 100644
 --- a/Kbuild
 +++ b/Kbuild
 @@ -322,7 +322,8 @@ NV_HEADER_PRESENCE_TESTS = \
@@ -24,10 +24,10 @@ index 46bc50d4..a40d51fa 100644
  # Filename to store the define for the header in $(1); this is only consumed by
  # the rule below that concatenates all of these together.
 diff --git a/conftest.sh b/conftest.sh
-index e57d489a..6e72172d 100755
+index fd46641c..0dba6306 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6406,6 +6406,47 @@ compile_test() {
+@@ -6442,6 +6442,47 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_CRYPTO_PRESENT" "" "symbols"
          ;;
  
@@ -76,7 +76,7 @@ index e57d489a..6e72172d 100755
              #
              # Determine if the 'mempolicy' structure has
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index bab9e87d..da92a729 100644
+index 5f2b6aa9..e8f6a610 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -226,6 +226,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_alloc_me
