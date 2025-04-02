@@ -1,4 +1,4 @@
-From d32e688588f9d2a4c64ce18ccd5a7db5511f7613 Mon Sep 17 00:00:00 2001
+From 9f2aeb00a9bfce07ecf296944c5a7a59a04855c2 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 20 Mar 2025 05:41:58 +0100
 Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
@@ -10,7 +10,7 @@ Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
  3 files changed, 45 insertions(+), 1 deletion(-)
 
 diff --git a/Kbuild b/Kbuild
-index a9d43c16..6b4f81d5 100644
+index d6d824a8..4e63ddd1 100644
 --- a/Kbuild
 +++ b/Kbuild
 @@ -322,7 +322,8 @@ NV_HEADER_PRESENCE_TESTS = \
@@ -76,14 +76,15 @@ index 2e66fc24..e099b480 100755
              #
              # Determine if the 'mempolicy' structure has
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 5f2b6aa9..e8f6a610 100644
+index 109fb7d3..17e7e563 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -226,6 +226,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_alloc_me
+@@ -226,7 +226,9 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_alloc_me
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_free_gscco_mem
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_memory_block_size_bytes
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto_akcipher_verify
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_follow_pte
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += ecc_digits_from_bytes
  
  NV_CONFTEST_TYPE_COMPILE_TESTS += dma_ops
