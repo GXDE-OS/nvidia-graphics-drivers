@@ -1,4 +1,4 @@
-From b14ce1562e26c36066a39ce1fced0ad5b43a5365 Mon Sep 17 00:00:00 2001
+From bf453078dd30cb049a5c0dd0e8cd842187ede98b Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 20 Mar 2025 05:41:58 +0100
 Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
@@ -10,7 +10,7 @@ Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
  3 files changed, 45 insertions(+), 1 deletion(-)
 
 diff --git a/Kbuild b/Kbuild
-index e9951275..b461fcdf 100644
+index 4276b58e..be17d0ad 100644
 --- a/Kbuild
 +++ b/Kbuild
 @@ -320,7 +320,8 @@ NV_HEADER_PRESENCE_TESTS = \
@@ -24,10 +24,10 @@ index e9951275..b461fcdf 100644
  # Filename to store the define for the header in $(1); this is only consumed by
  # the rule below that concatenates all of these together.
 diff --git a/conftest.sh b/conftest.sh
-index 56c4def1..161df4f8 100755
+index 73b37fc8..cf3f92be 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6380,6 +6380,47 @@ compile_test() {
+@@ -6386,6 +6386,47 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_CRYPTO_PRESENT" "" "symbols"
          ;;
  
