@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (545.29.06-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (545.29.06-1) experimental; urgency=medium
 
   * New upstream new feature branch release 545.29.06 (2023-11-22).
     - Fixed a regression that prevented setting backlight brightness levels.
@@ -11,7 +11,7 @@ nvidia-graphics-drivers (545.29.06-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Refresh patches.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 16 Nov 2023 11:06:51 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 15 Apr 2025 22:15:51 +0200
 
 nvidia-graphics-drivers (545.23.06-6) experimental; urgency=medium
 
