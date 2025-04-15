@@ -5,7 +5,6 @@ bashisms.patch
 0001-bump-minimum-supported-kernel-version-to-3.10.patch
 0002-conftest.sh-remove-empty-lines-from-uts_release-outp.patch
 0034-fix-typos.patch
-0035-backport-nv_request_msix_irq-fixes-from-470.239.06.patch
 0036-backport-pfn_valid-changes-in-nv-mmap.c-from-470.239.patch
 0037-import-pfn_valid-w-o-GPL-rcu_read_lock-unlock-from-v.patch
 0038-backport-drm_unlocked_ioctl_flag_present-changes-fro.patch
