@@ -14,8 +14,6 @@ bashisms.patch
 0059-backport-uvm-warning-fixes-from-550.90.07.patch
 0060-backport-module_import_ns_takes_string_literal-chang.patch
 0062-Support-BTF-generation-for-non-release-builds.patch
-0063-backport-crypto_akcipher_verify-changes-from-550.144.patch
-0064-backport-drm_driver_has_date-from-570.124.04.patch
 
 # build system updates
 conftest-verbose.patch
