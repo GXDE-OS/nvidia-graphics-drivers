@@ -76,10 +76,10 @@ index 716534d9..16c5b51f 100755
              #
              # Determine if the 'mempolicy' structure has
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 4a41d339..72ca20d8 100644
+index 0a9aaaeb..58a86495 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -225,6 +225,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_alloc_me
+@@ -226,6 +226,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_alloc_me
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_free_gscco_mem
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_memory_block_size_bytes
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto

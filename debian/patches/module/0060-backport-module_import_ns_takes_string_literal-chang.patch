@@ -38,13 +38,13 @@ index f3654408..41209849 100755
  
          devm_of_platform_populate)
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 30f5e147..4a41d339 100644
+index 627de36e..0a9aaaeb 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -192,6 +192,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += devm_clk_bulk_get_all
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += get_task_ioprio
+@@ -193,6 +193,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += get_task_ioprio
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += mdev_set_iommu_device
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += offline_and_remove_memory
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += crypto_tfm_ctx_aligned
 +NV_CONFTEST_FUNCTION_COMPILE_TESTS += module_import_ns_takes_string_literal
  
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_of_node_to_nid

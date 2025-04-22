@@ -180,6 +180,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER# | libnvidia-ml.so.1 #MINVER#
  nvmlDeviceGetRunningProcessDetailList@Base 535.104
  nvmlDeviceGetSamples@Base 340
  nvmlDeviceGetSerial@Base 270
+ nvmlDeviceGetSramEccErrorStatus@Base 535.161
  nvmlDeviceGetSupportedClocksEventReasons@Base 535
  nvmlDeviceGetSupportedClocksThrottleReasons@Base 304
  nvmlDeviceGetSupportedEventTypes@Base 285

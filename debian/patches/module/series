@@ -8,7 +8,6 @@ bashisms.patch
 0036-backport-pfn_valid-changes-in-nv-mmap.c-from-470.239.patch
 0037-import-pfn_valid-w-o-GPL-rcu_read_lock-unlock-from-v.patch
 0038-backport-drm_unlocked_ioctl_flag_present-changes-fro.patch
-0040-backport-screen_info-changes-from-470.239.06.patch
 0041-backport-CONFIG_MITIGATION_RETPOLINE-changes-from-47.patch
 0042-Log-an-error-message-when-nv_mem_client_init-fails-d.patch
 0043-backport-follow_pfn-changes-from-550.90.07.patch
@@ -19,7 +18,6 @@ bashisms.patch
 0048-backport-cmd_symlink-changes-from-550.142.patch
 0049-backport-warning-fixes-from-550.40.07.patch
 0049-backport-warning-fixes-from-550.120.patch
-0050-backport-uvm-warning-fixes-from-535.146.02.patch
 0051-backport-warning-fixes-from-535.216.01.patch
 0052-backport-uvm-warning-fixes-from-560.28.03.patch
 0053-fix-more-warnings.patch
