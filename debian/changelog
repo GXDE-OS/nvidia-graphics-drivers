@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (535.216.03-4) UNRELEASED; urgency=medium
+
+  * New Catalan (ca) debconf translations by poc senderi.
+  * Updated French (fr) debconf translations by Sylvestre Ledru.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 22 Apr 2025 11:09:10 +0200
+
 nvidia-graphics-drivers (535.216.03-3) unstable; urgency=medium
 
   * Backport drm_driver_has_date changes from 570.124.04 to fix kernel module
@@ -110,7 +117,7 @@ nvidia-graphics-drivers (535.183.01-1) unstable; urgency=medium
 
 nvidia-graphics-drivers (535.161.08-3) unstable; urgency=medium
 
-  * Add systemd drop-in configuration files setting
+  * nvidia-suspend-common: Add systemd drop-in configuration files setting
     - SYSTEMD_SLEEP_FREEZE_USER_SESSIONS=false and
     - SYSTEMD_HOME_LOCK_FREEZE_SESSION=false
     needed from systemd 256 onwards.  (Closes: #1072722)

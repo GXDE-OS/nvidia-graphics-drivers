@@ -18,8 +18,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#. Translators, please only translate this file in src:nvidia-graphics-
-#. drivers.
+#. Translators, please only translate this file in src:nvidia-graphics-drivers.
 #. From there it will be merged into all other src:nvidia-graphics-drivers-*
 #. packages.
 #. Translators, do not translate the ${substitution} ${variables}.
@@ -37,9 +36,9 @@ msgstr ""
 #: ../nvidia-legacy-check.templates:3001
 msgid ""
 "This system has a graphics card which is no longer handled by the ${vendor} "
-"driver (package ${driver}). You may wish to keep the package installed - "
-"for instance to drive some other card - but the card with the following "
-"chipset won't be usable:"
+"driver (package ${driver}). You may wish to keep the package installed - for "
+"instance to drive some other card - but the card with the following chipset "
+"won't be usable:"
 msgstr ""
 "Aquest sistema té una targeta gràfica que ja no és gestionada pel "
 "controlador ${vendor} (paquet ${driver}). És possible que vulgueu mantenir "
@@ -50,9 +49,8 @@ msgstr ""
 #. Description
 #: ../nvidia-legacy-check.templates:3001
 msgid ""
-"The above card requires either the non-free legacy ${vendor} driver "
-"(package ${legacy_driver}) or the free ${free_name} driver (package "
-"${free_driver})."
+"The above card requires either the non-free legacy ${vendor} driver (package "
+"${legacy_driver}) or the free ${free_name} driver (package ${free_driver})."
 msgstr ""
 "La targeta anterior requereix o bé el controlador no lliure de ${vendor} "
 "(paquet ${legacy_driver}) o el controlador lliure de ${free_name} (paquet "
