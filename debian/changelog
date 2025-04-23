@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (550.40.07-2) UNRELEASED; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Merge changes from 535.161.08-3.  (Closes: #1072722)
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 24 Apr 2025 13:39:10 +0200
+
 nvidia-graphics-drivers (550.40.07-1) experimental; urgency=medium
 
   * New upstream beta 550.40.07 (2024-01-24).
@@ -181,6 +188,53 @@ nvidia-graphics-drivers (545.23.06-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Mar 2024 18:03:18 +0100
+
+nvidia-graphics-drivers (535.161.08-3) unstable; urgency=medium
+
+  * Add systemd drop-in configuration files setting
+    - SYSTEMD_SLEEP_FREEZE_USER_SESSIONS=false and
+    - SYSTEMD_HOME_LOCK_FREEZE_SESSION=false
+    needed from systemd 256 onwards.  (Closes: #1072722)
+  * libegl-nvidia0: Add manual dependency on libnvidia-egl-wayland1 as
+    libnvidia-egl-wayland.so.1 seems to get dlopen()ed now. (Closes: #1072142)
+  * Bump Standards-Version to 4.7.0. No changes needed.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 13 Jun 2024 14:34:48 +0200
+
+nvidia-graphics-drivers (535.161.08-2~deb12u1) bookworm; urgency=medium
+
+  * Rebuild for bookworm.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 03 May 2024 07:19:01 +0200
+
+nvidia-graphics-drivers (535.161.08-2) unstable; urgency=medium
+
+  * nvidia-driver-full: libnvidia-fbc1 and libnvidia-rtcore are not available
+    on ppc64el.
+  * Add autopkgtest testing the installation of the full driver suite.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 28 Apr 2024 13:28:15 +0200
+
+nvidia-graphics-drivers (535.161.08-1) unstable; urgency=medium
+
+  * New upstream Tesla branch release 535.161.08 (2024-03-18).
+    (Closes: #1061269, #1061597, #1059339)
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Mar 2024 07:37:55 +0100
+
+nvidia-graphics-drivers (535.161.07-1) experimental; urgency=medium
+
+  * New upstream LTS and Tesla branch release 535.161.07 (2024-02-22).
+    * Fixed CVE-2024-0074, CVE-2024-0075, CVE-2024-0078.  (Closes: #1064983)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/5520
+    * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
+  * Refresh patches.
+  * Update nv-readme.ids.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 22 Mar 2024 23:44:46 +0100
 
 nvidia-graphics-drivers (535.154.05-1) experimental; urgency=medium
 
