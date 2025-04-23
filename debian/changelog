@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (550.40.07-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (550.40.07-1) experimental; urgency=medium
 
   * New upstream beta 550.40.07 (2024-01-24).
     - Fixed an issue that sometimes caused Wayland applications to run at less
@@ -35,7 +35,7 @@ nvidia-graphics-drivers (550.40.07-1) UNRELEASED; urgency=medium
   * nvidia-powerd is now available on arm64.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Feb 2024 22:23:02 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 23 Apr 2025 07:23:08 +0200
 
 nvidia-graphics-drivers (545.29.06-1) experimental; urgency=medium
 
