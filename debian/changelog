@@ -1,5 +1,7 @@
 nvidia-graphics-drivers (535.129.03-2) UNRELEASED; urgency=medium
 
+    * Drop ppc64le driver.
+
   * nvidia-driver-full: Relax nvidia-cuda-mps dependency on ppc64el.
   * Backport drm_driver_has_date changes from 570.124.04 to fix kernel module
     build for Linux 6.14.
