@@ -901,7 +901,7 @@ Description: NVIDIA Dynamic Boost (daemon)
 
 Package: nvidia-cuda-mps
 Section: non-free/utils
-Architecture: amd64 ${arch:arm64} ${arch:ppc64el}
+Architecture: amd64 ${arch:arm64}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA CUDA Multi Process Service (MPS)
@@ -1242,7 +1242,7 @@ Description: NVIDIA OpenCL ICD Loader library
 
 Package: nvidia-detect
 Section: non-free/x11
-Architecture: amd64 arm64 ppc64el
+Architecture: amd64 arm64
 Depends:
  pciutils,
  ${misc:Depends}
