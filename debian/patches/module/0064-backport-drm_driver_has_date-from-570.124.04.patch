@@ -1,4 +1,4 @@
-From 0db3df995d72eec887593caa7aaf560cde0668ff Mon Sep 17 00:00:00 2001
+From aa19309c0da449e9f752c4a0d0216c6d1e7290dd Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 27 Mar 2025 19:11:23 +0100
 Subject: [PATCH] backport drm_driver_has_date from 570.124.04
@@ -10,10 +10,10 @@ Subject: [PATCH] backport drm_driver_has_date from 570.124.04
  3 files changed, 28 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 4862afda..62e71dbf 100755
+index 9fac71d6..9df41e35 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6893,6 +6893,30 @@ compile_test() {
+@@ -6929,6 +6929,30 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_FOLIO_TEST_SWAPCACHE_PRESENT" "" "functions"
          ;;
  

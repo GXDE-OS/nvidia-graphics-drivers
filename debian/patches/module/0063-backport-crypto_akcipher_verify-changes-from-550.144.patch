@@ -1,4 +1,4 @@
-From 5aa136f25ab11b416aa576b0aabaac198fba3bfd Mon Sep 17 00:00:00 2001
+From 27d1668d1f4f9291b80ff0e5437e005efea4637d Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 20 Mar 2025 05:41:58 +0100
 Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
@@ -10,10 +10,10 @@ Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
  3 files changed, 45 insertions(+), 1 deletion(-)
 
 diff --git a/conftest.sh b/conftest.sh
-index 47a0e15c..4862afda 100755
+index 463a815c..9fac71d6 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6690,6 +6690,47 @@ compile_test() {
+@@ -6726,6 +6726,47 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_CRYPTO_PRESENT" "" "symbols"
          ;;
  
@@ -74,14 +74,15 @@ index 472e97fc..da9229b9 100644
 +  crypto/sig.h
  
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index bab9e87d..da92a729 100644
+index 109fb7d3..17e7e563 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -226,6 +226,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_alloc_me
+@@ -226,7 +226,9 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_alloc_me
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_free_gscco_mem
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_memory_block_size_bytes
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto_akcipher_verify
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_follow_pte
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += ecc_digits_from_bytes
  
  NV_CONFTEST_TYPE_COMPILE_TESTS += dma_ops
