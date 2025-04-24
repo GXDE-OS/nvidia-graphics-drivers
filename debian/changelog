@@ -1,3 +1,15 @@
+nvidia-graphics-drivers (550.90.07-1) UNRELEASED; urgency=medium
+
+  * New upstream production and Tesla branch release 550.90.07 (2024-06-04).
+    * Fixed CVE-2024-0090, CVE-2024-0091, CVE-2024-0092.  (Closes: #1072792)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/5551
+    - Temporarily disabled the GLX_EXT_buffer_age extension on Xwayland to
+      work around a bug that could cause corruption.
+    - Fixed a bug that could cause corruption when the GLX_EXT_buffer_age
+      extension is used on X.org with PRIME render offloading.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 24 Apr 2025 09:46:55 +0200
+
 nvidia-graphics-drivers (550.78-1) experimental; urgency=medium
 
   * New upstream production branch release 550.78 (2024-04-25).
