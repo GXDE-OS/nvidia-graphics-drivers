@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (535.129.03-2) UNRELEASED; urgency=medium
 
     * Drop ppc64le driver.
+  * Stop building driver packages for ppc64el.
 
   * nvidia-driver-full: Relax nvidia-cuda-mps dependency on ppc64el.
   * Backport drm_driver_has_date changes from 570.124.04 to fix kernel module
@@ -40,6 +41,7 @@ nvidia-graphics-drivers (535.129.03-2) UNRELEASED; urgency=medium
     symbols on ppc64el.
   * bug-script: Report 'apt-cache policy' (535.183.06-1).
   * Bump Standards-Version to 4.7.0. No changes needed.
+
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 11 Aug 2024 23:59:54 +0200
 
