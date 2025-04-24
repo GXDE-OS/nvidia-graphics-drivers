@@ -8,6 +8,9 @@ nvidia-graphics-drivers (550.90.07-1) UNRELEASED; urgency=medium
     - Fixed a bug that could cause corruption when the GLX_EXT_buffer_age
       extension is used on X.org with PRIME render offloading.
 
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+
  -- Andreas Beckmann <anbe@debian.org>  Thu, 24 Apr 2025 09:46:55 +0200
 
 nvidia-graphics-drivers (550.78-1) experimental; urgency=medium
