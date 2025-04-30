@@ -66,7 +66,7 @@ msgid ""
 "Use the update-glx command to switch between different installed drivers."
 msgstr ""
 "Utilisez la commande update-glx afin de choisir parmi les pilotes "
-"déjainstallés."
+"déja installés."
 
 #. Type: boolean
 #. Description
