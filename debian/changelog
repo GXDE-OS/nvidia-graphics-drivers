@@ -1,10 +1,10 @@
-nvidia-graphics-drivers (535.216.03-4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (535.216.03-4) unstable; urgency=medium
 
   * nvidia-driver-full: Relax nvidia-cuda-mps dependency on ppc64el.
   * New Catalan (ca) debconf translations by poc senderi.
   * Updated French (fr) debconf translations by Sylvestre Ledru.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 22 Apr 2025 11:09:10 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 02 May 2025 09:28:24 +0200
 
 nvidia-graphics-drivers (535.216.03-3) unstable; urgency=medium
 
