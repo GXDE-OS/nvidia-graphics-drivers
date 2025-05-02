@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (535.230.02-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (535.230.02-1) unstable; urgency=medium
 
   * New upstream LTS and Tesla branch release 535.230.02 (2025-01-16).
     * Fixed CVE-2024-0150, CVE-2024-0147, CVE-2024-53869, CVE-2024-0131,
@@ -12,7 +12,7 @@ nvidia-graphics-drivers (535.230.02-1) UNRELEASED; urgency=medium
   * Stop building driver packages for ppc64el.
   * Stop building nvidia-cuda-mps and nvidia-detect for ppc64el.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 17 Feb 2025 10:54:02 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 02 May 2025 23:58:29 +0200
 
 nvidia-graphics-drivers (535.216.03-4) unstable; urgency=medium
 
