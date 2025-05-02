@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (535.216.03-4) UNRELEASED; urgency=medium
 
+  * nvidia-driver-full: Relax nvidia-cuda-mps dependency on ppc64el.
   * New Catalan (ca) debconf translations by poc senderi.
   * Updated French (fr) debconf translations by Sylvestre Ledru.
 
