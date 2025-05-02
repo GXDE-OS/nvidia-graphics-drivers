@@ -4,10 +4,13 @@ nvidia-graphics-drivers (535.230.02-1) UNRELEASED; urgency=medium
     * Fixed CVE-2024-0150, CVE-2024-0147, CVE-2024-53869, CVE-2024-0131,
       CVE-2024-0149.  (Closes: #1093908)
       https://nvidia.custhelp.com/app/answers/detail/a_id/5614
+    * Drop ppc64le driver.
     * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
   * Refresh patches.
+  * Stop building driver packages for ppc64el.
+  * Stop building nvidia-cuda-mps and nvidia-detect for ppc64el.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 17 Feb 2025 10:54:02 +0100
 
