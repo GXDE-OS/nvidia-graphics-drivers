@@ -74,7 +74,7 @@ index 472e97fc..da9229b9 100644
 +  crypto/sig.h
  
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 0a9aaaeb..58a86495 100644
+index bab9e87d..da92a729 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -226,6 +226,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_alloc_me

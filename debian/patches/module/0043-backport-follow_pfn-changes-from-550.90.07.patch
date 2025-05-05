@@ -65,7 +65,7 @@ diff --git a/nvidia/os-mlock.c b/nvidia/os-mlock.c
 index ebb498bd..a2d562dc 100644
 --- a/nvidia/os-mlock.c
 +++ b/nvidia/os-mlock.c
-@@ -30,10 +30,10 @@ static inline int nv_follow_pfn(struct vm_area_struct *vma,
+@@ -36,10 +36,10 @@ static inline int nv_follow_pfn(struct vm_area_struct *vma,
                                  unsigned long address,
                                  unsigned long *pfn)
  {

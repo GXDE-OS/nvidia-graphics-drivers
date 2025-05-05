@@ -22,10 +22,6 @@ nvidia-graphics-drivers (550.54.15-1) experimental; urgency=medium
       signal earlier than expected when a WSI X11 swapchain becomes out of date.
     - Fixed Xid errors on Hogwarts Legacy and Forza Horizon 4.
     * Improved compatibility with recent Linux kernels.
-  * New upstream release 535 series.
-    - Fixed a regression which prevented some Vulkan applications from
-      receiving VK_DEVICE_LOST upon a VT switch, which could lead to the
-      application hanging or behaving incorrectly.
 
   [ Andreas Beckmann ]
   * Merge changes from 535.161.08-3.  (Closes: #1072722)
@@ -223,6 +219,20 @@ nvidia-graphics-drivers (545.23.06-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Mar 2024 18:03:18 +0100
+
+nvidia-graphics-drivers (535.171.04-1) UNRELEASED; urgency=medium
+
+  * New upstream long term support branch release 535.171.04 (2024-03-21).
+    - Fixed Xid error when playing Alan Wake 2 with ray tracing enabled.
+    - Fixed a regression which prevented some Vulkan applications from
+      receiving VK_DEVICE_LOST upon a VT switch, which could lead to the
+      application hanging or behaving incorrectly.
+
+  [ Andreas Beckmann ]
+  * Refresh patches.
+  * Update nv-readme.ids.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 22 Mar 2024 01:40:29 +0100
 
 nvidia-graphics-drivers (535.161.08-3) unstable; urgency=medium
 
