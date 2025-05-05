@@ -21,7 +21,7 @@ Restrictions:
 
 Test-Command: true
 Features: test-name=full-install
-Architecture: amd64 arm64 ppc64el
+Architecture: amd64 arm64
 Depends:
  nvidia-driver-full,
  linux-headers-generic,

@@ -507,7 +507,7 @@ Description: NVIDIA binary OpenGL/GLX library (GLVND variant)${nvidia:VariantDes
  GLVND and the corresponding GLVND loader library.
 
 Package: lib${nvidia}-gpucomp
-Architecture: i386 amd64 ${arch:arm64} ${arch:ppc64el}
+Architecture: i386 amd64 ${arch:arm64}
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
