@@ -1332,6 +1332,8 @@ nvidia-graphics-drivers (470.256.02-1) bullseye; urgency=medium
     - Fixed a bug that could cause the X server to crash when graphics
       applications requested single-buffered drawables while certain
       features (such as Vulkan sharpening) are enabled.
+    - Fixed a bug that caused driver build failure when using separate
+      kernel source and output directories on Linux v6.6 and later.
 
   [ Andreas Beckmann ]
   * Refresh patches.
