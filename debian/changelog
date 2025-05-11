@@ -7,6 +7,7 @@ nvidia-graphics-drivers (555.52.04-1) UNRELEASED; urgency=medium
     * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
+  * Refresh patches.
   * Backport iommu_dev_enable_feature changes from 535.261.03 to fix open
     kernel module build for Linux 6.16.
 

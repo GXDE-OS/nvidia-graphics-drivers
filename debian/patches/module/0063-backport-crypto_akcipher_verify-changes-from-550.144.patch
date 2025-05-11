@@ -1,4 +1,4 @@
-From e18065e1d9f9bd669ca890cf8e626b4a389a35d5 Mon Sep 17 00:00:00 2001
+From c0df87b5cdf5cf046690f53382f693b9d40b1514 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 20 Mar 2025 05:41:58 +0100
 Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
@@ -74,12 +74,12 @@ index 49ad819a..b34a2853 100644
 +  crypto/sig.h
  
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index fe2cc683..460cf1ae 100644
+index cd6da0cb..17696bd8 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -229,6 +229,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_memory_block_size_b
- NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_free_gscco_mem
- NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_memory_block_size_bytes
+@@ -229,7 +229,9 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_memory_block_size_b
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tegra_platform_is_fpga
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tegra_platform_is_sim
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto_akcipher_verify
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_follow_pte

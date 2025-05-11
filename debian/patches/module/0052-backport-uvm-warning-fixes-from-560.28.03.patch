@@ -1,4 +1,4 @@
-From c4f1850bae3b8b02aab7039d5a8e779be1c49a35 Mon Sep 17 00:00:00 2001
+From 20fe763d8692319e51d77a4ab14ed6fc6e469f03 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:54:59 +0100
 Subject: [PATCH] backport uvm warning fixes from 560.28.03
@@ -18,7 +18,7 @@ Subject: [PATCH] backport uvm warning fixes from 560.28.03
  nvidia-uvm/uvm_populate_pageable.c   |  2 +-
  nvidia-uvm/uvm_tools.c               |  1 +
  nvidia-uvm/uvm_tools.h               |  5 +++++
- 14 files changed, 33 insertions(+), 24 deletions(-)
+ 14 files changed, 33 insertions(+), 27 deletions(-)
 
 diff --git a/nvidia-uvm/uvm_channel_test.c b/nvidia-uvm/uvm_channel_test.c
 index 921a94e0..df509e61 100644
@@ -267,7 +267,7 @@ index 79c144ae..fd0421ba 100644
      NV_STATUS status = NV_OK;
  
 diff --git a/nvidia-uvm/uvm_tools.c b/nvidia-uvm/uvm_tools.c
-index 2aa876e2..bdfae91b 100644
+index f667abcd..f9037a89 100644
 --- a/nvidia-uvm/uvm_tools.c
 +++ b/nvidia-uvm/uvm_tools.c
 @@ -26,6 +26,7 @@
