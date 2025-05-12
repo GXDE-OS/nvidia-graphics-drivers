@@ -29,6 +29,14 @@ nvidia-graphics-drivers (535.216.01-1) unstable; urgency=medium
   * New upstream LTS and Tesla branch release 535.216.01 (2024-10-22).
     * Fixed CVE-2024-0126.  (Closes: #1085968)
       https://nvidia.custhelp.com/app/answers/detail/a_id/5586
+    - Fixed a bug that caused the nvidia-powerd service to fail on some
+      ADA notebooks with the error message "Error in getting the NvPCF
+      static configuration".
+    - Fixed a bug that could cause external displays to become frozen until
+      the next modeset when using PRIME Display Offloading with the NVIDIA
+      dGPU acting as the display offload sink.
+    - Fixed a bug that caused OpenGL triple buffering to behave like double
+      buffering.
     * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
