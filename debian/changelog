@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (550.90.07-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (550.90.07-1) experimental; urgency=medium
 
   * New upstream production and Tesla branch release 550.90.07 (2024-06-04).
     * Fixed CVE-2024-0090, CVE-2024-0091, CVE-2024-0092.  (Closes: #1072792)
@@ -12,7 +12,7 @@ nvidia-graphics-drivers (550.90.07-1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * Refresh patches.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 24 Apr 2025 09:46:55 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 12 May 2025 20:04:34 +0200
 
 nvidia-graphics-drivers (550.78-1) experimental; urgency=medium
 
