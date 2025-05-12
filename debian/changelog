@@ -81,6 +81,15 @@ nvidia-graphics-drivers (535.183.01-1) unstable; urgency=medium
     - Fixed a bug that could cause additional X screens to claim displays
       that should have been assigned to a prior X screen based on the given X
       configuration.
+
+  [ Andreas Beckmann ]
+  * Refresh patches.
+  * Update nv-readme.ids.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 14 Jun 2024 11:20:01 +0200
+
+nvidia-graphics-drivers (535.179-1) UNRELEASED; urgency=medium
+
   * New upstream long term support branch release 535.179 (2024-05-09).
   * New upstream long term support branch release 535.171.04 (2024-03-21).
     - Fixed Xid error when playing Alan Wake 2 with ray tracing enabled.
@@ -92,7 +101,7 @@ nvidia-graphics-drivers (535.183.01-1) unstable; urgency=medium
   * Refresh patches.
   * Update nv-readme.ids.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 14 Jun 2024 11:20:01 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 14 May 2024 09:03:28 +0200
 
 nvidia-graphics-drivers (535.161.08-3) unstable; urgency=medium
 
@@ -1340,6 +1349,8 @@ nvidia-graphics-drivers (470.256.02-1) bullseye; urgency=medium
     - Fixed a bug that could cause the X server to crash when graphics
       applications requested single-buffered drawables while certain
       features (such as Vulkan sharpening) are enabled.
+    - Fixed a bug that caused driver build failure when using separate
+      kernel source and output directories on Linux v6.6 and later.
 
   [ Andreas Beckmann ]
   * Refresh patches.
