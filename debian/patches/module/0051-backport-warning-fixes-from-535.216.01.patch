@@ -1,4 +1,4 @@
-From 54d778dc550f11de79974255d659acb53b678d12 Mon Sep 17 00:00:00 2001
+From 31bdb2f0430ac009e6ed089f64e089bdb148200f Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 03:20:30 +0100
 Subject: [PATCH] backport warning fixes from 535.216.01
@@ -22,7 +22,7 @@ Subject: [PATCH] backport warning fixes from 535.216.01
  15 files changed, 28 insertions(+), 21 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index ccfd9bed..3cda0a7a 100644
+index 3b72f28f..e36c06c3 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
 @@ -474,7 +474,9 @@ static inline void *nv_vmalloc(unsigned long size)
@@ -76,7 +76,7 @@ index ccfd9bed..3cda0a7a 100644
  }
  
 diff --git a/nvidia-modeset/nv-kthread-q.c b/nvidia-modeset/nv-kthread-q.c
-index c3b55705..83bca736 100644
+index b49725b7..c2615d72 100644
 --- a/nvidia-modeset/nv-kthread-q.c
 +++ b/nvidia-modeset/nv-kthread-q.c
 @@ -176,7 +176,7 @@ static struct task_struct *thread_create_on_node(int (*threadfn)(void *data),
@@ -132,7 +132,7 @@ index 88b70a4e..980ad9f5 100644
      (void)NULL;
  }
 diff --git a/nvidia-uvm/nv-kthread-q.c b/nvidia-uvm/nv-kthread-q.c
-index c3b55705..83bca736 100644
+index b49725b7..c2615d72 100644
 --- a/nvidia-uvm/nv-kthread-q.c
 +++ b/nvidia-uvm/nv-kthread-q.c
 @@ -176,7 +176,7 @@ static struct task_struct *thread_create_on_node(int (*threadfn)(void *data),
@@ -145,7 +145,7 @@ index c3b55705..83bca736 100644
  
      for (i = 0;; i++) {
 diff --git a/nvidia/linux_nvswitch.c b/nvidia/linux_nvswitch.c
-index 02d5906a..9cee9f81 100644
+index aa657141..40cb0d78 100644
 --- a/nvidia/linux_nvswitch.c
 +++ b/nvidia/linux_nvswitch.c
 @@ -31,6 +31,7 @@
@@ -216,7 +216,7 @@ index a541c071..dd70e7bd 100644
  
  /*
 diff --git a/nvidia/nv-kthread-q.c b/nvidia/nv-kthread-q.c
-index c3b55705..83bca736 100644
+index b49725b7..c2615d72 100644
 --- a/nvidia/nv-kthread-q.c
 +++ b/nvidia/nv-kthread-q.c
 @@ -176,7 +176,7 @@ static struct task_struct *thread_create_on_node(int (*threadfn)(void *data),
@@ -264,10 +264,10 @@ index 63a0fe59..d5e67228 100644
      nv_state_t *nv,
      NvU32 err,
 diff --git a/nvidia/nv.c b/nvidia/nv.c
-index ad3301ef..7050fb93 100644
+index 06b4ca61..333bab26 100644
 --- a/nvidia/nv.c
 +++ b/nvidia/nv.c
-@@ -1233,12 +1233,6 @@ static int validate_numa_start_state(nv_linux_state_t *nvl)
+@@ -1237,12 +1237,6 @@ static int validate_numa_start_state(nv_linux_state_t *nvl)
      return rc;
  }
  
@@ -293,10 +293,10 @@ index 11e798d6..ade72e4e 100644
  #include "nv-procfs.h"
  #include "nv-time.h"
 diff --git a/nvidia/os-interface.c b/nvidia/os-interface.c
-index f78f5e55..72407d75 100644
+index 12df3003..310aff3c 100644
 --- a/nvidia/os-interface.c
 +++ b/nvidia/os-interface.c
-@@ -371,7 +371,7 @@ NvS32 NV_API_CALL os_string_compare(const char *str1, const char *str2)
+@@ -373,7 +373,7 @@ NvS32 NV_API_CALL os_string_compare(const char *str1, const char *str2)
      return strcmp(str1, str2);
  }
  

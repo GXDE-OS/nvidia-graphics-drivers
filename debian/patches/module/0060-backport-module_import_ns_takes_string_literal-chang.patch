@@ -1,4 +1,4 @@
-From c41a029841fdef6e7e1412d9324736b69c6f3f5c Mon Sep 17 00:00:00 2001
+From cba9e0333ddec3e26aab9dce94b0e9c260850e80 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Fri, 21 Feb 2025 10:21:42 +0100
 Subject: [PATCH] backport module_import_ns_takes_string_literal changes from
@@ -10,10 +10,10 @@ Subject: [PATCH] backport module_import_ns_takes_string_literal changes from
  2 files changed, 18 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 3483d358..3584aabb 100755
+index e2461482..58ec5fe9 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -5547,6 +5547,23 @@ compile_test() {
+@@ -5583,6 +5583,23 @@ compile_test() {
              else
                  echo "#undef NV_OF_PROPERTY_READ_VARIABLE_U32_ARRAY_PRESENT" | append_conftest "functions"
              fi
@@ -38,10 +38,10 @@ index 3483d358..3584aabb 100755
  
          devm_of_platform_populate)
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index f2eabd44..109fb7d3 100644
+index 0c6639d1..9cc72904 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -193,6 +193,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += get_task_ioprio
+@@ -195,6 +195,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += get_task_ioprio
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += mdev_set_iommu_device
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += offline_and_remove_memory
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += crypto_tfm_ctx_aligned

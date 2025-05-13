@@ -1,4 +1,4 @@
-From b0afa32bfe2633e78b0285d1ce929812239f988c Mon Sep 17 00:00:00 2001
+From 657ab7747f78c6d7af33ef53e168b388c3ef3d01 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:13:22 +0100
 Subject: [PATCH] fix more warnings
@@ -11,7 +11,7 @@ Subject: [PATCH] fix more warnings
  4 files changed, 13 insertions(+), 1 deletion(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index e9ad25c1..14d4bec7 100644
+index e36c06c3..4d60d837 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
 @@ -575,21 +575,27 @@ static NvBool nv_numa_node_has_memory(int node_id)
@@ -66,10 +66,10 @@ index 353e8a5b..a52380fd 100644
  
  NvUPtr      nv_vm_map_pages             (struct page **, NvU32, NvBool, NvBool);
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index bc5c63e4..f00f461c 100644
+index 081d71dd..ab7d505c 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
-@@ -1751,12 +1751,14 @@ void nv_drm_register_drm_device(const nv_gpu_info_t *gpu_info)
+@@ -1794,12 +1794,14 @@ void nv_drm_register_drm_device(const nv_gpu_info_t *gpu_info)
      dev->dev_private = nv_dev;
      nv_dev->dev = dev;
  

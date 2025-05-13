@@ -1,19 +1,19 @@
-From 27d1668d1f4f9291b80ff0e5437e005efea4637d Mon Sep 17 00:00:00 2001
+From ff1a67367d2c81c94cf594256aa1256f46570fe2 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 20 Mar 2025 05:41:58 +0100
 Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
 
 ---
  conftest.sh              | 41 ++++++++++++++++++++++++++++++++++++++++
- header-presence-tests.mk |  3 ++-
+ header-presence-tests.mk |  1 +
  nvidia/nvidia.Kbuild     |  2 ++
- 3 files changed, 45 insertions(+), 1 deletion(-)
+ 3 files changed, 44 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 463a815c..9fac71d6 100755
+index c8c68e4c..a82813cb 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6726,6 +6726,47 @@ compile_test() {
+@@ -6762,6 +6762,47 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_CRYPTO_PRESENT" "" "symbols"
          ;;
  
@@ -62,22 +62,21 @@ index 463a815c..9fac71d6 100755
              #
              # Determine if the 'mempolicy' structure has
 diff --git a/header-presence-tests.mk b/header-presence-tests.mk
-index 472e97fc..da9229b9 100644
+index 3265a6c5..68c33a55 100644
 --- a/header-presence-tests.mk
 +++ b/header-presence-tests.mk
-@@ -97,5 +97,6 @@ NV_HEADER_PRESENCE_TESTS = \
-   linux/sync_file.h \
+@@ -98,5 +98,6 @@ NV_HEADER_PRESENCE_TESTS = \
    linux/cc_platform.h \
    asm/cpufeature.h \
--  linux/mpi.h
-+  linux/mpi.h \
-+  crypto/sig.h
+   linux/mpi.h \
++  crypto/sig.h \
+   asm/mshyperv.h
  
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 109fb7d3..17e7e563 100644
+index 9cc72904..60cb301d 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -226,7 +226,9 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_alloc_me
+@@ -228,7 +228,9 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_alloc_me
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tsec_comms_free_gscco_mem
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_memory_block_size_bytes
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto

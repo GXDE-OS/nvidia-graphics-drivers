@@ -1,4 +1,4 @@
-From 9294006ae97ccf55386ba9cd72d195eadf51417d Mon Sep 17 00:00:00 2001
+From 8588f0c696725479c04a72edbc84a356de96dd46 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sat, 15 Mar 2025 11:22:03 +0100
 Subject: [PATCH] backport folio_test_swapcache changes from 565.57.01
@@ -9,10 +9,10 @@ Subject: [PATCH] backport folio_test_swapcache changes from 565.57.01
  2 files changed, 17 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 3584aabb..463a815c 100755
+index 58ec5fe9..c8c68e4c 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6872,6 +6872,22 @@ compile_test() {
+@@ -6908,6 +6908,22 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DRM_UNLOCKED_IOCTL_FLAG_PRESENT" "" "types"
          ;;
  
