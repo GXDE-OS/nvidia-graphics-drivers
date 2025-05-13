@@ -4,6 +4,12 @@ nvidia-graphics-drivers (535.230.02-1) unstable; urgency=medium
     * Fixed CVE-2024-0150, CVE-2024-0147, CVE-2024-53869, CVE-2024-0131,
       CVE-2024-0149.  (Closes: #1093908)
       https://nvidia.custhelp.com/app/answers/detail/a_id/5614
+    - Updated the kernel module build process to use CONFIG_CC_VERSION_TEXT
+      from the Linux kernel's Kconfig to detect the compiler used to build
+      the kernel. This may help select the correct compiler on systems where
+      the kernel was built with a compiler other than the default one.
+    - Fixed a bug that prevented kernel modules linked using precompiled
+      kernel interface files from loading on recent Debian systems.
     * Drop ppc64le driver.
     * Improved compatibility with recent Linux kernels.
 
@@ -67,6 +73,12 @@ nvidia-graphics-drivers (535.216.01-1) unstable; urgency=medium
   * New upstream LTS and Tesla branch release 535.216.01 (2024-10-22).
     * Fixed CVE-2024-0126.  (Closes: #1085968)
       https://nvidia.custhelp.com/app/answers/detail/a_id/5586
+    - In linux-next commit 446d0f4849b1, intended to be included in Linux
+      kernel 6.12, output_poll_changed is removed from struct
+      drm_mode_config_funcs. Do not implement the function pointer member
+      when not present to ensure the driver can compile with newer kernels.
+      Populating modes for DRM connectors during hotplug events will not be
+      supported with r535 and kernels containing the relevant commit.
     - Fixed a bug that caused the nvidia-powerd service to fail on some
       ADA notebooks with the error message "Error in getting the NvPCF
       static configuration".
