@@ -5,6 +5,9 @@ nvidia-graphics-drivers (550.120-1) UNRELEASED; urgency=medium
       through DRM when nvidia_drm was loaded with modeset=0.
     * Improved compatibility with recent Linux kernels.
 
+  [ Andreas Beckmann ]
+  * Refresh patches.
+
  -- Andreas Beckmann <anbe@debian.org>  Wed, 14 May 2025 02:04:25 +0200
 
 nvidia-graphics-drivers (550.107.02-1) experimental; urgency=medium

@@ -1,4 +1,4 @@
-From 65627dd1f953df705028cd7770a98daa62399a7d Mon Sep 17 00:00:00 2001
+From a19ef4492d1c1b8d8e1910d09d82254fd66af660 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Fri, 24 Jan 2025 12:34:22 +0100
 Subject: [PATCH] backport file_operations_fop_unsigned_offset_present changes
@@ -11,7 +11,7 @@ Subject: [PATCH] backport file_operations_fop_unsigned_offset_present changes
  3 files changed, 21 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 32f39b81..e2461482 100755
+index f387dced..54132c59 100755
 --- a/conftest.sh
 +++ b/conftest.sh
 @@ -2523,6 +2523,22 @@ compile_test() {
@@ -38,10 +38,10 @@ index 32f39b81..e2461482 100755
              #
              # Determine if the 'mm_context_t' data type is present
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index ab7d505c..e747767d 100644
+index 0b012abf..495668f3 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
-@@ -1551,6 +1551,10 @@ static const struct file_operations nv_drm_fops = {
+@@ -1553,6 +1553,10 @@ static const struct file_operations nv_drm_fops = {
      .read           = drm_read,
  
      .llseek         = noop_llseek,
@@ -53,10 +53,10 @@ index ab7d505c..e747767d 100644
  
  static const struct drm_ioctl_desc nv_drm_ioctls[] = {
 diff --git a/nvidia-drm/nvidia-drm-sources.mk b/nvidia-drm/nvidia-drm-sources.mk
-index 830d7ee8..338344d0 100644
+index fec0a871..fb3654c8 100644
 --- a/nvidia-drm/nvidia-drm-sources.mk
 +++ b/nvidia-drm/nvidia-drm-sources.mk
-@@ -130,3 +130,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_aperture_remove_conflicting_pci_framebuffe
+@@ -131,3 +131,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_aperture_remove_conflicting_pci_framebuffe
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_mode_create_dp_colorspace_property_has_supported_colorspaces_arg
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed

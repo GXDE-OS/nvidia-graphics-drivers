@@ -1,4 +1,4 @@
-From bc480d9ee8e24dfc304566487b523f515abe2696 Mon Sep 17 00:00:00 2001
+From 95ba45ccb962c99e86535c3918ad9a4f1711dce7 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Fri, 24 Jan 2025 12:37:14 +0100
 Subject: [PATCH] backport LD_SCRIPT changes from 535.230.02
@@ -8,10 +8,10 @@ Subject: [PATCH] backport LD_SCRIPT changes from 535.230.02
  1 file changed, 13 insertions(+), 2 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index cee56f10..be69cbda 100644
+index baafdbfc..0ea6621a 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -61,6 +61,16 @@ else
+@@ -65,6 +65,16 @@ else
      )
    endif
  
@@ -28,7 +28,7 @@ index cee56f10..be69cbda 100644
    NV_KERNEL_MODULES ?= $(wildcard nvidia nvidia-uvm nvidia-vgpu-vfio nvidia-modeset nvidia-drm nvidia-peermem)
    NV_KERNEL_MODULES := $(filter-out $(NV_EXCLUDE_KERNEL_MODULES), \
                                      $(NV_KERNEL_MODULES))
-@@ -102,8 +112,9 @@ else
+@@ -106,8 +116,9 @@ else
    # module symbols on which the Linux kernel's module resolution is dependent
    # and hence must be used whenever present.
  

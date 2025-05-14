@@ -1,4 +1,4 @@
-From ff1a67367d2c81c94cf594256aa1256f46570fe2 Mon Sep 17 00:00:00 2001
+From 145166b3be768ebc8b956031f78f87e2aa9560c3 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 20 Mar 2025 05:41:58 +0100
 Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
@@ -10,10 +10,10 @@ Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
  3 files changed, 44 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index c8c68e4c..a82813cb 100755
+index 3056db39..28e40b51 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6762,6 +6762,47 @@ compile_test() {
+@@ -6783,6 +6783,47 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_CRYPTO_PRESENT" "" "symbols"
          ;;
  
@@ -62,10 +62,10 @@ index c8c68e4c..a82813cb 100755
              #
              # Determine if the 'mempolicy' structure has
 diff --git a/header-presence-tests.mk b/header-presence-tests.mk
-index 3265a6c5..68c33a55 100644
+index 7009cc37..a0823a0f 100644
 --- a/header-presence-tests.mk
 +++ b/header-presence-tests.mk
-@@ -98,5 +98,6 @@ NV_HEADER_PRESENCE_TESTS = \
+@@ -99,5 +99,6 @@ NV_HEADER_PRESENCE_TESTS = \
    linux/cc_platform.h \
    asm/cpufeature.h \
    linux/mpi.h \

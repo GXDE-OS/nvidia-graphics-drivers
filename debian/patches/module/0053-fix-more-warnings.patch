@@ -1,20 +1,19 @@
-From 657ab7747f78c6d7af33ef53e168b388c3ef3d01 Mon Sep 17 00:00:00 2001
+From 148346b2e2fd01ebf8e905c4544338e223763065 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:13:22 +0100
 Subject: [PATCH] fix more warnings
 
 ---
- common/inc/nv-linux.h       | 8 ++++++++
- common/inc/nv-proto.h       | 2 +-
- nvidia-drm/nvidia-drm-drv.c | 2 ++
- nvidia/libspdm_aead.c       | 2 ++
- 4 files changed, 13 insertions(+), 1 deletion(-)
+ common/inc/nv-linux.h | 8 ++++++++
+ common/inc/nv-proto.h | 2 +-
+ nvidia/libspdm_aead.c | 2 ++
+ 3 files changed, 11 insertions(+), 1 deletion(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index e36c06c3..4d60d837 100644
+index 302afb66..758fab16 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -575,21 +575,27 @@ static NvBool nv_numa_node_has_memory(int node_id)
+@@ -573,21 +573,27 @@ static NvBool nv_numa_node_has_memory(int node_id)
      { \
          (ptr) = kmalloc(size, NV_GFP_KERNEL); \
          if (ptr) \
@@ -42,7 +41,7 @@ index e36c06c3..4d60d837 100644
      }
  
  #if defined(__GFP_RETRY_MAYFAIL)
-@@ -604,7 +610,9 @@ static NvBool nv_numa_node_has_memory(int node_id)
+@@ -602,7 +608,9 @@ static NvBool nv_numa_node_has_memory(int node_id)
      { \
          (ptr) = kmalloc(size, NV_GFP_NO_OOM); \
          if (ptr) \
@@ -65,25 +64,6 @@ index 353e8a5b..a52380fd 100644
  void        nv_revoke_gpu_mappings_locked(nv_state_t *);
  
  NvUPtr      nv_vm_map_pages             (struct page **, NvU32, NvBool, NvBool);
-diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index 081d71dd..ab7d505c 100644
---- a/nvidia-drm/nvidia-drm-drv.c
-+++ b/nvidia-drm/nvidia-drm-drv.c
-@@ -1794,12 +1794,14 @@ void nv_drm_register_drm_device(const nv_gpu_info_t *gpu_info)
-     dev->dev_private = nv_dev;
-     nv_dev->dev = dev;
- 
-+#if defined(NV_DRM_DEVICE_HAS_PDEV) || defined(NV_DRM_FBDEV_GENERIC_AVAILABLE)
-     bool bus_is_pci =
- #if defined(NV_LINUX)
-         device->bus == &pci_bus_type;
- #elif defined(NV_BSD)
-         devclass_find("pci");
- #endif
-+#endif
- 
- #if defined(NV_DRM_DEVICE_HAS_PDEV)
-     if (bus_is_pci) {
 diff --git a/nvidia/libspdm_aead.c b/nvidia/libspdm_aead.c
 index f7eca741..abbb4b73 100644
 --- a/nvidia/libspdm_aead.c
