@@ -1,14 +1,17 @@
-nvidia-graphics-drivers (550.120-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (550.127.05-1) UNRELEASED; urgency=medium
 
+  * New upstream production and Tesla branch release 550.127.05 (2024-10-22).
+    * Fixed CVE-2024-0126.  (Closes: #1085968)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/5586
+    - Fixed a bug which could cause applications using GBM to crash when
+      running with nvidia-drm.modeset=0.
   * New upstream production branch release 550.120 (2024-09-19).
-    - Fixed a bug that could cause kernel crashes upon attempting KMS operations
-      through DRM when nvidia_drm was loaded with modeset=0.
     * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
   * Refresh patches.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 14 May 2025 02:04:25 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 14 May 2025 03:47:33 +0200
 
 nvidia-graphics-drivers (550.107.02-1) experimental; urgency=medium
 
@@ -21,6 +24,8 @@ nvidia-graphics-drivers (550.107.02-1) experimental; urgency=medium
       directory.
     - Fixed a bug that could cause memory corruption while handling
       ACPI events on some notebooks.
+    - Fixed a bug that could cause kernel crashes upon attempting KMS
+      operations through DRM when nvidia_drm was loaded with modeset=0.
   * New upstream production branch release 550.100 (2024-07-09).
   * New upstream Tesla branch release 550.90.12 (2024-09-10).
 
