@@ -8,7 +8,6 @@ bashisms.patch
 0042-Log-an-error-message-when-nv_mem_client_init-fails-d.patch
 0046-backport-nv_get_kern_phys_address-changes-from-555.4.patch
 0048-backport-cmd_symlink-changes-from-550.142.patch
-0049-backport-warning-fixes-from-550.120.patch
 0052-backport-uvm-warning-fixes-from-560.28.03.patch
 0053-fix-more-warnings.patch
 0054-fix-more-uvm-warnings.patch
