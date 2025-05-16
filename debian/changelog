@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (550.107.02-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (550.107.02-1) experimental; urgency=medium
 
   * New upstream production branch release 550.107.02 (2024-07-29).
     - Fixed a race condition involving modeset ownership which could lead
@@ -15,7 +15,7 @@ nvidia-graphics-drivers (550.107.02-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 14 May 2025 01:13:53 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 17 May 2025 01:57:12 +0200
 
 nvidia-graphics-drivers (550.90.07-1) experimental; urgency=medium
 
