@@ -1,6 +1,10 @@
 nvidia-graphics-drivers (550.100-1) UNRELEASED; urgency=medium
 
   * New upstream production branch release 550.100 (2024-07-09).
+  * New upstream Tesla branch release 550.90.12 (2024-09-10).
+
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 12 May 2025 22:01:12 +0200
 
