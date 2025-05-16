@@ -7,6 +7,7 @@ nvidia-graphics-drivers (550.90.07-1) experimental; urgency=medium
       work around a bug that could cause corruption.
     - Fixed a bug that could cause corruption when the GLX_EXT_buffer_age
       extension is used on X.org with PRIME render offloading.
+    * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
@@ -37,7 +38,6 @@ nvidia-graphics-drivers (550.78-1) experimental; urgency=medium
   [ Andreas Beckmann ]
   * Refresh patches.
   * Update nv-readme.ids.
-  * nvidia-driver-full: Relax nvidia-cuda-mps dependency on ppc64el.
   * Stop building driver packages for ppc64el.
   * Stop building nvidia-cuda-mps and nvidia-detect for ppc64el.
 
@@ -119,7 +119,6 @@ nvidia-graphics-drivers (545.29.06-2) unstable; urgency=medium
 
   * Stop building driver packages for ppc64el.
   * Stop building nvidia-cuda-mps and nvidia-detect for ppc64el.
-  * nvidia-driver-full: Relax nvidia-cuda-mps dependency on ppc64el.
   * Upload to unstable.  (Closes: #1105205)
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 16 May 2025 03:19:40 +0200
