@@ -111,8 +111,18 @@ nvidia-graphics-drivers (550.40.07-1) experimental; urgency=medium
   * Update symbols files.
   * nvidia-powerd is now available on arm64.
   * Update lintian overrides.
+  * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 23 Apr 2025 07:23:08 +0200
+
+nvidia-graphics-drivers (545.29.06-2) unstable; urgency=medium
+
+  * Stop building driver packages for ppc64el.
+  * Stop building nvidia-cuda-mps and nvidia-detect for ppc64el.
+  * nvidia-driver-full: Relax nvidia-cuda-mps dependency on ppc64el.
+  * Upload to unstable.  (Closes: #1105205)
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 16 May 2025 03:19:40 +0200
 
 nvidia-graphics-drivers (545.29.06-1) experimental; urgency=medium
 
@@ -247,6 +257,7 @@ nvidia-graphics-drivers (545.23.06-1) experimental; urgency=medium
       library used for GPU shader compilation.
     - Removed libnvidia-vulkan-producer.so from the driver package. This
       helper library is no longer needed by the Wayland WSI.
+    * Drop ppc64le driver.
 
   [ Andreas Beckmann ]
   * Refresh patches.  (Closes: #1064571)
