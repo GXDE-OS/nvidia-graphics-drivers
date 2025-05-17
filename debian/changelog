@@ -10,6 +10,7 @@ nvidia-graphics-drivers (550.163.01-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Refresh patches.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 17 May 2025 14:37:18 +0200
 
