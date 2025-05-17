@@ -1,39 +1,13 @@
-From cd938457cc4a84fd1e35be122529019ef9af8112 Mon Sep 17 00:00:00 2001
+From 6a645d42fa01efa36676c0ee3410671cad8bac86 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 27 Mar 2025 20:33:39 +0100
 Subject: [PATCH] backport drm_client_setup.h changes from 570.124.04
 
 ---
- conftest.sh                 | 9 +++++++--
  header-presence-tests.mk    | 1 +
  nvidia-drm/nvidia-drm-drv.c | 2 ++
- 3 files changed, 10 insertions(+), 2 deletions(-)
+ 2 files changed, 3 insertions(+)
 
-diff --git a/conftest.sh b/conftest.sh
-index 700b8dc4..7417f4a6 100755
---- a/conftest.sh
-+++ b/conftest.sh
-@@ -6652,13 +6652,18 @@ compile_test() {
-             #
-             # Determine whether drm_client_setup is present.
-             #
--            # Added by commit d07fdf922592 ("drm/fbdev-ttm:
--            # Convert to client-setup") in v6.13.
-+            # Added by commit d07fdf922592 ("drm/fbdev-ttm: Convert to
-+            # client-setup") in v6.13 in drm/drm_client_setup.h, but then moved
-+            # to drm/clients/drm_client_setup.h by commit b86711c6d6e2
-+            # ("drm/client: Move public client header to clients/ subdirectory")
-+            # in linux-next b86711c6d6e2.
-             #
-             CODE="
-             #include <drm/drm_fb_helper.h>
-             #if defined(NV_DRM_DRM_CLIENT_SETUP_H_PRESENT)
-             #include <drm/drm_client_setup.h>
-+            #elif defined(NV_DRM_CLIENTS_DRM_CLIENT_SETUP_H_PRESENT)
-+            #include <drm/clients/drm_client_setup.h>
-             #endif
-             void conftest_drm_client_setup(void) {
-                 drm_client_setup();
 diff --git a/header-presence-tests.mk b/header-presence-tests.mk
 index c5e7f7e9..99237009 100644
 --- a/header-presence-tests.mk
@@ -47,7 +21,7 @@ index c5e7f7e9..99237009 100644
    generated/autoconf.h \
    generated/compile.h \
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index b64984f1..1ac3eb6e 100644
+index 0818e36f..1d64592f 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
 @@ -78,6 +78,8 @@

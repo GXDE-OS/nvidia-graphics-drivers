@@ -1,4 +1,4 @@
-From ee3afd489d005f3bbd77ab51cd81d44c0379e63a Mon Sep 17 00:00:00 2001
+From 7180b5fa0ac62c2be3059e92f6249ec95386472a Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 26 May 2025 09:58:49 +0200
 Subject: [PATCH] backport nv_timer_delete_sync changes from 570.153.02
@@ -81,7 +81,7 @@ index a6b0f947..25c366f2 100644
  
  unsigned long nv_drm_timeout_from_ms(NvU64 relative_timeout_ms);
 diff --git a/nvidia-drm/nvidia-drm-sources.mk b/nvidia-drm/nvidia-drm-sources.mk
-index 1ab548f7..75e835e2 100644
+index 1328ffd8..9caa39f9 100644
 --- a/nvidia-drm/nvidia-drm-sources.mk
 +++ b/nvidia-drm/nvidia-drm-sources.mk
 @@ -37,6 +37,7 @@ NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_gpl_refcount_dec_and_test
@@ -93,7 +93,7 @@ index 1ab548f7..75e835e2 100644
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_dev_unref
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_reinit_primary_mode_group
 diff --git a/nvidia-modeset/nvidia-modeset-linux.c b/nvidia-modeset/nvidia-modeset-linux.c
-index 2e505cac..3ac2a1fd 100644
+index 6df84889..fa448ef8 100644
 --- a/nvidia-modeset/nvidia-modeset-linux.c
 +++ b/nvidia-modeset/nvidia-modeset-linux.c
 @@ -53,6 +53,7 @@
@@ -113,7 +113,7 @@ index 2e505cac..3ac2a1fd 100644
      }
  
      /*
-@@ -1794,7 +1795,11 @@ restart:
+@@ -1799,7 +1800,11 @@ restart:
               * completion, and we wait for queue completion with
               * nv_kthread_q_stop below.
               */
@@ -126,10 +126,10 @@ index 2e505cac..3ac2a1fd 100644
                  list_del(&timer->timers_list);
  
 diff --git a/nvidia-modeset/nvidia-modeset.Kbuild b/nvidia-modeset/nvidia-modeset.Kbuild
-index 42cc187d..1ec2900f 100644
+index 63291c96..0f4b4b04 100644
 --- a/nvidia-modeset/nvidia-modeset.Kbuild
 +++ b/nvidia-modeset/nvidia-modeset.Kbuild
-@@ -102,3 +102,4 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += list_is_first
+@@ -103,3 +103,4 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_real_ts64
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_raw_ts64
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += acpi_video_backlight_use_native
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += acpi_video_register_backlight
@@ -162,10 +162,10 @@ index f594931f..125ead05 100644
  
  }
 diff --git a/nvidia/nv.c b/nvidia/nv.c
-index be650eb7..cf6e9caa 100644
+index 09febecd..49d7dbfb 100644
 --- a/nvidia/nv.c
 +++ b/nvidia/nv.c
-@@ -4095,7 +4095,7 @@ int NV_API_CALL nv_stop_rc_timer(
+@@ -4101,7 +4101,7 @@ int NV_API_CALL nv_stop_rc_timer(
  
      nv_printf(NV_DBG_INFO, "NVRM: stopping rc timer\n");
      nv->rc_timer_enabled = 0;
@@ -174,7 +174,7 @@ index be650eb7..cf6e9caa 100644
      nv_printf(NV_DBG_INFO, "NVRM: rc timer stopped\n");
  
      return 0;
-@@ -4139,7 +4139,7 @@ void NV_API_CALL nv_stop_snapshot_timer(void)
+@@ -4145,7 +4145,7 @@ void NV_API_CALL nv_stop_snapshot_timer(void)
      NV_SPIN_UNLOCK_IRQRESTORE(&nvl->snapshot_timer_lock, flags);
  
      if (timer_active)
@@ -184,11 +184,11 @@ index be650eb7..cf6e9caa 100644
  
  void NV_API_CALL nv_flush_snapshot_timer(void)
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 5266bfad..401bb079 100644
+index f72c62f4..490b48ee 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -232,6 +232,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto_akcipher_verify
- NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_follow_pte
+@@ -235,6 +235,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += follow_pte_arg_vma
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_follow_pfnmap_start
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_pci_ats_supported
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += ecc_digits_from_bytes
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
