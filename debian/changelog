@@ -1,11 +1,13 @@
-nvidia-graphics-drivers (550.127.08-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (550.135-1) UNRELEASED; urgency=medium
 
+  * New upstream production branch release 550.135 (2024-11-19).
+    * Improved compatibility with recent Linux kernels.
   * New upstream Tesla branch release 550.127.08 (2024-11-19).
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 17 May 2025 11:06:03 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 17 May 2025 13:42:46 +0200
 
 nvidia-graphics-drivers (550.127.05-1) experimental; urgency=medium
 
@@ -15,6 +17,15 @@ nvidia-graphics-drivers (550.127.05-1) experimental; urgency=medium
     - Fixed a bug which could cause applications using GBM to crash when
       running with nvidia-drm.modeset=0.
   * New upstream production branch release 550.120 (2024-09-19).
+    - In Linux kernel 6.11, drm_fbdev_generic was renamed to drm_fbdev_ttm.
+      Use drm_fbdev_ttm when present to keep supporting direct framebuffer
+      access needed for Wayland compositors to present content on newer
+      kernels.
+    - In linux-next commit 446d0f4849b1, output_poll_changed is removed
+      from struct drm_mode_config_funcs. Do not implement the function
+      pointer member when not present to ensure the driver can compile with
+      newer kernels. The driver now supports enumerating modes on hotplug
+      events through the DRM fbdev API.
     * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
