@@ -288,6 +288,35 @@ nvidia-graphics-drivers (545.23.06-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Mar 2024 18:03:18 +0100
 
+nvidia-graphics-drivers (535.216.01-1~deb12u1) bookworm; urgency=medium
+
+  * Rebuild for bookworm.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 19 Nov 2024 22:39:43 +0100
+
+nvidia-graphics-drivers (535.216.01-1) unstable; urgency=medium
+
+  * New upstream LTS and Tesla branch release 535.216.01 (2024-10-22).
+    * Fixed CVE-2024-0126.  (Closes: #1085968)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/5586
+    - Fixed a bug that caused the nvidia-powerd service to fail on some
+      ADA notebooks with the error message "Error in getting the NvPCF
+      static configuration".
+    - Fixed a bug that could cause external displays to become frozen until
+      the next modeset when using PRIME Display Offloading with the NVIDIA
+      dGPU acting as the display offload sink.
+    - Fixed a bug that caused OpenGL triple buffering to behave like double
+      buffering.
+    * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
+  * Refresh patches.
+  * nvidia-detect: Add support for Tesla 535 drivers.
+  * nvidia-detect: Restrict support to driver series in trixie.
+  * Clean up packaging cruft in preparation for forking Tesla 535 drivers.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 07 Nov 2024 18:03:36 +0100
+
 nvidia-graphics-drivers (535.183.06-2) unstable; urgency=medium
 
   * Simplify using nv_pfn_valid() in virt_addr_valid() on ppc64el.
