@@ -1,4 +1,4 @@
-From a2abd6eeaf279b83edba778fb11fdd766f5efcdf Mon Sep 17 00:00:00 2001
+From 01678b6c35a89843467b853a89890a3062d50abf Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 27 Mar 2025 19:11:23 +0100
 Subject: [PATCH] backport drm_driver_has_date from 570.124.04
@@ -10,10 +10,10 @@ Subject: [PATCH] backport drm_driver_has_date from 570.124.04
  3 files changed, 28 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 28e40b51..c0a3b77f 100755
+index 91eba261..1b67384e 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6986,6 +6986,30 @@ compile_test() {
+@@ -7061,6 +7061,30 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_FOLIO_TEST_SWAPCACHE_PRESENT" "" "functions"
          ;;
  
@@ -45,10 +45,10 @@ index 28e40b51..c0a3b77f 100755
          # specifying the relevant upstream Linux kernel commit.  Please
          # avoid specifying -rc kernels, and only use SHAs that actually exist
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index 495668f3..c3411e42 100644
+index f1b89bb6..3292cc26 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
-@@ -1719,7 +1719,10 @@ static struct drm_driver nv_drm_driver = {
+@@ -1730,7 +1730,10 @@ static struct drm_driver nv_drm_driver = {
      .name                   = "nvidia-drm",
  
      .desc                   = "NVIDIA DRM driver",
@@ -60,10 +60,10 @@ index 495668f3..c3411e42 100644
  #if defined(NV_DRM_DRIVER_HAS_DEVICE_LIST)
      .device_list            = LIST_HEAD_INIT(nv_drm_driver.device_list),
 diff --git a/nvidia-drm/nvidia-drm-sources.mk b/nvidia-drm/nvidia-drm-sources.mk
-index fb3654c8..1ab548f7 100644
+index 8ab69734..588e2e02 100644
 --- a/nvidia-drm/nvidia-drm-sources.mk
 +++ b/nvidia-drm/nvidia-drm-sources.mk
-@@ -131,4 +131,5 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_aperture_remove_conflicting_pci_framebuffe
+@@ -134,4 +134,5 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_aperture_remove_conflicting_pci_framebuffe
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_mode_create_dp_colorspace_property_has_supported_colorspaces_arg
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed
