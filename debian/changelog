@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (550.142-1) UNRELEASED; urgency=medium
+
+  * New upstream production branch release 550.142 (2024-12-17).
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 17 May 2025 14:12:16 +0200
+
 nvidia-graphics-drivers (550.135-1) experimental; urgency=medium
 
   * New upstream production branch release 550.135 (2024-11-19).
