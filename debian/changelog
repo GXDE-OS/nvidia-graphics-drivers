@@ -1,3 +1,15 @@
+nvidia-graphics-drivers (550.163.01-1) UNRELEASED; urgency=medium
+
+  * New upstream production and Tesla branch release 550.163.01 (2025-04-17).
+    * Fixed CVE-2025-23244.  (Closes: #1104068)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/5630
+    * Improved compatibility with recent Linux kernels.
+  * New upstream release 535 series.
+    - Fixed an issue that could cause render-offloaded applications using
+      KDE Frameworks 6 to crash.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 17 May 2025 14:37:18 +0200
+
 nvidia-graphics-drivers (550.144.03-2) experimental; urgency=medium
 
   * Backport more drm ttm and fbdef conditionals from 550.163.01.
