@@ -306,6 +306,48 @@ nvidia-graphics-drivers (545.23.06-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Mar 2024 18:03:18 +0100
 
+nvidia-graphics-drivers (535.216.03-4) unstable; urgency=medium
+
+  * nvidia-driver-full: Relax nvidia-cuda-mps dependency on ppc64el.
+  * New Catalan (ca) debconf translations by poc senderi.
+  * Updated French (fr) debconf translations by Sylvestre Ledru.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 02 May 2025 09:28:24 +0200
+
+nvidia-graphics-drivers (535.216.03-3) unstable; urgency=medium
+
+  * Backport drm_driver_has_date changes from 570.124.04 to fix kernel module
+    build for Linux 6.14.
+  * Backport module_import_ns_takes_string_literal and crypto_akcipher_verify
+    changes from 550.144.03 and folio_test_swapcache changes from 565.57.01 to
+    fix open kernel module build for Linux 6.13.
+  * Let pahole ignore language c++11 for BTF generation.
+  * Bump Standards-Version to 4.7.2. No changes needed.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 02 Apr 2025 20:43:20 +0200
+
+nvidia-graphics-drivers (535.216.03-2) unstable; urgency=medium
+
+  * Backport cmd_symlink changes from 550.142 to fix kernel module build for
+    Linux 6.13.
+  * Backport file_operations_fop_unsigned_offset_present changes from
+    535.230.02.
+    (Closes: #1094903, #1095032, #1093246, #1092957, #1089513, #1089811)
+  * Backport warning fixes from 535.230.02, 550.90.07, 560.28.03 and
+    565.57.01.
+  * nvidia-vulkan-icd: Promote libnvidia-rtcore to Depends. (Closes: #1081314)
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 17 Feb 2025 10:44:43 +0100
+
+nvidia-graphics-drivers (535.216.03-1) unstable; urgency=medium
+
+  * New upstream Tesla branch release 535.216.03 (2024-11-19).
+
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 26 Nov 2024 21:17:22 +0100
+
 nvidia-graphics-drivers (535.216.01-1~deb12u1) bookworm; urgency=medium
 
   * Rebuild for bookworm.
@@ -401,7 +443,7 @@ nvidia-graphics-drivers (535.179-1) UNRELEASED; urgency=medium
 
 nvidia-graphics-drivers (535.161.08-3) unstable; urgency=medium
 
-  * Add systemd drop-in configuration files setting
+  * nvidia-suspend-common: Add systemd drop-in configuration files setting
     - SYSTEMD_SLEEP_FREEZE_USER_SESSIONS=false and
     - SYSTEMD_HOME_LOCK_FREEZE_SESSION=false
     needed from systemd 256 onwards.  (Closes: #1072722)
