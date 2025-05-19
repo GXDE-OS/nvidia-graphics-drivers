@@ -108,7 +108,7 @@ diff --git a/Makefile b/Makefile
 index 0ea6621a..a086527e 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -55,6 +55,31 @@ else
+@@ -71,6 +71,31 @@ else
    CC ?= cc
    LD ?= ld
    OBJDUMP ?= objdump
