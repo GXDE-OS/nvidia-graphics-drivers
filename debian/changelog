@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (550.144.03-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (550.144.03-1) unstable; urgency=medium
 
   * New upstream production and Tesla branch release 550.144.03 (2025-01-16).
     * Fixed CVE-2024-0150, CVE-2024-0147, CVE-2024-53869, CVE-2024-0131,
@@ -10,8 +10,9 @@ nvidia-graphics-drivers (550.144.03-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
   * Refresh patches.
+  * Upload to unstable.  (Closes: #1102741)
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 17 May 2025 14:20:00 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 22 May 2025 08:26:47 +0200
 
 nvidia-graphics-drivers (550.135-1) experimental; urgency=medium
 
