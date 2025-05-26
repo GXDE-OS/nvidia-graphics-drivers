@@ -1,13 +1,14 @@
-From 148346b2e2fd01ebf8e905c4544338e223763065 Mon Sep 17 00:00:00 2001
+From 50573199a47b91cafdf61d91a8ae7eed10ca57d2 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:13:22 +0100
 Subject: [PATCH] fix more warnings
 
 ---
- common/inc/nv-linux.h | 8 ++++++++
- common/inc/nv-proto.h | 2 +-
- nvidia/libspdm_aead.c | 2 ++
- 3 files changed, 11 insertions(+), 1 deletion(-)
+ common/inc/nv-linux.h       | 8 ++++++++
+ common/inc/nv-proto.h       | 2 +-
+ nvidia-drm/nvidia-drm-drv.c | 2 ++
+ nvidia/libspdm_aead.c       | 2 ++
+ 4 files changed, 13 insertions(+), 1 deletion(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
 index 302afb66..758fab16 100644
@@ -64,6 +65,25 @@ index 353e8a5b..a52380fd 100644
  void        nv_revoke_gpu_mappings_locked(nv_state_t *);
  
  NvUPtr      nv_vm_map_pages             (struct page **, NvU32, NvBool, NvBool);
+diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
+index 91c7cbfc..c39b9483 100644
+--- a/nvidia-drm/nvidia-drm-drv.c
++++ b/nvidia-drm/nvidia-drm-drv.c
+@@ -1796,12 +1796,14 @@ void nv_drm_register_drm_device(const nv_gpu_info_t *gpu_info)
+     dev->dev_private = nv_dev;
+     nv_dev->dev = dev;
+ 
++#if defined(NV_DRM_DEVICE_HAS_PDEV) || defined(NV_DRM_FBDEV_AVAILABLE)
+     bool bus_is_pci =
+ #if defined(NV_LINUX)
+         device->bus == &pci_bus_type;
+ #elif defined(NV_BSD)
+         devclass_find("pci");
+ #endif
++#endif
+ 
+ #if defined(NV_DRM_DEVICE_HAS_PDEV)
+     if (bus_is_pci) {
 diff --git a/nvidia/libspdm_aead.c b/nvidia/libspdm_aead.c
 index f7eca741..abbb4b73 100644
 --- a/nvidia/libspdm_aead.c
