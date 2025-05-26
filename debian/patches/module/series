@@ -12,6 +12,7 @@ bashisms.patch
 0054-fix-more-uvm-warnings.patch
 0058-backport-warning-fixes-from-565.57.01.patch
 0062-Support-BTF-generation-for-non-release-builds.patch
+0063-backport-drm_client_setup.h-changes-from-570.124.04.patch
 0064-backport-drm_driver_has_date-from-570.124.04.patch
 
 # build system updates

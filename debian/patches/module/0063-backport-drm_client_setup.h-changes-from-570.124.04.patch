@@ -1,0 +1,64 @@
+From caf0bf39f467026549237f6e5128d9e143aa3d2a Mon Sep 17 00:00:00 2001
+From: Andreas Beckmann <anbe@debian.org>
+Date: Thu, 27 Mar 2025 20:33:39 +0100
+Subject: [PATCH] backport drm_client_setup.h changes from 570.124.04
+
+---
+ conftest.sh                 | 9 +++++++--
+ header-presence-tests.mk    | 1 +
+ nvidia-drm/nvidia-drm-drv.c | 2 ++
+ 3 files changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/conftest.sh b/conftest.sh
+index 1b67384e..230b1366 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -6675,13 +6675,18 @@ compile_test() {
+             #
+             # Determine whether drm_client_setup is present.
+             #
+-            # Added by commit d07fdf922592 ("drm/fbdev-ttm:
+-            # Convert to client-setup") in v6.13.
++            # Added by commit d07fdf922592 ("drm/fbdev-ttm: Convert to
++            # client-setup") in v6.13 in drm/drm_client_setup.h, but then moved
++            # to drm/clients/drm_client_setup.h by commit b86711c6d6e2
++            # ("drm/client: Move public client header to clients/ subdirectory")
++            # in linux-next b86711c6d6e2.
+             #
+             CODE="
+             #include <drm/drm_fb_helper.h>
+             #if defined(NV_DRM_DRM_CLIENT_SETUP_H_PRESENT)
+             #include <drm/drm_client_setup.h>
++            #elif defined(NV_DRM_CLIENTS_DRM_CLIENT_SETUP_H_PRESENT)
++            #include <drm/clients/drm_client_setup.h>
+             #endif
+             void conftest_drm_client_setup(void) {
+                 drm_client_setup();
+diff --git a/header-presence-tests.mk b/header-presence-tests.mk
+index c5e7f7e9..99237009 100644
+--- a/header-presence-tests.mk
++++ b/header-presence-tests.mk
+@@ -30,6 +30,7 @@ NV_HEADER_PRESENCE_TESTS = \
+   drm/drm_device.h \
+   drm/drm_mode_config.h \
+   drm/drm_modeset_lock.h \
++  drm/clients/drm_client_setup.h \
+   dt-bindings/interconnect/tegra_icc_id.h \
+   generated/autoconf.h \
+   generated/compile.h \
+diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
+index 3292cc26..19dd2d16 100644
+--- a/nvidia-drm/nvidia-drm-drv.c
++++ b/nvidia-drm/nvidia-drm-drv.c
+@@ -78,6 +78,8 @@
+ 
+ #if defined(NV_DRM_DRM_CLIENT_SETUP_H_PRESENT)
+ #include <drm/drm_client_setup.h>
++#elif defined(NV_DRM_CLIENTS_DRM_CLIENT_SETUP_H_PRESENT)
++#include <drm/clients/drm_client_setup.h>
+ #endif
+ 
+ #if defined(NV_DRM_DRM_FBDEV_TTM_H_PRESENT)
+-- 
+2.39.5
+
