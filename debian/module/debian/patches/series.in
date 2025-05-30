@@ -44,6 +44,7 @@ do-div-cast.patch
 #HAS_UVM#0057-backport-uvm-fixes-from-535.230.02.patch
 0061-backport-drm_gem_object_vmap_has_map_arg-changes-fro.patch
 0064-backport-drm_driver_has_date-from-570.124.04.patch
+0067-backport-drm_connector_helper_funcs_mode_valid_has_c.patch
 
 # build system updates
 conftest-verbose.patch

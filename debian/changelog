@@ -2935,6 +2935,8 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (340.108-2) UNRELEASED; urgency=medium
 
+    and drm_connector_helper_funcs_mode_valid_has_const_mode_arg changes
+
   * Backport drm_driver_has_date changes from 570.124.04 to fix kernel module
     build for Linux 6.14.
 
