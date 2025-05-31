@@ -7,7 +7,7 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
 
 --- a/Kbuild
 +++ b/Kbuild
-@@ -109,13 +109,25 @@ CC ?= cc
+@@ -103,13 +103,25 @@ CC ?= cc
  HOST_CC ?= $(CC)
  LD ?= ld
  
