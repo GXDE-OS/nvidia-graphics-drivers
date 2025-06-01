@@ -1,4 +1,4 @@
-From 9e88116bc8d840f05842bd641282dc3365cdcb8b Mon Sep 17 00:00:00 2001
+From 41a4de9682c7c837239e61e052136a30b0d6d5cd Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:13:22 +0100
 Subject: [PATCH] fix more warnings
@@ -11,7 +11,7 @@ Subject: [PATCH] fix more warnings
  nvidia/nv-frontend.h                  | 3 +++
  nvidia/nv-mmap.c                      | 1 +
  nvidia/nv.c                           | 1 +
- 8 files changed, 17 insertions(+), 3 deletions(-)
+ 7 files changed, 16 insertions(+), 2 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
 index a611530f..2953de5c 100644
