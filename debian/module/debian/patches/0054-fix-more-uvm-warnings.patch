@@ -1,4 +1,4 @@
-From e3d41ab90f3ce21ad1cc09e10bce70befb9dd40f Mon Sep 17 00:00:00 2001
+From 75b55b754873bd72250b5fc7e4a6f2bbc6b91d49 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 10 Dec 2024 20:08:50 +0100
 Subject: [PATCH] fix more uvm warnings
@@ -7,7 +7,7 @@ Subject: [PATCH] fix more uvm warnings
  nvidia-uvm/uvm.c              | 1 -
  nvidia-uvm/uvm_channel_test.c | 1 -
  nvidia-uvm/uvm_gpu.c          | 1 +
- 4 files changed, 2 insertions(+), 2 deletions(-)
+ 3 files changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/nvidia-uvm/uvm.c b/nvidia-uvm/uvm.c
 index 20e30f5a..663c964b 100644

@@ -1,4 +1,4 @@
-From 53fbe49d35880cf40429081d028b6196e28eb5e8 Mon Sep 17 00:00:00 2001
+From 58b49f5445c92077b68dfd6e4a3fafad9eae5f1f Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 26 May 2025 13:46:43 +0200
 Subject: [PATCH] backport
@@ -12,10 +12,10 @@ Subject: [PATCH] backport
  3 files changed, 32 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 845201d4..603bf8ba 100755
+index 4d0b882a..cc3adf88 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -5124,6 +5124,33 @@ compile_test() {
+@@ -5539,6 +5539,33 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DRM_DRIVER_HAS_DATE" "" "types"
          ;;
  
@@ -66,10 +66,10 @@ index fe838ef2..adfae65c 100644
      struct drm_device *dev = connector->dev;
      struct nv_drm_device *nv_dev = to_nv_device(dev);
 diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index 673ec6d2..212568ec 100644
+index 03993487..0b6fd55b 100644
 --- a/nvidia-drm/nvidia-drm.Kbuild
 +++ b/nvidia-drm/nvidia-drm.Kbuild
-@@ -125,3 +125,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
+@@ -127,3 +127,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_date
  NV_CONFTEST_TYPE_COMPILE_TESTS += file_operations_fop_unsigned_offset_present
