@@ -1,4 +1,4 @@
-From df7bda751338696c1103463f11eadf465f203900 Mon Sep 17 00:00:00 2001
+From 58d333937ea7fb21216adf9fb0f5a4e24acad8b9 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 26 May 2025 09:58:49 +0200
 Subject: [PATCH] backport nv_timer_delete_sync changes from 570.153.02
@@ -30,10 +30,10 @@ index 18df6ea3..ddf90d8f 100644
 +
  #endif // __NV_TIMER_H__
 diff --git a/nvidia-modeset/nvidia-modeset-linux.c b/nvidia-modeset/nvidia-modeset-linux.c
-index c6d578a3..fca70b7f 100644
+index 3c7f4dc8..027e51bf 100644
 --- a/nvidia-modeset/nvidia-modeset-linux.c
 +++ b/nvidia-modeset/nvidia-modeset-linux.c
-@@ -37,6 +37,7 @@
+@@ -39,6 +39,7 @@
  #include "nv-kthread-q.h"
  
  #include "nv-time.h"
@@ -41,7 +41,7 @@ index c6d578a3..fca70b7f 100644
  
  #include <linux/sched.h>
  #if defined(NV_LINUX_SCHED_SIGNAL_H_PRESENT)
-@@ -707,7 +708,7 @@ static void nvkms_kthread_q_callback(void *arg)
+@@ -718,7 +719,7 @@ static void nvkms_kthread_q_callback(void *arg)
       * pending timers and than waiting for workqueue callbacks.
       */
      if (timer->kernel_timer_created) {
@@ -50,7 +50,7 @@ index c6d578a3..fca70b7f 100644
      }
  
      /*
-@@ -1597,7 +1598,11 @@ restart:
+@@ -1749,7 +1750,11 @@ restart:
               * completion, and we wait for queue completion with
               * nv_kthread_q_stop below.
               */
@@ -61,21 +61,21 @@ index c6d578a3..fca70b7f 100644
 +#endif
                  /*  We've deactivated timer so we need to clean after it */
                  list_del(&timer->timers_list);
-                 
+ 
 diff --git a/nvidia-modeset/nvidia-modeset.Kbuild b/nvidia-modeset/nvidia-modeset.Kbuild
-index e0dead4c..a6733398 100644
+index 7ced7be0..aca6b15e 100644
 --- a/nvidia-modeset/nvidia-modeset.Kbuild
 +++ b/nvidia-modeset/nvidia-modeset.Kbuild
-@@ -95,3 +95,4 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += list_is_first
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_real_ts64
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_raw_ts64
+@@ -99,3 +99,4 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_raw_ts64
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += backlight_device_register
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += acpi_video_backlight_use_native
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_kthread_create_on_node
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
 diff --git a/nvidia/nv.c b/nvidia/nv.c
-index 115afd6f..b3294334 100644
+index 540ebd23..7758a636 100644
 --- a/nvidia/nv.c
 +++ b/nvidia/nv.c
-@@ -3656,7 +3656,7 @@ int NV_API_CALL nv_stop_rc_timer(
+@@ -3840,7 +3840,7 @@ int NV_API_CALL nv_stop_rc_timer(
  
      nv_printf(NV_DBG_INFO, "NVRM: stopping rc timer\n");
      nv->rc_timer_enabled = 0;
@@ -84,7 +84,7 @@ index 115afd6f..b3294334 100644
      nv_printf(NV_DBG_INFO, "NVRM: rc timer stopped\n");
  
      return 0;
-@@ -3700,7 +3700,7 @@ void NV_API_CALL nv_stop_snapshot_timer(void)
+@@ -3884,7 +3884,7 @@ void NV_API_CALL nv_stop_snapshot_timer(void)
      NV_SPIN_UNLOCK_IRQRESTORE(&nvl->snapshot_timer_lock, flags);
  
      if (timer_active)
@@ -94,17 +94,17 @@ index 115afd6f..b3294334 100644
  
  void NV_API_CALL nv_flush_snapshot_timer(void)
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index e69a79be..fe62ecd4 100644
+index 6664c999..1269fcd5 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -184,6 +184,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_get_dram_num_channe
+@@ -188,6 +188,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_get_dram_num_channe
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tegra_dram_types
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_screen_info
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_screen_info
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
  
  NV_CONFTEST_TYPE_COMPILE_TESTS += acpi_op_remove
- NV_CONFTEST_TYPE_COMPILE_TESTS += outer_flush_all
+ NV_CONFTEST_TYPE_COMPILE_TESTS += file_operations
 -- 
 2.39.5
 
