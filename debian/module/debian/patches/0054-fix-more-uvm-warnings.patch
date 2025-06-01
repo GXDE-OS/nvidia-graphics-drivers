@@ -1,11 +1,11 @@
-From 57bf6287a3b9c9c5d47fb6262f8ecec8ce73dca7 Mon Sep 17 00:00:00 2001
+From 149aadf9282b21426555c58adc05775897cd5122 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 10 Dec 2024 20:08:50 +0100
 Subject: [PATCH] fix more uvm warnings
 
 ---
- nvidia-uvm/uvm_gpu.c   | 1 +
- 2 files changed, 2 insertions(+)
+ nvidia-uvm/uvm_gpu.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/nvidia-uvm/uvm_gpu.c b/nvidia-uvm/uvm_gpu.c
 index 62132ab5..15cac0b0 100644

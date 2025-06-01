@@ -1,4 +1,4 @@
-From 62595fc290ee7241e8152507c41875e2ec713351 Mon Sep 17 00:00:00 2001
+From eb890f05ac7de9aebbf67cd6b828a6b25868c206 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Wed, 28 May 2025 17:15:22 +0200
 Subject: [PATCH] backport drm_gem_object_vmap_has_map_arg changes from
@@ -9,10 +9,10 @@ Subject: [PATCH] backport drm_gem_object_vmap_has_map_arg changes from
  1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/conftest.sh b/conftest.sh
-index b556e5dc..a2ab66cc 100755
+index a76db80b..5cb67db6 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -4297,11 +4297,15 @@ compile_test() {
+@@ -4636,11 +4636,15 @@ compile_test() {
              # vmap ops and convert GEM backends") update
              # drm_gem_object_funcs::vmap to take 'map' argument.
              #

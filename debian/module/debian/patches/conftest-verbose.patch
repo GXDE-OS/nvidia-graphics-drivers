@@ -30,7 +30,7 @@ Description: dump the generated conftest headers
  endef
  
  #
-@@ -177,13 +190,17 @@ $(eval $(call NV_GENERATE_COMPILE_TEST_H
+@@ -171,13 +184,17 @@ $(eval $(call NV_GENERATE_COMPILE_TEST_H
  $(eval $(call NV_GENERATE_COMPILE_TEST_HEADER,symbols,$(NV_CONFTEST_SYMBOL_COMPILE_TESTS)))
  $(eval $(call NV_GENERATE_COMPILE_TEST_HEADER,types,$(NV_CONFTEST_TYPE_COMPILE_TESTS)))
  
@@ -50,7 +50,7 @@ Description: dump the generated conftest headers
  
  clean-dirs := $(obj)/conftest
  
-@@ -204,7 +221,8 @@ BUILD_SANITY_CHECKS = \
+@@ -198,7 +215,8 @@ BUILD_SANITY_CHECKS = \
  
  .PHONY: $(BUILD_SANITY_CHECKS)
  
