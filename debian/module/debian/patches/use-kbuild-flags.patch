@@ -9,8 +9,8 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
 
 --- a/Kbuild
 +++ b/Kbuild
-@@ -103,15 +103,27 @@ CC ?= cc
- HOST_CC ?= $(CC)
+@@ -107,6 +107,16 @@ endif
+ CC ?= cc
  LD ?= ld
  
 +NV_REMOVE_KBUILD_CFLAGS = $(GCC_PLUGINS_CFLAGS)
@@ -26,15 +26,14 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
  NV_CONFTEST_SCRIPT := $(src)/conftest.sh
  NV_CONFTEST_HEADER := $(obj)/conftest/headers.h
  
- NV_CONFTEST_CMD := /bin/sh $(NV_CONFTEST_SCRIPT) \
-  "$(strip $(CC))" $(ARCH) $(NV_KERNEL_SOURCES) $(NV_KERNEL_OUTPUT)
+@@ -115,7 +125,9 @@ NV_CONFTEST_CMD := /bin/sh $(NV_CONFTEST
  
  NV_CFLAGS_FROM_CONFTEST := $(shell $(NV_CONFTEST_CMD) build_cflags)
  
--NV_CONFTEST_CFLAGS = $(NV_CFLAGS_FROM_CONFTEST) $(EXTRA_CFLAGS) -fno-pie
+-NV_CONFTEST_CFLAGS = $(NV_CFLAGS_FROM_CONFTEST) $(ccflags-y) -fno-pie
 +NV_CONFTEST_CFLAGS =
 +NV_CONFTEST_CFLAGS += $(NV_CFLAGS_FROM_KBUILD)
-+NV_CONFTEST_CFLAGS += $(NV_CFLAGS_FROM_CONFTEST) $(EXTRA_CFLAGS) -fno-pie
++NV_CONFTEST_CFLAGS += $(NV_CFLAGS_FROM_CONFTEST) $(ccflags-y) -fno-pie
  
  NV_CONFTEST_COMPILE_TEST_HEADERS := $(obj)/conftest/macros.h
  NV_CONFTEST_COMPILE_TEST_HEADERS += $(obj)/conftest/functions.h

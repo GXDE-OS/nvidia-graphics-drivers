@@ -1,4 +1,4 @@
-From fad490a0b3eeddbb842bcbe34e5d520cd3b6b08d Mon Sep 17 00:00:00 2001
+From 0fc2f50d37703acb509abd3f409c815117e35ad7 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 26 May 2025 13:46:43 +0200
 Subject: [PATCH] backport
@@ -12,10 +12,10 @@ Subject: [PATCH] backport
  3 files changed, 32 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 21d7506c..cf489384 100755
+index 94c38e78..db7f45cb 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -4499,6 +4499,33 @@ compile_test() {
+@@ -4723,6 +4723,33 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DRM_DRIVER_HAS_DATE" "" "types"
          ;;
  
@@ -50,10 +50,10 @@ index 21d7506c..cf489384 100755
          # specifying the relevant upstream Linux kernel commit.
          #
 diff --git a/nvidia-drm/nvidia-drm-connector.c b/nvidia-drm/nvidia-drm-connector.c
-index 484204f7..75057968 100644
+index fe838ef2..adfae65c 100644
 --- a/nvidia-drm/nvidia-drm-connector.c
 +++ b/nvidia-drm/nvidia-drm-connector.c
-@@ -297,7 +297,11 @@ static int nv_drm_connector_get_modes(struct drm_connector *connector)
+@@ -303,7 +303,11 @@ static int nv_drm_connector_get_modes(struct drm_connector *connector)
  }
  
  static int nv_drm_connector_mode_valid(struct drm_connector    *connector,
@@ -66,10 +66,10 @@ index 484204f7..75057968 100644
      struct drm_device *dev = connector->dev;
      struct nv_drm_device *nv_dev = to_nv_device(dev);
 diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index 1aa1fd62..3647a554 100644
+index 43cd7634..eb444832 100644
 --- a/nvidia-drm/nvidia-drm.Kbuild
 +++ b/nvidia-drm/nvidia-drm.Kbuild
-@@ -112,3 +112,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
+@@ -116,3 +116,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_date
  NV_CONFTEST_TYPE_COMPILE_TESTS += file_operations_fop_unsigned_offset_present
