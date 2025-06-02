@@ -1,4 +1,4 @@
-From 13520e53773a58016dcaad37b41eb858c1320ccf Mon Sep 17 00:00:00 2001
+From 162cda638fc030788c77175ac0eea3050ee28f25 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sat, 24 May 2025 22:10:32 +0200
 Subject: [PATCH] backport ccflags-y changes from 570.153.02
@@ -8,7 +8,7 @@ Subject: [PATCH] backport ccflags-y changes from 570.153.02
  1 file changed, 21 insertions(+), 28 deletions(-)
 
 diff --git a/Kbuild b/Kbuild
-index 532ccbba..ce14eaba 100644
+index 35b831aa..9c8f96e2 100644
 --- a/Kbuild
 +++ b/Kbuild
 @@ -75,61 +75,54 @@ $(foreach _module, $(NV_KERNEL_MODULES), \
@@ -26,12 +26,12 @@ index 532ccbba..ce14eaba 100644
 -EXTRA_CFLAGS += -I$(src)
 -EXTRA_CFLAGS += -Wall -MD $(DEFINES) $(INCLUDES) -Wno-cast-qual -Wno-error -Wno-format-extra-args
 -EXTRA_CFLAGS += -D__KERNEL__ -DMODULE -DNVRM
--EXTRA_CFLAGS += -DNV_VERSION_STRING=\"515.105.01\"
+-EXTRA_CFLAGS += -DNV_VERSION_STRING=\"525.147.05\"
 +ccflags-y += -I$(src)/common/inc
 +ccflags-y += -I$(src)
 +ccflags-y += -Wall -MD $(DEFINES) $(INCLUDES) -Wno-cast-qual -Wno-error -Wno-format-extra-args
 +ccflags-y += -D__KERNEL__ -DMODULE -DNVRM
-+ccflags-y += -DNV_VERSION_STRING=\"515.105.01\"
++ccflags-y += -DNV_VERSION_STRING=\"525.147.05\"
  
 -EXTRA_CFLAGS += -Wno-unused-function
 +ccflags-y += -Wno-unused-function
