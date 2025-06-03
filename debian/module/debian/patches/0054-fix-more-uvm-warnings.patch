@@ -7,7 +7,6 @@ Subject: [PATCH] fix more uvm warnings
  nvidia-uvm/uvm.c              | 1 -
  nvidia-uvm/uvm_channel_test.c | 1 -
  nvidia-uvm/uvm_gpu.c          | 1 +
- nvidia-uvm/uvm_tools.c        | 1 +
  4 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/nvidia-uvm/uvm.c b/nvidia-uvm/uvm.c
@@ -46,18 +45,6 @@ index 828bfbdd..f2007d96 100644
  uvm_gpu_t *uvm_gpu_get_by_uuid_and_swizz_id_locked(const NvProcessorUuid *gpu_uuid, NvU32 swizz_id)
  {
      uvm_parent_gpu_t *parent_gpu = uvm_parent_gpu_get_by_uuid(gpu_uuid);
-diff --git a/nvidia-uvm/uvm_tools.c b/nvidia-uvm/uvm_tools.c
-index b69de357..e404f3e0 100644
---- a/nvidia-uvm/uvm_tools.c
-+++ b/nvidia-uvm/uvm_tools.c
-@@ -35,6 +35,7 @@
- #include "uvm_range_group.h"
- #include "uvm_mem.h"
- #include "nv_speculation_barrier.h"
-+#include "uvm_tools_init.h"
- 
- // We limit the number of times a page can be retained by the kernel
- // to prevent the user from maliciously passing UVM tools the same page
 -- 
 2.39.5
 
