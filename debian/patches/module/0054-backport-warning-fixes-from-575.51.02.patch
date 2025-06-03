@@ -1,4 +1,4 @@
-From 94babd1f78d0aee94636dd5e48ebe46aeed5bd8a Mon Sep 17 00:00:00 2001
+From 7db77688e80eb305c46f0bbb863767119cf9c30b Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 May 2025 17:50:15 +0200
 Subject: [PATCH] backport warning fixes from 575.51.02
@@ -23,7 +23,7 @@ index 353e8a5b..a52380fd 100644
  
  NvUPtr      nv_vm_map_pages             (struct page **, NvU32, NvBool, NvBool);
 diff --git a/nvidia-uvm/uvm_gpu_access_counters.c b/nvidia-uvm/uvm_gpu_access_counters.c
-index f36876bb..1c3f6aa2 100644
+index a24e405f..dd60ab40 100644
 --- a/nvidia-uvm/uvm_gpu_access_counters.c
 +++ b/nvidia-uvm/uvm_gpu_access_counters.c
 @@ -24,6 +24,7 @@
@@ -35,7 +35,7 @@ index f36876bb..1c3f6aa2 100644
  #include "uvm_hal.h"
  #include "uvm_kvmalloc.h"
 diff --git a/nvidia/libspdm_aead.c b/nvidia/libspdm_aead.c
-index 3844da48..6ff5adeb 100644
+index f7eca741..866a6731 100644
 --- a/nvidia/libspdm_aead.c
 +++ b/nvidia/libspdm_aead.c
 @@ -38,7 +38,7 @@ struct lkca_aead_ctx
@@ -47,7 +47,7 @@ index 3844da48..6ff5adeb 100644
  {
  #ifndef USE_LKCA
      return -ENODEV;
-@@ -168,14 +168,14 @@ static int lkca_aead_internal(struct crypto_aead *aead,
+@@ -175,14 +175,14 @@ static int lkca_aead_internal(struct crypto_aead *aead,
  }
  #endif
  

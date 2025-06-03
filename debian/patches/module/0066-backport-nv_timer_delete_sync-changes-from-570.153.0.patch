@@ -1,4 +1,4 @@
-From 9e222bec811119afccf64c765a9f73accd253a02 Mon Sep 17 00:00:00 2001
+From c34c53a6ad43fc77c186f5df2bff6b2b7db0c6b2 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 26 May 2025 09:58:49 +0200
 Subject: [PATCH] backport nv_timer_delete_sync changes from 570.153.02
@@ -93,7 +93,7 @@ index fb5dbc9e..e5abafc9 100644
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_dev_unref
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_reinit_primary_mode_group
 diff --git a/nvidia-modeset/nvidia-modeset-linux.c b/nvidia-modeset/nvidia-modeset-linux.c
-index ad7629ee..0df265af 100644
+index 263f0643..283d85c2 100644
 --- a/nvidia-modeset/nvidia-modeset-linux.c
 +++ b/nvidia-modeset/nvidia-modeset-linux.c
 @@ -53,6 +53,7 @@
@@ -104,7 +104,7 @@ index ad7629ee..0df265af 100644
  #include "nv-lock.h"
  #include "nv-chardev-numbers.h"
  
-@@ -682,7 +683,7 @@ static void nvkms_kthread_q_callback(void *arg)
+@@ -684,7 +685,7 @@ static void nvkms_kthread_q_callback(void *arg)
       * pending timers and than waiting for workqueue callbacks.
       */
      if (timer->kernel_timer_created) {
@@ -113,7 +113,7 @@ index ad7629ee..0df265af 100644
      }
  
      /*
-@@ -1793,7 +1794,11 @@ restart:
+@@ -1795,7 +1796,11 @@ restart:
               * completion, and we wait for queue completion with
               * nv_kthread_q_stop below.
               */
@@ -184,7 +184,7 @@ index 7050fb93..cd6fd926 100644
  
  void NV_API_CALL nv_flush_snapshot_timer(void)
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 58a86495..b2be820c 100644
+index da92a729..8b25eac2 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -228,6 +228,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_memory_block_size_b
