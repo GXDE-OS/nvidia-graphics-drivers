@@ -1,4 +1,4 @@
-From 66b222d07e80a0824345ad2857b7da433fc452f8 Mon Sep 17 00:00:00 2001
+From 2386f65f18f87f866fc13dd9b090c99229a3594b Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 26 May 2025 13:46:43 +0200
 Subject: [PATCH] backport
@@ -12,10 +12,10 @@ Subject: [PATCH] backport
  3 files changed, 32 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 3b138605..87669ea3 100755
+index a597cce5..fc975f09 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6611,6 +6611,33 @@ compile_test() {
+@@ -6628,6 +6628,33 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DRM_DRIVER_HAS_DATE" "" "types"
          ;;
  
