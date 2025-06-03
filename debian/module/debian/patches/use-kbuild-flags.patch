@@ -7,7 +7,7 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
 
 --- a/Kbuild
 +++ b/Kbuild
-@@ -109,13 +109,29 @@ CC ?= cc
+@@ -109,13 +109,25 @@ CC ?= cc
  HOST_CC ?= $(CC)
  LD ?= ld
  
@@ -31,10 +31,6 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
 +NV_CONFTEST_CFLAGS =
 +NV_CONFTEST_CFLAGS += $(NV_CFLAGS_FROM_KBUILD)
 +NV_CONFTEST_CFLAGS += $(NV_CFLAGS_FROM_CONFTEST)
-+NV_CONFTEST_CFLAGS += $(call cc-option,-Wno-error=implicit-function-declaration,)
-+NV_CONFTEST_CFLAGS += $(call cc-option,-Wno-error=incompatible-pointer-types,)
-+NV_CONFTEST_CFLAGS += $(call cc-option,-Wno-error=return-type,)
-+NV_CONFTEST_CFLAGS += $(call cc-option,-Wno-error=strict-prototypes,)
  
  NV_CONFTEST_COMPILE_TEST_HEADERS := $(obj)/conftest/macros.h
  NV_CONFTEST_COMPILE_TEST_HEADERS += $(obj)/conftest/functions.h
