@@ -1,4 +1,4 @@
-From a6e092742f84c41fb94d700bcd4a1c7b247134fd Mon Sep 17 00:00:00 2001
+From 94babd1f78d0aee94636dd5e48ebe46aeed5bd8a Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 May 2025 17:50:15 +0200
 Subject: [PATCH] backport warning fixes from 575.51.02
@@ -10,10 +10,10 @@ Subject: [PATCH] backport warning fixes from 575.51.02
  3 files changed, 11 insertions(+), 10 deletions(-)
 
 diff --git a/common/inc/nv-proto.h b/common/inc/nv-proto.h
-index 815107d2..b016e42e 100644
+index 353e8a5b..a52380fd 100644
 --- a/common/inc/nv-proto.h
 +++ b/common/inc/nv-proto.h
-@@ -43,7 +43,7 @@ void        nv_procfs_remove_gpu        (nv_linux_state_t *);
+@@ -41,7 +41,7 @@ void        nv_procfs_remove_gpu        (nv_linux_state_t *);
  
  int         nvidia_mmap                 (struct file *, struct vm_area_struct *);
  int         nvidia_mmap_helper          (nv_state_t *, nv_linux_file_private_t *, nvidia_stack_t *, struct vm_area_struct *, void *);
@@ -23,7 +23,7 @@ index 815107d2..b016e42e 100644
  
  NvUPtr      nv_vm_map_pages             (struct page **, NvU32, NvBool, NvBool);
 diff --git a/nvidia-uvm/uvm_gpu_access_counters.c b/nvidia-uvm/uvm_gpu_access_counters.c
-index 77512d6d..d042f63d 100644
+index f36876bb..1c3f6aa2 100644
 --- a/nvidia-uvm/uvm_gpu_access_counters.c
 +++ b/nvidia-uvm/uvm_gpu_access_counters.c
 @@ -24,6 +24,7 @@

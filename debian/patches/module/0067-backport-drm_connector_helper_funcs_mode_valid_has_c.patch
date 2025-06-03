@@ -1,4 +1,4 @@
-From 3d2eb6a0b91b7e2c2a830966390405d4f572c184 Mon Sep 17 00:00:00 2001
+From 9b769d2048e0e60b7d08b2b556a587c3946c6131 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 26 May 2025 13:46:43 +0200
 Subject: [PATCH] backport
@@ -8,14 +8,14 @@ Subject: [PATCH] backport
 ---
  conftest.sh                       | 27 +++++++++++++++++++++++++++
  nvidia-drm/nvidia-drm-connector.c |  4 ++++
- nvidia-drm/nvidia-drm.Kbuild      |  1 +
+ nvidia-drm/nvidia-drm-sources.mk  |  1 +
  3 files changed, 32 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 840c27df..89a533f0 100755
+index 0457ce23..3b180de2 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6559,6 +6559,33 @@ compile_test() {
+@@ -6901,6 +6901,33 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DRM_DRIVER_HAS_DATE" "" "types"
          ;;
  
@@ -47,10 +47,10 @@ index 840c27df..89a533f0 100755
 +        ;;
 +
          # When adding a new conftest entry, please use the correct format for
-         # specifying the relevant upstream Linux kernel commit.
-         #
+         # specifying the relevant upstream Linux kernel commit.  Please
+         # avoid specifying -rc kernels, and only use SHAs that actually exist
 diff --git a/nvidia-drm/nvidia-drm-connector.c b/nvidia-drm/nvidia-drm-connector.c
-index 18965cf7..e5135c48 100644
+index 4d2e1126..2fd4d96c 100644
 --- a/nvidia-drm/nvidia-drm-connector.c
 +++ b/nvidia-drm/nvidia-drm-connector.c
 @@ -314,7 +314,11 @@ static int nv_drm_connector_get_modes(struct drm_connector *connector)
@@ -65,11 +65,11 @@ index 18965cf7..e5135c48 100644
  {
      struct drm_device *dev = connector->dev;
      struct nv_drm_device *nv_dev = to_nv_device(dev);
-diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index 9cd7134f..9fff7071 100644
---- a/nvidia-drm/nvidia-drm.Kbuild
-+++ b/nvidia-drm/nvidia-drm.Kbuild
-@@ -137,3 +137,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
+diff --git a/nvidia-drm/nvidia-drm-sources.mk b/nvidia-drm/nvidia-drm-sources.mk
+index e5abafc9..01c42de9 100644
+--- a/nvidia-drm/nvidia-drm-sources.mk
++++ b/nvidia-drm/nvidia-drm-sources.mk
+@@ -133,3 +133,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_date
  NV_CONFTEST_TYPE_COMPILE_TESTS += file_operations_fop_unsigned_offset_present

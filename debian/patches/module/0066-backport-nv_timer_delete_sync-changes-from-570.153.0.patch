@@ -1,16 +1,20 @@
-From 61292105cf926e514933e7d5e689e6fdf0ef052c Mon Sep 17 00:00:00 2001
+From 9e222bec811119afccf64c765a9f73accd253a02 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 26 May 2025 09:58:49 +0200
 Subject: [PATCH] backport nv_timer_delete_sync changes from 570.153.02
 
 ---
  common/inc/nv-timer.h                 | 9 +++++++++
+ nvidia-drm/nvidia-drm-fence.c         | 2 +-
+ nvidia-drm/nvidia-drm-os-interface.c  | 9 ---------
+ nvidia-drm/nvidia-drm-os-interface.h  | 2 --
+ nvidia-drm/nvidia-drm-sources.mk      | 1 +
  nvidia-modeset/nvidia-modeset-linux.c | 7 ++++++-
  nvidia-modeset/nvidia-modeset.Kbuild  | 1 +
  nvidia/nv-nano-timer.c                | 7 ++++++-
  nvidia/nv.c                           | 4 ++--
  nvidia/nvidia.Kbuild                  | 2 ++
- 6 files changed, 26 insertions(+), 4 deletions(-)
+ 10 files changed, 28 insertions(+), 16 deletions(-)
 
 diff --git a/common/inc/nv-timer.h b/common/inc/nv-timer.h
 index 6af49fb6..04204388 100644
@@ -30,19 +34,77 @@ index 6af49fb6..04204388 100644
 +}
 +
  #endif // __NV_TIMER_H__
+diff --git a/nvidia-drm/nvidia-drm-fence.c b/nvidia-drm/nvidia-drm-fence.c
+index e6621178..7d9761fc 100644
+--- a/nvidia-drm/nvidia-drm-fence.c
++++ b/nvidia-drm/nvidia-drm-fence.c
+@@ -1124,7 +1124,7 @@ static void __nv_drm_semsurf_fence_ctx_destroy(
+      */
+     nv_drm_workthread_shutdown(&ctx->worker);
+ 
+-    nv_drm_del_timer_sync(&ctx->timer);
++    nv_timer_delete_sync(&ctx->timer.kernel_timer);
+ 
+     /*
+      * The semaphore surface could still be sending callbacks, so it is still
+diff --git a/nvidia-drm/nvidia-drm-os-interface.c b/nvidia-drm/nvidia-drm-os-interface.c
+index 473004b5..a4ef0816 100644
+--- a/nvidia-drm/nvidia-drm-os-interface.c
++++ b/nvidia-drm/nvidia-drm-os-interface.c
+@@ -230,15 +230,6 @@ unsigned long nv_drm_timeout_from_ms(NvU64 relative_timeout_ms)
+     return jiffies + msecs_to_jiffies(relative_timeout_ms);
+ }
+ 
+-bool nv_drm_del_timer_sync(nv_drm_timer *timer)
+-{
+-    if (del_timer_sync(&timer->kernel_timer)) {
+-        return true;
+-    } else {
+-        return false;
+-    }
+-}
+-
+ #if defined(NV_DRM_FENCE_AVAILABLE)
+ int nv_drm_create_sync_file(nv_dma_fence_t *fence)
+ {
+diff --git a/nvidia-drm/nvidia-drm-os-interface.h b/nvidia-drm/nvidia-drm-os-interface.h
+index 6f8cfea9..8008c62c 100644
+--- a/nvidia-drm/nvidia-drm-os-interface.h
++++ b/nvidia-drm/nvidia-drm-os-interface.h
+@@ -105,8 +105,6 @@ void nv_drm_timer_setup(nv_drm_timer *timer,
+ 
+ void nv_drm_mod_timer(nv_drm_timer *timer, unsigned long relative_timeout_ms);
+ 
+-bool nv_drm_del_timer_sync(nv_drm_timer *timer);
+-
+ unsigned long nv_drm_timer_now(void);
+ 
+ unsigned long nv_drm_timeout_from_ms(NvU64 relative_timeout_ms);
+diff --git a/nvidia-drm/nvidia-drm-sources.mk b/nvidia-drm/nvidia-drm-sources.mk
+index fb5dbc9e..e5abafc9 100644
+--- a/nvidia-drm/nvidia-drm-sources.mk
++++ b/nvidia-drm/nvidia-drm-sources.mk
+@@ -37,6 +37,7 @@ NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_gpl_refcount_dec_and_test
+ NV_CONFTEST_GENERIC_COMPILE_TESTS += drm_alpha_blending_available
+ NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_present_drm_gem_prime_fd_to_handle
+ NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_present_drm_gem_prime_handle_to_fd
++NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
+ 
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_dev_unref
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_reinit_primary_mode_group
 diff --git a/nvidia-modeset/nvidia-modeset-linux.c b/nvidia-modeset/nvidia-modeset-linux.c
-index 3e9ce8a6..e10f6f69 100644
+index ad7629ee..0df265af 100644
 --- a/nvidia-modeset/nvidia-modeset-linux.c
 +++ b/nvidia-modeset/nvidia-modeset-linux.c
-@@ -52,6 +52,7 @@
+@@ -53,6 +53,7 @@
  #include "nv-procfs.h"
  #include "nv-kthread-q.h"
  #include "nv-time.h"
 +#include "nv-timer.h"
  #include "nv-lock.h"
+ #include "nv-chardev-numbers.h"
  
- /*
-@@ -652,7 +653,7 @@ static void nvkms_kthread_q_callback(void *arg)
+@@ -682,7 +683,7 @@ static void nvkms_kthread_q_callback(void *arg)
       * pending timers and than waiting for workqueue callbacks.
       */
      if (timer->kernel_timer_created) {
@@ -51,7 +113,7 @@ index 3e9ce8a6..e10f6f69 100644
      }
  
      /*
-@@ -1739,7 +1740,11 @@ restart:
+@@ -1793,7 +1794,11 @@ restart:
               * completion, and we wait for queue completion with
               * nv_kthread_q_stop below.
               */
@@ -64,10 +126,10 @@ index 3e9ce8a6..e10f6f69 100644
                  list_del(&timer->timers_list);
  
 diff --git a/nvidia-modeset/nvidia-modeset.Kbuild b/nvidia-modeset/nvidia-modeset.Kbuild
-index 4e328bae..7781c8ab 100644
+index 42cc187d..1ec2900f 100644
 --- a/nvidia-modeset/nvidia-modeset.Kbuild
 +++ b/nvidia-modeset/nvidia-modeset.Kbuild
-@@ -90,3 +90,4 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += list_is_first
+@@ -102,3 +102,4 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += list_is_first
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_real_ts64
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_raw_ts64
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += acpi_video_backlight_use_native
@@ -100,10 +162,10 @@ index f594931f..125ead05 100644
  
  }
 diff --git a/nvidia/nv.c b/nvidia/nv.c
-index 499a55e3..d1a43a0a 100644
+index 7050fb93..cd6fd926 100644
 --- a/nvidia/nv.c
 +++ b/nvidia/nv.c
-@@ -3765,7 +3765,7 @@ int NV_API_CALL nv_stop_rc_timer(
+@@ -4095,7 +4095,7 @@ int NV_API_CALL nv_stop_rc_timer(
  
      nv_printf(NV_DBG_INFO, "NVRM: stopping rc timer\n");
      nv->rc_timer_enabled = 0;
@@ -112,7 +174,7 @@ index 499a55e3..d1a43a0a 100644
      nv_printf(NV_DBG_INFO, "NVRM: rc timer stopped\n");
  
      return 0;
-@@ -3809,7 +3809,7 @@ void NV_API_CALL nv_stop_snapshot_timer(void)
+@@ -4139,7 +4139,7 @@ void NV_API_CALL nv_stop_snapshot_timer(void)
      NV_SPIN_UNLOCK_IRQRESTORE(&nvl->snapshot_timer_lock, flags);
  
      if (timer_active)
