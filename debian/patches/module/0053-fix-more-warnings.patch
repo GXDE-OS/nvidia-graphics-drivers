@@ -5,7 +5,6 @@ Subject: [PATCH] fix more warnings
 
 ---
  common/inc/nv-linux.h                 | 8 ++++++++
- common/inc/nv-proto.h                 | 2 +-
  nvidia-drm/nvidia-drm-crtc.c          | 2 ++
  nvidia-modeset/nvidia-modeset-linux.c | 1 +
  nvidia/nv-frontend.c                  | 2 --
@@ -57,19 +56,6 @@ index a611530f..2953de5c 100644
      }
  
  #define NV_KFREE(ptr, size) \
-diff --git a/common/inc/nv-proto.h b/common/inc/nv-proto.h
-index ebb2873e..f3c667ac 100644
---- a/common/inc/nv-proto.h
-+++ b/common/inc/nv-proto.h
-@@ -46,7 +46,7 @@ void        nv_procfs_remove_gpu        (nv_linux_state_t *);
- 
- int         nvidia_mmap                 (struct file *, struct vm_area_struct *);
- int         nvidia_mmap_helper          (nv_state_t *, nv_linux_file_private_t *, nvidia_stack_t *, struct vm_area_struct *, void *);
--int         nv_encode_caching           (pgprot_t *, NvU32, NvU32);
-+int         nv_encode_caching           (pgprot_t *, NvU32, nv_memory_type_t);
- void        nv_revoke_gpu_mappings_locked(nv_state_t *);
- 
- NvUPtr      nv_vm_map_pages             (struct page **, NvU32, NvBool, NvBool);
 diff --git a/nvidia-drm/nvidia-drm-crtc.c b/nvidia-drm/nvidia-drm-crtc.c
 index 60c41e32..baf27cf6 100644
 --- a/nvidia-drm/nvidia-drm-crtc.c
