@@ -1,4 +1,4 @@
-From 06561eb0ee49381373a6a1a9ecc71e2a66f8f152 Mon Sep 17 00:00:00 2001
+From 6df42b1f5ac27cdd56517d4a1680809b682d1412 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 1 Apr 2025 14:47:51 +0200
 Subject: [PATCH] let pahole ignore c++11 in addition to c++
@@ -9,10 +9,10 @@ Bug: https://github.com/NVIDIA/open-gpu-kernel-modules/issues/756#issuecomment-2
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index c629af0b..4b0d6019 100644
+index 0a1394e0..40a9792e 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -68,14 +68,14 @@ else
+@@ -84,14 +84,14 @@ else
    #     pahole_cmd = "pahole"
    #     for (i = 1; i < ARGC; i++) {
    #         if (ARGV[i] ~ /--lang_exclude=/) {

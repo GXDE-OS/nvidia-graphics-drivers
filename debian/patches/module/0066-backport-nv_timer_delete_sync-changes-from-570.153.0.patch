@@ -51,7 +51,7 @@ index 3e9ce8a6..e10f6f69 100644
      }
  
      /*
-@@ -1739,7 +1740,11 @@ restart:
+@@ -1738,7 +1739,11 @@ restart:
               * completion, and we wait for queue completion with
               * nv_kthread_q_stop below.
               */
