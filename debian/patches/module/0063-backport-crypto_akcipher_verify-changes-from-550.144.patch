@@ -1,4 +1,4 @@
-From bf453078dd30cb049a5c0dd0e8cd842187ede98b Mon Sep 17 00:00:00 2001
+From eda20c8eb93a0d11ebcc79c98652199f0fb553d9 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 20 Mar 2025 05:41:58 +0100
 Subject: [PATCH] backport crypto_akcipher_verify changes from 550.144.03
@@ -24,10 +24,10 @@ index 4276b58e..be17d0ad 100644
  # Filename to store the define for the header in $(1); this is only consumed by
  # the rule below that concatenates all of these together.
 diff --git a/conftest.sh b/conftest.sh
-index 73b37fc8..cf3f92be 100755
+index dd116933..9eae6a11 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6386,6 +6386,47 @@ compile_test() {
+@@ -6390,6 +6390,47 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_CRYPTO_PRESENT" "" "symbols"
          ;;
  

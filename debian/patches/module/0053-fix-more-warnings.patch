@@ -1,17 +1,16 @@
-From c872527cd8aa9d7876e49998f477f28e2d0d82be Mon Sep 17 00:00:00 2001
+From 9adb46f084e74e06ae5f7703c8a3aeb69986b7e2 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:13:22 +0100
 Subject: [PATCH] fix more warnings
 
 ---
  common/inc/nv-linux.h | 8 ++++++++
- nvidia/libspdm_aead.c | 2 ++
  nvidia/nv-frontend.c  | 2 --
  nvidia/nv-frontend.h  | 3 +++
- 5 files changed, 14 insertions(+), 3 deletions(-)
+ 3 files changed, 11 insertions(+), 2 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index ae61dc2a..d9ca4537 100644
+index e6223082..44dbb9f2 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
 @@ -600,21 +600,27 @@ static NvBool nv_numa_node_has_memory(int node_id)
@@ -52,26 +51,6 @@ index ae61dc2a..d9ca4537 100644
      }
  
  #define NV_KFREE(ptr, size) \
-diff --git a/nvidia/libspdm_aead.c b/nvidia/libspdm_aead.c
-index 3844da48..18d23ba2 100644
---- a/nvidia/libspdm_aead.c
-+++ b/nvidia/libspdm_aead.c
-@@ -38,6 +38,7 @@ struct lkca_aead_ctx
- };
- #endif
- 
-+static
- int libspdm_aead_prealloc(void **context, char const *alg)
- {
- #ifndef USE_LKCA
-@@ -168,6 +169,7 @@ static int lkca_aead_internal(struct crypto_aead *aead,
- }
- #endif
- 
-+static
- int libspdm_aead_prealloced(void *context,
-                             const uint8_t *key, size_t key_size,
-                             const uint8_t *iv, size_t iv_size,
 diff --git a/nvidia/nv-frontend.c b/nvidia/nv-frontend.c
 index eb7a2e08..0bdbe02a 100644
 --- a/nvidia/nv-frontend.c
