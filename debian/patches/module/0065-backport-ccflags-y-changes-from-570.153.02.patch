@@ -1,4 +1,4 @@
-From 8a9ecffd1195d17cad6d0e2ae74157e16c47d9e0 Mon Sep 17 00:00:00 2001
+From f08d48be4b6a01dd6daf7bbaf0a962524ab917a2 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sat, 24 May 2025 22:10:32 +0200
 Subject: [PATCH] backport ccflags-y changes from 570.153.02
@@ -8,7 +8,7 @@ Subject: [PATCH] backport ccflags-y changes from 570.153.02
  1 file changed, 25 insertions(+), 32 deletions(-)
 
 diff --git a/Kbuild b/Kbuild
-index 57158618..fede5699 100644
+index b471b335..5a796020 100644
 --- a/Kbuild
 +++ b/Kbuild
 @@ -75,21 +75,14 @@ $(foreach _module, $(NV_KERNEL_MODULES), \
@@ -26,12 +26,12 @@ index 57158618..fede5699 100644
 -EXTRA_CFLAGS += -I$(src)
 -EXTRA_CFLAGS += -Wall $(DEFINES) $(INCLUDES) -Wno-cast-qual -Wno-format-extra-args
 -EXTRA_CFLAGS += -D__KERNEL__ -DMODULE -DNVRM
--EXTRA_CFLAGS += -DNV_VERSION_STRING=\"550.78\"
+-EXTRA_CFLAGS += -DNV_VERSION_STRING=\"550.90.07\"
 +ccflags-y += -I$(src)/common/inc
 +ccflags-y += -I$(src)
 +ccflags-y += -Wall $(DEFINES) $(INCLUDES) -Wno-cast-qual -Wno-format-extra-args
 +ccflags-y += -D__KERNEL__ -DMODULE -DNVRM
-+ccflags-y += -DNV_VERSION_STRING=\"550.78\"
++ccflags-y += -DNV_VERSION_STRING=\"550.90.07\"
  
  ifneq ($(SYSSRCHOST1X),)
 - EXTRA_CFLAGS += -I$(SYSSRCHOST1X)
