@@ -1,4 +1,4 @@
-From 75c6d8844ef2bfd1dc15028357e9da7a99c67c4b Mon Sep 17 00:00:00 2001
+From 88a699134a94f564c8fffcb7013d9d8769a8f7a9 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 26 May 2025 09:58:49 +0200
 Subject: [PATCH] backport nv_timer_delete_sync changes from 570.153.02
@@ -31,7 +31,7 @@ index 6af49fb6..04204388 100644
 +
  #endif // __NV_TIMER_H__
 diff --git a/nvidia-modeset/nvidia-modeset-linux.c b/nvidia-modeset/nvidia-modeset-linux.c
-index 3e9ce8a6..e10f6f69 100644
+index 2149bf43..1b45d863 100644
 --- a/nvidia-modeset/nvidia-modeset-linux.c
 +++ b/nvidia-modeset/nvidia-modeset-linux.c
 @@ -52,6 +52,7 @@
@@ -51,7 +51,7 @@ index 3e9ce8a6..e10f6f69 100644
      }
  
      /*
-@@ -1738,7 +1739,11 @@ restart:
+@@ -1743,7 +1744,11 @@ restart:
               * completion, and we wait for queue completion with
               * nv_kthread_q_stop below.
               */
@@ -64,13 +64,13 @@ index 3e9ce8a6..e10f6f69 100644
                  list_del(&timer->timers_list);
  
 diff --git a/nvidia-modeset/nvidia-modeset.Kbuild b/nvidia-modeset/nvidia-modeset.Kbuild
-index 4e328bae..7781c8ab 100644
+index 05070595..65b5a87c 100644
 --- a/nvidia-modeset/nvidia-modeset.Kbuild
 +++ b/nvidia-modeset/nvidia-modeset.Kbuild
-@@ -90,3 +90,4 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += list_is_first
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_real_ts64
+@@ -91,3 +91,4 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_real_ts64
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_raw_ts64
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += acpi_video_backlight_use_native
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += acpi_video_register_backlight
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
 diff --git a/nvidia/nv-nano-timer.c b/nvidia/nv-nano-timer.c
 index f594931f..125ead05 100644
@@ -122,12 +122,12 @@ index 499a55e3..d1a43a0a 100644
  
  void NV_API_CALL nv_flush_snapshot_timer(void)
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 17e7e563..7d492668 100644
+index 6a72a6c2..10cf9271 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -229,6 +229,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto
- NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto_akcipher_verify
- NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_follow_pte
+@@ -232,6 +232,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_follow_pte
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += follow_pte_arg_vma
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_follow_pfnmap_start
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += ecc_digits_from_bytes
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_hrtimer_setup
