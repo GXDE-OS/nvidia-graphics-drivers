@@ -121,9 +121,9 @@ index be8dbf58..305b7d92 100644
  
 -NV_CONFTEST_CFLAGS = $(NV_CFLAGS_FROM_CONFTEST) $(EXTRA_CFLAGS) -fno-pie
 +NV_CONFTEST_CFLAGS = $(NV_CFLAGS_FROM_CONFTEST) $(ccflags-y) -fno-pie
+ NV_CONFTEST_CFLAGS += $(call cc-disable-warning,pointer-sign)
+ NV_CONFTEST_CFLAGS += $(call cc-option,-fshort-wchar,)
  NV_CONFTEST_CFLAGS += -Wno-error
- 
- NV_CONFTEST_COMPILE_TEST_HEADERS := $(obj)/conftest/macros.h
 -- 
 2.39.5
 
