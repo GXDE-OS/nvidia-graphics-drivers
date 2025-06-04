@@ -1,4 +1,4 @@
-From bd239123370f1908ec975309c83cbeacbfcc38ac Mon Sep 17 00:00:00 2001
+From 06a06552d6f9931cd9c2edcaa41966ef3b9b4036 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 26 May 2025 09:58:49 +0200
 Subject: [PATCH] backport nv_timer_delete_sync changes from 570.153.02
@@ -35,10 +35,10 @@ index 6af49fb6..04204388 100644
 +
  #endif // __NV_TIMER_H__
 diff --git a/nvidia-drm/nvidia-drm-fence.c b/nvidia-drm/nvidia-drm-fence.c
-index e6621178..7d9761fc 100644
+index 808adc67..47be9f22 100644
 --- a/nvidia-drm/nvidia-drm-fence.c
 +++ b/nvidia-drm/nvidia-drm-fence.c
-@@ -1124,7 +1124,7 @@ static void __nv_drm_semsurf_fence_ctx_destroy(
+@@ -1134,7 +1134,7 @@ static void __nv_drm_semsurf_fence_ctx_destroy(
       */
      nv_drm_workthread_shutdown(&ctx->worker);
  
@@ -162,10 +162,10 @@ index f594931f..125ead05 100644
  
  }
 diff --git a/nvidia/nv.c b/nvidia/nv.c
-index 7050fb93..cd6fd926 100644
+index 333bab26..a8eff75b 100644
 --- a/nvidia/nv.c
 +++ b/nvidia/nv.c
-@@ -4095,7 +4095,7 @@ int NV_API_CALL nv_stop_rc_timer(
+@@ -4099,7 +4099,7 @@ int NV_API_CALL nv_stop_rc_timer(
  
      nv_printf(NV_DBG_INFO, "NVRM: stopping rc timer\n");
      nv->rc_timer_enabled = 0;
@@ -174,7 +174,7 @@ index 7050fb93..cd6fd926 100644
      nv_printf(NV_DBG_INFO, "NVRM: rc timer stopped\n");
  
      return 0;
-@@ -4139,7 +4139,7 @@ void NV_API_CALL nv_stop_snapshot_timer(void)
+@@ -4143,7 +4143,7 @@ void NV_API_CALL nv_stop_snapshot_timer(void)
      NV_SPIN_UNLOCK_IRQRESTORE(&nvl->snapshot_timer_lock, flags);
  
      if (timer_active)
@@ -184,10 +184,10 @@ index 7050fb93..cd6fd926 100644
  
  void NV_API_CALL nv_flush_snapshot_timer(void)
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 17e7e563..7d492668 100644
+index 60cb301d..1fb520e6 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -229,6 +229,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto
+@@ -231,6 +231,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto_akcipher_verify
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_follow_pte
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += ecc_digits_from_bytes
