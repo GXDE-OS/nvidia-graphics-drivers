@@ -1,4 +1,4 @@
-From 5348990bd5e9204011abd8960e314445fcf51f03 Mon Sep 17 00:00:00 2001
+From 065edef5c0a6312e03479e574bb17f84150f4487 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 8 Dec 2024 22:13:22 +0100
 Subject: [PATCH] fix more warnings
@@ -51,10 +51,10 @@ index 302afb66..758fab16 100644
  
  #define NV_KFREE(ptr, size) \
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index 48122094..9886bc4d 100644
+index fdc9331f..11e11481 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
-@@ -1800,12 +1800,14 @@ void nv_drm_register_drm_device(const nv_gpu_info_t *gpu_info)
+@@ -1814,12 +1814,14 @@ void nv_drm_register_drm_device(const nv_gpu_info_t *gpu_info)
      dev->dev_private = nv_dev;
      nv_dev->dev = dev;
  

@@ -1,4 +1,4 @@
-From caf0bf39f467026549237f6e5128d9e143aa3d2a Mon Sep 17 00:00:00 2001
+From cd938457cc4a84fd1e35be122529019ef9af8112 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 27 Mar 2025 20:33:39 +0100
 Subject: [PATCH] backport drm_client_setup.h changes from 570.124.04
@@ -10,10 +10,10 @@ Subject: [PATCH] backport drm_client_setup.h changes from 570.124.04
  3 files changed, 10 insertions(+), 2 deletions(-)
 
 diff --git a/conftest.sh b/conftest.sh
-index 1b67384e..230b1366 100755
+index 700b8dc4..7417f4a6 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6675,13 +6675,18 @@ compile_test() {
+@@ -6652,13 +6652,18 @@ compile_test() {
              #
              # Determine whether drm_client_setup is present.
              #
@@ -47,7 +47,7 @@ index c5e7f7e9..99237009 100644
    generated/autoconf.h \
    generated/compile.h \
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index 3292cc26..19dd2d16 100644
+index b64984f1..1ac3eb6e 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
 @@ -78,6 +78,8 @@
