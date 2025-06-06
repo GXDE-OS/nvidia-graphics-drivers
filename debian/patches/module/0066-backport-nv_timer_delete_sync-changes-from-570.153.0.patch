@@ -1,4 +1,4 @@
-From 75c6d8844ef2bfd1dc15028357e9da7a99c67c4b Mon Sep 17 00:00:00 2001
+From 639a874ebfab6b3ff59411cc4e078aed7c5c470b Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 26 May 2025 09:58:49 +0200
 Subject: [PATCH] backport nv_timer_delete_sync changes from 570.153.02
@@ -31,7 +31,7 @@ index 6af49fb6..04204388 100644
 +
  #endif // __NV_TIMER_H__
 diff --git a/nvidia-modeset/nvidia-modeset-linux.c b/nvidia-modeset/nvidia-modeset-linux.c
-index 3e9ce8a6..e10f6f69 100644
+index 5e00de20..e7a7e822 100644
 --- a/nvidia-modeset/nvidia-modeset-linux.c
 +++ b/nvidia-modeset/nvidia-modeset-linux.c
 @@ -52,6 +52,7 @@
