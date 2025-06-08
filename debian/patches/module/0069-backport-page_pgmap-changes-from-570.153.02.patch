@@ -1,4 +1,4 @@
-From 10605666791b812b38186785086b2e8274b30cc9 Mon Sep 17 00:00:00 2001
+From b96c7f8fe3d7fb5d2319b2828e21f4694aa0d1e0 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 5 Jun 2025 18:08:40 +0200
 Subject: [PATCH] backport page_pgmap changes from 570.153.02
@@ -10,10 +10,10 @@ Subject: [PATCH] backport page_pgmap changes from 570.153.02
  3 files changed, 21 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 3b180de2..09b0b601 100755
+index b34bba0f..885b49ba 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6861,6 +6861,22 @@ compile_test() {
+@@ -6877,6 +6877,22 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DRM_UNLOCKED_IOCTL_FLAG_PRESENT" "" "types"
          ;;
  
