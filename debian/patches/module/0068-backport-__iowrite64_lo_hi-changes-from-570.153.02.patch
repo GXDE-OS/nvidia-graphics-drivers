@@ -1,4 +1,4 @@
-From a552489c120dc35b80c06e8c34ff9858563e6398 Mon Sep 17 00:00:00 2001
+From 77eb0f364de3dd8c8589cb63b062a56042e54cec Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 5 Jun 2025 13:46:23 +0200
 Subject: [PATCH] backport __iowrite64_lo_hi changes from 570.153.02
@@ -9,10 +9,10 @@ Subject: [PATCH] backport __iowrite64_lo_hi changes from 570.153.02
  2 files changed, 5 insertions(+)
 
 diff --git a/nvidia-uvm/nvidia-uvm.Kbuild b/nvidia-uvm/nvidia-uvm.Kbuild
-index a31d0c5f..87a35c8e 100644
+index ba99e378..24ad0e38 100644
 --- a/nvidia-uvm/nvidia-uvm.Kbuild
 +++ b/nvidia-uvm/nvidia-uvm.Kbuild
-@@ -118,3 +118,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += mmu_interval_notifier
+@@ -99,3 +99,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += mmu_interval_notifier
  
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_int_active_memcg
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_migrate_vma_setup

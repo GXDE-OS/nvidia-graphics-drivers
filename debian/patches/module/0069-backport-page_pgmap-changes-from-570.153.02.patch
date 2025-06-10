@@ -1,4 +1,4 @@
-From 06ba8ba52e718f2798725fe4792d590cf61f7118 Mon Sep 17 00:00:00 2001
+From abeedabe9aad40652d7e55cac7b738dce6e76be7 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 5 Jun 2025 18:08:40 +0200
 Subject: [PATCH] backport page_pgmap changes from 570.153.02
@@ -37,10 +37,10 @@ index abb13512..a0145392 100755
              #
              # Determine if the folio_test_swapcache() function is present.
 diff --git a/nvidia-uvm/nvidia-uvm.Kbuild b/nvidia-uvm/nvidia-uvm.Kbuild
-index 87a35c8e..65d8de65 100644
+index 24ad0e38..725c9c4c 100644
 --- a/nvidia-uvm/nvidia-uvm.Kbuild
 +++ b/nvidia-uvm/nvidia-uvm.Kbuild
-@@ -89,6 +89,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += vm_fault_to_errno
+@@ -70,6 +70,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += vm_fault_to_errno
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += find_next_bit_wrap
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += iommu_is_dma_domain
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += folio_test_swapcache
@@ -49,10 +49,10 @@ index 87a35c8e..65d8de65 100644
  NV_CONFTEST_TYPE_COMPILE_TESTS += backing_dev_info
  NV_CONFTEST_TYPE_COMPILE_TESTS += mm_context_t
 diff --git a/nvidia-uvm/uvm_linux.h b/nvidia-uvm/uvm_linux.h
-index 944fda64..5868f6c7 100644
+index 849c157a..970944a0 100644
 --- a/nvidia-uvm/uvm_linux.h
 +++ b/nvidia-uvm/uvm_linux.h
-@@ -597,4 +597,8 @@ static inline pgprot_t uvm_pgprot_decrypted(pgprot_t prot)
+@@ -556,4 +556,8 @@ static inline pgprot_t uvm_pgprot_decrypted(pgprot_t prot)
    #define page_to_virt(x)    __va(PFN_PHYS(page_to_pfn(x)))
  #endif
  
