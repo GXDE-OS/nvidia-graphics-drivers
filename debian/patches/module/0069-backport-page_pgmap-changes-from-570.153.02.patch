@@ -1,4 +1,4 @@
-From 211fb051e3da4ef43035bc44a9462540856056e8 Mon Sep 17 00:00:00 2001
+From 4a3f7652f363afddb0b1d45ef51dacad35d4e8b3 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 5 Jun 2025 18:08:40 +0200
 Subject: [PATCH] backport page_pgmap changes from 570.153.02
@@ -10,10 +10,10 @@ Subject: [PATCH] backport page_pgmap changes from 570.153.02
  3 files changed, 22 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index fc975f09..0259566b 100755
+index 7b112579..0c365f6a 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6588,6 +6588,22 @@ compile_test() {
+@@ -6704,6 +6704,22 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DRM_UNLOCKED_IOCTL_FLAG_PRESENT" "" "types"
          ;;
  
@@ -49,7 +49,7 @@ index 5df37b81..f1d77342 100644
  NV_CONFTEST_TYPE_COMPILE_TESTS += backing_dev_info
  NV_CONFTEST_TYPE_COMPILE_TESTS += mm_context_t
 diff --git a/nvidia-uvm/uvm_linux.h b/nvidia-uvm/uvm_linux.h
-index 6bb67e45..d8ae1f44 100644
+index d07584f3..55b11a4f 100644
 --- a/nvidia-uvm/uvm_linux.h
 +++ b/nvidia-uvm/uvm_linux.h
 @@ -555,4 +555,9 @@ static inline pgprot_t uvm_pgprot_decrypted(pgprot_t prot)
