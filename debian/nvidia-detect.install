@@ -7,4 +7,3 @@ debian/detect/nvidia-tesla-450.ids		usr/share/nvidia/	[amd64 arm64]
 debian/detect/nvidia-tesla-460.ids		usr/share/nvidia/	[amd64 arm64]
 debian/detect/nvidia-tesla-470.ids		usr/share/nvidia/	[amd64 arm64]
 nvidia.ids					usr/share/nvidia/
-nvidia-open.ids					usr/share/nvidia/
