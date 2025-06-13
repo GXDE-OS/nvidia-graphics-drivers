@@ -26,6 +26,7 @@ nvidia-graphics-drivers (555.42.02-1) UNRELEASED; urgency=medium
   * Refresh patches.
   * Update nv-readme.ids.
   * Update symbols files.
+  * libcuda1: Add Provides: libcuda-12.5-1.
 
   * Backport ccflags-y, nv_timer_delete_sync, __iowrite64_lo_hi, page_pgmap
     and make_device_exclusive changes from 570.153.02 and nv_vma_start_write
