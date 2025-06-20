@@ -1,4 +1,4 @@
-From 3ff379c53767f24254ac8723e9bd2cd944cb1e46 Mon Sep 17 00:00:00 2001
+From 34a2600fbd62a0a2f40ba363b49688c69b6924fe Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 19 Jun 2025 10:20:07 +0200
 Subject: [PATCH] backport nv_vma_start_write changes from 570.169
@@ -11,10 +11,10 @@ Subject: [PATCH] backport nv_vma_start_write changes from 570.169
  4 files changed, 97 insertions(+)
 
 diff --git a/common/inc/nv-mm.h b/common/inc/nv-mm.h
-index 543eb468..d67201f6 100644
+index d5290aae..59dcd70f 100644
 --- a/common/inc/nv-mm.h
 +++ b/common/inc/nv-mm.h
-@@ -257,15 +257,38 @@ static inline struct rw_semaphore *nv_mmap_get_lock(struct mm_struct *mm)
+@@ -245,15 +245,38 @@ static inline struct rw_semaphore *nv_mmap_get_lock(struct mm_struct *mm)
  #endif
  }
  
@@ -54,11 +54,11 @@ index 543eb468..d67201f6 100644
  #else
  static inline void nv_vm_flags_set(struct vm_area_struct *vma, unsigned long flags)
 diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index 3647a554..9dcb205b 100644
+index eb444832..8124275e 100644
 --- a/nvidia-drm/nvidia-drm.Kbuild
 +++ b/nvidia-drm/nvidia-drm.Kbuild
-@@ -53,6 +53,7 @@ NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_gpl_refcount_inc
- NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_gpl_refcount_dec_and_test
+@@ -55,6 +55,7 @@ NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_gpl_refcount_dec_and_test
+ NV_CONFTEST_GENERIC_COMPILE_TESTS += drm_alpha_blending_available
  NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_present_drm_gem_prime_fd_to_handle
  NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_present_drm_gem_prime_handle_to_fd
 +NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_gpl___vma_start_write
@@ -66,12 +66,12 @@ index 3647a554..9dcb205b 100644
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_dev_unref
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_reinit_primary_mode_group
 diff --git a/nvidia/nv-mmap.c b/nvidia/nv-mmap.c
-index 133c45fc..aa300396 100644
+index d0db1a84..0e6edb81 100644
 --- a/nvidia/nv-mmap.c
 +++ b/nvidia/nv-mmap.c
-@@ -597,3 +597,75 @@ int nvidia_mmap(
+@@ -801,3 +801,75 @@ void NV_API_CALL nv_set_safe_to_mmap_locked(
  
-     return status;
+     nvl->safe_to_mmap = safe_to_mmap;
  }
 +
 +#if !NV_CAN_CALL_VMA_START_WRITE
@@ -146,17 +146,17 @@ index 133c45fc..aa300396 100644
 +EXPORT_SYMBOL(nv_vma_start_write);
 +#endif // !NV_CAN_CALL_VMA_START_WRITE
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index fcfec37f..0062b493 100644
+index d662c432..e9b2bc63 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -174,6 +174,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_swiotlb_map_sg_attr
- NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_swiotlb_dma_ops
+@@ -170,6 +170,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_get_unused_fd_flags
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_screen_info
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_screen_info
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl___vma_start_write
  
- NV_CONFTEST_TYPE_COMPILE_TESTS += i2c_adapter
- NV_CONFTEST_TYPE_COMPILE_TESTS += pm_message_t
+ NV_CONFTEST_TYPE_COMPILE_TESTS += acpi_op_remove
+ NV_CONFTEST_TYPE_COMPILE_TESTS += outer_flush_all
 -- 
 2.39.5
 
