@@ -1,4 +1,4 @@
-From 34a2600fbd62a0a2f40ba363b49688c69b6924fe Mon Sep 17 00:00:00 2001
+From 80063db3ca0c4bd45b2a7ee3553d80e8889d1f20 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 19 Jun 2025 10:20:07 +0200
 Subject: [PATCH] backport nv_vma_start_write changes from 570.169
@@ -54,10 +54,10 @@ index d5290aae..59dcd70f 100644
  #else
  static inline void nv_vm_flags_set(struct vm_area_struct *vma, unsigned long flags)
 diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index eb444832..8124275e 100644
+index 3f8232ec..3c94263a 100644
 --- a/nvidia-drm/nvidia-drm.Kbuild
 +++ b/nvidia-drm/nvidia-drm.Kbuild
-@@ -55,6 +55,7 @@ NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_gpl_refcount_dec_and_test
+@@ -56,6 +56,7 @@ NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_gpl_refcount_dec_and_test
  NV_CONFTEST_GENERIC_COMPILE_TESTS += drm_alpha_blending_available
  NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_present_drm_gem_prime_fd_to_handle
  NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_present_drm_gem_prime_handle_to_fd
@@ -66,10 +66,10 @@ index eb444832..8124275e 100644
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_dev_unref
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_reinit_primary_mode_group
 diff --git a/nvidia/nv-mmap.c b/nvidia/nv-mmap.c
-index d0db1a84..0e6edb81 100644
+index 2abadd3d..ecdcf61e 100644
 --- a/nvidia/nv-mmap.c
 +++ b/nvidia/nv-mmap.c
-@@ -801,3 +801,75 @@ void NV_API_CALL nv_set_safe_to_mmap_locked(
+@@ -758,3 +758,75 @@ void NV_API_CALL nv_set_safe_to_mmap_locked(
  
      nvl->safe_to_mmap = safe_to_mmap;
  }
@@ -146,10 +146,10 @@ index d0db1a84..0e6edb81 100644
 +EXPORT_SYMBOL(nv_vma_start_write);
 +#endif // !NV_CAN_CALL_VMA_START_WRITE
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index d662c432..e9b2bc63 100644
+index fe62ecd4..8627044e 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -170,6 +170,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_get_unused_fd_flags
+@@ -185,6 +185,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tegra_dram_types
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_screen_info
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_screen_info
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync

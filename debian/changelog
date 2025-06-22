@@ -1,10 +1,9 @@
 nvidia-graphics-drivers (460.106.00-21) UNRELEASED; urgency=medium
 
   * Backport ccflags-y and nv_timer_delete_sync changes from 570.153.02 and
+    nv_vma_start_write changes from 570.169 and
     drm_connector_helper_funcs_mode_valid_has_const_mode_arg changes from
-    550.163.01 and import tentative fix from CachyOS for avoiding calls to
-    GPL-only symbol __vma_start_write to fix kernel module build for
-    Linux 6.15.
+    550.163.01 to fix kernel module build for Linux 6.15.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Jun 2025 23:44:24 +0200
 
