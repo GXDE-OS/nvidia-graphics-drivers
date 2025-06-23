@@ -1,4 +1,4 @@
-From be794f43a95e39462ebf2fdd845b29a159138c6a Mon Sep 17 00:00:00 2001
+From 6f9066f743e99afc7a5548810238e3cb437f744e Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 5 Jun 2025 22:03:50 +0200
 Subject: [PATCH] backport make_device_exclusive changes from 570.153.02

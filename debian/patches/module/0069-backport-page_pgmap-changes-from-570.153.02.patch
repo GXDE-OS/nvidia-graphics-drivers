@@ -1,4 +1,4 @@
-From 1fd6b73113b862fea0fbbf39a9ff0b260e392d61 Mon Sep 17 00:00:00 2001
+From 1ad369ea8939172110a69ccd0c49e78741f396d4 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 5 Jun 2025 18:08:40 +0200
 Subject: [PATCH] backport page_pgmap changes from 570.153.02
@@ -10,7 +10,7 @@ Subject: [PATCH] backport page_pgmap changes from 570.153.02
  3 files changed, 22 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 89a533f0..c56aab0d 100755
+index 89a533f0..f1f36599 100755
 --- a/conftest.sh
 +++ b/conftest.sh
 @@ -6519,6 +6519,22 @@ compile_test() {
@@ -27,7 +27,7 @@ index 89a533f0..c56aab0d 100755
 +            CODE="
 +            #include <linux/mmzone.h>
 +            int conftest_page_pgmap(void) {
-+                return page_pgmap(NULL);
++                return page_pgmap();
 +            }"
 +
 +            compile_check_conftest "$CODE" "NV_PAGE_PGMAP_PRESENT" "" "functions"
