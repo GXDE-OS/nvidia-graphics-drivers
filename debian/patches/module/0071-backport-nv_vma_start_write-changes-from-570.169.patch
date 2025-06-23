@@ -1,20 +1,20 @@
-From 45c41ade1e8e6874152addc7adb6e63d45dc3d10 Mon Sep 17 00:00:00 2001
+From 1c99b44946a7644192b7675818358e01e41a9944 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 19 Jun 2025 10:20:07 +0200
 Subject: [PATCH] backport nv_vma_start_write changes from 570.169
 
 ---
- common/inc/nv-mm.h           | 23 ++++++++++++
+ common/inc/nv-mm.h           | 23 +++++++++++-
  nvidia-drm/nvidia-drm.Kbuild |  1 +
  nvidia/nv-mmap.c             | 72 ++++++++++++++++++++++++++++++++++++
  nvidia/nvidia.Kbuild         |  1 +
- 4 files changed, 97 insertions(+)
+ 4 files changed, 95 insertions(+), 2 deletions(-)
 
 diff --git a/common/inc/nv-mm.h b/common/inc/nv-mm.h
-index da5065dc..f335abb7 100644
+index fbdf2371..b69f52bb 100644
 --- a/common/inc/nv-mm.h
 +++ b/common/inc/nv-mm.h
-@@ -245,15 +245,38 @@ static inline struct rw_semaphore *nv_mmap_get_lock(struct mm_struct *mm)
+@@ -292,9 +292,25 @@ static inline struct rw_semaphore *nv_mmap_get_lock(struct mm_struct *mm)
  #endif
  }
  
@@ -31,30 +31,30 @@ index da5065dc..f335abb7 100644
 +void nv_vma_start_write(struct vm_area_struct *);
 +#endif
 +
- #if defined(NV_VM_AREA_STRUCT_HAS_CONST_VM_FLAGS)
  static inline void nv_vm_flags_set(struct vm_area_struct *vma, vm_flags_t flags)
  {
+-#if defined(NV_VM_AREA_STRUCT_HAS_CONST_VM_FLAGS)
 +#if !NV_CAN_CALL_VMA_START_WRITE
 +    nv_vma_start_write(vma);
 +    ACCESS_PRIVATE(vma, __vm_flags) |= flags;
-+#else
++#elif defined(NV_VM_AREA_STRUCT_HAS_CONST_VM_FLAGS)
      vm_flags_set(vma, flags);
-+#endif
- }
+ #else
+     vma->vm_flags |= flags;
+@@ -303,7 +319,10 @@ static inline void nv_vm_flags_set(struct vm_area_struct *vma, vm_flags_t flags)
  
  static inline void nv_vm_flags_clear(struct vm_area_struct *vma, vm_flags_t flags)
  {
+-#if defined(NV_VM_AREA_STRUCT_HAS_CONST_VM_FLAGS)
 +#if !NV_CAN_CALL_VMA_START_WRITE
 +    nv_vma_start_write(vma);
 +    ACCESS_PRIVATE(vma, __vm_flags) &= ~flags;
-+#else
++#elif defined(NV_VM_AREA_STRUCT_HAS_CONST_VM_FLAGS)
      vm_flags_clear(vma, flags);
-+#endif
- }
  #else
- static inline void nv_vm_flags_set(struct vm_area_struct *vma, unsigned long flags)
+     vma->vm_flags &= ~flags;
 diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index 212568ec..926bc075 100644
+index d21b6b33..6da3e47c 100644
 --- a/nvidia-drm/nvidia-drm.Kbuild
 +++ b/nvidia-drm/nvidia-drm.Kbuild
 @@ -56,6 +56,7 @@ NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_gpl_refcount_dec_and_test
@@ -66,10 +66,10 @@ index 212568ec..926bc075 100644
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_dev_unref
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_reinit_primary_mode_group
 diff --git a/nvidia/nv-mmap.c b/nvidia/nv-mmap.c
-index a3ed2e6b..1611d99c 100644
+index 5596c8f9..8ee4b3c5 100644
 --- a/nvidia/nv-mmap.c
 +++ b/nvidia/nv-mmap.c
-@@ -798,3 +798,75 @@ void NV_API_CALL nv_set_safe_to_mmap_locked(
+@@ -795,3 +795,75 @@ void NV_API_CALL nv_set_safe_to_mmap_locked(
  
      nvl->safe_to_mmap = safe_to_mmap;
  }
@@ -146,17 +146,17 @@ index a3ed2e6b..1611d99c 100644
 +EXPORT_SYMBOL(nv_vma_start_write);
 +#endif // !NV_CAN_CALL_VMA_START_WRITE
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 1269fcd5..6d1c337b 100644
+index cd76b8ae..1e349778 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -189,6 +189,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tegra_dram_types
- NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_screen_info
+@@ -209,6 +209,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_screen_info
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_screen_info
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_hrtimer_setup
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl___vma_start_write
  
- NV_CONFTEST_TYPE_COMPILE_TESTS += acpi_op_remove
- NV_CONFTEST_TYPE_COMPILE_TESTS += file_operations
+ NV_CONFTEST_TYPE_COMPILE_TESTS += dma_ops
+ NV_CONFTEST_TYPE_COMPILE_TESTS += swiotlb_dma_ops
 -- 
 2.39.5
 
