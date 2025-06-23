@@ -1,20 +1,20 @@
-From 2fafc4ee22e3719d58b3d201c78fdde36c9dde38 Mon Sep 17 00:00:00 2001
+From f3c259dfec30289f0cc624edf5427f55a8018951 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 19 Jun 2025 10:20:07 +0200
 Subject: [PATCH] backport nv_vma_start_write changes from 570.169
 
 ---
- common/inc/nv-mm.h           | 23 +++++++++++-
- nvidia-drm/nvidia-drm.Kbuild |  1 +
- nvidia/nv-mmap.c             | 72 ++++++++++++++++++++++++++++++++++++
- nvidia/nvidia.Kbuild         |  1 +
+ common/inc/nv-mm.h               | 23 +++++++++-
+ nvidia-drm/nvidia-drm-sources.mk |  1 +
+ nvidia/nv-mmap.c                 | 72 ++++++++++++++++++++++++++++++++
+ nvidia/nvidia.Kbuild             |  1 +
  4 files changed, 95 insertions(+), 2 deletions(-)
 
 diff --git a/common/inc/nv-mm.h b/common/inc/nv-mm.h
-index fbdf2371..b69f52bb 100644
+index 83363fa1..20fb3caa 100644
 --- a/common/inc/nv-mm.h
 +++ b/common/inc/nv-mm.h
-@@ -292,9 +292,25 @@ static inline struct rw_semaphore *nv_mmap_get_lock(struct mm_struct *mm)
+@@ -295,9 +295,25 @@ static inline struct rw_semaphore *nv_mmap_get_lock(struct mm_struct *mm)
  #endif
  }
  
@@ -41,7 +41,7 @@ index fbdf2371..b69f52bb 100644
      vm_flags_set(vma, flags);
  #else
      vma->vm_flags |= flags;
-@@ -303,7 +319,10 @@ static inline void nv_vm_flags_set(struct vm_area_struct *vma, vm_flags_t flags)
+@@ -306,7 +322,10 @@ static inline void nv_vm_flags_set(struct vm_area_struct *vma, vm_flags_t flags)
  
  static inline void nv_vm_flags_clear(struct vm_area_struct *vma, vm_flags_t flags)
  {
@@ -53,23 +53,23 @@ index fbdf2371..b69f52bb 100644
      vm_flags_clear(vma, flags);
  #else
      vma->vm_flags &= ~flags;
-diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index 9fff7071..c9b6409b 100644
---- a/nvidia-drm/nvidia-drm.Kbuild
-+++ b/nvidia-drm/nvidia-drm.Kbuild
-@@ -56,6 +56,7 @@ NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_gpl_refcount_dec_and_test
- NV_CONFTEST_GENERIC_COMPILE_TESTS += drm_alpha_blending_available
+diff --git a/nvidia-drm/nvidia-drm-sources.mk b/nvidia-drm/nvidia-drm-sources.mk
+index 01c42de9..1049c148 100644
+--- a/nvidia-drm/nvidia-drm-sources.mk
++++ b/nvidia-drm/nvidia-drm-sources.mk
+@@ -38,6 +38,7 @@ NV_CONFTEST_GENERIC_COMPILE_TESTS += drm_alpha_blending_available
  NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_present_drm_gem_prime_fd_to_handle
  NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_present_drm_gem_prime_handle_to_fd
+ NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
 +NV_CONFTEST_GENERIC_COMPILE_TESTS += is_export_symbol_gpl___vma_start_write
  
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_dev_unref
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_reinit_primary_mode_group
 diff --git a/nvidia/nv-mmap.c b/nvidia/nv-mmap.c
-index 522fc689..e10e1e4d 100644
+index 8fd44960..665c8ea5 100644
 --- a/nvidia/nv-mmap.c
 +++ b/nvidia/nv-mmap.c
-@@ -800,3 +800,75 @@ void NV_API_CALL nv_set_safe_to_mmap_locked(
+@@ -832,3 +832,75 @@ void NV_API_CALL nv_set_safe_to_mmap_locked(
  
      nvl->safe_to_mmap = safe_to_mmap;
  }
