@@ -121,6 +121,9 @@ nvidia-graphics-drivers (340.108-1~git4deb9stretch) UNRELEASED; urgency=medium
   [ Vincent Cheng ]
   * Remove myself from Uploaders.
 
+  [ Luca Boccassi ]
+  * Remove myself from Uploaders.
+
  -- Andreas Beckmann <anbe@debian.org>  Sat, 28 Dec 2019 12:12:32 +0100
 
 nvidia-graphics-drivers (340.108-1~git4deb8jessie) UNRELEASED; urgency=medium
