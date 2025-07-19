@@ -24,6 +24,7 @@ bashisms.patch
 0068-backport-__iowrite64_lo_hi-changes-from-570.153.02.patch
 0069-backport-page_pgmap-changes-from-570.153.02.patch
 0070-backport-make_device_exclusive-changes-from-570.153..patch
+0071-backport-nv_vma_start_write-changes-from-570.169.patch
 
 # build system updates
 conftest-verbose.patch
