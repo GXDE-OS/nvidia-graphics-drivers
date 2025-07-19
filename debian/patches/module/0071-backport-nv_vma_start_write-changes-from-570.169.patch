@@ -1,4 +1,4 @@
-From 851c84084ea139f822f809a04874c1b26a6bee36 Mon Sep 17 00:00:00 2001
+From b350e3679b85289fdb971b47ed4af1ec1d1791a8 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 19 Jun 2025 10:20:07 +0200
 Subject: [PATCH] backport nv_vma_start_write changes from 570.169
@@ -66,10 +66,10 @@ index 9fff7071..c9b6409b 100644
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_dev_unref
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_reinit_primary_mode_group
 diff --git a/nvidia/nv-mmap.c b/nvidia/nv-mmap.c
-index 522fc689..e10e1e4d 100644
+index 5b386df6..593e66ab 100644
 --- a/nvidia/nv-mmap.c
 +++ b/nvidia/nv-mmap.c
-@@ -800,3 +800,75 @@ void NV_API_CALL nv_set_safe_to_mmap_locked(
+@@ -804,3 +804,75 @@ void NV_API_CALL nv_set_safe_to_mmap_locked(
  
      nvl->safe_to_mmap = safe_to_mmap;
  }
@@ -146,10 +146,10 @@ index 522fc689..e10e1e4d 100644
 +EXPORT_SYMBOL(nv_vma_start_write);
 +#endif // !NV_CAN_CALL_VMA_START_WRITE
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 7d492668..8b97a77d 100644
+index 10cf9271..3b65c838 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -231,6 +231,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_follow_pte
+@@ -234,6 +234,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_follow_pfnmap_start
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += ecc_digits_from_bytes
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_hrtimer_setup
