@@ -1,10 +1,15 @@
 nvidia-graphics-drivers (535.161.08-4) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
   * Backport ccflags-y, nv_timer_delete_sync, __iowrite64_lo_hi, page_pgmap
     and make_device_exclusive changes from 570.153.02 and nv_vma_start_write
     changes from 570.169 and
     drm_connector_helper_funcs_mode_valid_has_const_mode_arg changes from
     550.163.01 to fix kernel module build for Linux 6.15.
+
+  [ Luca Boccassi ]
+  * Remove myself from Uploaders.
+
   * Backport drm_driver_has_date changes from 570.124.04 to fix kernel module
     build for Linux 6.14.
   * Backport module_import_ns_takes_string_literal and crypto_akcipher_verify
@@ -4672,7 +4677,11 @@ nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (390.157-14) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
   * Backport nv_vma_start_write changes from 570.169.
+
+  [ Luca Boccassi ]
+  * Remove myself from Uploaders.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 20 Jun 2025 00:25:32 +0200
 
