@@ -10,7 +10,7 @@ nvidia-graphics-drivers (535.247.01-2) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * Remove myself from Uploaders.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 19 Jul 2025 04:19:58 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 19 Jul 2025 21:46:11 +0200
 
 nvidia-graphics-drivers (535.247.01-1~deb12u1) bookworm; urgency=medium
 
