@@ -1,4 +1,4 @@
-From 8d25aa7ae340ffbb41465cb8e0fbd94de8ee01fa Mon Sep 17 00:00:00 2001
+From 5f9fa71906d883b2ab37a86cfe3cb11eea9ce535 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 19 Jun 2025 10:20:07 +0200
 Subject: [PATCH] backport nv_vma_start_write changes from 570.169
@@ -54,7 +54,7 @@ index 83363fa1..20fb3caa 100644
  #else
      vma->vm_flags &= ~flags;
 diff --git a/nvidia-drm/nvidia-drm-sources.mk b/nvidia-drm/nvidia-drm-sources.mk
-index 01c42de9..1049c148 100644
+index 88ca9ca3..133f4ef8 100644
 --- a/nvidia-drm/nvidia-drm-sources.mk
 +++ b/nvidia-drm/nvidia-drm-sources.mk
 @@ -38,6 +38,7 @@ NV_CONFTEST_GENERIC_COMPILE_TESTS += drm_alpha_blending_available
@@ -146,10 +146,10 @@ index 8fd44960..665c8ea5 100644
 +EXPORT_SYMBOL(nv_vma_start_write);
 +#endif // !NV_CAN_CALL_VMA_START_WRITE
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 1fb520e6..e2e108fa 100644
+index 401bb079..0ce704e4 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -233,6 +233,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_follow_pte
+@@ -234,6 +234,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_pci_ats_supported
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += ecc_digits_from_bytes
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_hrtimer_setup
