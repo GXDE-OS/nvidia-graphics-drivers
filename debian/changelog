@@ -1,15 +1,13 @@
 nvidia-graphics-drivers (535.179-2) UNRELEASED; urgency=medium
 
-  [ Andreas Beckmann ]
-  * Backport ccflags-y, nv_timer_delete_sync, __iowrite64_lo_hi, page_pgmap
-    and make_device_exclusive changes from 570.153.02 and nv_vma_start_write
-    changes from 570.169 and
-    drm_connector_helper_funcs_mode_valid_has_const_mode_arg changes from
-    550.163.01 to fix kernel module build for Linux 6.15.
-
   [ Luca Boccassi ]
   * Remove myself from Uploaders.
 
+  * Backport drm_connector_helper_funcs_mode_valid_has_const_mode_arg changes
+    from 550.163.01 and ccflags-y, nv_timer_delete_sync, __iowrite64_lo_hi,
+    page_pgmap and make_device_exclusive changes from 570.153.02 and
+    nv_vma_start_write changes from 570.169 to fix kernel module build for
+    Linux 6.15.
   * Backport drm_driver_has_date changes from 570.124.04 to fix kernel module
     build for Linux 6.14.
   * Backport module_import_ns_takes_string_literal and crypto_akcipher_verify
@@ -376,12 +374,19 @@ nvidia-graphics-drivers (530.30.02-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 13 Mar 2023 23:48:29 +0100
 
+nvidia-graphics-drivers (525.147.05-17) UNRELEASED; urgency=medium
+
+  [ Luca Boccassi ]
+  * Remove myself from Uploaders.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 20 Jul 2025 17:35:28 +0200
+
 nvidia-graphics-drivers (525.147.05-16) UNRELEASED; urgency=medium
 
-  * Backport ccflags-y and nv_timer_delete_sync changes from 570.153.02 and
-    nv_vma_start_write changes from 570.169 and
-    drm_connector_helper_funcs_mode_valid_has_const_mode_arg changes from
-    550.163.01 to fix kernel module build for Linux 6.15.
+  * Backport drm_connector_helper_funcs_mode_valid_has_const_mode_arg changes
+    from 550.163.01 and ccflags-y and nv_timer_delete_sync changes from
+    570.153.02 and nv_vma_start_write changes from 570.169 to fix kernel
+    module build for Linux 6.15.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 23 Jun 2025 09:53:50 +0200
 
@@ -1252,12 +1257,19 @@ nvidia-graphics-drivers (495.44-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 05 Nov 2021 10:45:12 +0100
 
+nvidia-graphics-drivers (470.256.02-8) UNRELEASED; urgency=medium
+
+  [ Luca Boccassi ]
+  * Remove myself from Uploaders.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 20 Jul 2025 17:30:24 +0200
+
 nvidia-graphics-drivers (470.256.02-7) UNRELEASED; urgency=medium
 
-  * Backport ccflags-y and nv_timer_delete_sync changes from 570.153.02 and
-    nv_vma_start_write changes from 570.169 and
-    drm_connector_helper_funcs_mode_valid_has_const_mode_arg changes from
-    550.163.01 to fix kernel module build for Linux 6.15.
+  * Backport drm_connector_helper_funcs_mode_valid_has_const_mode_arg changes
+    from 550.163.01 and ccflags-y and nv_timer_delete_sync changes from
+    570.153.02 and nv_vma_start_write changes from 570.169 to fix kernel
+    module build for Linux 6.15.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 23 Jun 2025 02:49:53 +0200
 
@@ -2000,12 +2012,23 @@ nvidia-graphics-drivers (465.24.02-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 27 Apr 2021 18:48:53 +0200
 
+nvidia-graphics-drivers (460.106.00-22) UNRELEASED; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Backport nv_vma_start_write changes from 570.169.
+
+  [ Luca Boccassi ]
+  * Remove myself from Uploaders.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 20 Jul 2025 17:21:59 +0200
+
 nvidia-graphics-drivers (460.106.00-21) UNRELEASED; urgency=medium
 
   * Backport ccflags-y and nv_timer_delete_sync changes from 570.153.02 and
-    nv_vma_start_write changes from 570.169 and
     drm_connector_helper_funcs_mode_valid_has_const_mode_arg changes from
-    550.163.01 to fix kernel module build for Linux 6.15.
+    550.163.01 and import tentative fix from CachyOS for avoiding calls to
+    GPL-only symbol __vma_start_write to fix kernel module build for
+    Linux 6.15.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Jun 2025 23:44:24 +0200
 
@@ -2582,12 +2605,23 @@ nvidia-graphics-drivers (455.23.04-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 24 Sep 2020 21:52:54 +0200
 
+nvidia-graphics-drivers (450.248.02-12) UNRELEASED; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Backport nv_vma_start_write changes from 570.169.
+
+  [ Luca Boccassi ]
+  * Remove myself from Uploaders.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 20 Jul 2025 17:13:55 +0200
+
 nvidia-graphics-drivers (450.248.02-11) UNRELEASED; urgency=medium
 
   * Backport ccflags-y and nv_timer_delete_sync changes from 570.153.02 and
-    nv_vma_start_write changes from 570.169 and
     drm_connector_helper_funcs_mode_valid_has_const_mode_arg changes from
-    550.163.01 to fix kernel module build for Linux 6.15.
+    550.163.01 and import tentative fix from CachyOS for avoiding calls to
+    GPL-only symbol __vma_start_write to fix kernel module build for
+    Linux 6.15.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Jun 2025 22:30:15 +0200
 
@@ -3727,7 +3761,11 @@ nvidia-graphics-drivers (430.14-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (418.226.00-20) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
   * Backport nv_vma_start_write changes from 570.169.
+
+  [ Luca Boccassi ]
+  * Remove myself from Uploaders.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 20 Jun 2025 00:52:30 +0200
 
