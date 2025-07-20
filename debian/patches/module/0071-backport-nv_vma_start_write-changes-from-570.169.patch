@@ -1,4 +1,4 @@
-From 5edd514ef5a2f6b1b89590711cd4b13393df3a9e Mon Sep 17 00:00:00 2001
+From 8d25aa7ae340ffbb41465cb8e0fbd94de8ee01fa Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 19 Jun 2025 10:20:07 +0200
 Subject: [PATCH] backport nv_vma_start_write changes from 570.169
@@ -146,10 +146,10 @@ index 8fd44960..665c8ea5 100644
 +EXPORT_SYMBOL(nv_vma_start_write);
 +#endif // !NV_CAN_CALL_VMA_START_WRITE
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 7d492668..8b97a77d 100644
+index 1fb520e6..e2e108fa 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -231,6 +231,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_follow_pte
+@@ -233,6 +233,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_follow_pte
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += ecc_digits_from_bytes
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_hrtimer_setup
