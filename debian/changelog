@@ -1,9 +1,20 @@
+nvidia-graphics-drivers (460.106.00-22) UNRELEASED; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Backport nv_vma_start_write changes from 570.169.
+
+  [ Luca Boccassi ]
+  * Remove myself from Uploaders.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 20 Jul 2025 17:21:59 +0200
+
 nvidia-graphics-drivers (460.106.00-21) UNRELEASED; urgency=medium
 
   * Backport ccflags-y and nv_timer_delete_sync changes from 570.153.02 and
-    nv_vma_start_write changes from 570.169 and
     drm_connector_helper_funcs_mode_valid_has_const_mode_arg changes from
-    550.163.01 to fix kernel module build for Linux 6.15.
+    550.163.01 and import tentative fix from CachyOS for avoiding calls to
+    GPL-only symbol __vma_start_write to fix kernel module build for
+    Linux 6.15.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Jun 2025 23:44:24 +0200
 
@@ -580,12 +591,23 @@ nvidia-graphics-drivers (455.23.04-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 24 Sep 2020 21:52:54 +0200
 
+nvidia-graphics-drivers (450.248.02-12) UNRELEASED; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Backport nv_vma_start_write changes from 570.169.
+
+  [ Luca Boccassi ]
+  * Remove myself from Uploaders.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 20 Jul 2025 17:13:55 +0200
+
 nvidia-graphics-drivers (450.248.02-11) UNRELEASED; urgency=medium
 
   * Backport ccflags-y and nv_timer_delete_sync changes from 570.153.02 and
-    nv_vma_start_write changes from 570.169 and
     drm_connector_helper_funcs_mode_valid_has_const_mode_arg changes from
-    550.163.01 to fix kernel module build for Linux 6.15.
+    550.163.01 and import tentative fix from CachyOS for avoiding calls to
+    GPL-only symbol __vma_start_write to fix kernel module build for
+    Linux 6.15.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Jun 2025 22:30:15 +0200
 
@@ -1725,7 +1747,11 @@ nvidia-graphics-drivers (430.14-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (418.226.00-20) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
   * Backport nv_vma_start_write changes from 570.169.
+
+  [ Luca Boccassi ]
+  * Remove myself from Uploaders.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 20 Jun 2025 00:52:30 +0200
 
@@ -2689,7 +2715,11 @@ nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (390.157-14) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
   * Backport nv_vma_start_write changes from 570.169.
+
+  [ Luca Boccassi ]
+  * Remove myself from Uploaders.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 20 Jun 2025 00:25:32 +0200
 
