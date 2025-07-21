@@ -1,4 +1,4 @@
-From 5f9fa71906d883b2ab37a86cfe3cb11eea9ce535 Mon Sep 17 00:00:00 2001
+From 8ac9220dd3f25611a49382e165f5cf41c4f24bf7 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 19 Jun 2025 10:20:07 +0200
 Subject: [PATCH] backport nv_vma_start_write changes from 570.169
@@ -54,7 +54,7 @@ index 83363fa1..20fb3caa 100644
  #else
      vma->vm_flags &= ~flags;
 diff --git a/nvidia-drm/nvidia-drm-sources.mk b/nvidia-drm/nvidia-drm-sources.mk
-index 88ca9ca3..133f4ef8 100644
+index 9caa39f9..a1354c00 100644
 --- a/nvidia-drm/nvidia-drm-sources.mk
 +++ b/nvidia-drm/nvidia-drm-sources.mk
 @@ -38,6 +38,7 @@ NV_CONFTEST_GENERIC_COMPILE_TESTS += drm_alpha_blending_available
@@ -66,10 +66,10 @@ index 88ca9ca3..133f4ef8 100644
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_dev_unref
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_reinit_primary_mode_group
 diff --git a/nvidia/nv-mmap.c b/nvidia/nv-mmap.c
-index 8fd44960..665c8ea5 100644
+index 8e98c817..9351a27c 100644
 --- a/nvidia/nv-mmap.c
 +++ b/nvidia/nv-mmap.c
-@@ -832,3 +832,75 @@ void NV_API_CALL nv_set_safe_to_mmap_locked(
+@@ -837,3 +837,75 @@ void NV_API_CALL nv_set_safe_to_mmap_locked(
  
      nvl->safe_to_mmap = safe_to_mmap;
  }
@@ -146,10 +146,10 @@ index 8fd44960..665c8ea5 100644
 +EXPORT_SYMBOL(nv_vma_start_write);
 +#endif // !NV_CAN_CALL_VMA_START_WRITE
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 401bb079..0ce704e4 100644
+index 490b48ee..da5481ee 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -234,6 +234,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_pci_ats_supported
+@@ -237,6 +237,7 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_pci_ats_supported
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += ecc_digits_from_bytes
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_hrtimer_setup
