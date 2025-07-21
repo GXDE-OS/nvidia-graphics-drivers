@@ -6,6 +6,7 @@ nvidia-graphics-drivers (550.127.05-2) UNRELEASED; urgency=medium
     page_pgmap and make_device_exclusive changes from 570.153.02 and
     nv_vma_start_write changes from 570.169 to fix kernel module build for
     Linux 6.15.
+  * Backport NV_DRM_FBDEV_AVAILABLE changes from 570.169.
 
   [ Luca Boccassi ]
   * Remove myself from Uploaders.
