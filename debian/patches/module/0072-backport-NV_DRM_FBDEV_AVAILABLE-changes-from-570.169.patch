@@ -1,4 +1,4 @@
-From 3ce80cb6748dade145c16ad996ec48d7493f20f1 Mon Sep 17 00:00:00 2001
+From 6537c546d698b1d21074f4a3c9085b9183ea469f Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 19 Jun 2025 10:23:36 +0200
 Subject: [PATCH] backport NV_DRM_FBDEV_AVAILABLE changes from 570.169
@@ -9,7 +9,7 @@ Subject: [PATCH] backport NV_DRM_FBDEV_AVAILABLE changes from 570.169
  2 files changed, 14 insertions(+), 10 deletions(-)
 
 diff --git a/nvidia-drm/nvidia-drm-conftest.h b/nvidia-drm/nvidia-drm-conftest.h
-index 552c2c97..3a09a97d 100644
+index 54b2a99f..d3274600 100644
 --- a/nvidia-drm/nvidia-drm-conftest.h
 +++ b/nvidia-drm/nvidia-drm-conftest.h
 @@ -62,6 +62,20 @@
@@ -30,9 +30,9 @@ index 552c2c97..3a09a97d 100644
 +#endif
 +#endif
 +
- /*
-  * We can support color management if either drm_helper_crtc_enable_color_mgmt()
-  * or drm_crtc_enable_color_mgmt() exist.
+ #if defined(NV_DRM_CLIENT_SETUP_PRESENT) &&                                    \
+     (defined(NV_DRM_APERTURE_REMOVE_CONFLICTING_PCI_FRAMEBUFFERS_PRESENT) ||   \
+      defined(NV_APERTURE_REMOVE_CONFLICTING_PCI_DEVICES_PRESENT))
 diff --git a/nvidia-drm/nvidia-drm-os-interface.h b/nvidia-drm/nvidia-drm-os-interface.h
 index 25c366f2..993678ee 100644
 --- a/nvidia-drm/nvidia-drm-os-interface.h
