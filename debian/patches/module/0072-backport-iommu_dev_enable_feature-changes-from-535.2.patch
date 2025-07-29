@@ -1,4 +1,4 @@
-From 950cf56091704b906d658b08539c6990b192932f Mon Sep 17 00:00:00 2001
+From 00481136ec4be7f18cceb1dcdc7438f1b4eb5ffb Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 27 Jul 2025 21:53:55 +0200
 Subject: [PATCH] backport iommu_dev_enable_feature changes from 535.261.03
@@ -9,7 +9,7 @@ Subject: [PATCH] backport iommu_dev_enable_feature changes from 535.261.03
  2 files changed, 6 insertions(+), 1 deletion(-)
 
 diff --git a/nvidia-uvm/uvm_ats_sva.c b/nvidia-uvm/uvm_ats_sva.c
-index 75bad496..f46cd7a2 100644
+index f33fab03..3b03ec93 100644
 --- a/nvidia-uvm/uvm_ats_sva.c
 +++ b/nvidia-uvm/uvm_ats_sva.c
 @@ -308,12 +308,13 @@ void uvm_ats_smmu_invalidate_tlbs(uvm_gpu_va_space_t *gpu_va_space, NvU64 addr,
@@ -38,10 +38,10 @@ index 75bad496..f46cd7a2 100644
  
  NV_STATUS uvm_ats_sva_bind_gpu(uvm_gpu_va_space_t *gpu_va_space)
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index f65c3394..7bb80ac7 100644
+index 9d420b98..cc86fcfd 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -231,6 +231,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += ecc_digits_from_bytes
+@@ -234,6 +234,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += ecc_digits_from_bytes
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_hrtimer_setup
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl___vma_start_write
