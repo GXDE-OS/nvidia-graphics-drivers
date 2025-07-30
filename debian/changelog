@@ -48,6 +48,23 @@ nvidia-graphics-drivers (555.42.02-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 25 Jun 2025 04:46:30 +0200
 
+nvidia-graphics-drivers (550.90.07-1) experimental; urgency=medium
+
+  * New upstream production and Tesla branch release 550.90.07 (2024-06-04).
+    * Fixed CVE-2024-0090, CVE-2024-0091, CVE-2024-0092.  (Closes: #1072792)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/5551
+    - Temporarily disabled the GLX_EXT_buffer_age extension on Xwayland to
+      work around a bug that could cause corruption.
+    - Fixed a bug that could cause corruption when the GLX_EXT_buffer_age
+      extension is used on X.org with PRIME render offloading.
+    * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+  * Refresh patches.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 12 May 2025 20:04:34 +0200
+
 nvidia-graphics-drivers (550.78-1) experimental; urgency=medium
 
   * New upstream production branch release 550.78 (2024-04-25).
@@ -144,8 +161,17 @@ nvidia-graphics-drivers (550.40.07-1) experimental; urgency=medium
   * Update symbols files.
   * nvidia-powerd is now available on arm64.
   * Update lintian overrides.
+  * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 23 Apr 2025 07:23:08 +0200
+
+nvidia-graphics-drivers (545.29.06-2) unstable; urgency=medium
+
+  * Stop building driver packages for ppc64el.
+  * Stop building nvidia-cuda-mps and nvidia-detect for ppc64el.
+  * Upload to unstable.  (Closes: #1105205)
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 16 May 2025 03:19:40 +0200
 
 nvidia-graphics-drivers (545.29.06-1) experimental; urgency=medium
 
@@ -280,6 +306,7 @@ nvidia-graphics-drivers (545.23.06-1) experimental; urgency=medium
       library used for GPU shader compilation.
     - Removed libnvidia-vulkan-producer.so from the driver package. This
       helper library is no longer needed by the Wayland WSI.
+    * Drop ppc64le driver.
 
   [ Andreas Beckmann ]
   * Refresh patches.  (Closes: #1064571)
@@ -291,6 +318,55 @@ nvidia-graphics-drivers (545.23.06-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Mar 2024 18:03:18 +0100
+
+nvidia-graphics-drivers (535.183.06-2) unstable; urgency=medium
+
+  * Simplify using nv_pfn_valid() in virt_addr_valid() on ppc64el.
+  * Backport nv_get_kern_phys_address() changes from 555.42.02 to fix kernel
+    module build with gcc-14 on arm*.  (Closes: #1084844)
+  * Regenerate debian/control with libdpkg-perl/bookworm.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 25 Oct 2024 09:42:15 +0200
+
+nvidia-graphics-drivers (535.183.06-1) unstable; urgency=medium
+
+  * New upstream Tesla branch release 535.183.06 (2024-07-09).
+
+  [ Andreas Beckmann ]
+  * Use dh_movetousr (if available) to relocate the firmware to /usr where
+    needed.  (Closes: #1073744)
+  * Log an error message if nvidia-peermem refuses to load because it was
+    built without IB peer memory symbols present.  (Closes: #1074350)
+  * Backport follow_pfn changes from 550.90.07 to fix kernel module build for
+    Linux 6.10.
+    (Closes: #1077841, #1078425, #1078462, #1078489, #1078424, #1082725)
+  * Use pfn_valid() variant with rcu_read_{,un}lock_sched() from Linux 6.8-rc3
+    in virt_addr_valid() for Linux 5.10.210 - 5.10.999 to avoid using GPL
+    symbols on ppc64el.
+  * bug-script: Report 'apt-cache policy'.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Aug 2024 07:51:39 +0200
+
+nvidia-graphics-drivers (535.183.01-1~deb12u1) bookworm; urgency=medium
+
+  * Rebuild for bookworm.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 19 Jun 2024 21:22:21 +0200
+
+nvidia-graphics-drivers (535.183.01-1) unstable; urgency=medium
+
+  * New upstream LTS and Tesla branch release 535.183.01 (2024-06-04).
+    * Fixed CVE-2024-0090, CVE-2024-0092.  (Closes: #1072792)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/5551
+    - Fixed a bug that could cause additional X screens to claim displays
+      that should have been assigned to a prior X screen based on the given X
+      configuration.
+
+  [ Andreas Beckmann ]
+  * Refresh patches.
+  * Update nv-readme.ids.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 14 Jun 2024 11:20:01 +0200
 
 nvidia-graphics-drivers (535.179-1) UNRELEASED; urgency=medium
 

@@ -188,8 +188,8 @@ index 460cf1ae..8cb9b096 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -231,6 +231,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_tegra_platform_is_s
- NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += crypto_akcipher_verify
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_follow_pte
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += ecc_digits_from_bytes
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_timer_delete_sync
 +NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_hrtimer_setup
