@@ -1,6 +1,8 @@
 nvidia-graphics-drivers (535.247.01-2) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
+  * Backport iommu_dev_enable_feature changes from 535.261.03 to fix open
+    kernel module build for Linux 6.16.
   * Backport drm_connector_helper_funcs_mode_valid_has_const_mode_arg changes
     from 550.163.01 and ccflags-y, nv_timer_delete_sync, __iowrite64_lo_hi,
     page_pgmap and make_device_exclusive changes from 570.153.02 and
