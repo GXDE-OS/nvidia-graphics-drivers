@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (550.163.01-3) UNRELEASED; urgency=medium
+
+  * Backport iommu_dev_enable_feature changes from 535.261.03 to fix open
+    kernel module build for Linux 6.16.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 27 Aug 2025 23:17:06 +0200
+
 nvidia-graphics-drivers (550.163.01-2) unstable; urgency=medium
 
   [ Andreas Beckmann ]
@@ -102,14 +109,21 @@ nvidia-graphics-drivers (550.107.02-1) experimental; urgency=medium
       ACPI events on some notebooks.
     - Fixed a bug that could cause kernel crashes upon attempting KMS
       operations through DRM when nvidia_drm was loaded with modeset=0.
+
+  [ Andreas Beckmann ]
+  * Refresh patches.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 17 May 2025 01:57:12 +0200
+
+nvidia-graphics-drivers (550.100-1) UNRELEASED; urgency=medium
+
   * New upstream production branch release 550.100 (2024-07-09).
   * New upstream Tesla branch release 550.90.12 (2024-09-10).
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
-  * Refresh patches.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 17 May 2025 01:57:12 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 12 May 2025 22:01:12 +0200
 
 nvidia-graphics-drivers (550.90.07-1) experimental; urgency=medium
 
