@@ -1,9 +1,9 @@
-nvidia-graphics-drivers (550.163.01-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (550.163.01-3) unstable; urgency=medium
 
   * Backport iommu_dev_enable_feature changes from 535.261.03 to fix open
     kernel module build for Linux 6.16.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 27 Aug 2025 23:17:06 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Aug 2025 09:13:46 +0200
 
 nvidia-graphics-drivers (550.163.01-2) unstable; urgency=medium
 
