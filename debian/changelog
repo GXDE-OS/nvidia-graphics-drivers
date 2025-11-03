@@ -8,7 +8,7 @@ nvidia-graphics-drivers (390.157-14) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * Remove myself from Uploaders.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 20 Jun 2025 00:25:32 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 03 Nov 2025 05:28:05 +0100
 
 nvidia-graphics-drivers (390.157-13) UNRELEASED; urgency=medium
 
