@@ -1,4 +1,4 @@
-From 35eecbd156ceeff214a274af66f988fc35febf9c Mon Sep 17 00:00:00 2001
+From 0eafc40719b0a14ff477d1fcdbf235b30e845b56 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 2 Nov 2025 08:18:20 +0100
 Subject: [PATCH] backport drm_fb_create_takes_format_info changes from
@@ -13,10 +13,10 @@ Subject: [PATCH] backport drm_fb_create_takes_format_info changes from
  5 files changed, 35 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index db7f45cb..34a7a2f2 100755
+index 7d86ce1a..35255a1c 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -3343,6 +3343,25 @@ compile_test() {
+@@ -3473,6 +3473,25 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DMA_BUF_OWNER_PRESENT" "" "types"
          ;;
  
@@ -43,10 +43,10 @@ index db7f45cb..34a7a2f2 100755
              #
              # Determine if _mode_ is present in connector function names.  We
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index d516df85..7f77266e 100644
+index a8250d96..dc6be232 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
-@@ -136,6 +136,9 @@ static void nv_drm_output_poll_changed(struct drm_device *dev)
+@@ -137,6 +137,9 @@ static void nv_drm_output_poll_changed(struct drm_device *dev)
  static struct drm_framebuffer *nv_drm_framebuffer_create(
      struct drm_device *dev,
      struct drm_file *file,
@@ -56,7 +56,7 @@ index d516df85..7f77266e 100644
      #if defined(NV_DRM_HELPER_MODE_FILL_FB_STRUCT_HAS_CONST_MODE_CMD_ARG)
      const struct drm_mode_fb_cmd2 *cmd
      #else
-@@ -151,6 +154,9 @@ static struct drm_framebuffer *nv_drm_framebuffer_create(
+@@ -152,6 +155,9 @@ static struct drm_framebuffer *nv_drm_framebuffer_create(
      fb = nv_drm_internal_framebuffer_create(
              dev,
              file,
@@ -67,10 +67,10 @@ index d516df85..7f77266e 100644
  
      #if !defined(NV_DRM_HELPER_MODE_FILL_FB_STRUCT_HAS_CONST_MODE_CMD_ARG)
 diff --git a/nvidia-drm/nvidia-drm-fb.c b/nvidia-drm/nvidia-drm-fb.c
-index b4632c82..a1857d84 100644
+index d119e7c9..81018e39 100644
 --- a/nvidia-drm/nvidia-drm-fb.c
 +++ b/nvidia-drm/nvidia-drm-fb.c
-@@ -173,6 +173,9 @@ static int nv_drm_framebuffer_init(struct drm_device *dev,
+@@ -184,6 +184,9 @@ static int nv_drm_framebuffer_init(struct drm_device *dev,
  struct drm_framebuffer *nv_drm_internal_framebuffer_create(
      struct drm_device *dev,
      struct drm_file *file,
@@ -80,7 +80,7 @@ index b4632c82..a1857d84 100644
      struct drm_mode_fb_cmd2 *cmd)
  {
      struct nv_drm_device *nv_dev = to_nv_device(dev);
-@@ -201,6 +204,9 @@ struct drm_framebuffer *nv_drm_internal_framebuffer_create(
+@@ -237,6 +240,9 @@ struct drm_framebuffer *nv_drm_internal_framebuffer_create(
          dev,
          #endif
          &nv_fb->base,
@@ -91,7 +91,7 @@ index b4632c82..a1857d84 100644
  
      /*
 diff --git a/nvidia-drm/nvidia-drm-fb.h b/nvidia-drm/nvidia-drm-fb.h
-index 92c05169..519a5eea 100644
+index cf477cc7..c853559c 100644
 --- a/nvidia-drm/nvidia-drm-fb.h
 +++ b/nvidia-drm/nvidia-drm-fb.h
 @@ -59,6 +59,9 @@ static inline struct nv_drm_framebuffer *to_nv_framebuffer(
@@ -105,10 +105,10 @@ index 92c05169..519a5eea 100644
  
  #endif /* NV_DRM_ATOMIC_MODESET_AVAILABLE */
 diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index 8124275e..450f1a3d 100644
+index 3c94263a..9985ffad 100644
 --- a/nvidia-drm/nvidia-drm.Kbuild
 +++ b/nvidia-drm/nvidia-drm.Kbuild
-@@ -118,3 +118,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed
+@@ -124,3 +124,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_date
  NV_CONFTEST_TYPE_COMPILE_TESTS += file_operations_fop_unsigned_offset_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_helper_funcs_mode_valid_has_const_mode_arg
