@@ -8,7 +8,7 @@ nvidia-graphics-drivers (450.248.02-12) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * Remove myself from Uploaders.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 20 Jul 2025 17:13:55 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 05 Nov 2025 05:32:42 +0100
 
 nvidia-graphics-drivers (450.248.02-11) UNRELEASED; urgency=medium
 
