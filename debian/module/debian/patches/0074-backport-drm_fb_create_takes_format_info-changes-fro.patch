@@ -1,4 +1,4 @@
-From 0eafc40719b0a14ff477d1fcdbf235b30e845b56 Mon Sep 17 00:00:00 2001
+From ce98de2a66eae83126d19d44b249452f86a1b1c4 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 2 Nov 2025 08:18:20 +0100
 Subject: [PATCH] backport drm_fb_create_takes_format_info changes from
@@ -13,10 +13,10 @@ Subject: [PATCH] backport drm_fb_create_takes_format_info changes from
  5 files changed, 35 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 7d86ce1a..35255a1c 100755
+index 603bf8ba..af402ab0 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -3473,6 +3473,25 @@ compile_test() {
+@@ -3442,6 +3442,25 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DMA_BUF_OWNER_PRESENT" "" "types"
          ;;
  
@@ -43,7 +43,7 @@ index 7d86ce1a..35255a1c 100755
              #
              # Determine if _mode_ is present in connector function names.  We
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index a8250d96..dc6be232 100644
+index ec0b4495..ac5f3170 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
 @@ -137,6 +137,9 @@ static void nv_drm_output_poll_changed(struct drm_device *dev)
@@ -105,10 +105,10 @@ index cf477cc7..c853559c 100644
  
  #endif /* NV_DRM_ATOMIC_MODESET_AVAILABLE */
 diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index 3c94263a..9985ffad 100644
+index 926bc075..718e3a72 100644
 --- a/nvidia-drm/nvidia-drm.Kbuild
 +++ b/nvidia-drm/nvidia-drm.Kbuild
-@@ -124,3 +124,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed
+@@ -127,3 +127,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_date
  NV_CONFTEST_TYPE_COMPILE_TESTS += file_operations_fop_unsigned_offset_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_helper_funcs_mode_valid_has_const_mode_arg
