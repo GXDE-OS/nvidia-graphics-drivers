@@ -8,7 +8,7 @@ nvidia-graphics-drivers (460.106.00-22) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * Remove myself from Uploaders.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 20 Jul 2025 17:21:59 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 06 Nov 2025 20:44:40 +0100
 
 nvidia-graphics-drivers (460.106.00-21) UNRELEASED; urgency=medium
 
