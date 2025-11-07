@@ -1,5 +1,9 @@
 nvidia-graphics-drivers (525.147.05-17) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
+  * Backport drm_fb_create_takes_format_info changes from 535.274.02 to fix
+    kernel module build for Linux 6.17.
+
   [ Luca Boccassi ]
   * Remove myself from Uploaders.
 
@@ -883,10 +887,14 @@ nvidia-graphics-drivers (495.44-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (470.256.02-8) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
+  * Backport drm_fb_create_takes_format_info changes from 535.274.02 to fix
+    kernel module build for Linux 6.17.
+
   [ Luca Boccassi ]
   * Remove myself from Uploaders.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 20 Jul 2025 17:30:24 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 07 Nov 2025 00:33:41 +0100
 
 nvidia-graphics-drivers (470.256.02-7) UNRELEASED; urgency=medium
 
@@ -1639,12 +1647,14 @@ nvidia-graphics-drivers (465.24.02-1) experimental; urgency=medium
 nvidia-graphics-drivers (460.106.00-22) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
+  * Backport drm_fb_create_takes_format_info changes from 535.274.02 to fix
+    kernel module build for Linux 6.17.
   * Backport nv_vma_start_write changes from 570.169.
 
   [ Luca Boccassi ]
   * Remove myself from Uploaders.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 20 Jul 2025 17:21:59 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 06 Nov 2025 20:44:40 +0100
 
 nvidia-graphics-drivers (460.106.00-21) UNRELEASED; urgency=medium
 
@@ -2232,12 +2242,14 @@ nvidia-graphics-drivers (455.23.04-1) experimental; urgency=medium
 nvidia-graphics-drivers (450.248.02-12) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
+  * Backport drm_fb_create_takes_format_info changes from 535.274.02 to fix
+    kernel module build for Linux 6.17.
   * Backport nv_vma_start_write changes from 570.169.
 
   [ Luca Boccassi ]
   * Remove myself from Uploaders.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 20 Jul 2025 17:13:55 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 05 Nov 2025 05:32:42 +0100
 
 nvidia-graphics-drivers (450.248.02-11) UNRELEASED; urgency=medium
 
@@ -3386,12 +3398,14 @@ nvidia-graphics-drivers (430.14-1) experimental; urgency=medium
 nvidia-graphics-drivers (418.226.00-20) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
+  * Backport drm_fb_create_takes_format_info changes from 535.274.02 to fix
+    kernel module build for Linux 6.17.
   * Backport nv_vma_start_write changes from 570.169.
 
   [ Luca Boccassi ]
   * Remove myself from Uploaders.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 20 Jun 2025 00:52:30 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 04 Nov 2025 00:05:30 +0100
 
 nvidia-graphics-drivers (418.226.00-19) UNRELEASED; urgency=medium
 
@@ -4354,12 +4368,14 @@ nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
 nvidia-graphics-drivers (390.157-14) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
+  * Backport drm_fb_create_takes_format_info changes from 535.274.02 to fix
+    kernel module build for Linux 6.17.
   * Backport nv_vma_start_write changes from 570.169.
 
   [ Luca Boccassi ]
   * Remove myself from Uploaders.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 20 Jun 2025 00:25:32 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 03 Nov 2025 05:28:05 +0100
 
 nvidia-graphics-drivers (390.157-13) UNRELEASED; urgency=medium
 
@@ -7316,8 +7332,8 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 nvidia-graphics-drivers (340.108-2) UNRELEASED; urgency=medium
 
   * Backport ccflags-y and nv_timer_delete_sync changes from 570.153.02 and
-    nv_vma_start_write changes from 570.169 to fix kernel module build for
-    Linux 6.15.
+    nv_vma_start_write changes from 570.169 and disable objtool usage to fix
+    kernel module build for Linux 6.15.
 
   * Backport drm_driver_has_date changes from 570.124.04 to fix kernel module
     build for Linux 6.14.
