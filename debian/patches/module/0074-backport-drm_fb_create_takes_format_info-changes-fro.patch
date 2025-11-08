@@ -1,4 +1,4 @@
-From 8ff2e78bf208b787e9755bf91fcec1ceec3b6c34 Mon Sep 17 00:00:00 2001
+From e87615cc4c4483137a1892f1380598cc7aff0aee Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 2 Nov 2025 08:18:20 +0100
 Subject: [PATCH] backport drm_fb_create_takes_format_info changes from
@@ -13,10 +13,10 @@ Subject: [PATCH] backport drm_fb_create_takes_format_info changes from
  5 files changed, 35 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 81752324..8c0b2ac5 100755
+index cbccc5cb..cab58bd8 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -4051,6 +4051,25 @@ compile_test() {
+@@ -4068,6 +4068,25 @@ compile_test() {
              fi
          ;;
  
