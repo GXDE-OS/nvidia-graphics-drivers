@@ -1,4 +1,4 @@
-From 7cab7479bfc737deb390099bc37500a1fd2be6cc Mon Sep 17 00:00:00 2001
+From 92009d7e6289371b77c57b86600d8fef91126a2d Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 2 Nov 2025 08:18:20 +0100
 Subject: [PATCH] backport drm_fb_create_takes_format_info changes from
@@ -13,10 +13,10 @@ Subject: [PATCH] backport drm_fb_create_takes_format_info changes from
  5 files changed, 35 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 22d978f0..21452aa1 100755
+index 78fd54ab..66f3dc56 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -4063,6 +4063,25 @@ compile_test() {
+@@ -4079,6 +4079,25 @@ compile_test() {
              fi
          ;;
  
@@ -43,7 +43,7 @@ index 22d978f0..21452aa1 100755
              #
              # Determine if _mode_ is present in connector function names.  We
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index ca5e9a50..c9fe56c3 100644
+index c75fd6de..527c87f3 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
 @@ -173,6 +173,9 @@ static void nv_drm_output_poll_changed(struct drm_device *dev)
