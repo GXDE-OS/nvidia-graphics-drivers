@@ -1,4 +1,4 @@
-From 6994fd255b4205465429c6ee39820a20a72399e6 Mon Sep 17 00:00:00 2001
+From fb136702a1ffe98e45b7a668cbdb5985e825d901 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sun, 2 Nov 2025 08:18:20 +0100
 Subject: [PATCH] backport drm_fb_create_takes_format_info changes from
@@ -13,7 +13,7 @@ Subject: [PATCH] backport drm_fb_create_takes_format_info changes from
  5 files changed, 35 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 44ccb0bd..62d73df3 100755
+index dc3dd6a8..3cc4199a 100755
 --- a/conftest.sh
 +++ b/conftest.sh
 @@ -4115,6 +4115,25 @@ compile_test() {
@@ -43,10 +43,10 @@ index 44ccb0bd..62d73df3 100755
              #
              # Determine if _mode_ is present in connector function names.  We
 diff --git a/nvidia-drm/nvidia-drm-drv.c b/nvidia-drm/nvidia-drm-drv.c
-index c75fd6de..527c87f3 100644
+index b79298ec..2efa68ea 100644
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
-@@ -173,6 +173,9 @@ static void nv_drm_output_poll_changed(struct drm_device *dev)
+@@ -175,6 +175,9 @@ static void nv_drm_output_poll_changed(struct drm_device *dev)
  static struct drm_framebuffer *nv_drm_framebuffer_create(
      struct drm_device *dev,
      struct drm_file *file,
@@ -56,7 +56,7 @@ index c75fd6de..527c87f3 100644
      #if defined(NV_DRM_HELPER_MODE_FILL_FB_STRUCT_HAS_CONST_MODE_CMD_ARG)
      const struct drm_mode_fb_cmd2 *cmd
      #else
-@@ -188,6 +191,9 @@ static struct drm_framebuffer *nv_drm_framebuffer_create(
+@@ -190,6 +193,9 @@ static struct drm_framebuffer *nv_drm_framebuffer_create(
      fb = nv_drm_internal_framebuffer_create(
              dev,
              file,
@@ -105,10 +105,10 @@ index cf477cc7..c853559c 100644
  
  #endif /* NV_DRM_ATOMIC_MODESET_AVAILABLE */
 diff --git a/nvidia-drm/nvidia-drm-sources.mk b/nvidia-drm/nvidia-drm-sources.mk
-index 1049c148..02a92442 100644
+index 133f4ef8..83d37943 100644
 --- a/nvidia-drm/nvidia-drm-sources.mk
 +++ b/nvidia-drm/nvidia-drm-sources.mk
-@@ -135,3 +135,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed
+@@ -136,3 +136,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_date
  NV_CONFTEST_TYPE_COMPILE_TESTS += file_operations_fop_unsigned_offset_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_helper_funcs_mode_valid_has_const_mode_arg
