@@ -1,9 +1,9 @@
-nvidia-graphics-drivers (555.58.02-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (555.58.02-2) experimental; urgency=medium
 
   * Backport drm_fb_create_takes_format_info changes from 535.274.02 to fix
-    kernel module build for Linux 6.17.
+    kernel module build for Linux 6.17.  (Closes: #1119901)
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 09 Nov 2025 20:01:15 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 10 Nov 2025 02:31:19 +0100
 
 nvidia-graphics-drivers (555.58.02-1) experimental; urgency=medium
 
