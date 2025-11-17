@@ -1,7 +1,7 @@
 nvidia-graphics-drivers (550.163.01-4) unstable; urgency=medium
 
   * Backport drm_fb_create_takes_format_info changes from 535.274.02 to fix
-    kernel module build for Linux 6.17.  (Closes: #1119901)
+    kernel module build for Linux 6.17.  (Closes: #1119901, #1119308)
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 10 Nov 2025 20:44:57 +0100
 
