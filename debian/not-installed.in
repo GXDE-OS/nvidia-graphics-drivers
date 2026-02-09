@@ -58,3 +58,18 @@ nvidia-ngx-updater
 libEGL.so.#VERSION#
 
 libnvidia-pkcs11.so.#VERSION#
+
+# new in 580, to be packaged later
+20_nvidia_xcb.json
+20_nvidia_xlib.json
+libnvidia-egl-xcb.so.*
+libnvidia-egl-xlib.so.*
+libnvidia-nvvm70.so.*
+libnvidia-present.so.#VERSION#
+libnvidia-sandboxutils.so.#VERSION#
+libnvidia-vksc-core.so.#VERSION#
+nvidia-pcc
+nvidia_icd_vksc.json
+nvngx_dlssg.dll
+sandboxutils-filelist.json
+systemd/system/nvidia-suspend-then-hibernate.service
