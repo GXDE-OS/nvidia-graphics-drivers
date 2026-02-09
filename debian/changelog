@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (580.126.09-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Samuel Henrique <samueloph@debian.org>  Sun, 08 Feb 2026 17:16:45 -0800
+
 nvidia-graphics-drivers (555.58.02-2) experimental; urgency=medium
 
   * Backport drm_fb_create_takes_format_info changes from 535.274.02 to fix

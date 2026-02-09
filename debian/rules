@@ -170,7 +170,7 @@ endif
 	touch $@
 
 nv-readme.ids: unpack-stamp
-	sed -r -n '/^Chapter [0-9]+\. GSP Firmware|^A1\. CURRENT NVIDIA GPUS|^A1\. NVIDIA GEFORCE GPUS/,/^Chapter|^Appendix|^Below/ s/^(.{41}|.{49}) ([0-9a-fA-F]{4})($$| .*)/10de\2/p' \
+	sed -r -n '/^Chapter [0-9]+\. GSP Firmware|^A1\. CURRENT NVIDIA GPUS|^A1\. NVIDIA GEFORCE GPUS/,/^Chapter|^Appendix|^Below/ s/^(.{41}|.{49}|.{57}) ([0-9a-fA-F]{4})($$| .*)/10de\2/p' \
 		NVIDIA-Linux/README.txt \
 		| tr a-f A-F | sort -u > $@
 	@set -e -x ; \
