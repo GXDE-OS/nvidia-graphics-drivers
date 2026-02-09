@@ -5,10 +5,12 @@ libnvidia-ngx.so.1 #PACKAGE# #MINVER#
  NVSDK_NGX_CUDA_DestroyParameters@Base 455
  NVSDK_NGX_CUDA_EvaluateFeature@Base 450
  NVSDK_NGX_CUDA_GetCapabilityParameters@Base 455
+ NVSDK_NGX_CUDA_GetDeviceCapabilityParameters@Base 580.126.09
  NVSDK_NGX_CUDA_GetParameters@Base 450
  NVSDK_NGX_CUDA_GetScratchBufferSize@Base 450
  NVSDK_NGX_CUDA_Init@Base 450
  NVSDK_NGX_CUDA_Init_Ext@Base 450
+ NVSDK_NGX_CUDA_Init_ProjectID@Base 580.126.09
  NVSDK_NGX_CUDA_ReleaseFeature@Base 450
  NVSDK_NGX_CUDA_Shutdown@Base 450
  NVSDK_NGX_UpdateFeature@Base 530
@@ -18,6 +20,7 @@ libnvidia-ngx.so.1 #PACKAGE# #MINVER#
  NVSDK_NGX_VULKAN_DestroyParameters@Base 455
  NVSDK_NGX_VULKAN_EvaluateFeature@Base 450
  NVSDK_NGX_VULKAN_GetCapabilityParameters@Base 455
+ NVSDK_NGX_VULKAN_GetDeviceCapabilityParameters@Base 580.126.09
  NVSDK_NGX_VULKAN_GetFeatureDeviceExtensionRequirements@Base 530
  NVSDK_NGX_VULKAN_GetFeatureInstanceExtensionRequirements@Base 530
  NVSDK_NGX_VULKAN_GetFeatureRequirements@Base 530
