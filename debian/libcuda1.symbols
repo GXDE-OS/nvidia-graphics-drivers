@@ -14,6 +14,12 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuArrayGetMemoryRequirements@Base 510
  cuArrayGetPlane@Base 460
  cuArrayGetSparseProperties@Base 455
+ cuCheckpointProcessCheckpoint@Base 580.126.09
+ cuCheckpointProcessGetRestoreThreadId@Base 580.126.09
+ cuCheckpointProcessGetState@Base 580.126.09
+ cuCheckpointProcessLock@Base 580.126.09
+ cuCheckpointProcessRestore@Base 580.126.09
+ cuCheckpointProcessUnlock@Base 580.126.09
  cuCoredumpGetAttribute@Base 530
  cuCoredumpGetAttributeGlobal@Base 530
  cuCoredumpSetAttribute@Base 530
@@ -34,6 +40,7 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuCtxGetCurrent@Base 270
  cuCtxGetDevResource@Base 550
  cuCtxGetDevice@Base 177
+ cuCtxGetDevice_v2@Base 580.126.09
  cuCtxGetExecAffinity@Base 470
  cuCtxGetFlags@Base 346
  cuCtxGetId@Base 525
@@ -52,6 +59,7 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuCtxSetLimit@Base 256
  cuCtxSetSharedMemConfig@Base 295.33
  cuCtxSynchronize@Base 169
+ cuCtxSynchronize_v2@Base 580.126.09
  cuCtxWaitEvent@Base 555
  cuDestroyExternalMemory@Base 410
  cuDestroyExternalSemaphore@Base 410
@@ -67,10 +75,12 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuDeviceGetDevResource@Base 550
  cuDeviceGetExecAffinitySupport@Base 470
  cuDeviceGetGraphMemAttribute@Base 470
+ cuDeviceGetHostAtomicCapabilities@Base 580.126.09
  cuDeviceGetLuid@Base 455
  cuDeviceGetMemPool@Base 460
  cuDeviceGetName@Base 169
  cuDeviceGetNvSciSyncAttributes@Base 440
+ cuDeviceGetP2PAtomicCapabilities@Base 580.126.09
  cuDeviceGetP2PAttribute@Base 361
  cuDeviceGetPCIBusId@Base 285
  cuDeviceGetProperties@Base 169
@@ -109,6 +119,7 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuEventDestroy@Base 169
  cuEventDestroy_v2@Base 270
  cuEventElapsedTime@Base 169
+ cuEventElapsedTime_v2@Base 580.126.09
  cuEventQuery@Base 169
  cuEventRecord@Base 169
  cuEventRecordWithFlags@Base 455
@@ -262,6 +273,7 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuGreenCtxCreate@Base 550
  cuGreenCtxDestroy@Base 550
  cuGreenCtxGetDevResource@Base 550
+ cuGreenCtxGetId@Base 580.126.09
  cuGreenCtxRecordEvent@Base 550
  cuGreenCtxStreamCreate@Base 555
  cuGreenCtxWaitEvent@Base 550
@@ -313,6 +325,11 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuLinkCreate@Base 319
  cuLinkCreate_v2@Base 340
  cuLinkDestroy@Base 319
+ cuLogsCurrent@Base 580.126.09
+ cuLogsDumpToFile@Base 580.126.09
+ cuLogsDumpToMemory@Base 580.126.09
+ cuLogsRegisterCallback@Base 580.126.09
+ cuLogsUnregisterCallback@Base 580.126.09
  cuMemAddressFree@Base 440
  cuMemAddressReserve@Base 440
  cuMemAdvise@Base 361.28
@@ -328,7 +345,13 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuMemAllocPitch@Base 169
  cuMemAllocPitch_v2@Base 260
  cuMemAlloc_v2@Base 260
+ cuMemBatchDecompressAsync@Base 580.126.09
+ cuMemBatchDecompressAsync_ptsz@Base 580.126.09
  cuMemCreate@Base 440
+ cuMemDiscardAndPrefetchBatchAsync@Base 580.126.09
+ cuMemDiscardAndPrefetchBatchAsync_ptsz@Base 580.126.09
+ cuMemDiscardBatchAsync@Base 580.126.09
+ cuMemDiscardBatchAsync_ptsz@Base 580.126.09
  cuMemExportToShareableHandle@Base 440
  cuMemFree@Base 169
  cuMemFreeAsync@Base 460
@@ -342,9 +365,11 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuMemGetAllocationPropertiesFromHandle@Base 440
  cuMemGetAttribute@Base 190
  cuMemGetAttribute_v2@Base 270
+ cuMemGetDefaultMemPool@Base 580.126.09
  cuMemGetHandleForAddressRange@Base 515
  cuMemGetInfo@Base 169
  cuMemGetInfo_v2@Base 260
+ cuMemGetMemPool@Base 580.126.09
  cuMemHostAlloc@Base 185
  cuMemHostGetDevicePointer@Base 185
  cuMemHostGetDevicePointer_v2@Base 260
@@ -371,11 +396,14 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuMemPrefetchAsync_ptsz@Base 367
  cuMemPrefetchAsync_v2@Base 535
  cuMemPrefetchAsync_v2_ptsz@Base 535
+ cuMemPrefetchBatchAsync@Base 580.126.09
+ cuMemPrefetchBatchAsync_ptsz@Base 580.126.09
  cuMemRangeGetAttribute@Base 367.44
  cuMemRangeGetAttributes@Base 367.44
  cuMemRelease@Base 440
  cuMemRetainAllocationHandle@Base 450
  cuMemSetAccess@Base 440
+ cuMemSetMemPool@Base 580.126.09
  cuMemUnmap@Base 440
  cuMemcpy2D@Base 169
  cuMemcpy2DAsync@Base 169
@@ -390,6 +418,10 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuMemcpy3DAsync@Base 177
  cuMemcpy3DAsync_v2@Base 260
  cuMemcpy3DAsync_v2_ptsz@Base 346
+ cuMemcpy3DBatchAsync@Base 580.126.09
+ cuMemcpy3DBatchAsync_ptsz@Base 580.126.09
+ cuMemcpy3DBatchAsync_v2@Base 580.126.09
+ cuMemcpy3DBatchAsync_v2_ptsz@Base 580.126.09
  cuMemcpy3DPeer@Base 270
  cuMemcpy3DPeerAsync@Base 270
  cuMemcpy3DPeerAsync_ptsz@Base 346
@@ -411,6 +443,10 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuMemcpyAtoHAsync_v2_ptsz@Base 346
  cuMemcpyAtoH_v2@Base 260
  cuMemcpyAtoH_v2_ptds@Base 346
+ cuMemcpyBatchAsync@Base 580.126.09
+ cuMemcpyBatchAsync_ptsz@Base 580.126.09
+ cuMemcpyBatchAsync_v2@Base 580.126.09
+ cuMemcpyBatchAsync_v2_ptsz@Base 580.126.09
  cuMemcpyDtoA@Base 169
  cuMemcpyDtoA_v2@Base 260
  cuMemcpyDtoA_v2_ptds@Base 346
@@ -551,6 +587,8 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuStreamGetCtx_ptsz@Base 396
  cuStreamGetCtx_v2@Base 555
  cuStreamGetCtx_v2_ptsz@Base 555
+ cuStreamGetDevice@Base 580.126.09
+ cuStreamGetDevice_ptsz@Base 580.126.09
  cuStreamGetFlags@Base 319
  cuStreamGetFlags_ptsz@Base 346
  cuStreamGetGreenCtx@Base 550
@@ -594,6 +632,7 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cuSurfRefGetArray@Base 256
  cuSurfRefSetArray@Base 256
  cuTensorMapEncodeIm2col@Base 525
+ cuTensorMapEncodeIm2colWide@Base 580.126.09
  cuTensorMapEncodeTiled@Base 525
  cuTensorMapReplaceAddress@Base 525
  cuTexObjectCreate@Base 304
@@ -664,6 +703,11 @@ libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
  cudbgReportedDriverApiErrorCode@Base 331.20
  cudbgReportedDriverApiErrorFuncNameAddr@Base 331.20
  cudbgReportedDriverApiErrorFuncNameSize@Base 331.20
+ cudbgReportedDriverApiErrorNameAddr@Base 580.126.09
+ cudbgReportedDriverApiErrorNameSize@Base 580.126.09
+ cudbgReportedDriverApiErrorSource@Base 580.126.09
+ cudbgReportedDriverApiErrorStringAddr@Base 580.126.09
+ cudbgReportedDriverApiErrorStringSize@Base 580.126.09
  cudbgReportedDriverInternalErrorCode@Base 331.20
  cudbgResumeForAttachDetach@Base 331.20
  cudbgRpcEnabled@Base 331.20

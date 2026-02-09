@@ -1,8 +1,11 @@
 libnvidia-allocator.so.1 #PACKAGE# #MINVER#
 * Build-Depends-Package: #PACKAGE#
+ GEMAddReference@Base 580.126.09
+ GEMRemoveReference@Base 580.126.09
  NvRmShimAllocMem@Base 440
  NvRmShimCloseGpuInstance@Base 440
  NvRmShimDupMemContext@Base 440
+ NvRmShimExportMemContextToDmabufFd@Base 580.126.09
  NvRmShimExportMemContextToFd@Base 510.73.05
  NvRmShimFlushCpuCache@Base 440
  NvRmShimFreeMem@Base 440
@@ -11,6 +14,7 @@ libnvidia-allocator.so.1 #PACKAGE# #MINVER#
  NvRmShimMapMemory@Base 440
  NvRmShimMapMemoryDma@Base 510
  NvRmShimOpenGpuInstance@Base 440
+ NvRmShimQueryDeviceInfo@Base 580.126.09
  NvRmShimQueryMemoryInfo@Base 510.73.05
  NvRmShimSessionCreate@Base 440
  NvRmShimSessionDestroy@Base 440

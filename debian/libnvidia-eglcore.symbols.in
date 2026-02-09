@@ -411,6 +411,7 @@ libnvidia-eglcore.so.#VERSION# libnvidia-eglcore-#VERSION#, #PACKAGE# #MINVER#
  _glDepthRangex@Base 346
  _glDetachObjectARB@Base 346
  _glDetachShader@Base 346
+ _glDeterministicTPCModeDistParams@Base 580.126.09
  _glDevtoolsCorrelationIdNVX@Base 346
  _glDevtoolsInvokeFunctorNVX@Base 349
  _glDevtoolsInvokeStreamedCallbackNVX@Base 346

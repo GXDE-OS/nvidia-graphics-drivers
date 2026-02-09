@@ -9,6 +9,7 @@ libnvidia-cfg.so.1 #PACKAGE# #MINVER# | libnvidia-cfg.so.1 #MINVER#
  nvCfgDumpDisplayPortAuxLog@Base 390.42
  nvCfgEnableUVMPersistence@Base 550
  nvCfgFlashGSyncDevice@Base 304.30
+ nvCfgFlashGSyncDeviceWithProgress@Base 580.126.09
  nvCfgGetDeviceUUID@Base 325
  nvCfgGetDevices@Base 1.0.8174
  nvCfgGetDisplayDevices@Base 1.0.8174

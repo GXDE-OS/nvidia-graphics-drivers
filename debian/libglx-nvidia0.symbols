@@ -410,6 +410,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glDepthRangex@Base 361.28
  glDetachObjectARB@Base 361.28
  glDetachShader@Base 361.28
+ glDeterministicTPCModeDistParams@Base 580.126.09
  glDevtoolsCorrelationIdNVX@Base 361.28
  glDevtoolsInvokeFunctorNVX@Base 361.28
  glDevtoolsInvokeStreamedCallbackNVX@Base 361.28

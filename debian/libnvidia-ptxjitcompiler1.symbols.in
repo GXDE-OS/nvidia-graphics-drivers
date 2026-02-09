@@ -20,4 +20,7 @@ libnvidia-ptxjitcompiler.so.1 #PACKAGE# #MINVER#
  nvPTXCompilerGetErrorLogSize@Base 378
  nvPTXCompilerGetInfoLog@Base 378
  nvPTXCompilerGetInfoLogSize@Base 378
+ nvPTXCompilerGetNumSupportedVersions@Base 580.126.09
+ nvPTXCompilerGetSupportedVersions@Base 580.126.09
  nvPTXCompilerGetVersion@Base 378
+ nvPTXCompilerSetFlowCallback@Base 580.126.09
