@@ -5,7 +5,6 @@ bashisms.patch
 0002-conftest.sh-remove-empty-lines-from-uts_release-outp.patch
 0034-fix-typos.patch
 0042-Log-an-error-message-when-nv_mem_client_init-fails-d.patch
-0062-Support-BTF-generation-for-non-release-builds.patch
 0062-let-pahole-ignore-c-11-in-addition-to-c.patch
 
 # build system updates
