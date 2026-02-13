@@ -1,4 +1,20 @@
-nvidia-graphics-drivers (580.126.09-1) unstable; urgency=medium
+nvidia-graphics-drivers (580.126.09-1~samueloph.2) unstable; urgency=medium
+
+  * This was done by Claude Code
+  * Generated-By: Claude Code (claude-opus-4-6)
+  * Co-Authored-By: Claude Code <noreply@anthropic.com>
+  * Prefer open kernel modules by default (swap alternative priorities).
+  * Enable DRM kernel mode setting (modeset=1) by default.
+  * Add mutual Conflicts between open and closed DKMS packages.
+  * DKMS packages prefer matching support package.
+
+ -- Samuel Henrique <samueloph@debian.org>  Thu, 12 Feb 2026 20:51:27 -0800
+
+nvidia-graphics-drivers (580.126.09-1~samueloph) unstable; urgency=medium
+
+  * This was done by Claude Code
+  * Generated-By: Claude Code (claude-opus-4-6)
+  * Co-Authored-By: Claude Code <noreply@anthropic.com>
 
   * New upstream release.
 
