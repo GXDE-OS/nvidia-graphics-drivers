@@ -191,6 +191,8 @@ Depends:
 Recommends:
  ${nvidia}-driver (>= ${nvidia:Version})
  | ${libcuda1} (>= ${nvidia:Version}),
+Conflicts:
+ nvidia-open-kernel-dkms-any,
 Provides:
  ${nvidia-kernel}-${nvidia:Version},
  nvidia-kernel-dkms-any (= ${nvidia:Version}),
