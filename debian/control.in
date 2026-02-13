@@ -186,7 +186,7 @@ Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
  firmware-${nvidia}-gsp (= ${nvidia:Version}) | firmware-nvidia-gsp-${nvidia:Version},
- ${nvidia-kernel}-support--v1,
+ ${nvidia-kernel}-support | ${nvidia-kernel}-support--v1,
  ${misc:Depends}
 Recommends:
  ${nvidia}-driver (>= ${nvidia:Version})
