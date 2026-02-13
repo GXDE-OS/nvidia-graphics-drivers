@@ -8,3 +8,6 @@
 
 # Uncomment to enable this power management feature:
 #options #MODULE# NVreg_EnableS0ixPowerManagement=1
+
+# Enable DRM kernel mode setting, required for Wayland.
+options #MODULE#-drm modeset=1
