@@ -47,8 +47,8 @@ index 21d7506c..cf489384 100755
 +        ;;
 +
          # When adding a new conftest entry, please use the correct format for
-         # specifying the relevant upstream Linux kernel commit.
-         #
+         # specifying the relevant upstream Linux kernel commit.  Please
+         # avoid specifying -rc kernels, and only use SHAs that actually exist
 diff --git a/nvidia-drm/nvidia-drm-connector.c b/nvidia-drm/nvidia-drm-connector.c
 index 484204f7..75057968 100644
 --- a/nvidia-drm/nvidia-drm-connector.c
