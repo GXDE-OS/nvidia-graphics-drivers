@@ -1,4 +1,4 @@
-From 7faf31cdae275e1c8032026b08290f4ea89021e1 Mon Sep 17 00:00:00 2001
+From cb89a6a003d2807f9b3a33f7fcd6fa4978ba6764 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Wed, 28 Jan 2026 15:53:49 +0100
 Subject: [PATCH 4/4] support fallback for for_each_*_crtc_in_state
@@ -10,10 +10,10 @@ Subject: [PATCH 4/4] support fallback for for_each_*_crtc_in_state
  3 files changed, 24 insertions(+), 4 deletions(-)
 
 diff --git a/nvidia-drm/nvidia-drm-crtc.c b/nvidia-drm/nvidia-drm-crtc.c
-index 5f2452d5..4938c434 100644
+index 5d86c596..d83aba6e 100644
 --- a/nvidia-drm/nvidia-drm-crtc.c
 +++ b/nvidia-drm/nvidia-drm-crtc.c
-@@ -151,7 +151,7 @@ static int nv_drm_plane_atomic_check(struct drm_plane *plane,
+@@ -196,7 +196,7 @@ static int nv_drm_plane_atomic_check(struct drm_plane *plane,
          goto done;
      }
  
@@ -23,7 +23,7 @@ index 5f2452d5..4938c434 100644
          struct NvKmsKapiHeadRequestedConfig *head_req_config =
              &nv_crtc_state->req_config;
 diff --git a/nvidia-drm/nvidia-drm-helper.h b/nvidia-drm/nvidia-drm-helper.h
-index 76eb10d0..c001f93a 100644
+index d1323fa1..1f4ba4f1 100644
 --- a/nvidia-drm/nvidia-drm-helper.h
 +++ b/nvidia-drm/nvidia-drm-helper.h
 @@ -258,6 +258,26 @@ int nv_drm_atomic_helper_disable_all(struct drm_device *dev,
@@ -54,7 +54,7 @@ index 76eb10d0..c001f93a 100644
   * nv_drm_for_each_plane_in_state - iterate over all planes in an atomic update
   * @__state: &struct drm_atomic_state pointer
 diff --git a/nvidia-drm/nvidia-drm-modeset.c b/nvidia-drm/nvidia-drm-modeset.c
-index f455e698..fbbb6205 100644
+index 265674b6..992eb449 100644
 --- a/nvidia-drm/nvidia-drm-modeset.c
 +++ b/nvidia-drm/nvidia-drm-modeset.c
 @@ -164,7 +164,7 @@ nv_drm_atomic_apply_modeset_config(struct drm_device *dev,

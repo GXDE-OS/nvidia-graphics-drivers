@@ -1,20 +1,21 @@
-From 2edf2c6a9d75f27fc897a2568cd8cd02f730a877 Mon Sep 17 00:00:00 2001
+From ad3ee65c1bdf83da1b5574cf02022dbf03b43d67 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 18:09:15 +0100
 Subject: [PATCH] backport nv_in_hardirq changes from 580.119.02
 
 ---
  common/inc/nv-time.h  | 14 ++++++++++++++
+ nvidia/linux_nvswitch.c |  2 +-
  nvidia/nvlink_linux.c |  2 +-
  nvidia/os-interface.c |  6 +++---
- 3 files changed, 18 insertions(+), 4 deletions(-)
+ 4 files changed, 19 insertions(+), 5 deletions(-)
 
 diff --git a/common/inc/nv-time.h b/common/inc/nv-time.h
-index b4fe2b79..8ebe4016 100644
+index baa77825..988510f1 100644
 --- a/common/inc/nv-time.h
 +++ b/common/inc/nv-time.h
-@@ -33,6 +33,20 @@ typedef struct timeval nv_timeval;
- typedef struct __kernel_old_timeval nv_timeval;
+@@ -45,6 +45,20 @@ static inline s64 timespec64_to_ns(struct timespec64 *ts)
+ }
  #endif
  
 +/*
@@ -31,14 +32,27 @@ index b4fe2b79..8ebe4016 100644
 +#endif
 +}
 +
- static inline void nv_gettimeofday(nv_timeval *tv)
+ #if !defined(NV_KTIME_GET_RAW_TS64_PRESENT)
+ static inline void ktime_get_raw_ts64(struct timespec64 *ts64)
  {
- #ifdef NV_DO_GETTIMEOFDAY_PRESENT
+diff --git a/nvidia/linux_nvswitch.c b/nvidia/linux_nvswitch.c
+index b48254fe..2c616689 100644
+--- a/nvidia/linux_nvswitch.c
++++ b/nvidia/linux_nvswitch.c
+@@ -2457,7 +2457,7 @@ nvswitch_os_sleep
+ 
+     nv_gettimeofday(&tm_aux);
+ 
+-    if (in_irq() && (ms > NV_MAX_ISR_DELAY_MS))
++    if (nv_in_hardirq() && (ms > NV_MAX_ISR_DELAY_MS))
+     {
+         return;
+     }
 diff --git a/nvidia/nvlink_linux.c b/nvidia/nvlink_linux.c
-index 95195d06..f58f36a5 100644
+index 22ee3ee7..20ce98c6 100644
 --- a/nvidia/nvlink_linux.c
 +++ b/nvidia/nvlink_linux.c
-@@ -556,7 +556,7 @@ void NVLINK_API_CALL nvlink_sleep(unsigned int ms)
+@@ -600,7 +600,7 @@ void NVLINK_API_CALL nvlink_sleep(unsigned int ms)
  
      nv_gettimeofday(&tm_aux);
  
@@ -48,10 +62,10 @@ index 95195d06..f58f36a5 100644
          return;
      }
 diff --git a/nvidia/os-interface.c b/nvidia/os-interface.c
-index 67496af7..2f8a0735 100644
+index dd818810..bec97d0d 100644
 --- a/nvidia/os-interface.c
 +++ b/nvidia/os-interface.c
-@@ -194,7 +194,7 @@ BOOL NV_API_CALL os_semaphore_may_sleep(void)
+@@ -223,7 +223,7 @@ BOOL NV_API_CALL os_semaphore_may_sleep(void)
  
  BOOL NV_API_CALL os_is_isr(void)
  {
@@ -60,7 +74,7 @@ index 67496af7..2f8a0735 100644
  }
  
  // return TRUE if the caller is the super-user
-@@ -537,7 +537,7 @@ NV_STATUS NV_API_CALL os_delay_us(NvU32 MicroSeconds)
+@@ -630,7 +630,7 @@ NV_STATUS NV_API_CALL os_delay_us(NvU32 MicroSeconds)
      nv_gettimeofday(&tm1);
  #endif
  
@@ -69,7 +83,7 @@ index 67496af7..2f8a0735 100644
          return NV_ERR_GENERIC;
  
      mdelay_safe_msec = MicroSeconds / 1000;
-@@ -582,7 +582,7 @@ NV_STATUS NV_API_CALL os_delay(NvU32 MilliSeconds)
+@@ -674,7 +674,7 @@ NV_STATUS NV_API_CALL os_delay(NvU32 MilliSeconds)
      tm_start = tm_aux;
  #endif
  

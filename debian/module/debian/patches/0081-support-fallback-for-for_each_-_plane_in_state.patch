@@ -1,4 +1,4 @@
-From 46f1faaf0c3f8a570f6202c788cf46ea0ff83158 Mon Sep 17 00:00:00 2001
+From d69fe748c043422e6645eba5d30901ec2985c822 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Wed, 28 Jan 2026 15:40:39 +0100
 Subject: [PATCH 2/4] support fallback for for_each_*_plane_in_state
@@ -23,7 +23,7 @@ index fa9e4588..ea3b62f3 100644
          if (ret < 0)
              goto free;
 diff --git a/nvidia-drm/nvidia-drm-helper.h b/nvidia-drm/nvidia-drm-helper.h
-index 8467cc76..76eb10d0 100644
+index 980b11a3..d1323fa1 100644
 --- a/nvidia-drm/nvidia-drm-helper.h
 +++ b/nvidia-drm/nvidia-drm-helper.h
 @@ -211,6 +211,11 @@ int nv_drm_atomic_helper_disable_all(struct drm_device *dev,
@@ -66,7 +66,7 @@ index 8467cc76..76eb10d0 100644
      uint32_t id)
  {
 diff --git a/nvidia-drm/nvidia-drm-modeset.c b/nvidia-drm/nvidia-drm-modeset.c
-index 5f50c47c..0287598a 100644
+index dda2d198..2f1e4b40 100644
 --- a/nvidia-drm/nvidia-drm-modeset.c
 +++ b/nvidia-drm/nvidia-drm-modeset.c
 @@ -109,7 +109,7 @@ static bool __will_generate_flip_event(struct drm_crtc *crtc,

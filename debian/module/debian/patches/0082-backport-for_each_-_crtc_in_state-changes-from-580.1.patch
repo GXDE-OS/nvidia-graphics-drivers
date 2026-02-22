@@ -1,4 +1,4 @@
-From 9553e9b32534c302e7e7c820beb21a1f63cc597b Mon Sep 17 00:00:00 2001
+From 591478774e4656d7e90cd04c0c5042fbd4a1bf8e Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Wed, 28 Jan 2026 15:48:26 +0100
 Subject: [PATCH 3/4] backport for_each_*_crtc_in_state changes from 580.119.02
@@ -9,10 +9,10 @@ Subject: [PATCH 3/4] backport for_each_*_crtc_in_state changes from 580.119.02
  2 files changed, 5 insertions(+), 13 deletions(-)
 
 diff --git a/nvidia-drm/nvidia-drm-crtc.c b/nvidia-drm/nvidia-drm-crtc.c
-index 861b14b5..5f2452d5 100644
+index 35bc70a7..5d86c596 100644
 --- a/nvidia-drm/nvidia-drm-crtc.c
 +++ b/nvidia-drm/nvidia-drm-crtc.c
-@@ -151,7 +151,7 @@ static int nv_drm_plane_atomic_check(struct drm_plane *plane,
+@@ -196,7 +196,7 @@ static int nv_drm_plane_atomic_check(struct drm_plane *plane,
          goto done;
      }
  
@@ -22,7 +22,7 @@ index 861b14b5..5f2452d5 100644
          struct NvKmsKapiHeadRequestedConfig *head_req_config =
              &nv_crtc_state->req_config;
 diff --git a/nvidia-drm/nvidia-drm-modeset.c b/nvidia-drm/nvidia-drm-modeset.c
-index 0287598a..f455e698 100644
+index 2f1e4b40..265674b6 100644
 --- a/nvidia-drm/nvidia-drm-modeset.c
 +++ b/nvidia-drm/nvidia-drm-modeset.c
 @@ -158,20 +158,13 @@ nv_drm_atomic_apply_modeset_config(struct drm_device *dev,
