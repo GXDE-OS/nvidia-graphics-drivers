@@ -1,4 +1,4 @@
-From a870b7bd35c3e6a6906bc8ea674721a3447a2403 Mon Sep 17 00:00:00 2001
+From 9291474abc02c22df8ca44e5e1b54bc59d7330ed Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 17:41:05 +0100
 Subject: [PATCH] backport drm_print.h changes from 570.211.01
@@ -9,10 +9,10 @@ Subject: [PATCH] backport drm_print.h changes from 570.211.01
  2 files changed, 5 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 4992e1b8..ec68ffe7 100755
+index aaf89298..4570dc8a 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -97,6 +97,7 @@ test_headers() {
+@@ -102,6 +102,7 @@ test_headers() {
      #
      FILES="asm/system.h"
      FILES="$FILES drm/drmP.h"
@@ -21,7 +21,7 @@ index 4992e1b8..ec68ffe7 100755
      FILES="$FILES drm/drm_gem.h"
      FILES="$FILES drm/drm_crtc.h"
 diff --git a/nvidia-drm/nvidia-drm-priv.h b/nvidia-drm/nvidia-drm-priv.h
-index 4f1a0e7a..7b0e9f6b 100644
+index 89f4d6e4..edb54fac 100644
 --- a/nvidia-drm/nvidia-drm-priv.h
 +++ b/nvidia-drm/nvidia-drm-priv.h
 @@ -31,6 +31,10 @@
