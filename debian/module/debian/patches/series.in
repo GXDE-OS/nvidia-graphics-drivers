@@ -3,6 +3,7 @@ bashisms.patch
 
 # kernel support
 0001-some-power-management-features-were-not-yet-in-Linux.patch
+0023-backport-vm_area_struct_has_const_vm_flags-changes-f.patch
 0033-refuse-to-load-legacy-module-if-IBT-is-enabled.patch
 0034-fix-typos.patch
 0037-import-pfn_valid-w-o-GPL-rcu_read_lock-unlock-from-v.patch
