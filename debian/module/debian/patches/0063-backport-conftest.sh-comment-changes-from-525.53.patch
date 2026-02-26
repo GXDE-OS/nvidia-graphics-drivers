@@ -1,4 +1,4 @@
-From 4dc297437539074eeb8ad23bcac258933df7c00c Mon Sep 17 00:00:00 2001
+From 3fb931bf20f378dc03c029c1f5956e9f2405134d Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 29 Jan 2026 14:49:48 +0100
 Subject: [PATCH] backport conftest.sh comment changes from 525.53
@@ -8,10 +8,10 @@ Subject: [PATCH] backport conftest.sh comment changes from 525.53
  1 file changed, 15 insertions(+), 3 deletions(-)
 
 diff --git a/conftest.sh b/conftest.sh
-index 90824e12..714ef700 100755
+index 6beb5575..9d03004e 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -657,7 +657,9 @@ compile_test() {
+@@ -594,7 +594,9 @@ compile_test() {
              # is present.
              #
              # Added by commit 3c299dc22635 ("PCI: add
@@ -22,7 +22,7 @@ index 90824e12..714ef700 100755
              #
              CODE="
              #include <linux/pci.h>
-@@ -2433,7 +2435,9 @@ compile_test() {
+@@ -2420,7 +2422,9 @@ compile_test() {
              # Determine if the pci_stop_and_remove_bus_device() function is present.
              #
              # Added by commit 210647af897a ("PCI: Rename pci_remove_bus_device
@@ -33,7 +33,7 @@ index 90824e12..714ef700 100755
              #
              CODE="
              #include <linux/types.h>
-@@ -3495,8 +3499,16 @@ compile_test() {
+@@ -3464,8 +3468,16 @@ compile_test() {
              # Note that drm_connector.h by introduced by commit 522171951761
              # ("drm: Extract drm_connector.[hc]") in v4.9 (2016-08-12)
              #
@@ -50,7 +50,7 @@ index 90824e12..714ef700 100755
              void conftest_drm_connector_funcs_have_mode_in_name(void) {
                  drm_mode_connector_attach_encoder();
              }"
-@@ -3953,7 +3965,7 @@ compile_test() {
+@@ -3926,7 +3938,7 @@ compile_test() {
              #include <drm/drmP.h>
              #endif
  

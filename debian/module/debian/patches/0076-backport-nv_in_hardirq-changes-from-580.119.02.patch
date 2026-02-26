@@ -1,4 +1,4 @@
-From 77bd22bd55a950a6c952eafcaef4b8bd15d603ba Mon Sep 17 00:00:00 2001
+From 99ab934ea6c41b1adda5a5aa1c1f45f2ebcfb990 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 18:09:15 +0100
 Subject: [PATCH] backport nv_in_hardirq changes from 580.119.02
@@ -9,10 +9,10 @@ Subject: [PATCH] backport nv_in_hardirq changes from 580.119.02
  2 files changed, 16 insertions(+), 3 deletions(-)
 
 diff --git a/common/inc/nv-time.h b/common/inc/nv-time.h
-index 10c492de..cb98ffaa 100644
+index 01333830..ba44e5a1 100644
 --- a/common/inc/nv-time.h
 +++ b/common/inc/nv-time.h
-@@ -40,6 +40,19 @@ struct timespec64 {
+@@ -42,6 +42,19 @@ struct timespec64 {
  };
  #endif
  
@@ -32,7 +32,7 @@ index 10c492de..cb98ffaa 100644
  #if !defined(NV_KTIME_GET_RAW_TS64_PRESENT)
  static inline void ktime_get_raw_ts64(struct timespec64 *ts64)
  {
-@@ -132,7 +145,7 @@ static inline NV_STATUS nv_sleep_us(unsigned int us)
+@@ -141,7 +154,7 @@ static inline NV_STATUS nv_sleep_us(unsigned int us)
      ktime_get_real_ts64(&tm1);
  #endif
  
@@ -41,7 +41,7 @@ index 10c492de..cb98ffaa 100644
          return NV_ERR_GENERIC;
  
      mdelay_safe_msec = us / 1000;
-@@ -178,7 +191,7 @@ static inline NV_STATUS nv_sleep_ms(unsigned int ms)
+@@ -187,7 +200,7 @@ static inline NV_STATUS nv_sleep_ms(unsigned int ms)
      tm_start = tm_aux;
  #endif
  
@@ -51,10 +51,10 @@ index 10c492de..cb98ffaa 100644
          return NV_ERR_GENERIC;
      }
 diff --git a/nvidia/os-interface.c b/nvidia/os-interface.c
-index 892cd843..7c979a26 100644
+index 1efbbfa7..91911b62 100644
 --- a/nvidia/os-interface.c
 +++ b/nvidia/os-interface.c
-@@ -227,7 +227,7 @@ NvBool NV_API_CALL os_semaphore_may_sleep(void)
+@@ -229,7 +229,7 @@ NvBool NV_API_CALL os_semaphore_may_sleep(void)
  
  NvBool NV_API_CALL os_is_isr(void)
  {

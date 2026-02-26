@@ -1,4 +1,4 @@
-From edcca91f79747417ad11cb21ef3b0cdac4ce20b1 Mon Sep 17 00:00:00 2001
+From 2469eed82ce36e688fb2484f7b758fdd240afea5 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 19:48:54 +0100
 Subject: [PATCH] backport vma_flags_set_word changes from 580.126.09
@@ -11,7 +11,7 @@ Subject: [PATCH] backport vma_flags_set_word changes from 580.126.09
  4 files changed, 53 insertions(+), 17 deletions(-)
 
 diff --git a/common/inc/nv-mm.h b/common/inc/nv-mm.h
-index 4e2a5236..92723330 100644
+index e933cf76..d622a43d 100644
 --- a/common/inc/nv-mm.h
 +++ b/common/inc/nv-mm.h
 @@ -256,7 +256,27 @@ static inline struct rw_semaphore *nv_mmap_get_lock(struct mm_struct *mm)
@@ -67,10 +67,10 @@ index 4e2a5236..92723330 100644
  #else
      vma->vm_flags &= ~flags;
 diff --git a/conftest.sh b/conftest.sh
-index 4570dc8a..00c85f06 100755
+index 12487a35..b0f31859 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -4939,22 +4939,39 @@ compile_test() {
+@@ -5053,22 +5053,39 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DRM_CONNECTOR_HAS_OVERRIDE_EDID" "" "types"
          ;;
  
@@ -120,7 +120,7 @@ index 4570dc8a..00c85f06 100755
  
          drm_driver_has_dumb_destroy)
 diff --git a/nvidia-drm/nvidia-drm.Kbuild b/nvidia-drm/nvidia-drm.Kbuild
-index 9985ffad..dfaf3bba 100644
+index 718e3a72..1ae1b5dd 100644
 --- a/nvidia-drm/nvidia-drm.Kbuild
 +++ b/nvidia-drm/nvidia-drm.Kbuild
 @@ -76,6 +76,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_connector_for_each_possible_encoder
@@ -131,19 +131,19 @@ index 9985ffad..dfaf3bba 100644
  
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_bus_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_bus_has_bus_type
-@@ -117,7 +118,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_device_has_pdev
- NV_CONFTEST_TYPE_COMPILE_TESTS += drm_mode_config_has_allow_fb_modifiers
- NV_CONFTEST_TYPE_COMPILE_TESTS += dma_resv_add_fence
+@@ -120,7 +121,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += dma_resv_add_fence
+ NV_CONFTEST_TYPE_COMPILE_TESTS += dma_resv_reserve_fences
+ NV_CONFTEST_TYPE_COMPILE_TESTS += reservation_object_reserve_shared_has_num_fences_arg
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_has_override_edid
 -NV_CONFTEST_TYPE_COMPILE_TESTS += vm_area_struct_has_const_vm_flags
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_has_dumb_destroy
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 8627044e..f82b1385 100644
+index 6d1c337b..23e1c6b5 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -164,6 +164,8 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += follow_pfn
+@@ -168,6 +168,8 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += set_close_on_exec
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += dma_set_coherent_mask
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += acpi_bus_get_device
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += get_task_ioprio
@@ -152,10 +152,10 @@ index 8627044e..f82b1385 100644
  
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_of_node_to_nid
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_sme_active
-@@ -214,7 +216,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += acpi_fadt_low_power_s0
+@@ -217,7 +219,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += acpi_fadt_low_power_s0
  NV_CONFTEST_TYPE_COMPILE_TESTS += mm_has_mmap_lock
  NV_CONFTEST_TYPE_COMPILE_TESTS += pci_channel_state
- NV_CONFTEST_TYPE_COMPILE_TESTS += mt_device_gre
+ NV_CONFTEST_TYPE_COMPILE_TESTS += num_registered_fb
 -NV_CONFTEST_TYPE_COMPILE_TESTS += vm_area_struct_has_const_vm_flags
  
  NV_CONFTEST_GENERIC_COMPILE_TESTS += dom0_kernel_present

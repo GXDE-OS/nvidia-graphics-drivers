@@ -1,4 +1,4 @@
-From 4c45a87edb88c6ae56167849190185701e3486c1 Mon Sep 17 00:00:00 2001
+From ea2b62fbb819b5de8e4f219a41d5397fe1b51096 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 20:25:31 +0100
 Subject: [PATCH] backport dma_map_ops_has_map_phys changes from 580.126.09
@@ -10,10 +10,10 @@ Subject: [PATCH] backport dma_map_ops_has_map_phys changes from 580.126.09
  3 files changed, 34 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 00c85f06..340de5d1 100755
+index b0f31859..fe3c36ff 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -3481,6 +3481,35 @@ compile_test() {
+@@ -3449,6 +3449,35 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DMA_BUF_OWNER_PRESENT" "" "types"
          ;;
  
@@ -50,10 +50,10 @@ index 00c85f06..340de5d1 100755
              #
              # Determine if a `struct drm_format_info *` is passed into
 diff --git a/nvidia/nv-dma.c b/nvidia/nv-dma.c
-index 9a78e49f..345b2b84 100644
+index f8c1d3bc..8d2eae3f 100644
 --- a/nvidia/nv-dma.c
 +++ b/nvidia/nv-dma.c
-@@ -643,7 +643,11 @@ static NvBool nv_dma_is_map_resource_implemented
+@@ -764,7 +764,11 @@ static NvBool nv_dma_is_map_resource_implemented
  #endif
      }
  
@@ -66,11 +66,11 @@ index 9a78e49f..345b2b84 100644
      return NV_FALSE;
  #endif
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index f82b1385..79580631 100644
+index 23e1c6b5..b9bb6bc1 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -163,6 +163,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += seq_read_iter
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += follow_pfn
+@@ -167,6 +167,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_gem_object_put_unlocked
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += set_close_on_exec
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += dma_set_coherent_mask
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += acpi_bus_get_device
 +NV_CONFTEST_FUNCTION_COMPILE_TESTS += dma_map_ops_has_map_phys
