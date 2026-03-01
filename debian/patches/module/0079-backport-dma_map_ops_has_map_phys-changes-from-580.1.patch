@@ -1,4 +1,4 @@
-From ea2b62fbb819b5de8e4f219a41d5397fe1b51096 Mon Sep 17 00:00:00 2001
+From b5a2e48bf8affd17a1a27b4200b52aec5d44239f Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 20:25:31 +0100
 Subject: [PATCH] backport dma_map_ops_has_map_phys changes from 580.126.09
@@ -10,11 +10,11 @@ Subject: [PATCH] backport dma_map_ops_has_map_phys changes from 580.126.09
  3 files changed, 34 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index b0f31859..fe3c36ff 100755
+index 163ac379..db3f52d8 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -3449,6 +3449,35 @@ compile_test() {
-             compile_check_conftest "$CODE" "NV_DMA_BUF_OWNER_PRESENT" "" "types"
+@@ -3630,6 +3630,35 @@ compile_test() {
+             fi
          ;;
  
 +        dma_map_ops_has_map_phys)
@@ -46,14 +46,14 @@ index b0f31859..fe3c36ff 100755
 +            fi
 +        ;;
 +
-         drm_fb_create_takes_format_info)
+         dma_buf_ops_has_map)
              #
-             # Determine if a `struct drm_format_info *` is passed into
+             # Determine if .map exists in dma_buf_ops.
 diff --git a/nvidia/nv-dma.c b/nvidia/nv-dma.c
-index f8c1d3bc..8d2eae3f 100644
+index a5696fb2..a23a2aab 100644
 --- a/nvidia/nv-dma.c
 +++ b/nvidia/nv-dma.c
-@@ -764,7 +764,11 @@ static NvBool nv_dma_is_map_resource_implemented
+@@ -796,7 +796,11 @@ static NvBool nv_dma_use_map_resource
  #endif
      }
  
@@ -66,17 +66,17 @@ index f8c1d3bc..8d2eae3f 100644
      return NV_FALSE;
  #endif
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 23e1c6b5..b9bb6bc1 100644
+index 1ace443d..9cf4c6c9 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -167,6 +167,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_gem_object_put_unlocked
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += set_close_on_exec
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += dma_set_coherent_mask
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += acpi_bus_get_device
+@@ -175,6 +175,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += gpio_to_irq
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += icc_get
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += icc_put
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += icc_set_bw
 +NV_CONFTEST_FUNCTION_COMPILE_TESTS += dma_map_ops_has_map_phys
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += get_task_ioprio
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += vma_flags_set_word
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += vm_flags_set
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += dma_buf_export_args
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += dma_buf_ops_has_kmap
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += dma_buf_ops_has_kmap_atomic
 -- 
 2.39.5
 
