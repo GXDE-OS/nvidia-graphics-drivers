@@ -6,7 +6,7 @@ nvidia-graphics-drivers (525.147.05-18) UNRELEASED; urgency=medium
     build for Linux 6.19.
   * Bump Standards-Version to 4.7.3. No changes needed.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 01 Mar 2026 08:52:59 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 01 Mar 2026 23:07:24 +0100
 
 nvidia-graphics-drivers (525.147.05-17) UNRELEASED; urgency=medium
 
