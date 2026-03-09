@@ -1,4 +1,4 @@
-From 5709726e1e1e15f36772495482633be260380f50 Mon Sep 17 00:00:00 2001
+From 6323ad88fae4554f1474c2ea201848d39ebdf38a Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Wed, 28 Jan 2026 15:48:26 +0100
 Subject: [PATCH 3/4] backport for_each_*_crtc_in_state changes from 580.119.02
@@ -9,10 +9,10 @@ Subject: [PATCH 3/4] backport for_each_*_crtc_in_state changes from 580.119.02
  2 files changed, 9 insertions(+), 16 deletions(-)
 
 diff --git a/nvidia-drm/nvidia-drm-crtc.c b/nvidia-drm/nvidia-drm-crtc.c
-index 51d6324c..59512437 100644
+index 333387a1..a86870be 100644
 --- a/nvidia-drm/nvidia-drm-crtc.c
 +++ b/nvidia-drm/nvidia-drm-crtc.c
-@@ -480,7 +480,7 @@ static int __nv_drm_cursor_atomic_check(struct drm_plane *plane,
+@@ -497,7 +497,7 @@ static int __nv_drm_cursor_atomic_check(struct drm_plane *plane,
  
      WARN_ON(nv_plane->layer_idx != NVKMS_KAPI_LAYER_INVALID_IDX);
  
@@ -21,7 +21,7 @@ index 51d6324c..59512437 100644
          struct nv_drm_crtc_state *nv_crtc_state = to_nv_crtc_state(crtc_state);
          struct NvKmsKapiHeadRequestedConfig *head_req_config =
              &nv_crtc_state->req_config;
-@@ -526,7 +526,7 @@ static int nv_drm_plane_atomic_check(struct drm_plane *plane,
+@@ -543,7 +543,7 @@ static int nv_drm_plane_atomic_check(struct drm_plane *plane,
  
      WARN_ON(nv_plane->layer_idx == NVKMS_KAPI_LAYER_INVALID_IDX);
  

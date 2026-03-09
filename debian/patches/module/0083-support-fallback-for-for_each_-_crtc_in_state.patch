@@ -1,4 +1,4 @@
-From 51963db250ab07cec389d6dd294f131fa24fe417 Mon Sep 17 00:00:00 2001
+From 6986713e6f38a6091be4c5d0ae796dfecc27c5bd Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Wed, 28 Jan 2026 15:53:49 +0100
 Subject: [PATCH 4/4] support fallback for for_each_*_crtc_in_state
@@ -10,10 +10,10 @@ Subject: [PATCH 4/4] support fallback for for_each_*_crtc_in_state
  3 files changed, 26 insertions(+), 6 deletions(-)
 
 diff --git a/nvidia-drm/nvidia-drm-crtc.c b/nvidia-drm/nvidia-drm-crtc.c
-index 59512437..f922f8d3 100644
+index a86870be..358d5f72 100644
 --- a/nvidia-drm/nvidia-drm-crtc.c
 +++ b/nvidia-drm/nvidia-drm-crtc.c
-@@ -480,7 +480,7 @@ static int __nv_drm_cursor_atomic_check(struct drm_plane *plane,
+@@ -497,7 +497,7 @@ static int __nv_drm_cursor_atomic_check(struct drm_plane *plane,
  
      WARN_ON(nv_plane->layer_idx != NVKMS_KAPI_LAYER_INVALID_IDX);
  
@@ -22,7 +22,7 @@ index 59512437..f922f8d3 100644
          struct nv_drm_crtc_state *nv_crtc_state = to_nv_crtc_state(crtc_state);
          struct NvKmsKapiHeadRequestedConfig *head_req_config =
              &nv_crtc_state->req_config;
-@@ -526,7 +526,7 @@ static int nv_drm_plane_atomic_check(struct drm_plane *plane,
+@@ -543,7 +543,7 @@ static int nv_drm_plane_atomic_check(struct drm_plane *plane,
  
      WARN_ON(nv_plane->layer_idx == NVKMS_KAPI_LAYER_INVALID_IDX);
  
@@ -32,10 +32,10 @@ index 59512437..f922f8d3 100644
          struct NvKmsKapiHeadRequestedConfig *head_req_config =
              &nv_crtc_state->req_config;
 diff --git a/nvidia-drm/nvidia-drm-helper.h b/nvidia-drm/nvidia-drm-helper.h
-index c686a3a1..5caecdc6 100644
+index fbe5549a..b7246dc3 100644
 --- a/nvidia-drm/nvidia-drm-helper.h
 +++ b/nvidia-drm/nvidia-drm-helper.h
-@@ -258,6 +258,26 @@ int nv_drm_atomic_helper_disable_all(struct drm_device *dev,
+@@ -287,6 +287,26 @@ int nv_drm_atomic_helper_disable_all(struct drm_device *dev,
      for_each_crtc_in_state(__state, crtc, crtc_state, __i)
  #endif
  

@@ -1,4 +1,4 @@
-From 5973a1f183a873c0727324f54785fb67a43d0901 Mon Sep 17 00:00:00 2001
+From e262648cfdcb9d7883db064c7885e5a247a5f097 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Wed, 28 Jan 2026 15:26:45 +0100
 Subject: [PATCH 1/4] backport for_each_*_plane_in_state changes from
@@ -10,10 +10,10 @@ Subject: [PATCH 1/4] backport for_each_*_plane_in_state changes from
  2 files changed, 9 insertions(+), 5 deletions(-)
 
 diff --git a/nvidia-drm/nvidia-drm-helper.c b/nvidia-drm/nvidia-drm-helper.c
-index 8fc86206..8c828da7 100644
+index dd6f89a7..4c830fb0 100644
 --- a/nvidia-drm/nvidia-drm-helper.c
 +++ b/nvidia-drm/nvidia-drm-helper.c
-@@ -73,7 +73,7 @@ static void __nv_drm_framebuffer_put(struct drm_framebuffer *fb)
+@@ -75,7 +75,7 @@ static void __nv_drm_framebuffer_put(struct drm_framebuffer *fb)
   * drm_atomic_helper_disable_all() is copied from
   * linux/drivers/gpu/drm/drm_atomic_helper.c and modified to use
   * nv_drm_for_each_crtc instead of drm_for_each_crtc to loop over all crtcs,
@@ -22,7 +22,7 @@ index 8fc86206..8c828da7 100644
   * over all modeset object states, and use drm_atomic_state_free() if
   * drm_atomic_state_put() is not available.
   *
-@@ -154,7 +154,7 @@ int nv_drm_atomic_helper_disable_all(struct drm_device *dev,
+@@ -168,7 +168,7 @@ int nv_drm_atomic_helper_disable_all(struct drm_device *dev,
              goto free;
      }
  
