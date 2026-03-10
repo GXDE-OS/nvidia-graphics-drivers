@@ -1,4 +1,4 @@
-From 36412e6964e32eeea3cfefe5e0d7952b02f897c9 Mon Sep 17 00:00:00 2001
+From aba28f772bb2581972724e38e22269d03aca46dc Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 18:09:15 +0100
 Subject: [PATCH] backport nv_in_hardirq changes from 580.119.02
@@ -51,10 +51,10 @@ index 7c3f512e..05fb8579 100644
          return NV_ERR_GENERIC;
      }
 diff --git a/nvidia/os-interface.c b/nvidia/os-interface.c
-index 6280bd5c..ceba2ec5 100644
+index 649c28be..179b9163 100644
 --- a/nvidia/os-interface.c
 +++ b/nvidia/os-interface.c
-@@ -323,7 +323,7 @@ NvBool NV_API_CALL os_semaphore_may_sleep(void)
+@@ -332,7 +332,7 @@ NvBool NV_API_CALL os_semaphore_may_sleep(void)
  
  NvBool NV_API_CALL os_is_isr(void)
  {

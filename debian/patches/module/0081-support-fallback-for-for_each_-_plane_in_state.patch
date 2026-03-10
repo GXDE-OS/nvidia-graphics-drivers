@@ -1,13 +1,13 @@
-From dc59c2e13685e9d8adc1fcf735c2298016c2f585 Mon Sep 17 00:00:00 2001
+From 9417f96a94c5ccc304832a6625297858f9de1756 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Wed, 28 Jan 2026 15:40:39 +0100
 Subject: [PATCH 2/4] support fallback for for_each_*_plane_in_state
 
 ---
  nvidia-drm/nvidia-drm-helper.c  |  2 +-
- nvidia-drm/nvidia-drm-helper.h  | 18 ++++++++++++++++++
+ nvidia-drm/nvidia-drm-helper.h  | 12 ++++++++++++
  nvidia-drm/nvidia-drm-modeset.c |  4 ++--
- 3 files changed, 21 insertions(+), 3 deletions(-)
+ 3 files changed, 15 insertions(+), 3 deletions(-)
 
 diff --git a/nvidia-drm/nvidia-drm-helper.c b/nvidia-drm/nvidia-drm-helper.c
 index 4c830fb0..953dacad 100644
@@ -23,7 +23,7 @@ index 4c830fb0..953dacad 100644
          if (ret < 0)
              goto free;
 diff --git a/nvidia-drm/nvidia-drm-helper.h b/nvidia-drm/nvidia-drm-helper.h
-index c74ebbb1..fbe5549a 100644
+index 94d48db9..77883f89 100644
 --- a/nvidia-drm/nvidia-drm-helper.h
 +++ b/nvidia-drm/nvidia-drm-helper.h
 @@ -240,6 +240,11 @@ int nv_drm_atomic_helper_disable_all(struct drm_device *dev,
@@ -46,16 +46,10 @@ index c74ebbb1..fbe5549a 100644
  
  
  /**
-@@ -306,6 +312,18 @@ int nv_drm_atomic_helper_disable_all(struct drm_device *dev,
-     for_each_plane_in_state(__state, plane, plane_state, __i)
+@@ -336,6 +342,12 @@ int nv_drm_atomic_helper_disable_all(struct drm_device *dev,
+     for_each_new_plane_in_state(__state, plane, new_plane_state, __i)
  #endif
  
-+#if defined(for_each_new_plane_in_state)
-+#define nv_drm_for_each_new_plane_in_state for_each_new_plane_in_state
-+#else
-+#define nv_drm_for_each_new_plane_in_state nv_drm_for_each_plane_in_state
-+#endif
-+
 +#if defined(for_each_old_plane_in_state)
 +#define nv_drm_for_each_old_plane_in_state for_each_old_plane_in_state
 +#else
@@ -66,7 +60,7 @@ index c74ebbb1..fbe5549a 100644
  nv_drm_connector_lookup(struct drm_device *dev, struct drm_file *filep,
                          uint32_t id)
 diff --git a/nvidia-drm/nvidia-drm-modeset.c b/nvidia-drm/nvidia-drm-modeset.c
-index ba64a3bb..9c7de4bd 100644
+index 704b4ed6..b7bef25f 100644
 --- a/nvidia-drm/nvidia-drm-modeset.c
 +++ b/nvidia-drm/nvidia-drm-modeset.c
 @@ -107,7 +107,7 @@ static bool __will_generate_flip_event(struct drm_crtc *crtc,

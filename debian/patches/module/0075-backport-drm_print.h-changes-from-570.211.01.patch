@@ -1,27 +1,27 @@
-From 695d3ec1bf0a4de3b0ea74b7552e2634832a6b2d Mon Sep 17 00:00:00 2001
+From 9a12bd80d25e5467c7dd75cc2d4617d5a433a252 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 17:41:05 +0100
 Subject: [PATCH] backport drm_print.h changes from 570.211.01
 
 ---
- Kbuild                       | 1 +
+ header-presence-tests.mk     | 1 +
  nvidia-drm/nvidia-drm-priv.h | 4 ++++
  2 files changed, 5 insertions(+)
 
-diff --git a/Kbuild b/Kbuild
-index b7499c87..827bc890 100644
---- a/Kbuild
-+++ b/Kbuild
-@@ -224,6 +224,7 @@ $(obj)/conftest/patches.h: $(NV_CONFTEST_SCRIPT)
+diff --git a/header-presence-tests.mk b/header-presence-tests.mk
+index da9229b9..bef2e02f 100644
+--- a/header-presence-tests.mk
++++ b/header-presence-tests.mk
+@@ -3,6 +3,7 @@
  NV_HEADER_PRESENCE_TESTS = \
-  asm/system.h \
-  drm/drmP.h \
-+ drm/drm_print.h \
-  drm/drm_auth.h \
-  drm/drm_gem.h \
-  drm/drm_crtc.h \
+   asm/system.h \
+   drm/drmP.h \
++  drm/drm_print.h \
+   drm/drm_aperture.h \
+   drm/drm_auth.h \
+   drm/drm_gem.h \
 diff --git a/nvidia-drm/nvidia-drm-priv.h b/nvidia-drm/nvidia-drm-priv.h
-index 91b7b4f2..52053b78 100644
+index c9ce727a..256a72b7 100644
 --- a/nvidia-drm/nvidia-drm-priv.h
 +++ b/nvidia-drm/nvidia-drm-priv.h
 @@ -31,6 +31,10 @@

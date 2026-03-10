@@ -1,4 +1,4 @@
-From 1354008a250fc27545f09f291c05ab1378175e35 Mon Sep 17 00:00:00 2001
+From f4a26971b289b502805ea7b85681a7acbd1e44d2 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 20:25:31 +0100
 Subject: [PATCH] backport dma_map_ops_has_map_phys changes from 580.126.09
@@ -10,10 +10,10 @@ Subject: [PATCH] backport dma_map_ops_has_map_phys changes from 580.126.09
  3 files changed, 34 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 29a759bf..ff75cd05 100755
+index 28b80eeb..c0bc83ab 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -3872,6 +3872,35 @@ compile_test() {
+@@ -3936,6 +3936,35 @@ compile_test() {
              fi
          ;;
  
@@ -50,7 +50,7 @@ index 29a759bf..ff75cd05 100755
              #
              # Determine if .map exists in dma_buf_ops.
 diff --git a/nvidia/nv-dma.c b/nvidia/nv-dma.c
-index a5696fb2..a23a2aab 100644
+index f7861b2d..8f783877 100644
 --- a/nvidia/nv-dma.c
 +++ b/nvidia/nv-dma.c
 @@ -796,7 +796,11 @@ static NvBool nv_dma_use_map_resource

@@ -1,4 +1,4 @@
-From d306b70ee2650a12ec95efce83026cc09d92b943 Mon Sep 17 00:00:00 2001
+From db5439020bd0ae43f9e81460cc99fcd1b84bf982 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 19:48:54 +0100
 Subject: [PATCH] backport vma_flags_set_word changes from 580.126.09 (uvm
@@ -9,18 +9,18 @@ Subject: [PATCH] backport vma_flags_set_word changes from 580.126.09 (uvm
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/nvidia-uvm/nvidia-uvm.Kbuild b/nvidia-uvm/nvidia-uvm.Kbuild
-index a0146a1f..178cb6d6 100644
+index 174eb5a1..070689aa 100644
 --- a/nvidia-uvm/nvidia-uvm.Kbuild
 +++ b/nvidia-uvm/nvidia-uvm.Kbuild
-@@ -88,6 +88,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += iommu_sva_bind_device_has_drvdata_arg
- NV_CONFTEST_FUNCTION_COMPILE_TESTS += vm_fault_to_errno
+@@ -90,6 +90,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += find_next_bit_wrap
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += iommu_is_dma_domain
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += folio_test_swapcache
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += page_pgmap
 +NV_CONFTEST_FUNCTION_COMPILE_TESTS += vm_flags_set
  
  NV_CONFTEST_TYPE_COMPILE_TESTS += backing_dev_info
  NV_CONFTEST_TYPE_COMPILE_TESTS += mm_context_t
-@@ -107,7 +108,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += timespec64
+@@ -109,7 +110,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += timespec64
  NV_CONFTEST_TYPE_COMPILE_TESTS += mm_has_mmap_lock
  NV_CONFTEST_TYPE_COMPILE_TESTS += migrate_vma_added_flags
  NV_CONFTEST_TYPE_COMPILE_TESTS += migrate_device_range
