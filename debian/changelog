@@ -1,11 +1,12 @@
 nvidia-graphics-drivers (535.161.08-4) UNRELEASED; urgency=medium
 
-  [ Andreas Beckmann ]
   * Backport drm_print.h changes from 570.211.01, for_each_*_*_in_state and
     nv_in_hardirq changes from 580.119.02 and vma_flags_set_word and
     dma_map_ops_has_map_phys changes from 580.126.09 to fix kernel module
     build for Linux 6.19.
   * Bump Standards-Version to 4.7.3. No changes needed.
+
+  [ Andreas Beckmann ]
   * Backport drm_fb_create_takes_format_info changes from 535.274.02 to fix
     kernel module build for Linux 6.17.
   * Backport iommu_dev_enable_feature changes from 535.261.03 to fix open
