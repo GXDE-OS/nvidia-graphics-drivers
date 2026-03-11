@@ -1,4 +1,4 @@
-From 1354008a250fc27545f09f291c05ab1378175e35 Mon Sep 17 00:00:00 2001
+From 8b7697ab02672bd8a9d6a987717182ff4d3245b7 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 20:25:31 +0100
 Subject: [PATCH] backport dma_map_ops_has_map_phys changes from 580.126.09
@@ -10,10 +10,10 @@ Subject: [PATCH] backport dma_map_ops_has_map_phys changes from 580.126.09
  3 files changed, 34 insertions(+)
 
 diff --git a/conftest.sh b/conftest.sh
-index 29a759bf..ff75cd05 100755
+index c1b7576b..808150a8 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -3872,6 +3872,35 @@ compile_test() {
+@@ -3941,6 +3941,35 @@ compile_test() {
              fi
          ;;
  
@@ -66,7 +66,7 @@ index a5696fb2..a23a2aab 100644
      return NV_FALSE;
  #endif
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 4464f10f..46a53ee5 100644
+index 1cbbd851..fe86dd4e 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -180,6 +180,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += gpio_to_irq
