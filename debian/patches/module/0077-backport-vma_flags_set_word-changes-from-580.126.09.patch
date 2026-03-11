@@ -1,4 +1,4 @@
-From 17116ccd734f7ac92597cbf5ab056374475c48ef Mon Sep 17 00:00:00 2001
+From 0d9d0c594ddc67463f19983d30dba0711dd7ff15 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 19:48:54 +0100
 Subject: [PATCH] backport vma_flags_set_word changes from 580.126.09
@@ -64,10 +64,10 @@ index 20fb3caa..4a26ecf3 100644
  #else
      vma->vm_flags &= ~flags;
 diff --git a/conftest.sh b/conftest.sh
-index 21452aa1..28b80eeb 100755
+index 62d73df3..4e10f0f9 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6373,22 +6373,39 @@ compile_test() {
+@@ -6425,22 +6425,39 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_IOMMU_SVA_BIND_DEVICE_HAS_DRVDATA_ARG" "" "types"
          ;;
  
@@ -137,7 +137,7 @@ index 02a92442..f0fca19a 100644
  NV_CONFTEST_TYPE_COMPILE_TESTS += fence_ops_use_64bit_seqno
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_aperture_remove_conflicting_pci_framebuffers_has_driver_arg
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 7bb80ac7..1cbbd851 100644
+index 80c328eb..2a4131b9 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -194,6 +194,8 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += mdev_set_iommu_device
@@ -149,7 +149,7 @@ index 7bb80ac7..1cbbd851 100644
  
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_of_node_to_nid
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_sme_active
-@@ -253,7 +255,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += remove_memory_has_nid_arg
+@@ -254,7 +256,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += remove_memory_has_nid_arg
  NV_CONFTEST_TYPE_COMPILE_TESTS += add_memory_driver_managed_has_mhp_flags_arg
  NV_CONFTEST_TYPE_COMPILE_TESTS += num_registered_fb
  NV_CONFTEST_TYPE_COMPILE_TESTS += pci_driver_has_driver_managed_dma
