@@ -24,10 +24,10 @@ index d6d824a8..4e63ddd1 100644
  # Filename to store the define for the header in $(1); this is only consumed by
  # the rule below that concatenates all of these together.
 diff --git a/conftest.sh b/conftest.sh
-index 2e66fc24..e099b480 100755
+index 0b43a6f2..8e1e3c0c 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6459,6 +6459,47 @@ compile_test() {
+@@ -6484,6 +6484,47 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_CRYPTO_PRESENT" "" "symbols"
          ;;
  
