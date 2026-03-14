@@ -66,7 +66,7 @@ index f7861b2d..8f783877 100644
      return NV_FALSE;
  #endif
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 4464f10f..46a53ee5 100644
+index 1cbbd851..fe86dd4e 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -180,6 +180,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += gpio_to_irq
