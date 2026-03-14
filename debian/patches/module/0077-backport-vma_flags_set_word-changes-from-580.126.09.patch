@@ -1,4 +1,4 @@
-From e50e2384278be996012966baa73dfe739dd45934 Mon Sep 17 00:00:00 2001
+From 36a7d8dd5e712dbe690f5797c25ee6fb69d3c31b Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 19:48:54 +0100
 Subject: [PATCH] backport vma_flags_set_word changes from 580.126.09
@@ -64,7 +64,7 @@ index 20fb3caa..4a26ecf3 100644
  #else
      vma->vm_flags &= ~flags;
 diff --git a/conftest.sh b/conftest.sh
-index b045fe82..17c41b60 100755
+index 3cc4199a..5ee16dc1 100755
 --- a/conftest.sh
 +++ b/conftest.sh
 @@ -6461,22 +6461,39 @@ compile_test() {
@@ -117,10 +117,10 @@ index b045fe82..17c41b60 100755
  
          drm_driver_has_dumb_destroy)
 diff --git a/nvidia-drm/nvidia-drm-sources.mk b/nvidia-drm/nvidia-drm-sources.mk
-index 02a92442..f0fca19a 100644
+index 83d37943..6e70aaa8 100644
 --- a/nvidia-drm/nvidia-drm-sources.mk
 +++ b/nvidia-drm/nvidia-drm-sources.mk
-@@ -73,6 +73,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_connector_attach_hdr_output_metadata_p
+@@ -74,6 +74,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_connector_attach_hdr_output_metadata_p
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_helper_crtc_enable_color_mgmt
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_crtc_enable_color_mgmt
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_atomic_helper_legacy_gamma_set
@@ -128,7 +128,7 @@ index 02a92442..f0fca19a 100644
  
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_bus_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_bus_has_bus_type
-@@ -125,7 +126,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_file_get_master
+@@ -126,7 +127,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_file_get_master
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_modeset_lock_all_end
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_lookup
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_put
@@ -137,7 +137,7 @@ index 02a92442..f0fca19a 100644
  NV_CONFTEST_TYPE_COMPILE_TESTS += fence_ops_use_64bit_seqno
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_aperture_remove_conflicting_pci_framebuffers_has_driver_arg
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 8a39631f..aaaec474 100644
+index bf6159a8..09a9a2d8 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -196,6 +196,8 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += mdev_set_iommu_device
@@ -149,7 +149,7 @@ index 8a39631f..aaaec474 100644
  
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_of_node_to_nid
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_sme_active
-@@ -256,7 +258,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += remove_memory_has_nid_arg
+@@ -257,7 +259,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += remove_memory_has_nid_arg
  NV_CONFTEST_TYPE_COMPILE_TESTS += add_memory_driver_managed_has_mhp_flags_arg
  NV_CONFTEST_TYPE_COMPILE_TESTS += num_registered_fb
  NV_CONFTEST_TYPE_COMPILE_TESTS += pci_driver_has_driver_managed_dma
