@@ -1,4 +1,4 @@
-From 36a7d8dd5e712dbe690f5797c25ee6fb69d3c31b Mon Sep 17 00:00:00 2001
+From a9c12672ba53ede0f120aa4f9cbbc97e07522485 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 19:48:54 +0100
 Subject: [PATCH] backport vma_flags_set_word changes from 580.126.09
@@ -64,7 +64,7 @@ index 20fb3caa..4a26ecf3 100644
  #else
      vma->vm_flags &= ~flags;
 diff --git a/conftest.sh b/conftest.sh
-index 3cc4199a..5ee16dc1 100755
+index 270ef798..76ef5063 100755
 --- a/conftest.sh
 +++ b/conftest.sh
 @@ -6461,22 +6461,39 @@ compile_test() {
@@ -117,10 +117,10 @@ index 3cc4199a..5ee16dc1 100755
  
          drm_driver_has_dumb_destroy)
 diff --git a/nvidia-drm/nvidia-drm-sources.mk b/nvidia-drm/nvidia-drm-sources.mk
-index 83d37943..6e70aaa8 100644
+index 06e0f206..35905e97 100644
 --- a/nvidia-drm/nvidia-drm-sources.mk
 +++ b/nvidia-drm/nvidia-drm-sources.mk
-@@ -74,6 +74,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_connector_attach_hdr_output_metadata_p
+@@ -77,6 +77,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_connector_attach_hdr_output_metadata_p
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_helper_crtc_enable_color_mgmt
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_crtc_enable_color_mgmt
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_atomic_helper_legacy_gamma_set
@@ -128,7 +128,7 @@ index 83d37943..6e70aaa8 100644
  
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_bus_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_bus_has_bus_type
-@@ -126,7 +127,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_file_get_master
+@@ -129,7 +130,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += drm_file_get_master
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_modeset_lock_all_end
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_lookup
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_put
