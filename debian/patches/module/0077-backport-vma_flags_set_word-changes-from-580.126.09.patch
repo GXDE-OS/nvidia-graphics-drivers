@@ -1,4 +1,4 @@
-From a9c12672ba53ede0f120aa4f9cbbc97e07522485 Mon Sep 17 00:00:00 2001
+From 55a08e91907e848e53d1898af6e1ba65f4e62a1d Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 19:48:54 +0100
 Subject: [PATCH] backport vma_flags_set_word changes from 580.126.09
@@ -64,10 +64,10 @@ index 20fb3caa..4a26ecf3 100644
  #else
      vma->vm_flags &= ~flags;
 diff --git a/conftest.sh b/conftest.sh
-index 270ef798..76ef5063 100755
+index 94217e32..4e90d56b 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6461,22 +6461,39 @@ compile_test() {
+@@ -6526,22 +6526,39 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_IOMMU_SVA_BIND_DEVICE_HAS_DRVDATA_ARG" "" "types"
          ;;
  
@@ -137,10 +137,10 @@ index 06e0f206..35905e97 100644
  NV_CONFTEST_TYPE_COMPILE_TESTS += fence_ops_use_64bit_seqno
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_aperture_remove_conflicting_pci_framebuffers_has_driver_arg
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index bf6159a8..09a9a2d8 100644
+index 111d7174..4208964d 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -196,6 +196,8 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += mdev_set_iommu_device
+@@ -197,6 +197,8 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += mdev_set_iommu_device
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += offline_and_remove_memory
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += crypto_tfm_ctx_aligned
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += module_import_ns_takes_string_literal
@@ -149,7 +149,7 @@ index bf6159a8..09a9a2d8 100644
  
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_of_node_to_nid
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_sme_active
-@@ -257,7 +259,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += remove_memory_has_nid_arg
+@@ -260,7 +262,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += remove_memory_has_nid_arg
  NV_CONFTEST_TYPE_COMPILE_TESTS += add_memory_driver_managed_has_mhp_flags_arg
  NV_CONFTEST_TYPE_COMPILE_TESTS += num_registered_fb
  NV_CONFTEST_TYPE_COMPILE_TESTS += pci_driver_has_driver_managed_dma
