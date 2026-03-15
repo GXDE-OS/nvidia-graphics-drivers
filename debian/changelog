@@ -1,12 +1,12 @@
-nvidia-graphics-drivers (550.163.01-5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (550.163.01-5) unstable; urgency=medium
 
   * Backport drm_print.h changes from 570.211.01, for_each_*_*_in_state and
     nv_in_hardirq changes from 580.119.02 and vma_flags_set_word and
     dma_map_ops_has_map_phys changes from 580.126.09 to fix kernel module
-    build for Linux 6.19.
+    build for Linux 6.19.  (Closes: #1127615, #1130057)
   * Bump Standards-Version to 4.7.3. No changes needed.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 15 Mar 2026 10:08:10 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 15 Mar 2026 20:23:05 +0100
 
 nvidia-graphics-drivers (550.163.01-4) unstable; urgency=medium
 
