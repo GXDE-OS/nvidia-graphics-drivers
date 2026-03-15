@@ -1,4 +1,4 @@
-From 53c8e33b014c64a394e6a20b1a293441ebfbc664 Mon Sep 17 00:00:00 2001
+From a4c30bf86ec17d688782a5bdf9268c1d49813a30 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Thu, 29 Jan 2026 13:30:59 +0100
 Subject: [PATCH] backport conftest.sh comment changes from 545.23.06
@@ -8,7 +8,7 @@ Subject: [PATCH] backport conftest.sh comment changes from 545.23.06
  1 file changed, 253 insertions(+), 226 deletions(-)
 
 diff --git a/conftest.sh b/conftest.sh
-index 2e66fc24..0b43a6f2 100755
+index bf61ef7b..3b681244 100755
 --- a/conftest.sh
 +++ b/conftest.sh
 @@ -549,10 +549,8 @@ compile_test() {
@@ -663,7 +663,7 @@ index 2e66fc24..0b43a6f2 100755
              CODE="
              #include <linux/mm.h>
              void conftest_follow_pfn(void) {
-@@ -5236,8 +5246,8 @@ compile_test() {
+@@ -5275,8 +5285,8 @@ compile_test() {
              # Determine if drm_plane_helper_funcs::atomic_check takes 'state'
              # argument of 'struct drm_atomic_state' type.
              #
@@ -674,7 +674,7 @@ index 2e66fc24..0b43a6f2 100755
              # drm_plane_helper_funcs::atomic_check()
              #
              # To test the signature of drm_plane_helper_funcs::atomic_check(),
-@@ -5301,7 +5311,7 @@ compile_test() {
+@@ -5340,7 +5350,7 @@ compile_test() {
              # Determine if the add_memory_driver_managed function is present
              #
              # Added by commit 7b7b27214bba ("mm/memory_hotplug: introduce
@@ -683,7 +683,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              # Before commit 3a0aaefe4134 ("mm/memory_hotplug: guard more
              # declarations by CONFIG_MEMORY_HOTPLUG") in v5.10, the
-@@ -5322,8 +5332,8 @@ compile_test() {
+@@ -5361,8 +5371,8 @@ compile_test() {
              #
              # Check if add_memory_driver_managed() has mhp_flags arg.
              #
@@ -694,7 +694,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #include <linux/memory_hotplug.h>
-@@ -5340,8 +5350,8 @@ compile_test() {
+@@ -5379,8 +5389,8 @@ compile_test() {
              #
              # Check if remove_memory() has nid parameter.
              #
@@ -705,7 +705,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #include <linux/memory_hotplug.h>
-@@ -5356,8 +5366,8 @@ compile_test() {
+@@ -5395,8 +5405,8 @@ compile_test() {
              #
              # Determine if the offline_and_remove_memory function is present.
              #
@@ -716,7 +716,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #include <linux/memory_hotplug.h>
-@@ -5372,8 +5382,8 @@ compile_test() {
+@@ -5411,8 +5421,8 @@ compile_test() {
              #
              # Determine if the device_property_read_u64 function is present
              #
@@ -727,7 +727,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #include <linux/acpi.h>
-@@ -5388,8 +5398,12 @@ compile_test() {
+@@ -5427,8 +5437,12 @@ compile_test() {
              #
              # Determine if of_property_count_elems_of_size is present
              #
@@ -742,7 +742,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              # Test if linux/of.h header file inclusion is successful or not,
              # depending on that check, for of_property_count_elems_of_size
-@@ -5420,8 +5434,12 @@ compile_test() {
+@@ -5459,8 +5473,12 @@ compile_test() {
              #
              # Determine if of_property_read_variable_u8_array is present
              #
@@ -757,7 +757,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              # Test if linux/of.h header file inclusion is successful or not,
              # depending on that, check for of_property_read_variable_u8_array
-@@ -5452,8 +5470,15 @@ compile_test() {
+@@ -5491,8 +5509,15 @@ compile_test() {
              #
              # Determine if of_property_read_variable_u32_array is present
              #
@@ -775,7 +775,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              # Test if linux/of.h header file inclusion is successful or not,
              # depending on that, check for of_property_read_variable_u32_array
-@@ -5501,8 +5526,8 @@ compile_test() {
+@@ -5540,8 +5565,8 @@ compile_test() {
              #
              # Determine if devm_of_platform_populate() function is present
              #
@@ -786,7 +786,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_LINUX_OF_PLATFORM_H_PRESENT)
-@@ -5520,8 +5545,13 @@ compile_test() {
+@@ -5559,8 +5584,13 @@ compile_test() {
              #
              # Determine if of_dma_configure() function is present
              #
@@ -802,7 +802,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_LINUX_OF_DEVICE_H_PRESENT)
-@@ -5540,8 +5570,8 @@ compile_test() {
+@@ -5579,8 +5609,8 @@ compile_test() {
              #
              # Determine if icc_get() function is present
              #
@@ -813,7 +813,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_LINUX_INTERCONNECT_H_PRESENT)
-@@ -5560,8 +5590,8 @@ compile_test() {
+@@ -5599,8 +5629,8 @@ compile_test() {
              #
              # Determine if icc_set_bw() function is present
              #
@@ -824,7 +824,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_LINUX_INTERCONNECT_H_PRESENT)
-@@ -5580,8 +5610,8 @@ compile_test() {
+@@ -5619,8 +5649,8 @@ compile_test() {
              #
              # Determine if icc_put() function is present
              #
@@ -835,7 +835,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_LINUX_INTERCONNECT_H_PRESENT)
-@@ -5600,7 +5630,8 @@ compile_test() {
+@@ -5639,7 +5669,8 @@ compile_test() {
              #
              # Determine if i2c_new_client_device() function is present
              #
@@ -845,7 +845,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #include <linux/i2c.h>
-@@ -5617,7 +5648,8 @@ compile_test() {
+@@ -5656,7 +5687,8 @@ compile_test() {
              #
              # Determine if i2c_unregister_device() function is present
              #
@@ -855,7 +855,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #include <linux/i2c.h>
-@@ -5634,8 +5666,8 @@ compile_test() {
+@@ -5673,8 +5705,8 @@ compile_test() {
              #
              # Determine if of_get_named_gpio() function is present
              #
@@ -866,7 +866,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_LINUX_OF_GPIO_H_PRESENT)
-@@ -5654,7 +5686,8 @@ compile_test() {
+@@ -5693,7 +5725,8 @@ compile_test() {
              #
              # Determine if devm_gpio_request_one() function is present
              #
@@ -876,7 +876,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_LINUX_GPIO_H_PRESENT)
-@@ -5673,7 +5706,8 @@ compile_test() {
+@@ -5712,7 +5745,8 @@ compile_test() {
              #
              # Determine if gpio_direction_input() function is present
              #
@@ -886,7 +886,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_LINUX_GPIO_H_PRESENT)
-@@ -5692,7 +5726,8 @@ compile_test() {
+@@ -5731,7 +5765,8 @@ compile_test() {
              #
              # Determine if gpio_direction_output() function is present
              #
@@ -896,7 +896,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_LINUX_GPIO_H_PRESENT)
-@@ -5711,8 +5746,8 @@ compile_test() {
+@@ -5750,8 +5785,8 @@ compile_test() {
              #
              # Determine if gpio_get_value() function is present
              #
@@ -907,7 +907,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_LINUX_GPIO_H_PRESENT)
-@@ -5731,8 +5766,8 @@ compile_test() {
+@@ -5770,8 +5805,8 @@ compile_test() {
              #
              # Determine if gpio_set_value() function is present
              #
@@ -918,7 +918,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_LINUX_GPIO_H_PRESENT)
-@@ -5751,8 +5786,8 @@ compile_test() {
+@@ -5790,8 +5825,8 @@ compile_test() {
              #
              # Determine if gpio_to_irq() function is present
              #
@@ -929,7 +929,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_LINUX_GPIO_H_PRESENT)
-@@ -5771,10 +5806,9 @@ compile_test() {
+@@ -5810,10 +5845,9 @@ compile_test() {
              #
              # Determine if migrate_vma structure has flags
              #
@@ -943,7 +943,7 @@ index 2e66fc24..0b43a6f2 100755
              CODE="
              #include <linux/migrate.h>
              int conftest_migrate_vma_added_flags(void) {
-@@ -5789,7 +5823,7 @@ compile_test() {
+@@ -5828,7 +5862,7 @@ compile_test() {
              # Determine if the 'drm_device' structure has a 'pdev' field.
              #
              # Removed by commit b347e04452ff ("drm: Remove pdev field from
@@ -952,7 +952,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_DRM_DRMP_H_PRESENT)
-@@ -5843,9 +5877,9 @@ compile_test() {
+@@ -5882,9 +5916,9 @@ compile_test() {
              #
              # Determine if ioasid_get() function is present
              #
@@ -965,7 +965,7 @@ index 2e66fc24..0b43a6f2 100755
              CODE="
              #if defined(NV_LINUX_IOASID_H_PRESENT)
              #include <linux/ioasid.h>
-@@ -5882,9 +5916,8 @@ compile_test() {
+@@ -5921,9 +5955,8 @@ compile_test() {
              #
              # Determine if the 'drm_crtc_state' structure has 'no_vblank'.
              #
@@ -977,7 +977,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #include <drm/drm_crtc.h>
-@@ -5904,7 +5937,7 @@ compile_test() {
+@@ -5943,7 +5976,7 @@ compile_test() {
              # an 'allow_fb_modifiers' field in the 'drm_mode_config' structure,
              # is added by commit e3eb3250d84e ("drm: add support for
              # tiled/compressed/etc modifier in addfb2") in v4.1, and removed by
@@ -986,7 +986,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              # The 'struct drm_mode_config' definition, is moved to
              # drm_mode_config.h file by commit 28575f165d36 ("drm: Extract
-@@ -5942,9 +5975,8 @@ compile_test() {
+@@ -5981,9 +6014,8 @@ compile_test() {
              #
              # Determine if drm_mode.h has 'hdr_output_metadata' structure.
              #
@@ -998,7 +998,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #include <drm/drm_mode.h>
-@@ -5971,9 +6003,8 @@ compile_test() {
+@@ -6010,9 +6042,8 @@ compile_test() {
              #
              # Determine if the platform_irq_count() function is present
              #
@@ -1010,7 +1010,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #include <linux/platform_device.h>
-@@ -5987,7 +6018,8 @@ compile_test() {
+@@ -6026,7 +6057,8 @@ compile_test() {
              #
              # Determine if devm_clk_bulk_get_all() function is present
              #
@@ -1020,7 +1020,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_LINUX_CLK_H_PRESENT)
-@@ -6054,7 +6086,7 @@ compile_test() {
+@@ -6093,7 +6125,7 @@ compile_test() {
              # dma_resv_add_excl_fence() and dma_resv_add_shared_fence() were
              # removed and replaced with dma_resv_add_fence() by commit
              # 73511edf8b19 ("dma-buf: specify usage while adding fences to
@@ -1029,7 +1029,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_LINUX_DMA_RESV_H_PRESENT)
-@@ -6074,7 +6106,7 @@ compile_test() {
+@@ -6113,7 +6145,7 @@ compile_test() {
              # dma_resv_reserve_shared() was removed and replaced with
              # dma_resv_reserve_fences() by commit c8d4c18bfbc4
              # ("dma-buf/drivers: make reserving a shared slot mandatory v4") in
@@ -1038,7 +1038,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_LINUX_DMA_RESV_H_PRESENT)
-@@ -6094,8 +6126,7 @@ compile_test() {
+@@ -6133,8 +6165,7 @@ compile_test() {
              #
              # reservation_object_reserve_shared() function prototype was updated
              # to take 'num_fences' argument by commit ca05359f1e64 ("dma-buf:
@@ -1048,7 +1048,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #include <linux/reservation.h>
-@@ -6112,9 +6143,8 @@ compile_test() {
+@@ -6151,9 +6182,8 @@ compile_test() {
              #
              # Determine if the __get_task_ioprio() function is present.
              #
@@ -1060,7 +1060,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #include <linux/ioprio.h>
-@@ -6129,9 +6159,8 @@ compile_test() {
+@@ -6168,9 +6198,8 @@ compile_test() {
              #
              # Determine if 'num_registered_fb' variable is present.
              #
@@ -1072,7 +1072,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #include <linux/fb.h>
-@@ -6277,9 +6306,8 @@ compile_test() {
+@@ -6342,9 +6371,8 @@ compile_test() {
              #
              # Determine if 'struct drm_connector' has an 'override_edid' member.
              #
@@ -1084,7 +1084,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_DRM_DRM_CRTC_H_PRESENT)
-@@ -6321,10 +6349,9 @@ compile_test() {
+@@ -6386,10 +6414,9 @@ compile_test() {
              # Determine if the 'vm_area_struct' structure has
              # const 'vm_flags'.
              #
@@ -1098,7 +1098,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #include <linux/mm_types.h>
-@@ -6340,8 +6367,8 @@ compile_test() {
+@@ -6405,8 +6432,8 @@ compile_test() {
              # Determine if the 'drm_driver' structure has a 'dumb_destroy'
              # function pointer.
              #
@@ -1109,7 +1109,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #if defined(NV_DRM_DRMP_H_PRESENT)
-@@ -6363,9 +6390,8 @@ compile_test() {
+@@ -6428,9 +6455,8 @@ compile_test() {
              #
              # Check if memory_failure() has trapno parameter.
              #
@@ -1121,7 +1121,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #include <linux/mm.h>
-@@ -6382,9 +6408,8 @@ compile_test() {
+@@ -6447,9 +6473,8 @@ compile_test() {
              #
              # Check if memory_failure() flag MF_SW_SIMULATED is defined.
              #
@@ -1133,7 +1133,7 @@ index 2e66fc24..0b43a6f2 100755
              #
              CODE="
              #include <linux/mm.h>
-@@ -6564,10 +6589,12 @@ compile_test() {
+@@ -6762,10 +6787,12 @@ compile_test() {
          ;;
  
          # When adding a new conftest entry, please use the correct format for

@@ -1,4 +1,4 @@
-From 8fb9e6ae2d7c2fcac3aee5f738999d255df3e560 Mon Sep 17 00:00:00 2001
+From 56484cc27f97ddf6f0b0b471a819023c230557c7 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Tue, 27 Jan 2026 19:48:54 +0100
 Subject: [PATCH] backport vma_flags_set_word changes from 580.126.09
@@ -64,10 +64,10 @@ index b69f52bb..915ab405 100644
  #else
      vma->vm_flags &= ~flags;
 diff --git a/conftest.sh b/conftest.sh
-index 7da3c1eb..c1b7576b 100755
+index d6c6ee8e..0fbd893d 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -6363,22 +6363,39 @@ compile_test() {
+@@ -6428,22 +6428,39 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_IOMMU_SVA_BIND_DEVICE_HAS_DRVDATA_ARG" "" "types"
          ;;
  
@@ -137,10 +137,10 @@ index ccfaf97d..3cb6e1b1 100644
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_unlocked_ioctl_flag_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_output_poll_changed
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 80c328eb..2a4131b9 100644
+index 37f3c9b8..f5ba7d91 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -194,6 +194,8 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += mdev_set_iommu_device
+@@ -195,6 +195,8 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += mdev_set_iommu_device
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += offline_and_remove_memory
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += crypto_tfm_ctx_aligned
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += module_import_ns_takes_string_literal
@@ -149,7 +149,7 @@ index 80c328eb..2a4131b9 100644
  
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_of_node_to_nid
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_sme_active
-@@ -254,7 +256,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += remove_memory_has_nid_arg
+@@ -257,7 +259,6 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += remove_memory_has_nid_arg
  NV_CONFTEST_TYPE_COMPILE_TESTS += add_memory_driver_managed_has_mhp_flags_arg
  NV_CONFTEST_TYPE_COMPILE_TESTS += num_registered_fb
  NV_CONFTEST_TYPE_COMPILE_TESTS += pci_driver_has_driver_managed_dma
