@@ -1,2 +1,3 @@
 libnvidia-eglcore.so.#VERSION#	#LIBDIR#/
 libnvidia-glsi.so.#VERSION#	#LIBDIR#/
+libnvidia-egl-xcb.so*	#LIBDIR#/

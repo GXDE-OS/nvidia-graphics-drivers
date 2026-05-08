@@ -15,6 +15,7 @@ Disclaimer:
 Files:
  amd64/*
  arm64/*
+ ppc64el/*
 Copyright:
  1993-2023 NVIDIA Corporation.  All rights reserved.
 License: NVIDIA-graphics-drivers
@@ -26,7 +27,7 @@ License: zlib/libpng
 Files: debian/*
 Copyright: 2001-2010 Randall Donald <rdonald@debian.org>
            2009-2010 Andres Mejia <mcitadel@gmail.com>
-           2009-2026 Andreas Beckmann <anbe@debian.org>
+           2009-2024 Andreas Beckmann <anbe@debian.org>
            2010-2011 Russ Allbery <rra@debian.org>
            2014-2015 Vincent Cheng <vcheng@debian.org>
            2015-2019 Luca Boccassi <bluca@debian.org>
@@ -112,13 +113,12 @@ License: NVIDIA-graphics-drivers
  by NVIDIA in source code format,
  .
  c. Deploy, for your own use, the SOFTWARE on infrastructure you own or lease,
- and
- .
- d. Distribute the SOFTWARE provided for use with operating systems distributed
- under the terms of an OSI-approved open source license as listed by the Open
- Source Initiative at http://opensource.org, provided that (i) the binary files
- thereof are not modified in any way (except for uncompressing of compressed
- files) and (ii) this Agreement is provided to each SOFTWARE recipient.
+ and . distributed under the terms of an OSI-approved open source license as listed by
+ d. Distribute the SOFTWARE provided for use with operating system kernels
+ the Open Source Initiative at http://opensource.org, provided that (i) the
+ binary files thereof are not modified in any way (except for uncompressing of
+ compressed files) and (ii) this Agreement is provided to each SOFTWARE
+ recipient.
  .
  2. Limitations.
  .
@@ -424,7 +424,7 @@ License: NVIDIA-graphics-drivers
  For any questions regarding this Agreement, please contact NVIDIA at
  driver-licensing@nvidia.com
  .
- (v. February 27, 2023)
+ (v. February 25, 2025)
 
 License: zlib/libpng
  This software is provided 'as-is', without any express or implied

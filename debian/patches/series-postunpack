@@ -1,1 +1,2 @@
-man-fixes-nvidia-smi.patch
+#man-fixes-nvidia-smi.patch
+0001-Make-modeset-and-fbdev-default-enabled.patch.patch

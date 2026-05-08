@@ -58,3 +58,14 @@ nvidia-ngx-updater
 libEGL.so.#VERSION#
 
 libnvidia-pkcs11.so.#VERSION#
+
+# Maybe later
+20_nvidia_xcb.json
+20_nvidia_xlib.json
+libnvidia-egl-xcb.so.1
+libnvidia-egl-xlib.so.1
+libnvidia-vksc-core.so.*
+nvidia-pcc
+nvidia_icd_vksc.json exists
+libnvidia-sandboxutils.so*
+dlsnetparams.csv
