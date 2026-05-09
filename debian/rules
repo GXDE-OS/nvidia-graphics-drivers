@@ -286,6 +286,7 @@ ifneq (,$(has_driver))
 
 	# Fix permissions.
 	chmod -R a-sx,u=rwX,go=rX build/kernel
+	chmod -R +x build/kernel/*.sh
 endif
 
 	touch $@
